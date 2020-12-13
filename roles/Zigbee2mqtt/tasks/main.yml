@@ -1,4 +1,14 @@
 ---
+- name: install required packages via apt
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - libffi-dev
+    - libssl-dev
+    - python3
+    - python3-pip
+    - python3-setuptools
+    
 - name: Create base directory
   file:
     path: "{{ base_directory }}/"
@@ -19,6 +29,15 @@
   file:
     path: "{{ base_directory }}/hass/"
     state: directory
+    owner: pi
+    group: pi
+    mode: '0744'
+
+- name: Create base directory
+  file:
+    path: "{{ base_directory }}/zigbee2mqtt/data/"
+    state: directory
+    recurse: yes
     owner: pi
     group: pi
     mode: '0744'
