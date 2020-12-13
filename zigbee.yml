@@ -5,5 +5,6 @@
 
   roles:
   - role: local
+  - roel: Zigbee2mqtt
   - role: node-red
   
