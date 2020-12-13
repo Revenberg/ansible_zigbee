@@ -1,5 +1,5 @@
 base_directory: /opt/smarthome
-timezone: Europe/Madrid
+timezone: Europe/Amsterdam
 home_latitude: 41.XXXXXXX
 home_longitude: 2.XXXXXXX
 home_elevation: 0

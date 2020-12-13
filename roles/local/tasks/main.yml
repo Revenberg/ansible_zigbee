@@ -9,7 +9,7 @@
 
 - name: set timezone to Europe/Amsterdam
   timezone:
-    name: Europe/Amsterdam
+    name: {{ timezone }}
     
 - name: Remove not used applications
   apt: 
