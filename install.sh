@@ -22,9 +22,9 @@ if [ ! -f "/home/pi/.pswrd" ]; then
 
     mkdir /home/pi/ansible
 
-    git clone https://github.com/Revenberg/power.git 
+    git clone https://github.com/Revenberg/ansible_zigbee.git 
 
-    ansible-playbook --connection=local /home/pi/power/changepassword.yml
+    ansible-playbook --connection=local /home/pi/ansible_zigbee/changepassword.yml
 fi
 
 mkdir /home/pi/.ssh 2>/dev/null
@@ -64,4 +64,4 @@ cd ~
 cp /home/pi/ansible_zigbee/install.sh /home/pi/install.sh
 chmod +x ~/install.sh
 
-ansible-playbook  /home/pi/ansible_zigbee/grafana.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 
+ansible-playbook  /home/pi/ansible_zigbee/zigbee.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 

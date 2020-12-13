@@ -1,0 +1,9 @@
+---
+- hosts: rpi
+  become_user: root
+  become: yes
+
+  roles:
+  - role: local
+  - role: node-red
+  
