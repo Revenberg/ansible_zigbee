@@ -42,7 +42,6 @@
     - jquery
     - typedoc
     - typescript
-    - fsevents
     - serialport
     - node-red-contrib-zigbee2mqtt
     - node-red-contrib-zigbee
