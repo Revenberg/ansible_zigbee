@@ -39,6 +39,10 @@
   args:
     chdir: /usr/lib/node_modules/node-red
   with_items:
+    - jquery
+    - typedoc
+    - typescript
+    - fsevents
     - serialport
     - node-red-contrib-zigbee2mqtt
     - node-red-contrib-zigbee
