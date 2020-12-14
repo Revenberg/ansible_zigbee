@@ -1,7 +1,7 @@
 ---
 - name: Install redis-server python3
   apt:
-    name: [ "redis-server", "python3" ]
+    name: [ "redis-server", "python3", "python3-numpy" ]
     state: present
     update_cache: yes
 
