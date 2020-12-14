@@ -7,7 +7,7 @@
 
 - name: npm install npm@latest
   npm:
-    name: npm
+    name: npm@latest
     global: yes
     state: latest
 
@@ -17,7 +17,7 @@
     global: yes
     state: latest
   with_items:
-    - node-red-contrib-cron
+    - node-red-contrib-cron         
 
 - name: "systemctl enable nodered.service"
   systemd:

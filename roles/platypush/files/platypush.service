@@ -3,7 +3,7 @@ Description=Universal command executor and automation platform
 After=network.target redis.service
 
 [Service]
-ExecStart=/usr/bin/platypush
+ExecStart=/usr/bin/platypush -c /home/pi/.config/platypush/config.yaml
 Restart=always
 RestartSec=5
 
