@@ -13,7 +13,7 @@
 
 - name: "pip platypush[zigbee,http,mqtt]"
   shell:
-    cmd: "pip platypush[zigbee,http,mqtt]"
+    cmd: "pip install 'platypush[zigbee,http,mqtt]'"
 
 - name: Copy file /home/pi/.config/platypush/config.yaml
   copy:
