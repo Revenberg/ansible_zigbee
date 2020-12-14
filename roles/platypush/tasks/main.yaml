@@ -23,8 +23,7 @@
     - platypush[zigbee]
     - platypush[http]
     - platypush[mqtt]
-    - numpy
-    - camera
+    - python3-numpy
 
 - name: Creates directory /home/pi/.config/platypush
   file:
