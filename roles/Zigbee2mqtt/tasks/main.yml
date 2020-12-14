@@ -34,9 +34,16 @@
     name: zigbee2mqtt
 
 - name: install node-red-contrib-zigbee2mqtt
-  npm:
-    name: "{{ item }}"
-    global: yes
-    state: present
+  shell:
+    name: "npm install {{ item }} -g"
+  args:
+    chdir: /usr/lib/node_modules/node-red
   with_items:
     - node-red-contrib-zigbee2mqtt
+    - node-red-contrib-zigbee
+    - node-red-contrib-zigbee2mqtt-devices
+    - node-red-contrib-zblight
+
+- name: "node-red force-reload"
+  shell:
+    name: "service nodered force-reload"
