@@ -39,6 +39,7 @@
   args:
     chdir: /usr/lib/node_modules/node-red
   with_items:
+    - node-gyp
     - jquery
     - typedoc
     - typescript
