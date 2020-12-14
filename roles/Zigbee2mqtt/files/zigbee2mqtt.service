@@ -1,5 +1,3 @@
-/etc/systemd/system/zigbee2mqtt.service
-
 [Unit]
 Description=zigbee2mqtt
 After=network.target
