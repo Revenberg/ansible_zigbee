@@ -19,6 +19,14 @@
   shell:
     cmd: "pip install 'platypush[zigbee,http,mqtt]'"
 
+- name: Creates directory /home/pi/.config/platypush
+  file:
+    path: /home/pi/.config/platypush
+    state: directory
+    mode: 0760
+    owner: pi
+    group: pi
+
 - name: Copy file /home/pi/.config/platypush/config.yaml
   copy:
     src: config.yaml
