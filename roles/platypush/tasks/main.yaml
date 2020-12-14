@@ -1,8 +1,8 @@
 ---
-- name: Install redis-server python3 
-  apt: 
+- name: Install redis-server python3
+  apt:
     name: [ "redis-server", "python3" ]
-    state: present 
+    state: present
     update_cache: yes
 
 - name: "python3 -m pip install --upgrade pip"
@@ -15,14 +15,16 @@
     enabled: yes
     name: redis
 
-- name: "pip platypush"
+- name: "pip3 platypush (and others)"
   shell:
-    cmd: "pip install '{{ item }}'"
+    cmd: "pip3 install '{{ item }}'"
   with_items:
     - platypush
     - platypush[zigbee]
     - platypush[http]
-    - platypush[mqtt]   
+    - platypush[mqtt]
+    - numpy
+    - camera
 
 - name: Creates directory /home/pi/.config/platypush
   file:

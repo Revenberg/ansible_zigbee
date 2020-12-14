@@ -2,7 +2,9 @@ backend.http:
     port: 8008
 zigbee.mqtt:
     host: localhost
-    port: 1883    
+    port: 1883
 backend.zigbee.mqtt:
     enabled: true
-
+backend.mqtt:
+    host: localhost
+    port: 1883
