@@ -43,6 +43,7 @@
     - typedoc
     - typescript
     - serialport
+    - bindings
     - node-red-contrib-zigbee2mqtt
     - node-red-contrib-zigbee
     - node-red-contrib-zigbee2mqtt-devices
