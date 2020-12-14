@@ -7,5 +7,4 @@
   - role: local
   - role: nodered
   - role: mosquitto
-  - role: Zigbee2mqtt
-  - role: platypush 
+  - role: Zigbee2mqtt  
