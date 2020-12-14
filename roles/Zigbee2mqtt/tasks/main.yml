@@ -1,5 +1,4 @@
 ---
-
 - name: download foo.conf
   get_url:
     url: https://github.com/Koenkk/zigbee2mqtt.git /opt/zigbee2mqtt
@@ -8,8 +7,9 @@
     owner: pi
     group: pi
 
-- name: install zigbee2mqtt
-  chdir: /opt/zigbee2mqtt
+- name: install zigbee2mqtt  
   shell:
     cmd: "npm install"
+  args:
+    chdir: /opt/zigbee2mqtt
 
