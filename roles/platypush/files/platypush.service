@@ -1,0 +1,11 @@
+[Unit]
+Description=Universal command executor and automation platform
+After=network.target redis.service
+
+[Service]
+ExecStart=/usr/bin/platypush
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

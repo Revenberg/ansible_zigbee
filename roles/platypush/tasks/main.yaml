@@ -32,6 +32,11 @@
     src: config.yaml
     dest: /home/pi/.config/platypush/config.yaml
 
+- name: Copy file /etc/systemd/system/platypush.service
+  copy:
+    src: platypush.service
+    dest: /etc/systemd/system/platypush.service
+
 - name: "systemctl enable platypush.service"
   systemd:
     state: started
