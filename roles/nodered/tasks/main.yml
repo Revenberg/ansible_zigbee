@@ -6,7 +6,7 @@
     update_cache: yes
 
 
-- name: install node-RED
+- name: install node-red-contrib-cron
   npm:
     name: "{{ item }}"
     global: yes
@@ -19,4 +19,3 @@
     state: started
     enabled: yes
     name: nodered
-    

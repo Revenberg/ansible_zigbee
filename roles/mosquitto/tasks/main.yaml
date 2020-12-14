@@ -3,9 +3,9 @@
     url: "http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key"
     state: present
     
-- name: download foo.conf
+- name: download mosquitto-jessie.list 
   get_url:
-    url: http://repo.mosquitto.org/debian/mosquitto-wheezy.list
+    url: http://repo.mosquitto.org/debian/mosquitto-jessie.list 
     dest: /etc/apt/sources.list.d/
     mode: 0760
        
