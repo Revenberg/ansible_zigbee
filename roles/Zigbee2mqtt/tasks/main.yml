@@ -32,3 +32,11 @@
     state: started
     enabled: yes
     name: zigbee2mqtt
+
+- name: install node-red-contrib-zigbee2mqtt
+  npm:
+    name: "{{ item }}"
+    global: yes
+    state: latest
+  with_items:
+    - node-red-contrib-zigbee2mqtt

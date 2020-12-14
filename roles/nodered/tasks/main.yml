@@ -19,8 +19,6 @@
   with_items:
     - node-red-contrib-cron
 
-
-
 - name: "systemctl enable nodered.service"
   systemd:
     state: started
