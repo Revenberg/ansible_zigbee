@@ -1,0 +1,17 @@
+---
+- name: Install nodered 
+  apt: 
+    name: [ "redis-server" ]
+    state: present 
+    update_cache: yes
+
+- name: "systemctl enable redis.service"
+  systemd:
+    state: started
+    enabled: yes
+    name: redis
+
+- name: pip platypush[zigbee,http,mqtt]
+  pip:
+    name: 'platypush[zigbee,http,mqtt]'
+    umask: 0022

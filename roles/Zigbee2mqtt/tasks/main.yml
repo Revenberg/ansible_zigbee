@@ -18,3 +18,13 @@
   args:
     chdir: /opt/zigbee2mqtt
 
+- name: Copy file /etc/systemd/system/zigbee2mqtt.service
+  copy:
+    src: zigbee2mqtt.service
+    dest: /etc/systemd/system/zigbee2mqtt.service
+
+- name: "systemctl enable zigbee2mqtt.service"
+  systemd:
+    state: started
+    enabled: yes
+    name: zigbee2mqtt
