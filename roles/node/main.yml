@@ -1,0 +1,9 @@
+---
+- name: Install Mosquitto
+  apt: 
+    name: [ "curl", "build-essential", "sox", "fswebcam" ]
+    state: present 
+    update_cache: yes
+
+- name: install ARMHF-compatible nodejs
+  apt: deb=http://node-arm.herokuapp.com/node_latest_armhf.deb

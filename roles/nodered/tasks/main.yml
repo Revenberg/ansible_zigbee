@@ -1,0 +1,7 @@
+---
+- name: install node-RED
+  npm: 
+    name: [ "node-red-contrib-cron", "node-red" ]
+    state: present 
+    global: yes
+
