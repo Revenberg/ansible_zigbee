@@ -3,11 +3,16 @@
   git:
     repo: https://github.com/Koenkk/zigbee2mqtt.git
     dest: /opt/zigbee2mqtt
+
+- name: chmod zigbee2mqtt
+  file:
+    path: /opt/zigbee2mqtt
+    recurse: yes
     mode: 0760
     owner: pi
     group: pi
 
-- name: install zigbee2mqtt  
+- name: install zigbee2mqtt
   shell:
     cmd: "npm install"
   args:
