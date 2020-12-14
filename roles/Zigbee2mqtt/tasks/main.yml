@@ -17,6 +17,9 @@
     cmd: "npm install"
   args:
     chdir: /opt/zigbee2mqtt
+  ignore_errors: true
+  register: cmd_out
+  failed_when: cmd_out.rc >= 2
 
 - name: Copy file /etc/systemd/system/zigbee2mqtt.service
   copy:
