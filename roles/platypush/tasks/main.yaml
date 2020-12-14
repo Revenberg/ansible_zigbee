@@ -1,9 +1,13 @@
 ---
-- name: Install nodered 
+- name: Install redis-server python3 
   apt: 
-    name: [ "redis-server" ]
+    name: [ "redis-server", "python3" ]
     state: present 
     update_cache: yes
+
+- name: "python3 -m pip install --upgrade pip"
+  shell:
+    cmd: "python3 -m pip install --upgrade pip"
 
 - name: "systemctl enable redis.service"
   systemd:
