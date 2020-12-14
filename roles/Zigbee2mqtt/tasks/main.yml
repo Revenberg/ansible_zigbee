@@ -39,6 +39,7 @@
   args:
     chdir: /usr/lib/node_modules/node-red
   with_items:
+    - serialport
     - node-red-contrib-zigbee2mqtt
     - node-red-contrib-zigbee
     - node-red-contrib-zigbee2mqtt-devices
