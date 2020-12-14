@@ -1,6 +1,6 @@
 ---
 - name: download zigbee2mqtt
-  - git:
+  git:
     repo: https://github.com/Koenkk/zigbee2mqtt.git/opt/zigbee2mqtt
     dest: /opt/zigbee2mqtt
     mode: 0760
