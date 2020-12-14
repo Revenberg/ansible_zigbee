@@ -3,6 +3,7 @@
   git:
     repo: https://github.com/Koenkk/zigbee2mqtt.git
     dest: /opt/zigbee2mqtt
+    force: yes
 
 - name: chmod zigbee2mqtt
   file:
