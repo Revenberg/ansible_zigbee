@@ -1,8 +1,8 @@
 ---
-- name: Install nodered 
-  apt: 
+- name: Install nodered
+  apt:
     name: [ "nodered ", "nodejs", "npm", "node-semver"]
-    state: present 
+    state: present
     update_cache: yes
 
 - name: npm install npm@latest
@@ -17,7 +17,11 @@
     global: yes
     state: latest
   with_items:
-    - node-red-contrib-cron         
+    - node-red-contrib-cron
+    - node-red-contrib-ui
+    - node-red-contrib-uibuilder
+    - node-red-contrib-ui-led
+    - node-red-contrib-ui-level
 
 - name: "systemctl enable nodered.service"
   systemd:
