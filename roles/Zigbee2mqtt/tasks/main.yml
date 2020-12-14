@@ -1,76 +1,15 @@
 ---
-- name: install required packages via apt
-  apt:
-    name: [ libffi-dev", "libssl-dev", "python3", "python3-pip", "python3-setuptools" ]
-    
-- name: Create base directory
-  file:
-    path: "{{ base_directory }}/"
-    state: directory
-    owner: pi
-    group: pi
-    mode: '0744'
 
-- name: Create Mosquitto directory
-  file:
-    path: "{{ base_directory }}/mosquitto/"
-    state: directory
-    owner: pi
-    group: pi
-    mode: '0744'
-
-- name: Create HomeAssistant directory
-  file:
-    path: "{{ base_directory }}/hass/"
-    state: directory
-    owner: pi
-    group: pi
-    mode: '0744'
-
-- name: Create base directory
-  file:
-    path: "{{ base_directory }}/zigbee2mqtt/data/"
-    state: directory
-    recurse: yes
-    owner: pi
-    group: pi
-    mode: '0744'
-
-- name: Template Zigbee2mqtt configuration file
-  template:
-    src: zigbee2mqtt/configuration.yaml.j2
-    dest: "{{ base_directory }}/zigbee2mqtt/data/configuration.yaml"
+- name: download foo.conf
+  get_url:
+    url: https://github.com/Koenkk/zigbee2mqtt.git /opt/zigbee2mqtt
+    dest: /opt/zigbee2mqtt
+    mode: 0760
     owner: pi
     group: pi
 
-- name: Copy Mosquitto configuration file
-  copy:
-    src: mosquitto/mosquitto.conf
-    dest: "{{ base_directory }}/mosquitto/"
-    owner: pi
-    group: pi
+- name: install zigbee2mqtt
+  chdir: /opt/zigbee2mqtt
+  shell:
+    cmd: "npm install"
 
-- name: Copy homeassistant configuration files
-  synchronize:
-    src: hass/
-    dest: "{{ base_directory }}/hass/config/"
-
-- name: Template homeassistant configuration file
-  template:
-    src: hass/configuration.yaml.j2
-    dest: "{{ base_directory }}/hass/config/configuration.yaml"
-    owner: pi
-    group: pi
-
-- name: Template homeassistant ui-lovelace configuration file
-  template:
-    src: hass/ui-lovelace.yaml.j2
-    dest: "{{ base_directory }}/hass/config/ui-lovelace.yaml"
-    owner: pi
-    group: pi
-
-- name: Start services
-  docker_compose:
-    project_src: "{{ base_directory }}"
-    state: present
-    restarted: yes

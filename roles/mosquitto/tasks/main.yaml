@@ -1,0 +1,15 @@
+---
+- apt_key:
+    url: "http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key"
+    state: present
+    
+- name: download foo.conf
+  get_url:
+    url: http://repo.mosquitto.org/debian/mosquitto-wheezy.list
+    dest: /etc/apt/sources.list.d/
+    mode: 0760
+       
+- name: Install Mosquitto
+  apt: 
+    name: [ "mosquitto", "mosquitto-clients" ]
+
