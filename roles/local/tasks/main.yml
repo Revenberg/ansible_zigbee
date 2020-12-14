@@ -7,7 +7,7 @@
   apt: > 
     upgrade=yes
 
-- name: set timezone to Europe/Amsterdam
+- name: "set timezone to {{ timezone }}"
   timezone:
     name: "{{ timezone }}"
     
