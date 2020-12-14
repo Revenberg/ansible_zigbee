@@ -1,4 +1,11 @@
 ---
+- name: Install nodered 
+  apt: 
+    name: [ "nodered ", "nodejs", "npm", "node-semver"]
+    state: present 
+    update_cache: yes
+
+
 - name: install node-RED
   npm:
     name: "{{ item }}"
@@ -6,4 +13,10 @@
     state: present
   with_items:
     - node-red-contrib-cron
-    - node-red
+
+- name: "systemctl enable nodered.service"
+  systemd:
+    state: started
+    enabled: yes
+    name: nodered
+    

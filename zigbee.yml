@@ -5,8 +5,7 @@
 
   roles:
   - role: local
-  - role: node
-  - role: nodered
+   - role: nodered
   - role: mosquitto
   - role: Zigbee2mqtt
   
