@@ -11,7 +11,7 @@
     enabled: yes
     name: redis
 
-- name: install zigbee2mqtt
+- name: "pip platypush[zigbee,http,mqtt]"
   shell:
     cmd: "pip platypush[zigbee,http,mqtt]"
 
