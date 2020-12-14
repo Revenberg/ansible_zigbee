@@ -15,9 +15,14 @@
     enabled: yes
     name: redis
 
-- name: "pip platypush[zigbee,http,mqtt]"
+- name: "pip platypush"
   shell:
-    cmd: "pip install 'platypush[zigbee,http,mqtt]'"
+    cmd: "pip install '{{ item }}'"
+  with_items:
+    - platypush
+    - platypush[zigbee]
+    - platypush[http]
+    - platypush[mqtt]   
 
 - name: Creates directory /home/pi/.config/platypush
   file:
