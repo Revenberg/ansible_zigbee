@@ -11,18 +11,6 @@
     global: yes
     state: latest
 
-- name: install node-red-contrib-cron
-  npm:
-    name: "{{ item }}"
-    global: yes
-    state: latest
-  with_items:
-    - node-red-contrib-cron
-    - node-red-contrib-ui
-    - node-red-contrib-uibuilder
-    - node-red-contrib-ui-led
-    - node-red-contrib-ui-level
-
 - name: "systemctl enable nodered.service"
   systemd:
     state: started

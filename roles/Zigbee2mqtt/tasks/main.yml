@@ -46,10 +46,17 @@
     - raspi-serial
     - bindings
     - node-red-contrib-zigbee2mqtt
-    - node-red-contrib-zigbee
     - node-red-contrib-zigbee2mqtt-devices
     - node-red-contrib-zblight
 
 - name: "node-red force-reload"
   shell:
     name: "service nodered force-reload"
+
+- name: "node-red stop"
+  shell:
+    name: "service nodered stop"
+
+- name: "node-red stop"
+  shell:
+    name: "service nodered start"

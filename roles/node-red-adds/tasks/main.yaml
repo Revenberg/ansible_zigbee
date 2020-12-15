@@ -1,0 +1,25 @@
+---
+- name: include ui
+  include_tasks: ui.yaml
+
+- name: include scheduling
+  include_tasks: scheduling.yaml
+
+- name: include sonoff
+  include_tasks: sonoff.yaml
+
+- name: include network
+  include_tasks: network.yaml
+
+- name: "node-red force-reload"
+  shell:
+    name: "service nodered force-reload"
+
+- name: "node-red stop"
+  shell:
+    name: "service nodered stop"
+
+
+- name: "node-red stop"
+  shell:
+    name: "service nodered start"

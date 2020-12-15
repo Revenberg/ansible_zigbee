@@ -1,0 +1,11 @@
+---
+- name: install node-red ui adds
+  npm:
+    name: "{{ item }}"
+    global: yes
+    state: latest
+  with_items:
+    - node-red-contrib-ui
+    - node-red-contrib-uibuilder
+    - node-red-contrib-ui-led
+    - node-red-contrib-ui-level

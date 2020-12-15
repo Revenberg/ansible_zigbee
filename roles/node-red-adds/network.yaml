@@ -1,0 +1,9 @@
+------
+- name: install node-red network adds
+  npm:
+    name: "{{ item }}"
+    global: yes
+    state: latest
+  with_items:
+    - node-red-node-ping 
+    - node-red-contrib-dsm

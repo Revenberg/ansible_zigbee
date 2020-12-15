@@ -1,0 +1,9 @@
+---
+- name: install node-red scheduling adds
+  npm:
+    name: "{{ item }}"
+    global: yes
+    state: latest
+  with_items:
+    - node-red-contrib-cron
+    - node-red-contrib-sunevents

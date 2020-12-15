@@ -1,0 +1,9 @@
+---
+- name: install node-red sonoff adds
+  npm:
+    name: "{{ item }}"
+    global: yes
+    state: latest
+  with_items:
+    - node-red-contrib-sonoff-server
+    
