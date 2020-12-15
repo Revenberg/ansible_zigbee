@@ -1,0 +1,24 @@
+---
+curl -X POST http://localhost:1880/flows -H "Content-Type: application/json" --data "@myflow.json"
+
+- name: post to consul
+  uri:
+    url: http://localhost:1880/flows
+    method: POST
+    body: "{{ lookup('file','Zigbee.json') }}"
+    body_format: json
+    headers:
+      Content-Type: "application/json"
+
+
+- name: "node-red force-reload"
+  shell:
+    cmd: "service nodered force-reload"
+
+- name: "node-red stop"
+  shell:
+    cmd: "service nodered stop"
+
+- name: "node-red stop"
+  shell:
+    cmd: "service nodered start"

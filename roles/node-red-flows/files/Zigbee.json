@@ -1,0 +1,312 @@
+[
+    {
+        "id": "5cb96938.ddd258",
+        "type": "tab",
+        "label": "Zigbee",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "54720da2.31fe84",
+        "type": "zigbee2mqtt-server",
+        "z": "",
+        "name": "Zigbee",
+        "host": "localhost",
+        "mqtt_port": "1883",
+        "mqtt_username": "",
+        "mqtt_password": "",
+        "tls": "",
+        "usetls": false,
+        "base_topic": "zigbee2mqtt"
+    },
+    {
+        "id": "e59a32fb.71397",
+        "type": "zigbee2mqtt-bridge",
+        "z": "5cb96938.ddd258",
+        "name": "Zigbee",
+        "server": "54720da2.31fe84",
+        "topic": null,
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "bee46435.5cc8e8"
+            ]
+        ]
+    },
+    {
+        "id": "bee46435.5cc8e8",
+        "type": "debug",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 830,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d560623c.b0159",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 780,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "fa606300.4ac2b",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 530,
+        "y": 320,
+        "wires": [
+            [
+                "d560623c.b0159"
+            ]
+        ]
+    },
+    {
+        "id": "77790809.15a818",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "0.1",
+        "x": 530,
+        "y": 400,
+        "wires": [
+            [
+                "d560623c.b0159"
+            ]
+        ]
+    },
+    {
+        "id": "95f1cf7d.60b26",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "brightness",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1140,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "120a7dce.55ace2",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "toggle",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "6",
+        "x": 530,
+        "y": 460,
+        "wires": [
+            [
+                "d560623c.b0159"
+            ]
+        ]
+    },
+    {
+        "id": "3b9d34a1.4fdcfc",
+        "type": "zigbee2mqtt-get",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Gardenpole",
+        "device_id": "0x7cb03eaa0a079953",
+        "state": "0",
+        "x": 650,
+        "y": 60,
+        "wires": [
+            [
+                "5752de28.e88d5"
+            ]
+        ]
+    },
+    {
+        "id": "ff5ad67e.5e4958",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "x": 370,
+        "y": 60,
+        "wires": [
+            [
+                "3b9d34a1.4fdcfc"
+            ]
+        ]
+    },
+    {
+        "id": "5752de28.e88d5",
+        "type": "debug",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 840,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "bb5f17b3.3e6a18",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Gardenpole",
+        "device_id": "0x7cb03eaa0a079953",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1150,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ae428754.082848",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "4,110,108",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 540,
+        "y": 600,
+        "wires": [
+            [
+                "fac21a87.1059c8"
+            ]
+        ]
+    },
+    {
+        "id": "fac21a87.1059c8",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "color_rgb",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 760,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "e7b4e59d.f69138",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "255,255,255",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 550,
+        "y": 680,
+        "wires": [
+            [
+                "fac21a87.1059c8"
+            ]
+        ]
+    },
+    {
+        "id": "c514af0.5ba645",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 950,
+        "y": 580,
+        "wires": [
+            [
+                "95f1cf7d.60b26"
+            ]
+        ]
+    },
+    {
+        "id": "a76b7917.29df78",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 930,
+        "y": 660,
+        "wires": [
+            [
+                "95f1cf7d.60b26"
+            ]
+        ]
+    }
+]
