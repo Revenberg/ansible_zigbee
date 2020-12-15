@@ -13,13 +13,12 @@
 
 - name: "node-red force-reload"
   shell:
-    name: "service nodered force-reload"
+    cmd: "service nodered force-reload"
 
 - name: "node-red stop"
   shell:
-    name: "service nodered stop"
-
+    cmd: "service nodered stop"
 
 - name: "node-red stop"
   shell:
-    name: "service nodered start"
+    cmd: "service nodered start"
