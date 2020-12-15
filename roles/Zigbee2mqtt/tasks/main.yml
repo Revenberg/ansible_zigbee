@@ -39,12 +39,10 @@
   args:
     chdir: /usr/lib/node_modules/node-red
   with_items:
-    - node-gyp
-    - jquery
-    - typedoc
-    - typescript
-    - raspi-serial
-    - bindings
+#    - node-gyp
+#    - jquery
+#    - typedoc
+#    - typescript
     - node-red-contrib-zigbee2mqtt
     - node-red-contrib-zigbee2mqtt-devices
     - node-red-contrib-zblight
