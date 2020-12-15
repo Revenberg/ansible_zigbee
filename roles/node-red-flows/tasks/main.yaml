@@ -1,5 +1,5 @@
 ---
-- name: post to consul
+- name: post to flows
   uri:
     url: http://localhost:1880/flows
     method: POST
