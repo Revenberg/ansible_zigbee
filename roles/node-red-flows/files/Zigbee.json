@@ -2,22 +2,9 @@
     {
         "id": "5cb96938.ddd258",
         "type": "tab",
-        "label": "Zigbee",
+        "label": "Flow 1",
         "disabled": false,
         "info": ""
-    },
-    {
-        "id": "54720da2.31fe84",
-        "type": "zigbee2mqtt-server",
-        "z": "",
-        "name": "Zigbee",
-        "host": "localhost",
-        "mqtt_port": "1883",
-        "mqtt_username": "",
-        "mqtt_password": "",
-        "tls": "",
-        "usetls": false,
-        "base_topic": "zigbee2mqtt"
     },
     {
         "id": "e59a32fb.71397",
@@ -26,8 +13,8 @@
         "name": "Zigbee",
         "server": "54720da2.31fe84",
         "topic": null,
-        "x": 480,
-        "y": 140,
+        "x": 510,
+        "y": 200,
         "wires": [
             [
                 "bee46435.5cc8e8"
@@ -39,7 +26,7 @@
         "type": "debug",
         "z": "5cb96938.ddd258",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -55,14 +42,14 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "Lamp 1",
-        "device_id": "0x842e14fffe2a3505",
+        "friendly_name": "Gardenpole",
+        "device_id": "0x7cb03eaa0a079953",
         "command": "state",
         "commandType": "z2m_cmd",
         "payload": "payload",
         "payloadType": "msg",
         "transition": 0,
-        "x": 780,
+        "x": 790,
         "y": 320,
         "wires": []
     },
@@ -82,7 +69,8 @@
         "y": 320,
         "wires": [
             [
-                "d560623c.b0159"
+                "d560623c.b0159",
+                "ebd149f0.211128"
             ]
         ]
     },
@@ -102,7 +90,8 @@
         "y": 400,
         "wires": [
             [
-                "d560623c.b0159"
+                "d560623c.b0159",
+                "ebd149f0.211128"
             ]
         ]
     },
@@ -112,14 +101,14 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "Lamp 1",
-        "device_id": "0x842e14fffe2a3505",
+        "friendly_name": "Gardenpole",
+        "device_id": "0x7cb03eaa0a079953",
         "command": "brightness",
         "commandType": "z2m_cmd",
         "payload": "payload",
         "payloadType": "msg",
         "transition": 0,
-        "x": 1140,
+        "x": 1150,
         "y": 580,
         "wires": []
     },
@@ -139,7 +128,8 @@
         "y": 460,
         "wires": [
             [
-                "d560623c.b0159"
+                "d560623c.b0159",
+                "ebd149f0.211128"
             ]
         ]
     },
@@ -168,7 +158,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "repeat": "10",
+        "repeat": "60",
         "crontab": "",
         "once": true,
         "onceDelay": "1",
@@ -176,7 +166,8 @@
         "y": 60,
         "wires": [
             [
-                "3b9d34a1.4fdcfc"
+                "3b9d34a1.4fdcfc",
+                "d7143533.917628"
             ]
         ]
     },
@@ -185,31 +176,14 @@
         "type": "debug",
         "z": "5cb96938.ddd258",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 840,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 860,
         "y": 60,
-        "wires": []
-    },
-    {
-        "id": "bb5f17b3.3e6a18",
-        "type": "zigbee2mqtt-out",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "Gardenpole",
-        "device_id": "0x7cb03eaa0a079953",
-        "command": "state",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1150,
-        "y": 160,
         "wires": []
     },
     {
@@ -218,17 +192,18 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "topic": "",
-        "payload": "4,110,108",
+        "payload": "0,255,0",
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 540,
+        "x": 530,
         "y": 600,
         "wires": [
             [
-                "fac21a87.1059c8"
+                "fac21a87.1059c8",
+                "dca33b3f.87c998"
             ]
         ]
     },
@@ -238,14 +213,14 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "Lamp 1",
-        "device_id": "0x842e14fffe2a3505",
+        "friendly_name": "Gardenpole",
+        "device_id": "0x7cb03eaa0a079953",
         "command": "color_rgb",
         "commandType": "z2m_cmd",
         "payload": "payload",
         "payloadType": "msg",
         "transition": 0,
-        "x": 760,
+        "x": 770,
         "y": 600,
         "wires": []
     },
@@ -265,7 +240,8 @@
         "y": 680,
         "wires": [
             [
-                "fac21a87.1059c8"
+                "fac21a87.1059c8",
+                "dca33b3f.87c998"
             ]
         ]
     },
@@ -285,7 +261,8 @@
         "y": 580,
         "wires": [
             [
-                "95f1cf7d.60b26"
+                "95f1cf7d.60b26",
+                "a58b9114.6df8b"
             ]
         ]
     },
@@ -305,8 +282,103 @@
         "y": 660,
         "wires": [
             [
-                "95f1cf7d.60b26"
+                "95f1cf7d.60b26",
+                "a58b9114.6df8b"
             ]
         ]
+    },
+    {
+        "id": "d7143533.917628",
+        "type": "zigbee2mqtt-get",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "state": "0",
+        "x": 640,
+        "y": 120,
+        "wires": [
+            [
+                "5752de28.e88d5"
+            ]
+        ]
+    },
+    {
+        "id": "ebd149f0.211128",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 780,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "dca33b3f.87c998",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "color_rgb",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 760,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "a58b9114.6df8b",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "brightness",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1140,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "cbfacb91.2a20e8",
+        "type": "zigbee2mqtt-bridge",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "topic": null,
+        "x": 1450,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "54720da2.31fe84",
+        "type": "zigbee2mqtt-server",
+        "z": "",
+        "name": "Zigbee",
+        "host": "localhost",
+        "mqtt_port": "1883",
+        "mqtt_username": "",
+        "mqtt_password": "",
+        "tls": "",
+        "usetls": false,
+        "base_topic": "zigbee2mqtt"
     }
 ]

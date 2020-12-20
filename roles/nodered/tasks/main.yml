@@ -11,6 +11,16 @@
     global: yes
     state: latest
 
+- set_fact:
+    pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
+
+- name: set credentialSecret
+  lineinfile:
+    path: /usr/lib/node_modules/node-red/settings.js
+    line: 'credentialSecret: "{{ pi_password }}", '
+    insertafter: '//credentialSecret: "a-secret-key",'
+    create: no
+    
 - name: "systemctl enable nodered.service"
   systemd:
     state: started
