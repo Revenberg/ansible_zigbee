@@ -1,4 +1,4 @@
-------
+---
 - name: install node-red network adds
   npm:
     name: "{{ item }}"
