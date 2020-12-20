@@ -8,7 +8,6 @@
     headers:
       Content-Type: "application/json"
 
-
 - name: "node-red force-reload"
   shell:
     cmd: "service nodered force-reload"
@@ -20,3 +19,14 @@
 - name: "node-red stop"
   shell:
     cmd: "service nodered start"
+
+- set_fact:
+    pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
+
+- name: set credentialSecret
+  lineinfile:
+    path: /usr/lib/node_modules/node-red/settings.js
+    line: 'credentialSecret: "{{ pi_password }}", '
+    insertafter: '//credentialSecret: "a-secret-key",'
+    create: no
+  
