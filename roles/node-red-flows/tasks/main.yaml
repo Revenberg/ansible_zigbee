@@ -1,9 +1,14 @@
 ---
+- name: Copy file Zigbee.json
+  copy:
+    src: Zigbee.json
+    dest: /var/tmp/Zigbee.json
+    
 - name: post to flows
   uri:
     url: http://localhost:1880/flows
     method: POST
-    body: "{{ lookup('file','Zigbee.json') }}"
+    body: "{{ lookup('file','/var/tmp/Zigbee.json') }}"
     body_format: json
     headers:
       Content-Type: "application/json"
