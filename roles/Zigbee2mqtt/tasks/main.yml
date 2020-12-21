@@ -32,13 +32,16 @@
   register: cmd_out
   failed_when: cmd_out.rc >= 2
 
-- name: Copy file configuration.yaml
+- name: Copy configuration files
   copy:
-    src: configuration.yaml
-    dest: /opt/zigbee2mqtt/data/configuration.yaml
+    src: "{{ item }}"
+    dest: "/opt/zigbee2mqtt/data/{{ item }}"
     owner: pi
     group: pi
     mode: 0644   
+  with_items:
+    - configuration.yaml
+    - devices.yaml
 
 - name: Copy file /etc/systemd/system/zigbee2mqtt.service
   copy:

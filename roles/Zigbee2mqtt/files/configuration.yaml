@@ -19,8 +19,7 @@ serial:
   # Location of CC2531 USB sniffer
   port: /dev/ttyACM0
 
-devices:
-  '0x842e14fffe2a3505':
-    friendly_name: '0x842e14fffe2a3505'  
-  '0x7cb03eaa0a079953':
-    friendly_name: '0x7cb03eaa0a079953'      
+advanced:
+    network_key: GENERATE
+
+devices: devices.yaml
