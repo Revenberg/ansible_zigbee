@@ -42,14 +42,14 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "Gardenpole",
-        "device_id": "0x7cb03eaa0a079953",
+        "friendly_name": "0x842e14fffe2a3505",
+        "device_id": "0x842e14fffe2a3505",
         "command": "state",
         "commandType": "z2m_cmd",
         "payload": "payload",
         "payloadType": "msg",
         "transition": 0,
-        "x": 790,
+        "x": 820,
         "y": 320,
         "wires": []
     },
@@ -63,14 +63,13 @@
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "x": 530,
         "y": 320,
         "wires": [
             [
-                "d560623c.b0159",
-                "ebd149f0.211128"
+                "d560623c.b0159"
             ]
         ]
     },
@@ -84,33 +83,15 @@
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
-        "once": false,
-        "onceDelay": "0.1",
+        "once": true,
+        "onceDelay": "1",
         "x": 530,
         "y": 400,
         "wires": [
             [
-                "d560623c.b0159",
-                "ebd149f0.211128"
+                "d560623c.b0159"
             ]
         ]
-    },
-    {
-        "id": "95f1cf7d.60b26",
-        "type": "zigbee2mqtt-out",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "Gardenpole",
-        "device_id": "0x7cb03eaa0a079953",
-        "command": "brightness",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1150,
-        "y": 580,
-        "wires": []
     },
     {
         "id": "120a7dce.55ace2",
@@ -120,15 +101,14 @@
         "topic": "",
         "payload": "toggle",
         "payloadType": "str",
-        "repeat": "",
+        "repeat": "1",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": "6",
-        "x": 530,
+        "x": 540,
         "y": 460,
         "wires": [
             [
-                "d560623c.b0159",
                 "ebd149f0.211128"
             ]
         ]
@@ -139,10 +119,10 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "Gardenpole",
+        "friendly_name": "0x7cb03eaa0a079953",
         "device_id": "0x7cb03eaa0a079953",
         "state": "0",
-        "x": 650,
+        "x": 680,
         "y": 60,
         "wires": [
             [
@@ -182,7 +162,7 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 860,
+        "x": 950,
         "y": 60,
         "wires": []
     },
@@ -196,9 +176,9 @@
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 530,
+        "once": true,
+        "onceDelay": "25",
+        "x": 540,
         "y": 600,
         "wires": [
             [
@@ -213,14 +193,14 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "Gardenpole",
+        "friendly_name": "0x7cb03eaa0a079953",
         "device_id": "0x7cb03eaa0a079953",
         "command": "color_rgb",
         "commandType": "z2m_cmd",
         "payload": "payload",
         "payloadType": "msg",
         "transition": 0,
-        "x": 770,
+        "x": 800,
         "y": 600,
         "wires": []
     },
@@ -234,8 +214,8 @@
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "60",
         "x": 550,
         "y": 680,
         "wires": [
@@ -246,57 +226,15 @@
         ]
     },
     {
-        "id": "c514af0.5ba645",
-        "type": "inject",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "topic": "",
-        "payload": "255",
-        "payloadType": "num",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 950,
-        "y": 580,
-        "wires": [
-            [
-                "95f1cf7d.60b26",
-                "a58b9114.6df8b"
-            ]
-        ]
-    },
-    {
-        "id": "a76b7917.29df78",
-        "type": "inject",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "topic": "",
-        "payload": "0",
-        "payloadType": "num",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 930,
-        "y": 660,
-        "wires": [
-            [
-                "95f1cf7d.60b26",
-                "a58b9114.6df8b"
-            ]
-        ]
-    },
-    {
         "id": "d7143533.917628",
         "type": "zigbee2mqtt-get",
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "Lamp 1",
+        "friendly_name": "0x842e14fffe2a3505",
         "device_id": "0x842e14fffe2a3505",
         "state": "0",
-        "x": 640,
+        "x": 680,
         "y": 120,
         "wires": [
             [
@@ -310,14 +248,14 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "Lamp 1",
+        "friendly_name": "0x842e14fffe2a3505",
         "device_id": "0x842e14fffe2a3505",
         "command": "state",
         "commandType": "z2m_cmd",
         "payload": "payload",
         "payloadType": "msg",
         "transition": 0,
-        "x": 780,
+        "x": 820,
         "y": 380,
         "wires": []
     },
@@ -327,32 +265,15 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "Lamp 1",
+        "friendly_name": "0x842e14fffe2a3505",
         "device_id": "0x842e14fffe2a3505",
         "command": "color_rgb",
         "commandType": "z2m_cmd",
         "payload": "payload",
         "payloadType": "msg",
         "transition": 0,
-        "x": 760,
+        "x": 800,
         "y": 540,
-        "wires": []
-    },
-    {
-        "id": "a58b9114.6df8b",
-        "type": "zigbee2mqtt-out",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "Lamp 1",
-        "device_id": "0x842e14fffe2a3505",
-        "command": "brightness",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1140,
-        "y": 500,
         "wires": []
     },
     {
@@ -365,8 +286,25 @@
         "x": 1450,
         "y": 60,
         "wires": [
-            []
+            [
+                "6d358045.b9835"
+            ]
         ]
+    },
+    {
+        "id": "6d358045.b9835",
+        "type": "debug",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1670,
+        "y": 60,
+        "wires": []
     },
     {
         "id": "54720da2.31fe84",
