@@ -2,7 +2,7 @@
 - name: Copy file Zigbee.json
   copy:
     src: Zigbee.json
-    dest: ~/.node-red/flows_raspberrypi.json
+    dest: /home/pi/.node-red/flows_raspberrypi.json
     owner: pi
     group: pi
     mode: 0644   
