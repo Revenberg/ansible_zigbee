@@ -22,6 +22,16 @@
   register: cmd_out
   failed_when: cmd_out.rc >= 2
 
+- name: install zigbee2mqtt
+  shell:
+    cmd: "npm ci --production"
+  args:
+    chdir: /opt/zigbee2mqtt
+  ignore_errors: true
+  become_user: pi
+  register: cmd_out
+  failed_when: cmd_out.rc >= 2
+
 - name: Copy file /etc/systemd/system/zigbee2mqtt.service
   copy:
     src: zigbee2mqtt.service
