@@ -1,5 +1,132 @@
 [
     {
+        "id": "5cb96938.ddd258",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "54720da2.31fe84",
+        "type": "zigbee2mqtt-server",
+        "z": "",
+        "name": "Zigbee",
+        "host": "localhost",
+        "mqtt_port": "1883",
+        "mqtt_username": "",
+        "mqtt_password": "",
+        "tls": "",
+        "usetls": false,
+        "base_topic": "zigbee2mqtt"
+    },
+    {
+        "id": "e59a32fb.71397",
+        "type": "zigbee2mqtt-bridge",
+        "z": "5cb96938.ddd258",
+        "name": "Zigbee",
+        "server": "54720da2.31fe84",
+        "topic": null,
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "bee46435.5cc8e8"
+            ]
+        ]
+    },
+    {
+        "id": "bee46435.5cc8e8",
+        "type": "debug",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 830,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d560623c.b0159",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "0x842e14fffe2a3505",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 820,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "fa606300.4ac2b",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 530,
+        "y": 320,
+        "wires": [
+            [
+                "d560623c.b0159"
+            ]
+        ]
+    },
+    {
+        "id": "77790809.15a818",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "x": 530,
+        "y": 400,
+        "wires": [
+            [
+                "d560623c.b0159"
+            ]
+        ]
+    },
+    {
+        "id": "120a7dce.55ace2",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "toggle",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "6",
+        "x": 530,
+        "y": 460,
+        "wires": [
+            [
+                "ebd149f0.211128"
+            ]
+        ]
+    },
+    {
         "id": "3b9d34a1.4fdcfc",
         "type": "zigbee2mqtt-get",
         "z": "5cb96938.ddd258",
@@ -17,16 +144,260 @@
         ]
     },
     {
-        "id": "54720da2.31fe84",
-        "type": "zigbee2mqtt-server",
-        "z": "",
-        "name": "Zigbee",
-        "host": "localhost",
-        "mqtt_port": "1883",
-        "mqtt_username": "",
-        "mqtt_password": "",
-        "tls": "",
-        "usetls": false,
-        "base_topic": "zigbee2mqtt"
+        "id": "ff5ad67e.5e4958",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "x": 1110,
+        "y": 400,
+        "wires": [
+            [
+                "3b9d34a1.4fdcfc",
+                "d7143533.917628",
+                "ef388517.e33128",
+                "a02295c7.663918"
+            ]
+        ]
+    },
+    {
+        "id": "5752de28.e88d5",
+        "type": "debug",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1690,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ae428754.082848",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "0,255,0",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "25",
+        "x": 530,
+        "y": 600,
+        "wires": [
+            [
+                "fac21a87.1059c8",
+                "dca33b3f.87c998"
+            ]
+        ]
+    },
+    {
+        "id": "fac21a87.1059c8",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "0x7cb03eaa0a079953",
+        "device_id": "0x7cb03eaa0a079953",
+        "command": "color_rgb",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 800,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "e7b4e59d.f69138",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "topic": "",
+        "payload": "255,255,255",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "60",
+        "x": 550,
+        "y": 680,
+        "wires": [
+            [
+                "fac21a87.1059c8",
+                "dca33b3f.87c998"
+            ]
+        ]
+    },
+    {
+        "id": "d7143533.917628",
+        "type": "zigbee2mqtt-get",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "0x842e14fffe2a3505",
+        "device_id": "0x842e14fffe2a3505",
+        "state": "0",
+        "x": 1420,
+        "y": 460,
+        "wires": [
+            [
+                "38e0deba.ffc822"
+            ]
+        ]
+    },
+    {
+        "id": "ebd149f0.211128",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "0x842e14fffe2a3505",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 820,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "dca33b3f.87c998",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "0x842e14fffe2a3505",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "color_rgb",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 800,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "cbfacb91.2a20e8",
+        "type": "zigbee2mqtt-bridge",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "topic": null,
+        "x": 1450,
+        "y": 60,
+        "wires": [
+            [
+                "6d358045.b9835"
+            ]
+        ]
+    },
+    {
+        "id": "6d358045.b9835",
+        "type": "debug",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1670,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a02295c7.663918",
+        "type": "zigbee2mqtt-get",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Coordinator",
+        "device_id": "0x00124b0014d9b724",
+        "state": "0",
+        "x": 1390,
+        "y": 340,
+        "wires": [
+            [
+                "ad265771.9b3d58"
+            ]
+        ]
+    },
+    {
+        "id": "ef388517.e33128",
+        "type": "zigbee2mqtt-get",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "0x00124b0018e2a303",
+        "device_id": "0x00124b0018e2a303",
+        "state": "0",
+        "x": 1420,
+        "y": 540,
+        "wires": [
+            [
+                "2d62b2df.dfceee"
+            ]
+        ]
+    },
+    {
+        "id": "38e0deba.ffc822",
+        "type": "debug",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1690,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "2d62b2df.dfceee",
+        "type": "debug",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1690,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "ad265771.9b3d58",
+        "type": "debug",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1690,
+        "y": 340,
+        "wires": []
     }
 ]

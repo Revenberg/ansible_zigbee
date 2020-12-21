@@ -2,16 +2,10 @@
 - name: Copy file Zigbee.json
   copy:
     src: Zigbee.json
-    dest: /var/tmp/Zigbee.json
-    
-- name: post to flows
-  uri:
-    url: http://localhost:1880/flows
-    method: POST
-    body: "{{ lookup('file','/var/tmp/Zigbee.json') }}"
-    body_format: json
-    headers:
-      Content-Type: "application/json"
+    dest: ~/.node-red/flows_raspberrypi.json
+    owner: pi
+    group: pi
+    mode: 0644   
 
 - name: "node-red force-reload"
   shell:
