@@ -1,10 +1,10 @@
 ---
 - name: install node-red ui adds
-  npm:
-    name: "{{ item }}"
-    global: yes
-    state: latest
-    path: /home/pi/.node-red
+  shell:
+    cmd: "npm install start {{ item }}"
+  become_user: pi
+  args:
+    chdir: /home/pi/.node-red
   with_items:
     - node-red-dashboard
     - node-red-contrib-ui
