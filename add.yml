@@ -1,0 +1,8 @@
+---
+- hosts: rpi
+  become_user: root
+  become: yes
+
+  roles:
+  - role: node-red-adds
+  - role: node-red-flows  
