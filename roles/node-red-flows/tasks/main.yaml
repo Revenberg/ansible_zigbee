@@ -3,6 +3,10 @@
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
 
+- name: "node-red stop"
+  shell:
+    cmd: "service nodered stop"
+    
 - name: Copy file Zigbee.json
   copy:
     src: Zigbee.json
@@ -14,10 +18,6 @@
 - name: "node-red force-reload"
   shell:
     cmd: "service nodered force-reload"
-
-- name: "node-red stop"
-  shell:
-    cmd: "service nodered stop"
 
 - name: "node-red start"
   shell:

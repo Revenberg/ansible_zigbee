@@ -58,6 +58,10 @@
     enabled: yes
     name: zigbee2mqtt
 
+- name: "node-red stop"
+  shell:
+    cmd: "service nodered stop"
+
 - name: install node-red-contrib-zigbee2mqtt
   shell:
     cmd: "npm install {{ item }}"
@@ -76,10 +80,6 @@
   shell:
     cmd: "service nodered force-reload"
 
-- name: "node-red stop"
-  shell:
-    cmd: "service nodered stop"
-
-- name: "node-red stop"
+- name: "node-red start"
   shell:
     cmd: "service nodered start"
