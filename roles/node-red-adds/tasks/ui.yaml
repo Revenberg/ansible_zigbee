@@ -12,11 +12,11 @@
   with_items:
     - node-red-dashboard
     - node-red-contrib-ui
-    - node-red-contrib-uibuilder
-    - node-red-contrib-ui-led
-    - node-red-contrib-ui-level
-    - node-red-contrib-ui-time-scheduler
-    - node-red-contrib-ui-artless-gauge
-    - node-red-contrib-ui-state-trail
+#    - node-red-contrib-uibuilder
+#    - node-red-contrib-ui-led
+#    - node-red-contrib-ui-level
+#    - node-red-contrib-ui-time-scheduler
+#    - node-red-contrib-ui-artless-gauge
+#    - node-red-contrib-ui-state-trail
 
 
