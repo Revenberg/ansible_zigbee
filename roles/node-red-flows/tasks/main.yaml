@@ -1,4 +1,8 @@
 ---
+- name: current date time
+  debug: 
+    msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
+
 - name: Copy file Zigbee.json
   copy:
     src: Zigbee.json

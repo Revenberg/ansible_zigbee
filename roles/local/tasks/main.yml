@@ -1,3 +1,8 @@
+---
+- name: current date time
+  debug: 
+    msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
+
 - name: Update apt-get cache
   apt: >
     update_cache=yes

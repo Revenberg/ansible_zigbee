@@ -1,4 +1,8 @@
 ---
+- name: current date time
+  debug: 
+    msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
+
 - set_fact:
     pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
 

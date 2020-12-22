@@ -1,4 +1,8 @@
 ---
+- name: current date time
+  debug: 
+    msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
+
 - name: "node-red stop"
   shell:
     cmd: "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -"
