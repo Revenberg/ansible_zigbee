@@ -21,6 +21,22 @@ serial:
   baudrate: 115200
   rtscts: false
 advanced:
-    network_key: GENERATE
+  network_key:
+    - 247
+    - 125
+    - 65
+    - 132
+    - 32
+    - 192
+    - 147
+    - 157
+    - 169
+    - 179
+    - 24
+    - 78
+    - 87
+    - 153
+    - 252
+    - 103
 
 devices: devices.yaml

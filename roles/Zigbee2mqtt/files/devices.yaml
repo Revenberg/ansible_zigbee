@@ -3,4 +3,6 @@
 '0x7cb03eaa0a079953':
     friendly_name: 'Oprit'
 '0x00124b0018e2a303':
-    friendly_name: 'Router 1P'
+    friendly_name: 'Router 1'
+'0x00124b0014d9b724':
+    friendly_name: 'Coordinator'
