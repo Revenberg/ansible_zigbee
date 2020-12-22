@@ -1,4 +1,8 @@
 ---
+- name: "node-red stop"
+  shell:
+    cmd: "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -"
+
 - name: Install nodered
   apt:
     name: [ "nodered ", "nodejs", "npm", "node-semver"]
@@ -20,7 +24,7 @@
     line: 'credentialSecret: "{{ pi_password }}", '
     insertafter: '//credentialSecret: "a-secret-key",'
     create: no
-    
+
 - name: "systemctl enable nodered.service"
   systemd:
     state: started
