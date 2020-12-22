@@ -7,3 +7,4 @@
   with_items:
     - node-red-node-ping 
     - node-red-contrib-dsm
+    - node-red-dashboard

@@ -9,3 +9,4 @@
     - node-red-contrib-uibuilder
     - node-red-contrib-ui-led
     - node-red-contrib-ui-level
+    - node-red-contrib-ui-led

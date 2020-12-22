@@ -7,19 +7,6 @@
         "info": ""
     },
     {
-        "id": "54720da2.31fe84",
-        "type": "zigbee2mqtt-server",
-        "z": "",
-        "name": "Zigbee",
-        "host": "localhost",
-        "mqtt_port": "1883",
-        "mqtt_username": "",
-        "mqtt_password": "",
-        "tls": "",
-        "usetls": false,
-        "base_topic": "zigbee2mqtt"
-    },
-    {
         "id": "e59a32fb.71397",
         "type": "zigbee2mqtt-bridge",
         "z": "5cb96938.ddd258",
@@ -132,7 +119,7 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "0x7cb03eaa0a079953",
+        "friendly_name": "",
         "device_id": "0x7cb03eaa0a079953",
         "state": "0",
         "x": 1420,
@@ -208,7 +195,7 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "0x7cb03eaa0a079953",
+        "friendly_name": "",
         "device_id": "0x7cb03eaa0a079953",
         "command": "color_rgb",
         "commandType": "z2m_cmd",
@@ -225,7 +212,7 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "topic": "",
-        "payload": "255,255,255",
+        "payload": "255,255,240",
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
@@ -360,7 +347,7 @@
         "type": "debug",
         "z": "5cb96938.ddd258",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -399,5 +386,18 @@
         "x": 1690,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "54720da2.31fe84",
+        "type": "zigbee2mqtt-server",
+        "z": "",
+        "name": "Zigbee",
+        "host": "localhost",
+        "mqtt_port": "1883",
+        "mqtt_username": "",
+        "mqtt_password": "",
+        "tls": "",
+        "usetls": false,
+        "base_topic": "zigbee2mqtt"
     }
 ]
