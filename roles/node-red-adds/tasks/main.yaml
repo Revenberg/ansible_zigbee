@@ -1,4 +1,8 @@
 ---
+- name: "node-red stop"
+  shell:
+    cmd: "service nodered stop"
+    
 - name: include ui
   include_tasks: ui.yaml
 
@@ -15,10 +19,6 @@
   shell:
     cmd: "service nodered force-reload"
 
-- name: "node-red stop"
-  shell:
-    cmd: "service nodered stop"
-
-- name: "node-red stop"
+- name: "node-red start"
   shell:
     cmd: "service nodered start"
