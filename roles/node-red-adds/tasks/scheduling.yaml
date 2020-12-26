@@ -1,5 +1,5 @@
 ---
-- name:current date time
+- name: current date time
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
 
