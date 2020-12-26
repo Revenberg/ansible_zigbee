@@ -15,6 +15,9 @@
 - name: include network
   include_tasks: network.yaml
 
+- name: include slack
+  include_tasks: slack.yaml
+
 - name: "node-red force-reload"
   shell:
     cmd: "service nodered force-reload"
