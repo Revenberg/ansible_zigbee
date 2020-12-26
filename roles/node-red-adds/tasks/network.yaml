@@ -11,5 +11,6 @@
     chdir: /home/pi/.node-red
   with_items:
     - node-red-node-ping 
-    - node-red-contrib-dsm
-    - node-red-dashboard
+    - node-red-contrib-dsm    
+    - node-red-contrib-arp
+

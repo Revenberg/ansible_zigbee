@@ -7,6 +7,180 @@
         "info": ""
     },
     {
+        "id": "4097c06d.1bfe4",
+        "type": "tab",
+        "label": "Vaibhav",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "fbb9c116.583fb",
+        "type": "tab",
+        "label": "Vaibhav",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "54720da2.31fe84",
+        "type": "zigbee2mqtt-server",
+        "z": "",
+        "name": "Zigbee",
+        "host": "localhost",
+        "mqtt_port": "1883",
+        "mqtt_username": "",
+        "mqtt_password": "",
+        "tls": "",
+        "usetls": false,
+        "base_topic": "zigbee2mqtt"
+    },
+    {
+        "id": "ac5435ab.ce7598",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Quick Overview",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "fb0248e0.17bda8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "769db11.ae0b35",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "ac5435ab.ce7598",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "3cc250b7.c81dd",
+        "type": "ui_group",
+        "z": "",
+        "name": "Latency Guage",
+        "tab": "e792fa71.415768",
+        "order": 2,
+        "disp": true,
+        "width": "4",
+        "collapse": true
+    },
+    {
+        "id": "e3c4b049.9ac",
+        "type": "ui_group",
+        "z": "",
+        "name": "SERVER RACK",
+        "tab": "e792fa71.415768",
+        "order": 1,
+        "disp": true,
+        "width": "4",
+        "collapse": true
+    },
+    {
+        "id": "e792fa71.415768",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Quick Overview",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
         "id": "e59a32fb.71397",
         "type": "zigbee2mqtt-bridge",
         "z": "5cb96938.ddd258",
@@ -388,16 +562,566 @@
         "wires": []
     },
     {
-        "id": "54720da2.31fe84",
-        "type": "zigbee2mqtt-server",
-        "z": "",
-        "name": "Zigbee",
-        "host": "localhost",
-        "mqtt_port": "1883",
-        "mqtt_username": "",
-        "mqtt_password": "",
-        "tls": "",
-        "usetls": false,
-        "base_topic": "zigbee2mqtt"
+        "id": "c805f17e.056db",
+        "type": "catch",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 2200,
+        "y": 3480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "53d52aaf.b2efd4",
+        "type": "ui_gauge",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "group": "3cc250b7.c81dd",
+        "order": 2,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "FWALL 8.8.8.8",
+        "label": "ms",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 300,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9140c24a.7d508",
+        "type": "catch",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 2200,
+        "y": 3480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "432f5904.3271b8",
+        "type": "ui_gauge",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "group": "3cc250b7.c81dd",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "OpenDNS 4.2.2.2",
+        "label": "ms",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 310,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a9ba9af8.011698",
+        "type": "function",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "func": "\nvar trueMsg = { payload: true };\nvar falseMsg = { payload: false };\n\n\nif(msg.payload===false)\n{\n    return falseMsg; \n}\nelse{\n        return trueMsg; \n\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "18a8987.2590568"
+            ]
+        ]
+    },
+    {
+        "id": "8a0cf8c1.a88fa8",
+        "type": "function",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "func": "\nvar trueMsg = { payload: true };\nvar falseMsg = { payload: false };\n\n\nif(msg.payload===false)\n{\n    return falseMsg; \n}\nelse{\n        return trueMsg; \n\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "7589827.6bc8d7c"
+            ]
+        ]
+    },
+    {
+        "id": "ca3b39d3.5058f8",
+        "type": "ping",
+        "z": "fbb9c116.583fb",
+        "name": "FIREWALL",
+        "host": "8.8.8.8",
+        "timer": "5",
+        "inputs": 0,
+        "x": 80,
+        "y": 120,
+        "wires": [
+            [
+                "53d52aaf.b2efd4",
+                "8a0cf8c1.a88fa8"
+            ]
+        ]
+    },
+    {
+        "id": "ed60c9e.b505338",
+        "type": "ping",
+        "z": "fbb9c116.583fb",
+        "name": "OpenDNS",
+        "host": "4.2.2.2",
+        "timer": "5",
+        "inputs": 0,
+        "x": 80,
+        "y": 60,
+        "wires": [
+            [
+                "432f5904.3271b8",
+                "a9ba9af8.011698"
+            ]
+        ]
+    },
+    {
+        "id": "356e3fe3.d1637",
+        "type": "ui_gauge",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "group": "3cc250b7.c81dd",
+        "order": 4,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "FWALL google",
+        "label": "ms",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 300,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "dc5cc7cf.ed75f8",
+        "type": "ui_gauge",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "group": "3cc250b7.c81dd",
+        "order": 3,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "Jelmar",
+        "label": "ms",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1250,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5b0fb565.1f640c",
+        "type": "function",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "func": "\nvar trueMsg = { payload: true };\nvar falseMsg = { payload: false };\n\n\nif(msg.payload===false)\n{\n    return falseMsg; \n}\nelse{\n        return trueMsg; \n\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1190,
+        "y": 200,
+        "wires": [
+            [
+                "d772ee94.f9e13"
+            ]
+        ]
+    },
+    {
+        "id": "852a1205.6d1c1",
+        "type": "function",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "func": "\nvar trueMsg = { payload: true };\nvar falseMsg = { payload: false };\n\n\nif(msg.payload===false)\n{\n    return falseMsg; \n}\nelse{\n        return trueMsg; \n\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "15eb8b30.97e9b5"
+            ]
+        ]
+    },
+    {
+        "id": "c855c42d.17c328",
+        "type": "ping",
+        "z": "fbb9c116.583fb",
+        "name": "FIREWALL2",
+        "host": "www.google.com",
+        "timer": "5",
+        "inputs": 0,
+        "x": 90,
+        "y": 240,
+        "wires": [
+            [
+                "356e3fe3.d1637",
+                "852a1205.6d1c1"
+            ]
+        ]
+    },
+    {
+        "id": "554fce31.0b2d5",
+        "type": "ping",
+        "z": "fbb9c116.583fb",
+        "mode": null,
+        "name": "Jelmar",
+        "host": "192.168.2.71",
+        "timer": "5",
+        "inputs": 0,
+        "x": 1030,
+        "y": 120,
+        "wires": [
+            [
+                "dc5cc7cf.ed75f8",
+                "5b0fb565.1f640c"
+            ]
+        ]
+    },
+    {
+        "id": "d772ee94.f9e13",
+        "type": "ui_led",
+        "z": "fbb9c116.583fb",
+        "group": "769db11.ae0b35",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "label": "Jelmar",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Jelmar",
+        "x": 1370,
+        "y": 220,
+        "wires": [],
+        "info": "HELLO"
+    },
+    {
+        "id": "15eb8b30.97e9b5",
+        "type": "ui_led",
+        "z": "fbb9c116.583fb",
+        "group": "769db11.ae0b35",
+        "order": 4,
+        "width": "4",
+        "height": "1",
+        "label": "FWALL google",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "FWALL google",
+        "x": 480,
+        "y": 500,
+        "wires": [],
+        "info": "HELLO"
+    },
+    {
+        "id": "18a8987.2590568",
+        "type": "ui_led",
+        "z": "fbb9c116.583fb",
+        "group": "769db11.ae0b35",
+        "order": 1,
+        "width": "4",
+        "height": "1",
+        "label": "OpenDNS 4.2.2.2",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "OpenDNS 4.2.2.2",
+        "x": 490,
+        "y": 320,
+        "wires": [],
+        "info": "HELLO"
+    },
+    {
+        "id": "7589827.6bc8d7c",
+        "type": "ui_led",
+        "z": "fbb9c116.583fb",
+        "group": "769db11.ae0b35",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "label": "FWALL 8.8.8.8",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "FWALL 8.8.8.8",
+        "x": 480,
+        "y": 380,
+        "wires": [],
+        "info": "HELLO"
+    },
+    {
+        "id": "ed3f08fc.0aebb8",
+        "type": "ping",
+        "z": "fbb9c116.583fb",
+        "mode": null,
+        "name": "Sander",
+        "host": "192.168.2.70",
+        "timer": "5",
+        "inputs": 0,
+        "x": 910,
+        "y": 340,
+        "wires": [
+            [
+                "6d8e6bbd.931834",
+                "2789cf3e.cb13c"
+            ]
+        ]
+    },
+    {
+        "id": "6d8e9a87.886714",
+        "type": "ping",
+        "z": "fbb9c116.583fb",
+        "mode": null,
+        "name": "Bonny",
+        "host": "192.168.2.72",
+        "timer": "5",
+        "inputs": 0,
+        "x": 870,
+        "y": 600,
+        "wires": [
+            [
+                "7e040e4f.eae59",
+                "cec9b712.d15418"
+            ]
+        ]
+    },
+    {
+        "id": "6d8e6bbd.931834",
+        "type": "ui_gauge",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "group": "3cc250b7.c81dd",
+        "order": 3,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "Sander",
+        "label": "ms",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1260,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2789cf3e.cb13c",
+        "type": "function",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "func": "\nvar trueMsg = { payload: true };\nvar falseMsg = { payload: false };\n\n\nif(msg.payload===false)\n{\n    return falseMsg; \n}\nelse{\n        return trueMsg; \n\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1110,
+        "y": 440,
+        "wires": [
+            [
+                "ebbc0743.8b5188"
+            ]
+        ]
+    },
+    {
+        "id": "ebbc0743.8b5188",
+        "type": "ui_led",
+        "z": "fbb9c116.583fb",
+        "group": "769db11.ae0b35",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "label": "Sander",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Sander",
+        "x": 1300,
+        "y": 460,
+        "wires": [],
+        "info": "HELLO"
+    },
+    {
+        "id": "7e040e4f.eae59",
+        "type": "ui_gauge",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "group": "3cc250b7.c81dd",
+        "order": 3,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "Bonny",
+        "label": "ms",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1190,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "cec9b712.d15418",
+        "type": "function",
+        "z": "fbb9c116.583fb",
+        "name": "",
+        "func": "\nvar trueMsg = { payload: true };\nvar falseMsg = { payload: false };\n\n\nif(msg.payload===false)\n{\n    return falseMsg; \n}\nelse{\n        return trueMsg; \n\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 700,
+        "wires": [
+            [
+                "4b6f2ff7.fa2ec"
+            ]
+        ]
+    },
+    {
+        "id": "4b6f2ff7.fa2ec",
+        "type": "ui_led",
+        "z": "fbb9c116.583fb",
+        "group": "769db11.ae0b35",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "label": "Bonny",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Sander",
+        "x": 1240,
+        "y": 720,
+        "wires": [],
+        "info": "HELLO"
     }
 ]
