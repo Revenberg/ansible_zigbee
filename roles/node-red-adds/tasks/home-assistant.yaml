@@ -10,8 +10,6 @@
   args:
     chdir: /home/pi/.node-red
   with_items:
-    - node-red-contrib-cron
-    - node-red-contrib-sunevents
-    - node-red-contrib-light-scheduler
-    - node-red-contrib-suncron
-    
+    - node-red-contrib-home-assistant-websocket
+
+
