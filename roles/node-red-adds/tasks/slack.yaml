@@ -10,9 +10,5 @@
   args:
     chdir: /home/pi/.node-red
   with_items:
-    - node-red-contrib-slack
     - node-red-contrib-slackbot
-
-# revenberg_nodered
-# xoxb-319704114455-1584906907143-qfz6RAIt1Hy6lmpGIL8Fv9OZ
-    
+   
