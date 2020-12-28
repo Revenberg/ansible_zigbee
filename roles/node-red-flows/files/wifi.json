@@ -2,24 +2,17 @@
     {
         "id": "5cb96938.ddd258",
         "type": "tab",
-        "label": "Zigbee",
+        "label": "Flow 1",
         "disabled": false,
         "info": ""
     },
     {
         "id": "4097c06d.1bfe4",
         "type": "tab",
-        "label": "Netwerk",
+        "label": "Vaibhav",
         "disabled": false,
         "info": ""
-    },
-    {
-        "id": "fbb9c116.583fb",
-        "type": "tab",
-        "label": "Slack",
-        "disabled": false,
-        "info": ""
-    },
+    },    
     {
         "id": "54720da2.31fe84",
         "type": "zigbee2mqtt-server",
@@ -227,13 +220,6 @@
         "disp": true,
         "width": "6",
         "collapse": false
-    },
-    {
-        "id": "b8724f6a.d92c3",
-        "type": "slackbot-controller",
-        "z": "",
-        "name": "revenberg_nodered",
-        "bot_token": "xoxb-319704114455-1584906907143-XOjCTi8VX6U9u9qT9CXxhjIp"
     },
     {
         "id": "e59a32fb.71397",
@@ -628,20 +614,7 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "9140c24a.7d508",
-        "type": "catch",
-        "z": "fbb9c116.583fb",
-        "name": "",
-        "scope": null,
-        "uncaught": false,
-        "x": 2200,
-        "y": 3480,
-        "wires": [
-            []
-        ]
-    },
+    },    
     {
         "id": "c6b65cc3.e2fb8",
         "type": "mqtt in",
@@ -1019,51 +992,5 @@
         "x": 670,
         "y": 560,
         "wires": []
-    },
-    {
-        "id": "cd34d82.b192328",
-        "type": "slackbot-reply",
-        "z": "fbb9c116.583fb",
-        "slackbot": "b8724f6a.d92c3",
-        "name": "revenberg_nodered",
-        "x": 720,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "e7dee98f.8d3368",
-        "type": "inject",
-        "z": "fbb9c116.583fb",
-        "name": "",
-        "topic": "",
-        "payload": "{\"channel\":\"node-red\",\"text\":\"Mijn test 1948\"}",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 290,
-        "y": 300,
-        "wires": [
-            [
-                "6a9ffbf.0307d04"
-            ]
-        ]
-    },
-    {
-        "id": "6a9ffbf.0307d04",
-        "type": "function",
-        "z": "fbb9c116.583fb",
-        "name": "",
-        "func": "msg.topic = \"chat.meMessage\";\nmsg.payload = {\n    channel: \"node-red\",\n    text: \"Mijn test 1948\"\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 490,
-        "y": 280,
-        "wires": [
-            [
-                "cd34d82.b192328"
-            ]
-        ]
     }
 ]

@@ -10,5 +10,6 @@
   args:
     chdir: /home/pi/.node-red
   with_items:
+    - node-red-contrib-slack
     - node-red-contrib-slackbot
    
