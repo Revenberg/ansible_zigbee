@@ -26,7 +26,7 @@
   register: cmd_out
   failed_when: cmd_out.rc >= 2
 
-- name: install zigbee2mqtt
+- name: ci zigbee2mqtt 
   shell:
     cmd: "npm ci --production"
   args:
