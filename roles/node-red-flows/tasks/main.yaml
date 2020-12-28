@@ -6,10 +6,10 @@
 - name: "node-red stop"
   shell:
     cmd: "service nodered stop"
-    
+
 - name: Copy file Zigbee.json
-  copy:
-    src: Zigbee.json
+  template:
+    src: templates/Zigbee.json
     dest: /home/pi/.node-red/flows_raspberrypi.json
     owner: pi
     group: pi

@@ -233,7 +233,7 @@
         "type": "slackbot-controller",
         "z": "",
         "name": "revenberg_nodered",
-        "bot_token": "xoxb-319704114455-1584906907143-XOjCTi8VX6U9u9qT9CXxhjIp"
+        "bot_token": "{{ slack_token }}"
     },
     {
         "id": "e59a32fb.71397",
