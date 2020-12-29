@@ -14,13 +14,6 @@
         "info": ""
     },
     {
-        "id": "fbb9c116.583fb",
-        "type": "tab",
-        "label": "Slack",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "54720da2.31fe84",
         "type": "zigbee2mqtt-server",
         "z": "",
@@ -233,7 +226,27 @@
         "type": "slackbot-controller",
         "z": "",
         "name": "revenberg_nodered",
-        "bot_token": "{{ slack_token }}"
+        "bot_token": "xoxb-319704114455-1614678738321-z1oL6KxYfSWbSgmhVAOpkqJu"
+    },
+    {
+        "id": "11953a91.2f6945",
+        "type": "slack-config",
+        "z": "",
+        "name": "slack-token"
+    },
+    {
+        "id": "915257.9ab1bda8",
+        "type": "slack-config",
+        "z": "",
+        "name": "slack-token"
+    },
+    {
+        "id": "e0dd3b52.9b32b8",
+        "type": "light-scheduler-settings",
+        "z": "",
+        "name": "Thuis",
+        "latitude": "53.179807",
+        "longitude": "6.168264"
     },
     {
         "id": "e59a32fb.71397",
@@ -242,8 +255,8 @@
         "name": "Zigbee",
         "server": "54720da2.31fe84",
         "topic": null,
-        "x": 510,
-        "y": 200,
+        "x": 90,
+        "y": 40,
         "wires": [
             [
                 "bee46435.5cc8e8"
@@ -261,86 +274,9 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 830,
-        "y": 200,
+        "x": 410,
+        "y": 40,
         "wires": []
-    },
-    {
-        "id": "d560623c.b0159",
-        "type": "zigbee2mqtt-out",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "0x842e14fffe2a3505",
-        "device_id": "0x842e14fffe2a3505",
-        "command": "state",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 820,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "fa606300.4ac2b",
-        "type": "inject",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "topic": "",
-        "payload": "on",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 530,
-        "y": 320,
-        "wires": [
-            [
-                "d560623c.b0159"
-            ]
-        ]
-    },
-    {
-        "id": "77790809.15a818",
-        "type": "inject",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "topic": "",
-        "payload": "off",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "1",
-        "x": 530,
-        "y": 400,
-        "wires": [
-            [
-                "d560623c.b0159"
-            ]
-        ]
-    },
-    {
-        "id": "120a7dce.55ace2",
-        "type": "inject",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "topic": "",
-        "payload": "toggle",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "6",
-        "x": 530,
-        "y": 460,
-        "wires": [
-            [
-                "ebd149f0.211128"
-            ]
-        ]
     },
     {
         "id": "3b9d34a1.4fdcfc",
@@ -351,8 +287,8 @@
         "friendly_name": "",
         "device_id": "0x7cb03eaa0a079953",
         "state": "0",
-        "x": 1420,
-        "y": 400,
+        "x": 460,
+        "y": 180,
         "wires": [
             [
                 "5752de28.e88d5"
@@ -367,15 +303,14 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "repeat": "60",
+        "repeat": "5",
         "crontab": "",
         "once": true,
-        "onceDelay": "1",
-        "x": 1110,
-        "y": 400,
+        "onceDelay": "5",
+        "x": 150,
+        "y": 180,
         "wires": [
             [
-                "3b9d34a1.4fdcfc",
                 "d7143533.917628",
                 "ef388517.e33128",
                 "a02295c7.663918"
@@ -393,68 +328,9 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1690,
-        "y": 400,
+        "x": 730,
+        "y": 180,
         "wires": []
-    },
-    {
-        "id": "ae428754.082848",
-        "type": "inject",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "topic": "",
-        "payload": "0,255,0",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "25",
-        "x": 530,
-        "y": 600,
-        "wires": [
-            [
-                "fac21a87.1059c8",
-                "dca33b3f.87c998"
-            ]
-        ]
-    },
-    {
-        "id": "fac21a87.1059c8",
-        "type": "zigbee2mqtt-out",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "",
-        "device_id": "0x7cb03eaa0a079953",
-        "command": "color_rgb",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 800,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "e7b4e59d.f69138",
-        "type": "inject",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "topic": "",
-        "payload": "255,255,240",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "60",
-        "x": 550,
-        "y": 680,
-        "wires": [
-            [
-                "fac21a87.1059c8",
-                "dca33b3f.87c998"
-            ]
-        ]
     },
     {
         "id": "d7143533.917628",
@@ -465,77 +341,13 @@
         "friendly_name": "0x842e14fffe2a3505",
         "device_id": "0x842e14fffe2a3505",
         "state": "0",
-        "x": 1420,
-        "y": 460,
+        "x": 460,
+        "y": 240,
         "wires": [
             [
-                "38e0deba.ffc822"
+                "edaa2400.4ed2d8"
             ]
         ]
-    },
-    {
-        "id": "ebd149f0.211128",
-        "type": "zigbee2mqtt-out",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "0x842e14fffe2a3505",
-        "device_id": "0x842e14fffe2a3505",
-        "command": "state",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 820,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "dca33b3f.87c998",
-        "type": "zigbee2mqtt-out",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "0x842e14fffe2a3505",
-        "device_id": "0x842e14fffe2a3505",
-        "command": "color_rgb",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 800,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "cbfacb91.2a20e8",
-        "type": "zigbee2mqtt-bridge",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "topic": null,
-        "x": 1450,
-        "y": 60,
-        "wires": [
-            [
-                "6d358045.b9835"
-            ]
-        ]
-    },
-    {
-        "id": "6d358045.b9835",
-        "type": "debug",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 1670,
-        "y": 60,
-        "wires": []
     },
     {
         "id": "a02295c7.663918",
@@ -546,8 +358,8 @@
         "friendly_name": "Coordinator",
         "device_id": "0x00124b0014d9b724",
         "state": "0",
-        "x": 1390,
-        "y": 340,
+        "x": 430,
+        "y": 120,
         "wires": [
             [
                 "ad265771.9b3d58"
@@ -563,8 +375,8 @@
         "friendly_name": "0x00124b0018e2a303",
         "device_id": "0x00124b0018e2a303",
         "state": "0",
-        "x": 1420,
-        "y": 540,
+        "x": 460,
+        "y": 320,
         "wires": [
             [
                 "2d62b2df.dfceee"
@@ -572,33 +384,18 @@
         ]
     },
     {
-        "id": "38e0deba.ffc822",
-        "type": "debug",
-        "z": "5cb96938.ddd258",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 1690,
-        "y": 460,
-        "wires": []
-    },
-    {
         "id": "2d62b2df.dfceee",
         "type": "debug",
         "z": "5cb96938.ddd258",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1690,
-        "y": 540,
+        "x": 730,
+        "y": 320,
         "wires": []
     },
     {
@@ -612,8 +409,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1690,
-        "y": 340,
+        "x": 730,
+        "y": 120,
         "wires": []
     },
     {
@@ -651,11 +448,11 @@
         "qos": "2",
         "datatype": "json",
         "broker": "4ec1ae6.5ee7c5",
-        "x": 300,
+        "x": 180,
         "y": 400,
         "wires": [
             [
-                "847b6cd2.22353"
+                "12782cf2.9d68a3"
             ]
         ]
     },
@@ -665,7 +462,7 @@
         "z": "4097c06d.1bfe4",
         "name": "ARP",
         "macs": "",
-        "x": 310,
+        "x": 370,
         "y": 160,
         "wires": [
             [
@@ -685,7 +482,7 @@
         "crontab": "",
         "once": true,
         "onceDelay": "1",
-        "x": 110,
+        "x": 170,
         "y": 160,
         "wires": [
             [
@@ -704,7 +501,7 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 470,
+        "x": 530,
         "y": 160,
         "wires": [
             [
@@ -718,7 +515,7 @@
         "z": "4097c06d.1bfe4",
         "name": "",
         "host": "",
-        "x": 900,
+        "x": 960,
         "y": 160,
         "wires": [
             [
@@ -734,7 +531,7 @@
         "func": "// anything stored in context is kept available for next time we get called\ncontext.ip = \"\";\n\nif(msg.payload) {\n    if(msg.payload.ip) {\n    context.ip = msg.payload.ip;\n    }\n} \n\nmsg.host=context.ip;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 670,
+        "x": 730,
         "y": 160,
         "wires": [
             [
@@ -747,7 +544,7 @@
         "type": "function",
         "z": "4097c06d.1bfe4",
         "name": "Analyze Result",
-        "func": "// anything stored in context is kept available for next time we get called\n_context = {};\n\n_context.ip = msg._payload.ip;\n\nif(msg.payload) {\n  _context.pingresponse = msg.payload;\n  _context.home = 'Home';\n \n  flow.set(msg._payload.ip + 'status', \"Home\");\n}\n\nmsg.payload = _context;\nreturn msg;",
+        "func": "// anything stored in context is kept available for next time we get called\n_context = {};\n\n_context.ip = msg._payload.ip;\n\nif(msg.payload) {\n  _context.pingresponse = msg.payload;\n  _context.home = 'Home';\n}\n\nmsg.payload = _context;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1180,
@@ -764,10 +561,10 @@
         "z": "4097c06d.1bfe4",
         "name": "Send info to mqtt",
         "topic": "",
-        "qos": "0",
+        "qos": "2",
         "retain": "false",
         "broker": "4ec1ae6.5ee7c5",
-        "x": 1690,
+        "x": 1630,
         "y": 160,
         "wires": []
     },
@@ -830,11 +627,11 @@
         "qos": "2",
         "datatype": "json",
         "broker": "4ec1ae6.5ee7c5",
-        "x": 300,
+        "x": 180,
         "y": 480,
         "wires": [
             [
-                "ccd95f3f.9d9e8"
+                "4a97c459.8b117c"
             ]
         ]
     },
@@ -847,59 +644,11 @@
         "qos": "2",
         "datatype": "json",
         "broker": "4ec1ae6.5ee7c5",
-        "x": 300,
-        "y": 560,
+        "x": 180,
+        "y": 580,
         "wires": [
             [
-                "c8a6ecdf.4520e"
-            ]
-        ]
-    },
-    {
-        "id": "71857113.f0a52",
-        "type": "debug",
-        "z": "4097c06d.1bfe4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 1990,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "cffbfc7e.33de",
-        "type": "switch",
-        "z": "4097c06d.1bfe4",
-        "name": "",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "192.168.2.70",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "\"wifi/192.168.2.70",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1810,
-        "y": 380,
-        "wires": [
-            [
-                "71857113.f0a52"
-            ],
-            [
-                "71857113.f0a52"
+                "e6e73753.5a2b78"
             ]
         ]
     },
@@ -908,15 +657,14 @@
         "type": "function",
         "z": "4097c06d.1bfe4",
         "name": "Determine status",
-        "func": "// anything stored in context is kept available for next time we get called\n\n//_payload = {};\n_payload = msg.payload;\ndefault_count = 30 * 4;\n\nif(msg.payload.pingresponse) {\n  _payload.count = default_count;\n  context.set(msg.payload.ip + 'count', _payload.count);\n} else {\n    _payload.home = flow.get(msg.payload.ip + 'status') || \"Home\";\n    if (_payload.home == \"Home\") {\n        count = (flow.get(msg.payload.ip + 'count') || default_count);\n        _payload.count = count - 1;\n        flow.set(msg.payload.ip + 'count', _payload.count);\n        if (count <= 1) {\n            flow.set(msg.payload.ip + 'status', \"Away\");\n            _payload.home = \"Away\";\n        }\n    }\n}\n\nmsg.topic = \"wifi/\" + msg.payload.ip;\nmsg.payload = _payload;\nreturn msg;",
+        "func": "// anything stored in context is kept available for next time we get called\n\n//_payload = {};\n_payload = msg.payload;\ndefault_count = 30 * 4;\n\nc = flow.get(msg.payload.ip + 'status') || \"Away\";\n_payload.changed = false;\n\nif(msg.payload.pingresponse) {\n  _payload.count = default_count;\n  flow.set(msg.payload.ip + 'count', _payload.count);\n  flow.set(msg.payload.ip + 'status', \"Home\");\n  if (c == \"Away\") {\n      _payload.changed = true;\n  }\n} else {\n    _payload.home = flow.get(msg.payload.ip + 'status') || \"Home\";\n    if (_payload.home == \"Home\") {\n        count = (flow.get(msg.payload.ip + 'count') || default_count);\n        _payload.count = count - 1;\n        flow.set(msg.payload.ip + 'count', _payload.count);\n        if (count <= 1) {\n            flow.set(msg.payload.ip + 'status', \"Away\");\n            _payload.home = \"Away\";\n            if (c == \"Home\") {\n              _payload.changed = true;\n          }\n        }\n    }\n}\n\nmsg.topic = \"wifi/\" + msg.payload.ip;\nmsg.payload = _payload;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1450,
+        "x": 1410,
         "y": 160,
         "wires": [
             [
-                "70360627.54b658",
-                "cffbfc7e.33de"
+                "70360627.54b658"
             ]
         ]
     },
@@ -979,7 +727,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 510,
-        "y": 560,
+        "y": 580,
         "wires": [
             [
                 "21970506.6fe07a"
@@ -1017,52 +765,672 @@
         "allowColorForValueInMessage": false,
         "name": "",
         "x": 670,
-        "y": 560,
+        "y": 580,
         "wires": []
     },
     {
-        "id": "cd34d82.b192328",
-        "type": "slackbot-reply",
-        "z": "fbb9c116.583fb",
-        "slackbot": "b8724f6a.d92c3",
-        "name": "revenberg_nodered",
-        "x": 720,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "e7dee98f.8d3368",
-        "type": "inject",
-        "z": "fbb9c116.583fb",
+        "id": "3fed38c1.61a5a8",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
         "name": "",
-        "topic": "",
-        "payload": "{\"channel\":\"node-red\",\"text\":\"Mijn test 1948\"}",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 290,
-        "y": 300,
+        "func": "home = \" is niet thuis\";\n\nif(msg.payload) {\n    if(msg.payload.home == \"Home\") {\n        home = \" is thuis\";\n    }\n}\nmsg.payload =  msg.payload.name + home;\n\nmsg.topic = \"#node-red\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1310,
+        "y": 420,
         "wires": [
             [
-                "6a9ffbf.0307d04"
+                "3853ed85.3368f2"
             ]
         ]
     },
     {
-        "id": "6a9ffbf.0307d04",
-        "type": "function",
-        "z": "fbb9c116.583fb",
+        "id": "3853ed85.3368f2",
+        "type": "slack-web-out",
+        "z": "4097c06d.1bfe4",
+        "client": "11953a91.2f6945",
+        "name": "Slack send",
+        "x": 1490,
+        "y": 420,
+        "wires": [
+            [
+                "aedee985.3a4a18"
+            ]
+        ]
+    },
+    {
+        "id": "aedee985.3a4a18",
+        "type": "debug",
+        "z": "4097c06d.1bfe4",
         "name": "",
-        "func": "msg.topic = \"chat.meMessage\";\nmsg.payload = {\n    channel: \"node-red\",\n    text: \"Mijn test 1948\"\n}\n\nreturn msg;",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1670,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "17c7b074.39b3e",
+        "type": "switch",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "property": "payload.changed",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1170,
+        "y": 420,
+        "wires": [
+            [
+                "3fed38c1.61a5a8"
+            ]
+        ]
+    },
+    {
+        "id": "12782cf2.9d68a3",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "func": "\nmsg.payload.name = \"Sander\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 490,
+        "x": 360,
+        "y": 400,
+        "wires": [
+            [
+                "f8e2ba45.9039e8",
+                "847b6cd2.22353"
+            ]
+        ]
+    },
+    {
+        "id": "4a97c459.8b117c",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "func": "\nmsg.payload.name = \"Bonny\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 480,
+        "wires": [
+            [
+                "ccd95f3f.9d9e8",
+                "f64b9688.857a88"
+            ]
+        ]
+    },
+    {
+        "id": "e6e73753.5a2b78",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "func": "\nmsg.payload.name = \"Jelmar\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 580,
+        "wires": [
+            [
+                "c8a6ecdf.4520e",
+                "98bcfb01.3cb058"
+            ]
+        ]
+    },
+    {
+        "id": "f8e2ba45.9039e8",
+        "type": "link out",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "links": [
+            "646f5898.d5aca8"
+        ],
+        "x": 475,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "646f5898.d5aca8",
+        "type": "link in",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "links": [
+            "f8e2ba45.9039e8",
+            "f64b9688.857a88",
+            "98bcfb01.3cb058"
+        ],
+        "x": 1055,
+        "y": 420,
+        "wires": [
+            [
+                "17c7b074.39b3e"
+            ]
+        ]
+    },
+    {
+        "id": "f64b9688.857a88",
+        "type": "link out",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "links": [
+            "646f5898.d5aca8"
+        ],
+        "x": 475,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "98bcfb01.3cb058",
+        "type": "link out",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "links": [
+            "646f5898.d5aca8"
+        ],
+        "x": 475,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "8a433deb.5e7ef",
+        "type": "comment",
+        "z": "5cb96938.ddd258",
+        "name": "Oprit",
+        "info": "",
+        "x": 890,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c724142e.2ec4d8",
+        "type": "comment",
+        "z": "5cb96938.ddd258",
+        "name": "Router",
+        "info": "",
+        "x": 890,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b94a87d0.dd1378",
+        "type": "comment",
+        "z": "5cb96938.ddd258",
+        "name": "Coodinator",
+        "info": "",
+        "x": 900,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4c2b782b.7899c8",
+        "type": "mqtt in",
+        "z": "5cb96938.ddd258",
+        "name": "Lamp 1",
+        "topic": "home assistant/lamp 1",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "4ec1ae6.5ee7c5",
+        "x": 1270,
+        "y": 140,
+        "wires": [
+            [
+                "5540c2a1.ea76bc"
+            ]
+        ]
+    },
+    {
+        "id": "f804986.0969b68",
+        "type": "mqtt out",
+        "z": "5cb96938.ddd258",
+        "name": "Send info to Lamp 1 mqtt",
+        "topic": "home assistant/lamp 1",
+        "qos": "2",
+        "retain": "false",
+        "broker": "4ec1ae6.5ee7c5",
+        "x": 1650,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a1f72f41.a03e9",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "On",
+        "topic": "",
+        "payload": "{\"state\":\"ON\", \"color\":\"0,255,0\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1350,
+        "y": 380,
+        "wires": [
+            [
+                "f804986.0969b68"
+            ]
+        ]
+    },
+    {
+        "id": "b735c9f4.7a5eb8",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "0x842e14fffe2a3505",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1800,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "485aadad.1bc154",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "0x842e14fffe2a3505",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "color_rgb",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1800,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e838f036.0d239",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "Off",
+        "topic": "",
+        "payload": "{\"state\":\"OFF\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1350,
+        "y": 440,
+        "wires": [
+            [
+                "f804986.0969b68"
+            ]
+        ]
+    },
+    {
+        "id": "cc0c5acd.0b2208",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "On",
+        "topic": "",
+        "payload": "{\"state\":\"ON\", \"color\":\"255,255,240\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1350,
+        "y": 320,
+        "wires": [
+            [
+                "f804986.0969b68"
+            ]
+        ]
+    },
+    {
+        "id": "b91d25f9.8d8b08",
+        "type": "function",
+        "z": "5cb96938.ddd258",
+        "name": "state",
+        "func": "msg.payload = msg.payload.state;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1590,
+        "y": 80,
+        "wires": [
+            [
+                "b735c9f4.7a5eb8"
+            ]
+        ]
+    },
+    {
+        "id": "4ea38b7c.a8b7c4",
+        "type": "function",
+        "z": "5cb96938.ddd258",
+        "name": "color",
+        "func": "msg.payload = msg.payload.color;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1590,
+        "y": 140,
+        "wires": [
+            [
+                "485aadad.1bc154"
+            ]
+        ]
+    },
+    {
+        "id": "5540c2a1.ea76bc",
+        "type": "switch",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "state",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "color",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "brightness",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 1410,
+        "y": 140,
+        "wires": [
+            [
+                "b91d25f9.8d8b08"
+            ],
+            [
+                "4ea38b7c.a8b7c4"
+            ],
+            [
+                "cc397ce6.16546"
+            ]
+        ]
+    },
+    {
+        "id": "845316f2.31eb68",
+        "type": "inject",
+        "z": "5cb96938.ddd258",
+        "name": "toggle",
+        "topic": "",
+        "payload": "{\"state\":\"toggle\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1350,
+        "y": 500,
+        "wires": [
+            [
+                "f804986.0969b68"
+            ]
+        ]
+    },
+    {
+        "id": "87a70a70.9f1d38",
+        "type": "ui_led",
+        "z": "5cb96938.ddd258",
+        "group": "5b148da4.232e64",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Lamp 1",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Lamp 1",
+        "x": 900,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "edaa2400.4ed2d8",
+        "type": "function",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "func": "state = false;\nif (msg.payload.state == \"ON\") {\n    state = true;\n}\nif (msg.payload.state == \"OFF\") {\n    state = false;\n}\n\nmsg.payload = state;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 710,
+        "y": 240,
+        "wires": [
+            [
+                "87a70a70.9f1d38"
+            ]
+        ]
+    },
+    {
+        "id": "a9b9874a.f14f98",
+        "type": "ui_button",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "group": "5b148da4.232e64",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Toggle lamp 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"state\":\"toggle\"}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 1180,
+        "y": 560,
+        "wires": [
+            [
+                "f804986.0969b68"
+            ]
+        ]
+    },
+    {
+        "id": "b08b8b35.9a1018",
+        "type": "ui_colour_picker",
+        "z": "5cb96938.ddd258",
+        "name": "Color Lamp 1",
+        "label": "Color Lamp 1",
+        "group": "5b148da4.232e64",
+        "format": "rgb",
+        "outformat": "object",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "x": 1180,
+        "y": 640,
+        "wires": [
+            [
+                "dc6f783f.d586d8"
+            ]
+        ]
+    },
+    {
+        "id": "dc6f783f.d586d8",
+        "type": "function",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1370,
+        "y": 640,
+        "wires": [
+            [
+                "f804986.0969b68"
+            ]
+        ]
+    },
+    {
+        "id": "5560f2be.76b60c",
+        "type": "zigbee2mqtt-out",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "server": "54720da2.31fe84",
+        "friendly_name": "0x842e14fffe2a3505",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "brightness",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1800,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "cc397ce6.16546",
+        "type": "function",
+        "z": "5cb96938.ddd258",
+        "name": "brightness",
+        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1610,
+        "y": 200,
+        "wires": [
+            [
+                "5560f2be.76b60c"
+            ]
+        ]
+    },
+    {
+        "id": "19279d95.0f45e2",
+        "type": "ui_slider",
+        "z": "5cb96938.ddd258",
+        "name": "Brightness Lamp 1",
+        "label": "Brightness Lamp 1",
+        "tooltip": "",
+        "group": "5b148da4.232e64",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "255",
+        "step": 1,
+        "x": 1190,
+        "y": 720,
+        "wires": [
+            [
+                "2591a9cb.c54326"
+            ]
+        ]
+    },
+    {
+        "id": "2591a9cb.c54326",
+        "type": "function",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1370,
+        "y": 720,
+        "wires": [
+            [
+                "f804986.0969b68"
+            ]
+        ]
+    },
+    {
+        "id": "508dadaf.4ede64",
+        "type": "light-scheduler",
+        "z": "5cb96938.ddd258",
+        "settings": "e0dd3b52.9b32b8",
+        "events": "[{\"start\":{\"dow\":1,\"mod\":1095},\"end\":{\"dow\":1,\"mod\":1335}},{\"start\":{\"dow\":2,\"mod\":1095},\"end\":{\"dow\":2,\"mod\":1335}},{\"start\":{\"dow\":3,\"mod\":1095},\"end\":{\"dow\":3,\"mod\":1335}},{\"start\":{\"dow\":4,\"mod\":1095},\"end\":{\"dow\":4,\"mod\":1335}},{\"start\":{\"dow\":5,\"mod\":1095},\"end\":{\"dow\":5,\"mod\":1335}},{\"start\":{\"dow\":1,\"mod\":450},\"end\":{\"dow\":1,\"mod\":630}},{\"start\":{\"dow\":2,\"mod\":450},\"end\":{\"dow\":2,\"mod\":630}},{\"start\":{\"dow\":3,\"mod\":450},\"end\":{\"dow\":3,\"mod\":630}},{\"start\":{\"dow\":4,\"mod\":450},\"end\":{\"dow\":4,\"mod\":630}},{\"start\":{\"dow\":5,\"mod\":450},\"end\":{\"dow\":5,\"mod\":630}},{\"start\":{\"dow\":6,\"mod\":495},\"end\":{\"dow\":6,\"mod\":630}}]",
+        "topic": "",
+        "name": "Lamp 1 Scheduler",
+        "onPayload": "ON",
+        "onPayloadType": "str",
+        "offPayload": "OFF",
+        "offPayloadType": "str",
+        "onlyWhenDark": false,
+        "scheduleRndMax": 0,
+        "sunElevationThreshold": 6,
+        "sunShowElevationInStatus": true,
+        "outputfreq": "output.statechange.startup",
+        "x": 1170,
         "y": 280,
         "wires": [
             [
-                "cd34d82.b192328"
+                "478b7aac.5350a4"
+            ]
+        ]
+    },
+    {
+        "id": "f1914f7d.4da5e",
+        "type": "debug",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1590,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "478b7aac.5350a4",
+        "type": "function",
+        "z": "5cb96938.ddd258",
+        "name": "",
+        "func": "\nvalue = {};\nvalue.state = msg.payload;\n\nmsg.payload = value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1350,
+        "y": 280,
+        "wires": [
+            [
+                "f804986.0969b68",
+                "f1914f7d.4da5e"
             ]
         ]
     }

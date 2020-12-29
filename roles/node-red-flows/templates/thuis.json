@@ -1,0 +1,543 @@
+[
+    {
+        "id": "4097c06d.1bfe4",
+        "type": "tab",
+        "label": "Vaibhav",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c805f17e.056db",
+        "type": "catch",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 2165,
+        "y": 3440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c6b65cc3.e2fb8",
+        "type": "mqtt in",
+        "z": "4097c06d.1bfe4",
+        "name": "Sander presence",
+        "topic": "wifi/192.168.2.70",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "4ec1ae6.5ee7c5",
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "847b6cd2.22353",
+                "634ca271.27475c"
+            ]
+        ]
+    },
+    {
+        "id": "29699bc4.0a9354",
+        "type": "arp",
+        "z": "4097c06d.1bfe4",
+        "name": "ARP",
+        "macs": "",
+        "x": 275,
+        "y": 120,
+        "wires": [
+            [
+                "91a5419d.5cffe"
+            ]
+        ]
+    },
+    {
+        "id": "61a8f937.187f78",
+        "type": "inject",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "x": 75,
+        "y": 120,
+        "wires": [
+            [
+                "29699bc4.0a9354"
+            ]
+        ]
+    },
+    {
+        "id": "91a5419d.5cffe",
+        "type": "split",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 435,
+        "y": 120,
+        "wires": [
+            [
+                "fa97508d.65a29"
+            ]
+        ]
+    },
+    {
+        "id": "31aa8404.bc68dc",
+        "type": "adv ping",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "host": "",
+        "x": 865,
+        "y": 120,
+        "wires": [
+            [
+                "75a21b75.33d2d4"
+            ]
+        ]
+    },
+    {
+        "id": "fa97508d.65a29",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "Analyze Result 2",
+        "func": "// anything stored in context is kept available for next time we get called\ncontext.ip = \"\";\n\nif(msg.payload) {\n    if(msg.payload.ip) {\n    context.ip = msg.payload.ip;\n    }\n} \n\nmsg.host=context.ip;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 635,
+        "y": 120,
+        "wires": [
+            [
+                "31aa8404.bc68dc"
+            ]
+        ]
+    },
+    {
+        "id": "75a21b75.33d2d4",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "Analyze Result",
+        "func": "// anything stored in context is kept available for next time we get called\n_context = {};\n\n_context.ip = msg._payload.ip;\n\nif(msg.payload) {\n  _context.pingresponse = msg.payload;\n  _context.home = 'Home';\n \n  flow.set(msg._payload.ip + 'status', \"Home\");\n}\n\nmsg.payload = _context;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1145,
+        "y": 120,
+        "wires": [
+            [
+                "dbf4df8a.30c3f"
+            ]
+        ]
+    },
+    {
+        "id": "70360627.54b658",
+        "type": "mqtt out",
+        "z": "4097c06d.1bfe4",
+        "name": "Send info to mqtt",
+        "topic": "",
+        "qos": "0",
+        "retain": "false",
+        "broker": "4ec1ae6.5ee7c5",
+        "x": 1655,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "847b6cd2.22353",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "func": "\nhome = 0;\nif(msg.payload) {\n    if(msg.payload.home == \"Home\") {\n        home = 2;\n    } else {\n        if(msg.payload.count) {\n            home = 1;\n        }\n    }\n}\nmsg.payload = home;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 360,
+        "wires": [
+            [
+                "e419a166.2965e"
+            ]
+        ]
+    },
+    {
+        "id": "e419a166.2965e",
+        "type": "ui_led",
+        "z": "4097c06d.1bfe4",
+        "group": "5b148da4.232e64",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Sander",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "0",
+                "valueType": "num"
+            },
+            {
+                "color": "orange",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "green",
+                "value": "2",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 490,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "61fe4b7c.6de8e4",
+        "type": "mqtt in",
+        "z": "4097c06d.1bfe4",
+        "name": "Bonny presence",
+        "topic": "wifi/192.168.2.72",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "4ec1ae6.5ee7c5",
+        "x": 120,
+        "y": 460,
+        "wires": [
+            [
+                "ccd95f3f.9d9e8",
+                "de60ee1.5ac011"
+            ]
+        ]
+    },
+    {
+        "id": "d1267e16.59751",
+        "type": "mqtt in",
+        "z": "4097c06d.1bfe4",
+        "name": "Jelmar presence",
+        "topic": "wifi/192.168.2.71",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "4ec1ae6.5ee7c5",
+        "x": 120,
+        "y": 560,
+        "wires": [
+            [
+                "c8a6ecdf.4520e",
+                "d8ca7280.9a604"
+            ]
+        ]
+    },
+    {
+        "id": "71857113.f0a52",
+        "type": "debug",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1955,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "cffbfc7e.33de",
+        "type": "switch",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "192.168.2.70",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "\"wifi/192.168.2.70",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1775,
+        "y": 340,
+        "wires": [
+            [
+                "71857113.f0a52"
+            ],
+            [
+                "71857113.f0a52"
+            ]
+        ]
+    },
+    {
+        "id": "dbf4df8a.30c3f",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "Determine status",
+        "func": "// anything stored in context is kept available for next time we get called\n\n//_payload = {};\n_payload = msg.payload;\ndefault_count = 30 * 4;\n\nif(msg.payload.pingresponse) {\n  _payload.count = default_count;\n  context.set(msg.payload.ip + 'count', _payload.count);\n} else {\n    _payload.home = flow.get(msg.payload.ip + 'status') || \"Home\";\n    if (_payload.home == \"Home\") {\n        count = (flow.get(msg.payload.ip + 'count') || default_count);\n        _payload.count = count - 1;\n        flow.set(msg.payload.ip + 'count', _payload.count);\n        if (count <= 1) {\n            flow.set(msg.payload.ip + 'status', \"Away\");\n            _payload.home = \"Away\";\n        }\n    }\n}\n\nmsg.topic = \"wifi/\" + msg.payload.ip;\nmsg.payload = _payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1415,
+        "y": 120,
+        "wires": [
+            [
+                "70360627.54b658",
+                "cffbfc7e.33de"
+            ]
+        ]
+    },
+    {
+        "id": "ccd95f3f.9d9e8",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "func": "\nhome = 0;\nif(msg.payload) {\n    if(msg.payload.home == \"Home\") {\n        home = 2;\n    } else {\n        if(msg.payload.count) {\n            home = 1;\n        }\n    }\n}\nmsg.payload = home;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 460,
+        "wires": [
+            [
+                "6bf90387.86f05c"
+            ]
+        ]
+    },
+    {
+        "id": "6bf90387.86f05c",
+        "type": "ui_led",
+        "z": "4097c06d.1bfe4",
+        "group": "5b148da4.232e64",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Bonny",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "0",
+                "valueType": "num"
+            },
+            {
+                "color": "orange",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "green",
+                "value": "2",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 490,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c8a6ecdf.4520e",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "func": "\nhome = 0;\nif(msg.payload) {\n    if(msg.payload.home == \"Home\") {\n        home = 2;\n    } else {\n        if(msg.payload.count) {\n            home = 1;\n        }\n    }\n}\nmsg.payload = home;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 560,
+        "wires": [
+            [
+                "21970506.6fe07a"
+            ]
+        ]
+    },
+    {
+        "id": "21970506.6fe07a",
+        "type": "ui_led",
+        "z": "4097c06d.1bfe4",
+        "group": "5b148da4.232e64",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Jelmar",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "0",
+                "valueType": "num"
+            },
+            {
+                "color": "orange",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "green",
+                "value": "2",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 490,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "31ae901.19bbd7",
+        "type": "slack-web-out",
+        "z": "4097c06d.1bfe4",
+        "client": "1a9c168d.9fa989",
+        "name": "Slack send",
+        "x": 890,
+        "y": 460,
+        "wires": [
+            [
+                "c9443842.d02ec8"
+            ]
+        ]
+    },
+    {
+        "id": "c9443842.d02ec8",
+        "type": "debug",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1070,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "2718fcde.ced854",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "func": "\nmsg.topic=\"#node-red\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 730,
+        "y": 460,
+        "wires": [
+            [
+                "31ae901.19bbd7"
+            ]
+        ]
+    },
+    {
+        "id": "634ca271.27475c",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "func": "home = \"Sander is niet thuis\";\n\nif(msg.payload) {\n    if(msg.payload.home == \"Home\") {\n        home = \"Sander is thuis\";\n    }\n}\nmsg.payload = home;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 326,
+        "y": 400,
+        "wires": [
+            [
+                "2718fcde.ced854"
+            ]
+        ]
+    },
+    {
+        "id": "de60ee1.5ac011",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "func": "home = \"Bonny is niet thuis\";\n\nif(msg.payload) {\n    if(msg.payload.home == \"Home\") {\n        home = \"Bonny is thuis\";\n    }\n}\nmsg.payload = home;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 500,
+        "wires": [
+            [
+                "2718fcde.ced854"
+            ]
+        ]
+    },
+    {
+        "id": "d8ca7280.9a604",
+        "type": "function",
+        "z": "4097c06d.1bfe4",
+        "name": "",
+        "func": "home = \"Jelmar is niet thuis\";\n\nif(msg.payload) {\n    if(msg.payload.home == \"Home\") {\n        home = \"Jelmar is thuis\";\n    }\n}\nmsg.payload = home;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 600,
+        "wires": [
+            [
+                "2718fcde.ced854"
+            ]
+        ]
+    },
+    {
+        "id": "4ec1ae6.5ee7c5",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "5b148da4.232e64",
+        "type": "ui_group",
+        "z": "",
+        "name": "Thuis",
+        "tab": "606c92e8.3b8f6c",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "1a9c168d.9fa989",
+        "type": "slack-config",
+        "z": "",
+        "name": "slack-token"
+    },
+    {
+        "id": "606c92e8.3b8f6c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Thuis",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

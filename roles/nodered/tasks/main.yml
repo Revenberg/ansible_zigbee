@@ -29,6 +29,13 @@
     insertafter: '//credentialSecret: "a-secret-key",'
     create: no
 
+- name: set credentialSecret pi
+  lineinfile:
+    path: /home/pi/.node-red/settings.js
+    line: 'credentialSecret: "{{ pi_password }}", '
+    insertafter: '//credentialSecret: "a-secret-key",'
+    create: no
+
 - name: "systemctl enable nodered.service"
   systemd:
     state: started
