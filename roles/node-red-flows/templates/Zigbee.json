@@ -972,8 +972,8 @@
         "qos": "2",
         "retain": "false",
         "broker": "4ec1ae6.5ee7c5",
-        "x": 970,
-        "y": 820,
+        "x": 930,
+        "y": 780,
         "wires": []
     },
     {
@@ -1227,7 +1227,7 @@
         "payloadType": "json",
         "topic": "",
         "x": 240,
-        "y": 700,
+        "y": 740,
         "wires": [
             [
                 "431b171e.41e458"
@@ -1286,14 +1286,14 @@
         "z": "5cb96938.ddd258",
         "name": "",
         "server": "54720da2.31fe84",
-        "friendly_name": "Lamp 1",
+        "friendly_name": "",
         "device_id": "0x842e14fffe2a3505",
         "command": "brightness",
         "commandType": "z2m_cmd",
         "payload": "payload",
         "payloadType": "msg",
         "transition": 0,
-        "x": 1760,
+        "x": 1800,
         "y": 200,
         "wires": []
     },
@@ -1331,7 +1331,7 @@
         "max": "255",
         "step": 1,
         "x": 250,
-        "y": 860,
+        "y": 820,
         "wires": [
             [
                 "2591a9cb.c54326"
@@ -1347,7 +1347,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 430,
-        "y": 860,
+        "y": 820,
         "wires": [
             [
                 "431b171e.41e458"
@@ -1575,8 +1575,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 750,
-        "y": 820,
+        "x": 730,
+        "y": 780,
         "wires": [
             [
                 "f804986.0969b68"
@@ -1647,7 +1647,7 @@
         "payloadType": "json",
         "topic": "",
         "x": 210,
-        "y": 940,
+        "y": 860,
         "wires": [
             [
                 "431b171e.41e458"
@@ -1673,7 +1673,7 @@
         "payloadType": "json",
         "topic": "",
         "x": 210,
-        "y": 1000,
+        "y": 900,
         "wires": [
             [
                 "431b171e.41e458"
@@ -1689,8 +1689,8 @@
         "qos": "2",
         "retain": "false",
         "broker": "4ec1ae6.5ee7c5",
-        "x": 1000,
-        "y": 1200,
+        "x": 980,
+        "y": 1000,
         "wires": []
     },
     {
@@ -1711,8 +1711,8 @@
         "payload": "{\"state\":\"toggle\"}",
         "payloadType": "json",
         "topic": "",
-        "x": 250,
-        "y": 1080,
+        "x": 230,
+        "y": 960,
         "wires": [
             [
                 "62c7a064.83c74"
@@ -1741,8 +1741,8 @@
         "height": 0,
         "passthru": true,
         "topic": "",
-        "x": 250,
-        "y": 1160,
+        "x": 230,
+        "y": 1000,
         "wires": [
             [
                 "57b3579a.304a58"
@@ -1766,8 +1766,8 @@
         "min": 0,
         "max": "255",
         "step": 1,
-        "x": 270,
-        "y": 1240,
+        "x": 250,
+        "y": 1040,
         "wires": [
             [
                 "36b70762.095df8"
@@ -1792,8 +1792,8 @@
         "payload": "{\"state\":\"ON\", \"color\":\"255,255,255\"}",
         "payloadType": "json",
         "topic": "",
-        "x": 230,
-        "y": 1320,
+        "x": 210,
+        "y": 1080,
         "wires": [
             [
                 "62c7a064.83c74"
@@ -1818,8 +1818,8 @@
         "payload": "{\"state\":\"OFF\"}",
         "payloadType": "json",
         "topic": "",
-        "x": 230,
-        "y": 1380,
+        "x": 210,
+        "y": 1120,
         "wires": [
             [
                 "62c7a064.83c74"
@@ -1834,8 +1834,8 @@
         "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 450,
-        "y": 1160,
+        "x": 430,
+        "y": 1000,
         "wires": [
             [
                 "62c7a064.83c74"
@@ -1850,8 +1850,8 @@
         "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 450,
-        "y": 1240,
+        "x": 430,
+        "y": 1040,
         "wires": [
             [
                 "62c7a064.83c74"
@@ -1866,8 +1866,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 770,
-        "y": 1200,
+        "x": 750,
+        "y": 1000,
         "wires": [
             [
                 "af1ddf11.7103b"
