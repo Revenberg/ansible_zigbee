@@ -1,0 +1,22 @@
+---
+- name: current date time
+  debug: 
+    msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
+
+- name: "Install platypush"
+  shell:
+    cmd: "pip install 'platypush[zigbee,http,mqtt]'"
+
+- name: Copy configuration files
+  copy:
+    src: "config.yaml"
+    dest: "/home/pi/.config/platypush/config.yaml"
+    owner: pi
+    group: pi
+    mode: 0644   
+
+- name: "systemctl enable platypush.service"
+  systemd:
+    state: started
+    enabled: yes
+    name: platypush

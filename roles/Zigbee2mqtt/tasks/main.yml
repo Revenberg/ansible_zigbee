@@ -45,7 +45,6 @@
     mode: 0644   
   with_items:
     - configuration.yaml
-    - devices.yaml
 
 - name: Copy file /etc/systemd/system/zigbee2mqtt.service
   copy:
