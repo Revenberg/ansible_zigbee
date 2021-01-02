@@ -1,0 +1,19 @@
+- name: "install apt-get packages"
+  apt:
+    name: [ "nginx", "php-fpm" ]
+    state: present
+    update_cache: yes
+    cache_valid_time: 36000
+
+- name: template default
+  template:
+    src: default.j2
+    dest: /etc/nginx/sites-enabled/default
+  notify: restart nginx service
+
+- name: nginx service
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+  notify:  nginx reload

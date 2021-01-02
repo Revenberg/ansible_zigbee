@@ -10,4 +10,5 @@
   - role: Zigbee2mqtt
   - role: platypush
   - role: node-red-adds
-  - role: node-red-flows  
+  - role: node-red-flows
+  - role: nginx
