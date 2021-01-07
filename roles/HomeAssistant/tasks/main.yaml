@@ -20,9 +20,8 @@
 - name: sudo without password for homeassistant group
   copy:
     content: '%homeassistant ALL=(ALL:ALL) NOPASSWD:ALL'
-    dest: /etc/sudoers.d/homeassistant_nopasswd
-    mode: 0440
-
+    dest: /etc/sudoers
+    
 - name: Add the user 'homeassistant' with primary group of 'dialout'
   user:
     name: homeassistant
