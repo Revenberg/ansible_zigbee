@@ -4,4 +4,4 @@
   become: yes
 
   roles:
-  - role: HomeAssistant
+  - role: homeAssistant
