@@ -4,5 +4,4 @@
   become: yes
 
   roles:
-  - role: node-red-adds
-  - role: node-red-flows  
+  - role: HomeAssistant
