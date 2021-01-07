@@ -11,4 +11,4 @@
   - role: node-red-adds
   - role: node-red-flows
   - role: nginx
-  - role: homeAssistant
+  - role: homeassistant
