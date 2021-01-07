@@ -35,6 +35,7 @@
     line: 'credentialSecret: "{{ pi_password }}", '
     insertafter: '//credentialSecret: "a-secret-key",'
     create: no
+    ignore_errors: yes
 
 - name: "systemctl enable nodered.service"
   systemd:
