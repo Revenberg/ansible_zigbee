@@ -42,7 +42,7 @@ pswrd=$(cat /home/pi/.pswrd)
 echo "" > /home/pi/ansible/hosts
 echo "ansible_connection=ssh" >> /home/pi/ansible/hosts
 echo "ansible_ssh_user=pi" >> /home/pi/ansible/hosts
-ansible-vault encrypt_string --vault-password-file /home/pi/.pswrd $pswrd --name 'ansible_ssh_pass'  >> /home/pi/ansible/hosts
+echo "ansible_ssh_pass="$(ansible-vault encrypt_string --vault-password-file /home/pi/.pswrd $pswrd --name '')  >> /home/pi/ansible/hosts
 echo "" >> /home/pi/ansible/hosts
 echo "[rpi]" >> /home/pi/ansible/hosts
 
