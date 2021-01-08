@@ -64,7 +64,7 @@ cd ~
 cp /home/pi/ansible_zigbee/install.sh /home/pi/install.sh
 chmod +x ~/install.sh
 cp /home/pi/ansible_zigbee/add.sh /home/pi/add.sh
-chmod +x ~/install/add.sh
+chmod +x ~/add.sh
 
 ansible-playbook  /home/pi/ansible_zigbee/zigbee.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 
 
