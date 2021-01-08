@@ -81,7 +81,7 @@
 
 - name: change to a virtual environment for Home Assistant Core
   shell:
-    cmd: "cd /srv/homeassistant;source bin/activate"
+    cmd: "./source bin/activate"
 #  become_user: homeassistant
   args:
     chdir: /srv/homeassistant
