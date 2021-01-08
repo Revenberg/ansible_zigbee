@@ -58,7 +58,7 @@
     group: homeassistant
     groups: root, dialout
 
-- name: Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+- name: 'pi'  appending the group 'homeassistant'
   user:
     name: pi
     groups: homeassistant
@@ -81,7 +81,7 @@
 
 - name: change to a virtual environment for Home Assistant Core
   shell:
-    cmd: "source bin/activate"
+    cmd: "cd /srv/homeassistant;source bin/activate"
 #  become_user: homeassistant
   args:
     chdir: /srv/homeassistant
