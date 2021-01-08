@@ -58,6 +58,12 @@
     group: homeassistant
     groups: root, dialout
 
+- name: Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+  user:
+    name: pi
+    groups: homeassistant
+    append: yes
+
 - name: create /srv/homeassistant
   file:
     path: /srv/homeassistant
