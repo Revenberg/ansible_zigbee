@@ -11,13 +11,13 @@
     pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
 
 - set_fact:
-    pi_passwrd: "{{ slack_token | password_hash('sha512' ) }}"
+    pi_passwrd: "{{ pi_password | password_hash('sha512' ) }}"
 
 - set_fact:
-    slack_token: "{{lookup('file', '{{ pswrdfile }}') }}"
+    slack_tken: "{{lookup('file', '{{ slackfile }}') }}"
 
 - set_fact:
-    slack_token: "{{ slack_token | password_hash('sha512' ) }}"    
+    slack_token: "{{ slack_tken | password_hash('sha512' ) }}"    
 
 - name: Copy file Zigbee.json
   template:
