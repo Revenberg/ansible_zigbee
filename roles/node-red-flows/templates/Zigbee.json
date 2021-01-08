@@ -27,8 +27,8 @@
         "name": "Zigbee",
         "host": "localhost",
         "mqtt_port": "1883",
-        "mqtt_username": "",
-        "mqtt_password": "",
+        "mqtt_username": "pi",
+        "mqtt_password": "{{ pi_passwrd }}",
         "tls": "",
         "usetls": false,
         "base_topic": "zigbee2mqtt"
