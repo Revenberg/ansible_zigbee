@@ -41,34 +41,34 @@
 - name: create to a virtual environment for Home Assistant Core
   shell:
     cmd: "python3.8 -m venv ."
-  become_user: homeassistant
+#  become_user: homeassistant
   args:
     chdir: /srv/homeassistant
 
 - name: change to a virtual environment for Home Assistant Core
   shell:
     cmd: "source bin/activate"
-  become_user: homeassistant
+#  become_user: homeassistant
   args:
     chdir: /srv/homeassistant
 
 - name: Install required Python package
   shell:
     cmd: "python3 -m pip install wheel"
-  become_user: homeassistant
+#  become_user: homeassistant
   args:
     chdir: /srv/homeassistant    
 
 - name: Install homeassistant
   shell:
     cmd: "pip3 install homeassistant"
-  become_user: homeassistant
+#  become_user: homeassistant
   args:
     chdir: /srv/homeassistant     
 
 - name: Start Home Assistant Core for the first time.
   shell:
     cmd: "hass"
-  become_user: homeassistant
+#  become_user: homeassistant
   args:
     chdir: /srv/homeassistant     
