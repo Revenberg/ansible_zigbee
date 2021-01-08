@@ -14,10 +14,9 @@
     update_cache: yes
 
 - name: npm install npm@latest
-  npm:
-    name: npm@latest
-    global: yes
-    state: latest
+  shell: "curl https://www.npmjs.com/install.sh | sudo sh"
+  args:
+    chdir: /home/pi
 
 - set_fact:
     pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
