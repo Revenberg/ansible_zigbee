@@ -19,15 +19,16 @@
     mode: 0760
 
 - name: untar
-  shell: "{{ item }}"
-  with_items:
-    - "tar zxf Python-3.8.0.tgz"
-    - "cd Python-3.8.0"
-    - "sudo ./configure --enable-optimizations"
-    - "sudo make -j 4"
-    - "sudo make altinstall"
-    - "python3.8 -V"
-    - "python -V"
+  shell: |
+    tar zxf Python-3.8.0.tgz
+    cd Python-3.8.0
+    sudo ./configure --enable-optimizations
+    sudo make -j 4
+    sudo make altinstall
+    python3.8 --version
+    python --version
+  args:
+    chdir: /tmp
 
 # echo "alias python3.8=/usr/local/bin/python3.8" >> ~/.bashrc
 #    source ~/.bashrc
