@@ -23,6 +23,7 @@
     tar zxf Python-3.8.0.tgz
   args:
     chdir: /tmp
+    creates: "/usr/local/bin/python3.8"
 
 - name: ./configure --enable-optimizations
   shell: "{{ item }}"
@@ -31,12 +32,13 @@
     - "sudo make -j 4"
     - "sudo make altinstall"
     - "python3.8 --version"
+    - "echo "alias python3.8=/usr/local/bin/python3.8" >> ~/.bashrc"
+    - "source ~/.bashrc"
     - "python --version"
   args:
     chdir: /tmp/Python-3.8.0
+    creates: "/usr/local/bin/python3.8"
 
-# echo "alias python3.8=/usr/local/bin/python3.8" >> ~/.bashrc
-#    source ~/.bashrc
 
 - name: Ensure group "homeassistant" exists
   group:
