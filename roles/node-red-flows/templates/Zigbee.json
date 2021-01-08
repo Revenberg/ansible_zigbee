@@ -28,7 +28,7 @@
         "host": "localhost",
         "mqtt_port": "1883",
         "mqtt_username": "pi",
-        "mqtt_password": "{{ pi_passwrd }}",
+        "mqtt_password": "{{ pi_password }}",
         "tls": "",
         "usetls": false,
         "base_topic": "zigbee2mqtt"
@@ -195,7 +195,8 @@
         "id": "11953a91.2f6945",
         "type": "slack-config",
         "z": "",
-        "name": "slack-token"
+        "name": "slack-token",
+        "token": "{{ slack_token }}"
     },
     {
         "id": "e0dd3b52.9b32b8",
