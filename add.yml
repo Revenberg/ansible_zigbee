@@ -3,6 +3,5 @@
   become_user: root
   become: yes
 
-  roles:
-  - role: local  
+  roles:  
   - role: homeassistant
