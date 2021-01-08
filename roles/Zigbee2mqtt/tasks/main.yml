@@ -36,6 +36,17 @@
   register: cmd_out
   failed_when: cmd_out.rc >= 2
 
+- set_fact:
+    pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
+
+- set_fact:
+    pi_passwrd: "{{ pi_password | password_hash('sha512' ) }}"
+
+- name: template configuration
+  template:
+    src: configuration.yaml.j2
+    dest: "/opt/zigbee2mqtt/data/configuration.yaml"
+
 - name: Copy configuration files
   copy:
     src: "{{ item }}"
@@ -44,7 +55,6 @@
     group: pi
     mode: 0644   
   with_items:
-    - configuration.yaml
     - database.db
     - state.json
 

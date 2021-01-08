@@ -7,6 +7,18 @@
   shell:
     cmd: "service nodered stop"
 
+- set_fact:
+    pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
+
+- set_fact:
+    pi_passwrd: "{{ slack_token | password_hash('sha512' ) }}"
+
+- set_fact:
+    slack_token: "{{lookup('file', '{{ pswrdfile }}') }}"
+
+- set_fact:
+    slack_token: "{{ slack_token | password_hash('sha512' ) }}"    
+
 - name: Copy file Zigbee.json
   template:
     src: templates/Zigbee.json
