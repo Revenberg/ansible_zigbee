@@ -58,7 +58,7 @@
     group: homeassistant
     groups: root, dialout
 
-- name: 'pi'  appending the group 'homeassistant'
+- name: pi appending the group homeassistant
   user:
     name: pi
     groups: homeassistant
