@@ -72,7 +72,8 @@
 - name: "node-red stop"
   shell:
     cmd: "service nodered stop"
-
+  ignore_errors: yes
+  
 - name: install node-red-contrib-zigbee2mqtt
   shell:
     cmd: "npm install {{ item }}"
