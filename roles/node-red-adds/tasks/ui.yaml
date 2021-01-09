@@ -6,7 +6,6 @@
 - name: install node-red ui adds
   shell:
     cmd: "npm install start {{ item }}"
-  become_user: pi
   args:
     chdir: /home/pi/.node-red
   with_items:
