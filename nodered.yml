@@ -6,9 +6,7 @@
   roles:
   - role: local
   - role: nodered
-  - role: mosquitto
-  - role: Zigbee2mqtt
   - role: node-red-adds
   - role: node-red-flows
   - role: nginx
-  - role: homeassistant
+  

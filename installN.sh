@@ -61,9 +61,9 @@ cd /home/pi/ansible_zigbee
 git pull
 cd ~
 
-cp /home/pi/ansible_zigbee/install.sh /home/pi/install.sh
+cp /home/pi/ansible_zigbee/installN.sh /home/pi/install.sh
 chmod +x ~/install.sh
 
-ansible-playbook  /home/pi/ansible_zigbee/zigbee.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 
+ansible-playbook  /home/pi/ansible_zigbee/nodered.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 
 
 echo " /home/pi/.slack must contain your slack API Token"
