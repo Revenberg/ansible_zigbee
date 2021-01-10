@@ -3,7 +3,7 @@
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
 
-- name: "node-red stop"
+- name: "download node-red"
   shell:
     cmd: "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -"
 
