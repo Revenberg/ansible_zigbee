@@ -1,5 +1,5 @@
 base_directory: /opt/smarthome
 timezone: Europe/Amsterdam
-locale: en_us.utf-8
+locale: en_GB.UTF-8
 wifi_country: nl
 ssid: revenberg
