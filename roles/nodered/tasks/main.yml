@@ -6,6 +6,9 @@
 - name: "download node-red"
   shell:
     cmd: "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -"
+  ignore_errors: true
+  register: result
+  failed_when: result.rc > 1
 
 - name: Install nodered
   apt:
