@@ -21,3 +21,10 @@
     name: [ "wolfram-engine", "libreoffice*", "scratch2", "scratch" ]
     state: absent
   ignore_errors: yes
+
+- name: add new servername  to /etc/hosts
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '^127\.0\.0\.1[ \t]+localhost'
+    line: '127.0.0.1 localhost {{ servername }}'
+    state: present

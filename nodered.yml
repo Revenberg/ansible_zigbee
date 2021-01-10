@@ -5,10 +5,12 @@
 
   roles:
   - role: local
+    vars:
+      servername: nodered
   - role: nodered
   - role: node-red-adds
   - role: node-red-flows
     vars:
-        flow: 'Zigbee.json'
+        flow: 'nodered.json'
   - role: nginx
   

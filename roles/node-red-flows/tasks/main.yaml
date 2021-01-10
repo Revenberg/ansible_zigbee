@@ -19,9 +19,9 @@
 - set_fact:
     slack_token: "{{ slack_tken | password_hash('sha512' ) }}"    
 
-- name: Copy file Zigbee.json
+- name: "Copy file {{ flow }}"
   template:
-    src: templates/Zigbee.json
+    src: "templates/{{ flow }}"
     dest: /home/pi/.node-red/flows_raspberrypi.json
     owner: pi
     group: pi

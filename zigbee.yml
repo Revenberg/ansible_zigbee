@@ -5,6 +5,8 @@
 
   roles:
   - role: local  
+    vars:
+      servername: zigbee
   - role: mosquitto
   - role: nodered
   - role: node-red-adds
