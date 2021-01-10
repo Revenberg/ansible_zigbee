@@ -3,12 +3,12 @@
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
 
-- name: install node-red scheduling adds
+- name: install node-red home-assistant adds
   shell:
     cmd: "npm install start {{ item }}"
-  become_user: pi
-  args:
-    chdir: /home/pi/.node-red
+#  become_user: pi
+#  args:
+#    chdir: /home/pi/.node-red
   with_items:
     - node-red-contrib-home-assistant-websocket
 
