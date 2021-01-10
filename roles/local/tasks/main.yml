@@ -31,7 +31,7 @@
 
 - name: add new servername to /etc/hostname
   shell: |
-    'echo "{{ servername }}"" > /etc/hostname'    
+    'echo "{{ servername }}" > /etc/hostname'    
 
 - name: change hostname
   shell: |
