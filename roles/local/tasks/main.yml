@@ -28,3 +28,12 @@
     regexp: '^127\.0\.0\.1.*localhost'
     line: '127.0.0.1 localhost {{ servername }}'
     state: present
+
+- name: change hostname
+  shell: |
+    'hostnamectl set-hostname "{{ servername }}"'
+  
+- name: activate hostname
+  shell: |
+    "systemctl restart avahi-daemon"
+    
