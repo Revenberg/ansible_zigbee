@@ -42,7 +42,5 @@
     backup: true
     state: present   
 
-- name: change hostname
-  shell: |
-    '/etc/init.d/hostname.sh start'
+
       
