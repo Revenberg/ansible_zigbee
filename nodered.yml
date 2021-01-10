@@ -6,7 +6,7 @@
   roles:
   - role: local
     vars:
-      servername: nodered
+      system_hostname: nodered
   - role: nodered
   - role: node-red-adds
   - role: node-red-flows
