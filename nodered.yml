@@ -8,5 +8,7 @@
   - role: nodered
   - role: node-red-adds
   - role: node-red-flows
+    vars:
+        flow: 'Zigbee.json'
   - role: nginx
   
