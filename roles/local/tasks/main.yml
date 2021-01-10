@@ -13,7 +13,7 @@
     upgrade=yes
 
 - name: Change locale
-      shell: "raspi-config nonint do_change_locale {{ locale }}"
+  shell: "raspi-config nonint do_change_locale {{ locale }}"
 
 - name: "set timezone to {{ timezone }}"
   timezone:
