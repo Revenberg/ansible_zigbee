@@ -41,6 +41,4 @@
     line: "127.0.0.1{{'\t'}}{{ system_hostname }}"
     backup: true
     state: present   
-
-
       
