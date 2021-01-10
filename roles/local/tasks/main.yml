@@ -22,12 +22,6 @@
 - name: Set WiFi country
   shell: "raspi-config nonint do_wifi_country {{ wifi_country }}"
 
-- set_fact:
-    pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
-
-- name: Set WiFi credentials
-  shell: "raspi-config nonint do_wifi_ssid_passphrase {{ ssid }} {{ pi_password }}"
-
 - name: Remove not used applications
   apt: 
     name: [ "wolfram-engine", "libreoffice*", "scratch2", "scratch" ]
