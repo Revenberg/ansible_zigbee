@@ -3,7 +3,7 @@
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
 
-- name: "download node-red"
+- name: "download and install node-red"
   shell:
     cmd: "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -"
   ignore_errors: true
