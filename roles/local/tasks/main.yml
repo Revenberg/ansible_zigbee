@@ -25,6 +25,6 @@
 - name: add new servername  to /etc/hosts
   lineinfile:
     dest: /etc/hosts
-    regexp: '^127\.0\.0\.1[ \t]+localhost'
+    regexp: '^127\.0\.0\.1.*localhost'
     line: '127.0.0.1 localhost {{ servername }}'
     state: present
