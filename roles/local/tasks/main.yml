@@ -29,11 +29,11 @@
     line: '127.0.0.1 localhost {{ servername }}'
     state: present
 
+- name: add new servername to /etc/hostname
+  shell: |
+    'echo {{ servername }} > /etc/hostname'    
+
 - name: change hostname
   shell: |
-    'hostnamectl set-hostname "{{ servername }}"'
-  
-- name: activate hostname
-  shell: |
-    "systemctl restart avahi-daemon"
-    
+    '/etc/init.d/hostname.sh start'
+      
