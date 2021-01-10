@@ -17,11 +17,6 @@
     owner: pi
     group: pi
 
-- name: npm install npm@latest
-  shell: "curl https://www.npmjs.com/install.sh | sudo sh"
-  args:
-    chdir: /home/pi
-    
 - name: install zigbee2mqtt
   shell:
     cmd: "npm install"

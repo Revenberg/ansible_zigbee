@@ -4,7 +4,9 @@
   become: yes
 
   roles:
-  - role: local
+  - role: local  
   - role: mosquitto
+  - role: nodered
+  - role: nginx
   - role: Zigbee2mqtt
   
