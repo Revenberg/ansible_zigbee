@@ -12,7 +12,7 @@
 
 - name: Install nodered
   apt:
-    name: [ "nodered ", "nodejs", "npm", "node-semver"]
+    name: [ "nodered", "nodejs", "npm", "node-semver"]
     state: present
     update_cache: yes
 
