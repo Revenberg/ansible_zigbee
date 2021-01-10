@@ -7,6 +7,8 @@
   - role: local  
   - role: mosquitto
   - role: nodered
+  - role: node-red-adds
+  - role: node-red-flows
   - role: nginx
   - role: Zigbee2mqtt
   
