@@ -12,10 +12,26 @@
   apt: > 
     upgrade=yes
 
+- name: Change locale
+      shell: "raspi-config nonint do_change_locale {{ locale }}"
+
 - name: "set timezone to {{ timezone }}"
   timezone:
     name: "{{ timezone }}"
-    
+
+- name: Set WiFi country
+  shell: "raspi-config nonint do_wifi_country {{ wifi_country }}"
+
+- set_fact:
+    pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
+
+- set_fact:
+    pi_passwrd: "{{ pi_password | password_hash('sha512' ) }}"
+
+
+- name: Set WiFi credentials
+  shell: "raspi-config nonint do_wifi_ssid_passphrase {{ ssid }} {{ pi_passwrd }}"
+
 - name: Remove not used applications
   apt: 
     name: [ "wolfram-engine", "libreoffice*", "scratch2", "scratch" ]
