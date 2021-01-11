@@ -17,6 +17,10 @@
     owner: pi
     group: pi
 
+- name: Install zigbee2mqtt via npm.
+  npm:
+    path: "/opt/zigbee2mqtt"
+
 #- name: install zigbee2mqtt
 #  shell:
 #    cmd: "npm install"
@@ -27,15 +31,15 @@
 #  failed_when: cmd_out.rc >= 2
 
 #    cmd: "npm ci --production"
-- name: ci zigbee2mqtt 
-  shell:
-    cmd: "npm"
-  args:
-    chdir: /opt/zigbee2mqtt
-  ignore_errors: true
+#- name: ci zigbee2mqtt 
+#  shell:
+#    cmd: "npm"
+#  args:
+#    chdir: /opt/zigbee2mqtt
+#  ignore_errors: true
 #  become_user: pi
-  register: cmd_out
-  failed_when: cmd_out.rc >= 2
+#  register: cmd_out
+#  failed_when: cmd_out.rc >= 2
 
 - set_fact:
     pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
