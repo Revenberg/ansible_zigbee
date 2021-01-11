@@ -1,5 +1,5 @@
 ---
-- name: Install zigbee2mqtt dependencies.
+- name: Install zigbee2mqtt dependencies
   package:
     name:
       - git
