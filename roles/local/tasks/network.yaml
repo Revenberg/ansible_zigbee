@@ -1,5 +1,4 @@
 ---
-
 - name: Install avahi-daemon
   apt: 
     name: [ "avahi-daemon" ]
@@ -8,7 +7,7 @@
   shell: "update-rc.d avahi-daemon defaults"
 
 - name: Apply the new configuration
-  shell: "systemctl enable avahi.service" 
+  shell: "update-rc.d avahi-daemon defaults" 
 
 - name: Set WiFi country
   shell: "raspi-config nonint do_wifi_country {{ wifi_country }}"
