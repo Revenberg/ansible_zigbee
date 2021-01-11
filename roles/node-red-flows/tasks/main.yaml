@@ -19,10 +19,17 @@
 - name: "Copy file {{ flow }}"
   template:
     src: "templates/{{ flow }}"
-    dest: /home/pi/.node-red/flows_raspberrypi.json
+    dest: "/home/pi/.node-red/{{ flow }}"
     owner: pi
     group: pi
     mode: 0644   
+
+- name: set credentialSecret
+  lineinfile:
+    path: /usr/lib/node_modules/node-red/settings.js
+    line: 'flowFile: /home/pi/.node-red/{{ flow }}", '
+    insertafter: '//flowFile: 'flows.json','
+    create: no
 
 - name: "node-red force-reload"
   shell:
