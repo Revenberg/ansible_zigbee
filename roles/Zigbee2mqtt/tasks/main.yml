@@ -1,4 +1,10 @@
 ---
+- name: Install zigbee2mqtt dependencies.
+  package:
+    name:
+      - git
+      - npm
+      
 - name: current date time
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
