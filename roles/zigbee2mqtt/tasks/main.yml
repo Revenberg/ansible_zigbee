@@ -28,7 +28,7 @@
     owner: pi
     group: pi
 
-- name: Install zigbee2mqtt via npm.
+- name: Install zigbee2mqtt via npm
   npm:
     path: "/opt/zigbee2mqtt"
 
