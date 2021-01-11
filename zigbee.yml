@@ -8,11 +8,11 @@
     vars:
       system_hostname: zigbee
   - role: mosquitto
-  - role: nodered
-  - role: node-red-adds
-  - role: node-red-flows
-    vars:
-        flow: 'zigbee.json'
-  - role: nginx
-  - role: Zigbee2mqtt
+  #- role: nodered
+  #- role: node-red-adds
+  #- role: node-red-flows
+  #  vars:
+  #      flow: 'zigbee.json'
+  #- role: nginx
+  - role: zigbee2mqtt
   
