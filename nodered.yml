@@ -6,7 +6,7 @@
   roles:
   - role: local  
     vars:
-      system_hostname: zigbee
+      system_hostname: nodered
   - role: nodered
   - role: node-red-adds
   - role: node-red-flows
