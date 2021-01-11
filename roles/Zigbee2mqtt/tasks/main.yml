@@ -17,14 +17,14 @@
     owner: pi
     group: pi
 
-- name: install zigbee2mqtt
-  shell:
-    cmd: "npm install"
-  args:
-    chdir: /opt/zigbee2mqtt
-  ignore_errors: true
-  register: cmd_out
-  failed_when: cmd_out.rc >= 2
+#- name: install zigbee2mqtt
+#  shell:
+#    cmd: "npm install"
+#  args:
+#    chdir: /opt/zigbee2mqtt
+#  ignore_errors: true
+#  register: cmd_out
+#  failed_when: cmd_out.rc >= 2
 
 #    cmd: "npm ci --production"
 - name: ci zigbee2mqtt 
