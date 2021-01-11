@@ -26,9 +26,10 @@
   register: cmd_out
   failed_when: cmd_out.rc >= 2
 
+#    cmd: "npm ci --production"
 - name: ci zigbee2mqtt 
   shell:
-    cmd: "npm ci --production"
+    cmd: "npm"
   args:
     chdir: /opt/zigbee2mqtt
   ignore_errors: true
