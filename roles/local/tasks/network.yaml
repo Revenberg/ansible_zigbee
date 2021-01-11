@@ -8,7 +8,7 @@
   shell: "update-rc.d avahi-daemon defaults"
 
 - name: Apply the new configuration
-  shell: "systemctl enable [avahi.service]" 
+  shell: "systemctl enable avahi.service" 
 
 - name: Set WiFi country
   shell: "raspi-config nonint do_wifi_country {{ wifi_country }}"
