@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ ! -f "/home/pi/.pswrd" ]; then
     if [ $# -ne 1 ]; then
-        echo $0: usage: ./install.sh  password
+        echo $0: usage: ./nodered.sh  password
         exit 0
     fi
 
@@ -61,7 +61,7 @@ cd /home/pi/ansible_zigbee
 git pull
 cd ~
 
-cp /home/pi/ansible_zigbee/install.sh /home/pi/install.sh
-chmod +x ~/install.sh
+cp /home/pi/ansible_zigbee/nodered.sh /home/pi/nodered.sh
+chmod +x ~/nodered.sh
 
-ansible-playbook  /home/pi/ansible_zigbee/zigbee.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 
+ansible-playbook  /home/pi/ansible_zigbee/nodered.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 
