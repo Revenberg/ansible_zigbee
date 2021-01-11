@@ -1,0 +1,27 @@
+---
+- name: "node-red stop"
+  shell:
+    cmd: "service nodered stop"
+  ignore_errors: yes
+  
+- name: install node-red-contrib-zigbee2mqtt
+  shell:
+    cmd: "npm install {{ item }}"
+  args:
+    chdir: /usr/lib/node_modules/node-red
+  with_items:
+#    - node-gyp
+#    - jquery
+#    - typedoc
+#    - typescript
+    - node-red-contrib-zigbee2mqtt
+    - node-red-contrib-zigbee2mqtt-devices
+    - node-red-contrib-zblight
+
+- name: "node-red force-reload"
+  shell:
+    cmd: "service nodered force-reload"
+
+- name: "node-red start"
+  shell:
+    cmd: "service nodered start"

@@ -21,6 +21,9 @@
 - name: include home-assistant
   include_tasks: home-assistant.yaml
 
+- name: include zigbee
+  include_tasks: zigbee.yaml
+
 - name: "node-red force-reload"
   shell:
     cmd: "service nodered force-reload"
