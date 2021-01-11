@@ -32,7 +32,7 @@
   args:
     chdir: /opt/zigbee2mqtt
   ignore_errors: true
-  become_user: pi
+#  become_user: pi
   register: cmd_out
   failed_when: cmd_out.rc >= 2
 
