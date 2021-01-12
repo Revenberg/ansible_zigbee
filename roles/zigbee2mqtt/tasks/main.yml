@@ -34,7 +34,7 @@
   shell: "npm install bindings --save"
   args:
     chdir: /opt/zigbee2mqtt
-  become: pi
+  become_user: pi
 
 - name: Install zigbee2mqtt via npm
   npm:
