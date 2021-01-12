@@ -1,10 +1,10 @@
 ---
 - name: Install zigbee2mqtt dependencies
-  package:
-    name:
-      - git
-      - npm
-      - node-semver
+  apt:
+    name: [ "nodered", "nodejs", "npm", "node-semver", "git", "make", "g++", "gcc"]
+    state: present
+    update_cache: yes
+
 
 - name: npm install npm@latest
   shell: "curl https://www.npmjs.com/install.sh | sudo sh"
@@ -30,17 +30,17 @@
     owner: pi
     group: pi
 
-- name: npm install npm@latest
-  shell: "npm install bindings --save"
-  args:
-    chdir: /opt/zigbee2mqtt
-  become_user: pi
+#- name: npm install npm@latest
+#  shell: "npm install bindings --save"
+#  args:
+#    chdir: /opt/zigbee2mqtt
+#  become_user: pi
 
-- name: Install core-util-is via npm
-  shell: "npm install core-util-is"
-  args:
-    chdir: /opt/zigbee2mqtt
-  become_user: pi
+#- name: Install core-util-is via npm
+#  shell: "npm install core-util-is"
+#  args:
+#    chdir: /opt/zigbee2mqtt
+#  become_user: pi
 
 #- name: Install webpack-dev-server via npm
 #  shell: "npm install webpack-dev-server"
@@ -48,29 +48,29 @@
 #    chdir: /opt/zigbee2mqtt
 #  become_user: pi
 
-- name: Install zigbee2mqtt via npm
-  npm:
-    path: "/opt/zigbee2mqtt"
+#- name: Install zigbee2mqtt via npm
+#  npm:
+#    path: "/opt/zigbee2mqtt"
 
-#- name: install zigbee2mqtt
-#  shell:
-#    cmd: "npm install"
-#  args:
-#    chdir: /opt/zigbee2mqtt
-#  ignore_errors: true
-#  register: cmd_out
-#  failed_when: cmd_out.rc >= 2
+- name: install zigbee2mqtt
+  shell:
+    cmd: "npm install"
+  args:
+    chdir: /opt/zigbee2mqtt
+  ignore_errors: true
+  register: cmd_out
+  failed_when: cmd_out.rc >= 2
 
 #    cmd: "npm ci --production"
-#- name: ci zigbee2mqtt 
-#  shell:
-#    cmd: "npm"
-#  args:
-#    chdir: /opt/zigbee2mqtt
-#  ignore_errors: true
-#  become_user: pi
-#  register: cmd_out
-#  failed_when: cmd_out.rc >= 2
+- name: ci zigbee2mqtt 
+  shell:
+    cmd: "npm ci"
+  args:
+    chdir: /opt/zigbee2mqtt
+  ignore_errors: true
+  become_user: pi
+  register: cmd_out
+  failed_when: cmd_out.rc >= 2
 
 - set_fact:
     pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
