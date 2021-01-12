@@ -12,6 +12,7 @@
   with_items:
     - node-red-dashboard
 #    - node-red-contrib-ui
+    - node-red-node-ui-list
     - node-red-contrib-uibuilder
     - node-red-contrib-ui-led
     - node-red-contrib-ui-level

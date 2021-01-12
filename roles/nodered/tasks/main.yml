@@ -42,3 +42,8 @@
     state: started
     enabled: yes
     name: nodered
+
+- name: "npm audit fix"
+  shell: "npm audit fix"
+  args:
+    chdir: /home/pi
