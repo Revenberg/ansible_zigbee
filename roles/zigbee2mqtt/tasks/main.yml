@@ -64,7 +64,7 @@
 #    cmd: "npm ci --production"
 - name: ci zigbee2mqtt 
   shell:
-    cmd: "npm ci"
+    cmd: "npm ci --production"
   args:
     chdir: /opt/zigbee2mqtt
   ignore_errors: true
