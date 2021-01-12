@@ -14,11 +14,19 @@
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
 
+############################################################
 - name: download zigbee2mqtt
   git:
     repo: https://github.com/Koenkk/zigbee2mqtt.git
     dest: /opt/zigbee2mqtt
     force: yes
+
+############################################################
+- name: "npm install serialport"
+  shell:
+    cmd: "npm install serialport"
+  args:
+    chdir: /opt/zigbee2mqtt
 
 - name: chmod zigbee2mqtt
   file:
@@ -76,8 +84,14 @@
     src: zigbee2mqtt.service
     dest: /etc/systemd/system/zigbee2mqtt.service
 
+- name: "systemctl stop zigbee2mqtt.service"
+  systemd:
+    state: stopped
+    name: zigbee2mqtt
+
 - name: "systemctl enable zigbee2mqtt.service"
   systemd:
     state: started
     enabled: yes
     name: zigbee2mqtt
+
