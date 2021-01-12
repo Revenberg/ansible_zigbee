@@ -7,8 +7,9 @@
 - name: install node-red-contrib-zigbee2mqtt
   shell:
     cmd: "npm install {{ item }}"
-#  args:
-#    chdir: /usr/lib/node_modules/node-red
+  become_user: pi
+  args:
+    chdir: /home/pi/.node-red
   with_items:
 #    - node-gyp
 #    - jquery

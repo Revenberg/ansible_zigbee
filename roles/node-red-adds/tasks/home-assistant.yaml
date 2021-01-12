@@ -6,9 +6,9 @@
 - name: install node-red home-assistant adds
   shell:
     cmd: "npm install start {{ item }}"
-#  become_user: pi
-#  args:
-#    chdir: /home/pi/.node-red
+  become_user: pi
+  args:
+    chdir: /home/pi/.node-red
   with_items:
     - node-red-contrib-home-assistant-websocket
 
