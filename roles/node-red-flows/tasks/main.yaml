@@ -26,13 +26,6 @@
 
 - name: set credentialSecret
   lineinfile:
-    path: /usr/lib/node_modules/node-red/settings.js
-    line: 'flowFile: "/home/pi/.node-red/{{ flow }}", '
-    insertafter: "//flowFile: 'flows.json',"
-    create: no
-
-- name: set credentialSecret
-  lineinfile:
     path: /home/pi/.node-red/settings.js
     line: 'flowFile: "/home/pi/.node-red/{{ flow }}", '
     insertafter: "//flowFile: 'flows.json',"
