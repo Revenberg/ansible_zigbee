@@ -36,6 +36,18 @@
     chdir: /opt/zigbee2mqtt
   become_user: pi
 
+- name: Install core-util-is via npm
+  shell: "npm install core-util-is"
+  args:
+    chdir: /opt/zigbee2mqtt
+  become_user: pi
+
+#- name: Install webpack-dev-server via npm
+#  shell: "npm install webpack-dev-server"
+#  args:
+#    chdir: /opt/zigbee2mqtt
+#  become_user: pi
+
 - name: Install zigbee2mqtt via npm
   npm:
     path: "/opt/zigbee2mqtt"
