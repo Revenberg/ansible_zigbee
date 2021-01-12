@@ -22,13 +22,6 @@
     dest: /opt/zigbee2mqtt
     force: yes
 
-############################################################
-- name: "npm install serialport"
-  shell:
-    cmd: "npm install serialport"
-  args:
-    chdir: /opt/zigbee2mqtt
-
 - name: chmod zigbee2mqtt
   file:
     path: /opt/zigbee2mqtt
@@ -36,6 +29,12 @@
     mode: 0760
     owner: pi
     group: pi
+
+- name: npm install npm@latest
+  shell: "npm install bindings --save"
+  args:
+    chdir: /opt/zigbee2mqtt
+  become: pi
 
 - name: Install zigbee2mqtt via npm
   npm:
