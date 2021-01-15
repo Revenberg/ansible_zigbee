@@ -1,0 +1,26 @@
+---
+- name: Remove not used applications
+  apt: 
+    name: [ "xdotool", "unclutter", "sed", "chromium-browser" ]
+
+- name: Copy kiosk.sh
+  copy:
+    src: "kiosk.sh"
+    dest: "/home/pi/kiosk.sh"
+    owner: pi
+    group: pi
+    mode: 0644   
+
+- name: Copy kiosk.service
+  copy:
+    src: "kiosk.service"
+    dest: "/lib/systemd/system/kiosk.service"
+    owner: pi
+    group: pi
+    mode: 0644   
+
+- name: kiosk.service
+  service:
+    name: kiosk.service
+    state: started
+    enabled: yes

@@ -21,9 +21,19 @@
 
 - name: Remove not used applications
   apt: 
-    name: [ "wolfram-engine", "libreoffice*", "scratch2", "scratch" ]
+    name: [ "wolfram-engine", "libreoffice*", "scratch2", "scratch", "wolfram-engine", "nuscratch", "sonic-pi", "idle3", "smartsim", "java-common", "minecraft-pi", "libreoffice*"]
     state: absent
   ignore_errors: yes
 
+- name: apt-get clean
+  shell:
+    cmd: "apt-get clean"
+  become: yes
+  
+- name: apt-get autoremove -y
+  shell:
+    cmd: "apt-get autoremove -y"
+  become: yes
+  
 - name: include network.yaml
   include_tasks: network.yaml
