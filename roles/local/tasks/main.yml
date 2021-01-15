@@ -8,6 +8,10 @@
     update_cache=yes
     cache_valid_time=360
 
+- name: apt --fix-broken install
+  shell:
+    cmd: "apt --fix-broken install"
+
 - name: Update all packages to the latest version
   apt: > 
     upgrade=yes
@@ -28,12 +32,13 @@
 - name: apt-get clean
   shell:
     cmd: "apt-get clean"
-  become: yes
+#  become: yes
   
 - name: apt-get autoremove -y
   shell:
     cmd: "apt-get autoremove -y"
-  become: yes
+#  become: yes
   
 - name: include network.yaml
   include_tasks: network.yaml
+  
