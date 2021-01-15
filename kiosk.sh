@@ -61,7 +61,7 @@ cd /home/pi/ansible_zigbee
 git pull
 cd ~
 
-cp /home/pi/ansible_zigbee/lcd.sh /home/pi/lcd.sh
-chmod +x ~/lcd.sh
+cp /home/pi/ansible_zigbee/kiosk.sh /home/pi/kiosk.sh
+chmod +x ~/kiosk.sh
 
-ansible-playbook  /home/pi/ansible_zigbee/lcd.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 
+ansible-playbook  /home/pi/ansible_zigbee/kiosk.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 
