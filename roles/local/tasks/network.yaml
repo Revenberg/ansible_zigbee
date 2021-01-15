@@ -11,7 +11,9 @@
 
 - name: Set WiFi country
   shell: "raspi-config nonint do_wifi_country {{ wifi_country }}"
-
+  register: result
+  failed_when: result.rc > 1
+  
 - name: updating hostname {{ system_hostname }} (1/2)
   hostname:
     name: "{{ system_hostname }}"
