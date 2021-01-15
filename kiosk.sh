@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ ! -f "/home/pi/.pswrd" ]; then
     if [ $# -ne 1 ]; then
-        echo $0: usage: ./zigbee.sh  password
+        echo $0: usage: ./kiosk.sh  password
         exit 0
     fi
 
