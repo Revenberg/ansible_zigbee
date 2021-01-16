@@ -1,8 +1,9 @@
 ---
-- name: Remove not used applications
+- name: install gui applications
   apt: 
-    name: [ "raspberrypi-ui-mods"]
-
+    name: [ "xfce4", "xfce4-terminal"]
+    install_recommends: yes
+    
 - name: Check for lcd-show exists in /opt     
   stat: 
     path: /opt/lcd-show

@@ -3,6 +3,7 @@
     name: [ "nginx", "php-fpm" ]
     state: present
     update_cache: yes
+    install_recommends: yes
     cache_valid_time: 36000
 
 - name: template default

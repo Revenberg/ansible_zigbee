@@ -3,6 +3,7 @@
   apt:
     name: [ "nodered", "nodejs", "npm", "node-semver", "git", "make", "g++", "gcc"]
     state: present
+    install_recommends: yes
     update_cache: yes
 
 

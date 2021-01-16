@@ -2,6 +2,7 @@
 - name: Install avahi-daemon
   apt: 
     name: [ "avahi-daemon" ]
+    install_recommends: yes
 
 - name: Update boot startup for avahi-daemon
   shell: "update-rc.d avahi-daemon defaults"

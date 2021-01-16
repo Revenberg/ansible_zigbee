@@ -14,6 +14,7 @@
   apt:
     name: [ "nodered", "nodejs", "npm", "node-semver"]
     state: present
+    install_recommends: yes
     update_cache: yes
 
 - name: npm install npm@latest

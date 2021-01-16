@@ -1,7 +1,8 @@
 ---
-- name: Remove not used applications
+- name: install chrome
   apt: 
     name: [ "xdotool", "unclutter", "sed", "chromium-browser" ]
+    install_recommends: yes
 
 - name: Copy kiosk_screen.sh
   copy:

@@ -16,4 +16,4 @@
 - name: Install Mosquitto
   apt: 
     name: [ "mosquitto", "mosquitto-clients" ]
-
+    install_recommends: yes
