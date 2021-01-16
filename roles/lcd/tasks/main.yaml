@@ -1,4 +1,8 @@
 ---
+- name: Remove not used applications
+  apt: 
+    name: [ "raspberrypi-ui-mods"]
+
 - name: Check for lcd-show exists in /opt     
   stat: 
     path: /opt/lcd-show
@@ -26,3 +30,7 @@
   args:
     chdir: /opt/lcd-show
   when: not p.stat.exists
+
+- name: HDMI output to LCD screen
+  shell:
+    cmd: "update-rc.d lightdm disable"
