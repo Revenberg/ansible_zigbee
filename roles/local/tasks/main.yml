@@ -8,10 +8,6 @@
     update_cache=yes
     cache_valid_time=360
 
-- name: apt --fix-broken install
-  shell:
-    cmd: "apt --fix-broken install"
-
 - name: Update all packages to the latest version
   apt: > 
     upgrade=yes
