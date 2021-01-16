@@ -1,9 +1,9 @@
 ---
 - name: install gui applications
   apt: 
-    name: [ "xfce4", "xfce4-terminal"]
+    name: [ "xfce4", "xfce4-terminal", "LightDM"]
     install_recommends: yes
-    
+
 - name: Check for lcd-show exists in /opt     
   stat: 
     path: /opt/lcd-show
@@ -24,6 +24,15 @@
     owner: pi
     group: pi
   when: not p.stat.exists
+
+- name: write LightDM configuration
+  become: yes
+  template:
+    src: lightdm.conf.j2
+    dest: ' /usr/share/lightdm/lightdm.conf.d/70-ansible.conf'
+    owner: root
+    group: root
+    mode: 'u=rw,go=r'
 
 - name: HDMI output to LCD screen
   shell:
