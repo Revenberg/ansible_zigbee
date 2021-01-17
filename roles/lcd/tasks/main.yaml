@@ -29,7 +29,7 @@
   become: yes
   template:
     src: lightdm.conf.j2
-    dest: ' /usr/share/lightdm/lightdm.conf.d/70-ansible.conf'
+    dest: '/usr/share/lightdm/lightdm.conf.d/70-ansible.conf'
     owner: root
     group: root
     mode: 'u=rw,go=r'
