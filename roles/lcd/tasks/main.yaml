@@ -1,13 +1,13 @@
 ---
 - name: install gui applications
-  apt: 
-    name: [ "xfce4", "xfce4-terminal", "lightdm"]
+  apt:
+    name: [ "xinit", "xfce4", "xfce4-terminal", "lightdm"]
     install_recommends: yes
 
-- name: Check for lcd-show exists in /opt     
-  stat: 
+- name: Check for lcd-show exists in /opt
+  stat:
     path: /opt/lcd-show
-  register: p  
+  register: p
 
 - name: download LCD-show
   git:
@@ -44,3 +44,8 @@
 - name: HDMI output to LCD screen
   shell:
     cmd: "update-rc.d lightdm disable"
+
+- name: dpkg-reconfigure lightdm
+  shell:
+    cmd: "dpkg-reconfigure lightdm"
+
