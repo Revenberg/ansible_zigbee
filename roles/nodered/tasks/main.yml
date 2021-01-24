@@ -31,12 +31,16 @@
 - set_fact:
     pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
 
+- name: Pause for 5 minutes to build app cache
+  pause:
+    minutes: 1
+
 - name: set credentialSecret pi
   lineinfile:
-    path: /home/pi/.node-red/settings.js
+    path: "/home/pi/.node-red/settings.js"
     line: 'credentialSecret: "{{ pi_password }}", '
     insertafter: '//credentialSecret: "a-secret-key",'
-    create: no
+    create: no    
 
 - name: "systemctl enable nodered.service"
   systemd:
