@@ -52,3 +52,4 @@
   shell: "npm audit fix"
   args:
     chdir: /home/pi
+  ignore_errors: true
