@@ -1,0 +1,22 @@
+---
+- hosts: rpi
+  become_user: root
+  become: yes
+
+  roles:
+  - role: local  
+    vars:
+      system_hostname: zigbee
+  - role: nodered
+  - role: node-red-adds
+  - role: node-red-flows
+    vars:
+        flow: 'zigbee.json'
+
+  - role: nginx           
+  - role: mosquitto
+  - role: zigbee2mqtt
+
+  - role: screen
+  - role: kiosk  
+  
