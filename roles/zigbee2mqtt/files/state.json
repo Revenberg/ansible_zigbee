@@ -1,13 +1,4 @@
 {
-    "0x7cb03eaa0a079953": {
-        "update_available": true,
-        "state": "ON",
-        "color": {
-            "x": 0.3227,
-            "y": 0.329
-        },
-        "color_temp": 165
-    },
     "0x842e14fffe2a3505": {
         "color": {
             "x": 0.3227,
@@ -17,6 +8,41 @@
         "state": "OFF"
     },
     "0x00124b0018e2a303": {
-        "led": false
+        "led": true
+    },
+    "0x00158d0003cebcba": {
+        "voltage": 3065,
+        "battery": 100,
+        "contact": true
+    },
+    "0x00158d0003c79a0e": {
+        "voltage": 3045,
+        "battery": 100,
+        "contact": true
+    },
+    "0x00158d0003538d84": {
+        "voltage": 3055,
+        "battery": 100,
+        "contact": true
+    },
+    "0x00158d0003a354c8": {
+        "voltage": 3035,
+        "battery": 100,
+        "contact": true
+    },
+    "0x00158d0003a3519d": {
+        "voltage": 3015,
+        "battery": 100,
+        "contact": true
+    },
+    "0x00158d000353b015": {
+        "contact": true,
+        "voltage": 3025,
+        "battery": 100
+    },
+    "0x00158d00025d69ff": {
+        "voltage": 3025,
+        "battery": 100,
+        "contact": true
     }
 }
