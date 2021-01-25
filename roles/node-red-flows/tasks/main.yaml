@@ -11,10 +11,7 @@
     pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
 
 - set_fact:
-    slack_tken: "{{lookup('file', '{{ slackfile }}') }}"
-
-- set_fact:
-    slack_token: "{{ slack_tken | password_hash('sha512' ) }}"    
+    slack_token: "{{lookup('file', '{{ slackfile }}') }}"
 
 - name: "Copy file {{ flow }}"
   template:
