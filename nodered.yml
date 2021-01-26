@@ -11,6 +11,6 @@
   - role: node-red-adds
   - role: node-red-flows
     vars:
-        flow: 'zigbee.json'
+        flow: zigbee.json
   - role: nginx  
   

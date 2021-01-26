@@ -14,7 +14,8 @@
     slack_token: "{{lookup('file', '{{ slackfile }}') }}"
 
 - name: "Copy file {{ flow }}"
-  template:
+#  template:
+  copy:
     src: "templates/{{ flow }}"
     dest: "/home/pi/.node-red/{{ flow }}"
     owner: pi
