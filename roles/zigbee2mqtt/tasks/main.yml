@@ -115,4 +115,5 @@
   shell: "systemctl start zigbee2mqtt"
 
 - name: Show log Zigbee2MQTT
-  shell: "journalctl -u zigbee2mqtt.service -f"
+  debug:
+    msg: "journalctl -u zigbee2mqtt.service -f"
