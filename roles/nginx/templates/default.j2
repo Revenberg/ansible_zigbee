@@ -7,10 +7,10 @@ server {
     listen 80 default_server;
     server_name _;
     location / {
-      return 301 $scheme://192.168.2.130:1880/ui;
+      return 301 $scheme://{{ ansible_ssh_host }}:1880/ui;
     }
     location /admin {
-      return 301 $scheme://192.168.2.130:1880;
+      return 301 $scheme://{{ ansible_ssh_host }}:1880;
     }
 }
 
