@@ -10,3 +10,4 @@
   - role: screen
   - role: kiosk
   
+  - role: reboot
