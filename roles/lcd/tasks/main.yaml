@@ -34,7 +34,7 @@
     group: root
     mode: 'u=rw,go=r'
 
-- name: HDMI output to LCD screen LCD35-show
+- name: HDMI output to LCD screen
   shell:
     cmd: "./MHS40-show"
   args:
