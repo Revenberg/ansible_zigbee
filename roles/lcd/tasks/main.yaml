@@ -34,9 +34,9 @@
     group: root
     mode: 'u=rw,go=r'
 
-- name: HDMI output to LCD screen
+- name: HDMI output to LCD screen LCD35-show
   shell:
-    cmd: "./LCD35-show"
+    cmd: "./MHS40-show"
   args:
     chdir: /opt/lcd-show
   when: not p.stat.exists
