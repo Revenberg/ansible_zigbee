@@ -25,3 +25,9 @@
     name: kiosk.service
     state: started
     enabled: yes
+
+- name: clean
+  file:
+    path: "~/.config/chromium/Singleton*"
+    state: absent
+  ignore_errors: yes
