@@ -40,7 +40,7 @@
 - set_fact:
     pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
   
-- name: Pause for 5 minutes to build app cache
+- name: Pause for 1 minutes to build app cache
   pause:
     minutes: 1
   when: not p.stat.exists
