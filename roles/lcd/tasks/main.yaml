@@ -39,7 +39,6 @@
     cmd: "./MHS40-show"
   args:
     chdir: /opt/lcd-show
-  when: not p.stat.exists
 
 - name: HDMI output to LCD screen
   shell:
@@ -48,4 +47,3 @@
 - name: dpkg-reconfigure lightdm
   shell:
     cmd: "dpkg-reconfigure lightdm"
-
