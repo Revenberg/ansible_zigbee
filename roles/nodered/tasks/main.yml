@@ -3,12 +3,18 @@
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
 
+- name: Check for node-red exists in /usr/bin/
+  stat:
+    path: /usr/bin/node-red
+  register: p
+
 - name: "download and install node-red"
   shell:
     cmd: "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -"
   ignore_errors: true
   register: result
   failed_when: result.rc > 1
+  when: not p.stat.exists
 
 - name: Install nodered
   apt:
@@ -16,24 +22,28 @@
     state: present
     install_recommends: yes
     update_cache: yes
+  when: not p.stat.exists
 
 - name: npm install npm@latest
   shell: "curl https://www.npmjs.com/install.sh | sudo sh"
   args:
     chdir: /home/pi
+  when: not p.stat.exists
 
 - name: "systemctl enable nodered.service"
   systemd:
     state: started
     enabled: yes
     name: nodered
+  when: not p.stat.exists
 
 - set_fact:
     pi_password: "{{lookup('file', '{{ pswrdfile }}') }}"
-
+  
 - name: Pause for 5 minutes to build app cache
   pause:
     minutes: 1
+  when: not p.stat.exists
 
 - name: set credentialSecret pi
   lineinfile:
