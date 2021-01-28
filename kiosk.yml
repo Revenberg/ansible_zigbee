@@ -7,7 +7,7 @@
   - role: local  
     vars:
       system_hostname: screen
-  - role: screen
+  - role: lcd
   - role: kiosk
   
   - role: reboot

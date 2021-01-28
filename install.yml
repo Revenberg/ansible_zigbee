@@ -17,7 +17,7 @@
   - role: mosquitto
   - role: zigbee2mqtt
 
-  - role: screen
+  - role: lcd
   - role: kiosk
 
   - role: reboot
