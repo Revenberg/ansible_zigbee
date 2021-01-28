@@ -58,9 +58,9 @@
     enabled: yes
     name: nodered
 
-- name: "npm audit fix"
-  shell: "npm audit fix"
-  args:
-    chdir: /home/pi
-    register: result
-  failed_when: result.rc > 1  
+#- name: "npm audit fix"
+#  shell: "npm audit fix"
+#  args:
+#    chdir: /home/pi
+#    register: result
+#  failed_when: result.rc > 1  
