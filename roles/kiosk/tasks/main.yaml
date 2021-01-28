@@ -28,6 +28,7 @@
 
 - name: clean
   file:
-    path: "~/.config/chromium/Singleton*"
+    path: "/home/pi/.config/chromium/Singleton*"
     state: absent
   ignore_errors: yes
+  
