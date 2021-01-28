@@ -64,4 +64,4 @@ cd ~
 cp /home/pi/ansible_zigbee/nodered.sh /home/pi/nodered.sh
 chmod +x ~/nodered.sh
 
-ansible-playbook  /home/pi/ansible_zigbee/nodered.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 
+ansible-playbook  /home/pi/ansible_zigbee/nodered.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts | tee ~/ansible.log

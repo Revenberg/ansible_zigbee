@@ -63,3 +63,5 @@ cd ~
 
 cp /home/pi/ansible_zigbee/kiosk.sh /home/pi/kiosk.sh
 chmod +x ~/kiosk.sh
+
+ansible-playbook  /home/pi/ansible_zigbee/kiosk.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts | tee ~/ansible.log

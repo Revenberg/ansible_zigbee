@@ -64,4 +64,4 @@ cd ~
 cp /home/pi/ansible_zigbee/install.sh /home/pi/install.sh
 chmod +x ~/install.sh
 
-ansible-playbook  /home/pi/ansible_zigbee/install.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts 
+ansible-playbook  /home/pi/ansible_zigbee/install.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts | tee ~/ansible.log
