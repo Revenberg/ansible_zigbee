@@ -1,7 +1,7 @@
 ---
 - name: install gui applications
   apt:
-    name: [ "xinit", "xfce4", "xfce4-terminal", "lightdm"]
+    name: [ "xinit", "xfce4", "xfce4-terminal", "lightdm", "xscreensaver"]
     install_recommends: yes
 
 - name: Check for lcd-show exists in /opt
