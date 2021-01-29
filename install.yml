@@ -4,6 +4,8 @@
   become: yes
 
   roles:
+  - role: webserver
+  
   - role: local
     vars:
       system_hostname: zigbee
