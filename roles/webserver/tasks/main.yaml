@@ -1,2 +1,27 @@
 ---
-apache2
+- name: install apache2
+  apt: 
+    name: [ "apache2", "php5", "libapache2-mod-php5", "php5-mysql", "mysql-server", "mysql-client", "phpmyadmin" ]
+    install_recommends: yes
+    
+- name: copy webpage files
+  copy:
+    src: "{{ item }}"
+    dest: "/var/www/{{ item }}"
+    owner: pi
+    group: pi
+    mode: 755
+  with_fileglob:
+    - /files/*
+
+- name: Replace a localhost entry with our own
+  lineinfile:
+    path: /etc/apache2/apache2.conf
+    line: "Include /etc/phpmyadmin/apache.conf"
+    
+- name: Create the my.cnf file
+  template: 
+    src: my.cnf
+    dest: /home/pi/my.cnf
+    
+    
