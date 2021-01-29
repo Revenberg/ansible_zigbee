@@ -1,0 +1,38 @@
+---
+- name: install apache2
+  apt: 
+    name: [ "apache2", "libapache2-mod-php", "php-mysql", "default-mysql-server", "phpmyadmin" ]
+    install_recommends: yes
+       
+- name: copy webpage files
+  copy:
+    src: "{{ item }}"
+    dest: "/var/www/html"
+    owner: pi
+    group: pi
+    mode: 0755
+  with_fileglob:
+    - "*"
+
+- name: add php to apache2
+  lineinfile:
+    path: /etc/apache2/apache2.conf
+    line: "Include /etc/phpmyadmin/apache.conf"
+
+- name: change port to 8080 apache2 000-default.conf
+  lineinfile:
+    path: /etc/apache2/sites-enabled/000-default.conf
+    regexp: '<VirtualHost *:80>'
+    line: "<VirtualHost *:8080>"
+    
+- name: change port to 8080 apache2 ports.conf
+  lineinfile:
+    path: /etc/apache2/ports.conf
+    regexp: 'Listen 80'
+    line: "Listen 8080"
+    
+- name: apache2 service
+  service:
+    name: apache2
+    state: started
+    enabled: yes

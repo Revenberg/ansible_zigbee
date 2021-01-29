@@ -3,9 +3,7 @@
   become_user: root
   become: yes
 
-  roles:
-  - role: webserver
-  
+  roles: 
   - role: local
     vars:
       system_hostname: zigbee
@@ -21,5 +19,7 @@
 
   - role: lcd
   - role: kiosk
+
+  - role: webserver
 
   - role: reboot
