@@ -24,11 +24,6 @@
     path: /etc/apache2/sites-enabled/000-default.conf
     regexp: '<VirtualHost *:80>'
     line: "<VirtualHost *:8080>"
-
-- name: Create the my.cnf file
-  template: 
-    src: my.cnf
-    dest: /home/pi/my.cnf
     
 - name: apache2 service
   service:
