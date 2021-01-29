@@ -12,7 +12,7 @@
     group: pi
     mode: 755
   with_fileglob:
-    - /files/*
+    - files/*
 
 - name: add php to apache2
   lineinfile:
