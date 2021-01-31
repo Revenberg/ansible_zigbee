@@ -13,7 +13,7 @@
   user:
     name: pi
     shell: /bin/bash
-    groups: admins,docker
+    groups: docker
     append: yes
 
 - name: Docker test hello world
