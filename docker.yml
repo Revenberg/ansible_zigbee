@@ -2,6 +2,8 @@
 - hosts: rpi
   become_user: root
   become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
 
   roles: 
   - role: local
