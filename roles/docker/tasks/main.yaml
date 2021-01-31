@@ -1,7 +1,13 @@
 ---
+- name: Check for lcd-show exists in /opt
+  stat:
+    path: /run/docker
+  register: p
+
 - name: Install Docker
   shell:
     cmd: "curl -sSL https://get.docker.com | sh"
+  when: not p.stat.exists
 
 - name: Add the user 'pi' with a bash shell, appending the group 'docker' and 'developers' to the user's groups
   user:
