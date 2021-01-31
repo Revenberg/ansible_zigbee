@@ -1,7 +1,7 @@
 ---
-- name: create /var/dockerCompose
+- name: create /var/docker-Compose
   file:
-    path: /var/dockerCompose
+    path: /var/docker-Compose
     recurse: yes
     mode: 0755
     owner: pi
@@ -10,19 +10,18 @@
 - name: copy Docker Compose files
   copy:
     src: "{{ item }}"
-    dest: "/var/dockerCompose"
+    dest: "/var/docker-Compose"
     mode: 0755
     owner: pi
     group: pi
   with_fileglob:
-    - "files/*"
+    - "files/docker/*"
 
 # use files parameter to use multiple docker-compose.yml files
 - name: deploy Docker Compose stack
   docker_compose:
-    project_src: /var/dockerCompose
+    project_src: /var/docker-Compose
     files:
     - docker-mqtt.yml
     - docker-zigbee.yml
   become_user : pi
-  
