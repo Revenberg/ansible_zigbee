@@ -1,0 +1,16 @@
+---
+- name: Install Docker
+  shell:
+    cmd: "curl -sSL https://get.docker.com | sh"
+
+
+- name: Add the user 'pi' with a bash shell, appending the group 'docker' and 'developers' to the user's groups
+  user:
+    name: pi
+    shell: /bin/bash
+    groups: admins,docker
+    append: yes
+
+- name: Docker test hello world
+  shell:
+    cmd: "docker run --rm hello-world"

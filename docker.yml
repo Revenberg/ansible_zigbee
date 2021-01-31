@@ -1,0 +1,11 @@
+---
+- hosts: rpi
+  become_user: root
+  become: yes
+
+  roles: 
+  - role: local
+    vars:
+      system_hostname: docker
+
+#  - role: reboot
