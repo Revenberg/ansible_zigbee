@@ -25,12 +25,12 @@
     name: [ "libffi-dev", "libssl-dev" ]
     install_recommends: yes
 
-- name: install gui applications
+- name: install python3
   apt:
     name: [ "python3","python3-pip" ]
     install_recommends: yes
 
-- name: install gui applications
+- name: install python-configparser
   apt:
     name: [ "python-configparser" ]
     state: absent
