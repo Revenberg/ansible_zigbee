@@ -14,14 +14,14 @@
     mode: 0755
     owner: pi
     group: pi
-  loop:
-  - docker-compose.yml  
-
+  with_fileglob:
+    - "files/*"
 
 # use files parameter to use multiple docker-compose.yml files
 - name: deploy Docker Compose stack
   docker_compose:
     project_src: /var/dockerCompose
     files:
-    - docker-compose.yml
+    - docker-mqtt.yml
+    - docker-zigbee.yml
     
