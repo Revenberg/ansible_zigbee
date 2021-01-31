@@ -1,8 +1,8 @@
 version: '3'
 services:
   zigbee2mqtt:
-    container_name: "zigbee2mqtt"
-    image: "koenkk/zigbee2mqtt"
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
     volumes:
       - ./data:/app/data
       - /run/udev:/run/udev:ro
@@ -13,3 +13,18 @@ services:
     privileged: true
     environment:
       - TZ=Europe/Amsterdam
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto:latest
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 125M
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./data-mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./data-mosquitto/data:/mosquitto/data
+      - ./data-mosquitto/log:/mosquitto/log
