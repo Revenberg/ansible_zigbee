@@ -20,7 +20,7 @@
   shell:
     cmd: "docker run --rm hello-world"
 
-- name: install gui applications
+- name: install libffi-dev libssl-dev
   apt:
     name: [ "libffi-dev", "libssl-dev" ]
     install_recommends: yes

@@ -9,8 +9,8 @@
 
 - name: copy Docker Compose files
   copy:
-    src: files/{{ item }}
-    dest: /var/dockerCompose/{{ item }}
+    src: "{{ item }}"
+    dest: "/var/dockerCompose/{{ item }}"
     mode: 0755
     owner: pi
     group: pi
