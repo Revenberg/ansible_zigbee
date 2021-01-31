@@ -3,7 +3,6 @@
   shell:
     cmd: "curl -sSL https://get.docker.com | sh"
 
-
 - name: Add the user 'pi' with a bash shell, appending the group 'docker' and 'developers' to the user's groups
   user:
     name: pi
@@ -14,3 +13,21 @@
 - name: Docker test hello world
   shell:
     cmd: "docker run --rm hello-world"
+
+- name: install gui applications
+  apt:
+    name: [ "libffi-dev", "libssl-dev" ]
+    install_recommends: yes
+
+- name: install gui applications
+  apt:
+    name: [ "python3","python3-pip" ]
+
+- name: install gui applications
+  apt:
+    name: [ "python-configparser" ]
+    state: absent
+
+- name: Install docker-compose
+  shell:
+    cmd: "pip3 -v install docker-compose"
