@@ -8,5 +8,6 @@
     vars:
       system_hostname: docker
   - role: docker_zigbee
-  
+  - role: docker_mqtt
+
 #  - role: reboot
