@@ -7,5 +7,6 @@
   - role: local
     vars:
       system_hostname: docker
-
+  - role: docker_zigbee
+  
 #  - role: reboot
