@@ -24,4 +24,4 @@
     files:
     - docker-mqtt.yml
     - docker-zigbee.yml
-    
+  become_user : pi
