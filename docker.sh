@@ -13,9 +13,10 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     sudo apt-get install git -y
 
     # Install Ansible and Git on the machine.
-    sudo apt-get install python-pip git python-dev sshpass ansible-y
+    sudo apt-get install git ansible sshpass -y
+    #sudo apt-get install python-pip git python-dev sshpass -y
     #sudo pip install ansible
-    sudo pip install markupsafe
+    #sudo pip install markupsafe
 
     # Configure IP address in "hosts" file. If you have more than one
     # Raspberry Pi, add more lines and enter details
