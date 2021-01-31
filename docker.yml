@@ -9,6 +9,7 @@
   - role: local
     vars:
       system_hostname: docker
+  - role: docker
   - role: docker_zigbee
   - role: docker_mqtt
 
