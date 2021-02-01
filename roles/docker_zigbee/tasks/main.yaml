@@ -1,11 +1,16 @@
 ---
 - name: create /var/docker-Compose
   file:
-    path: /var/docker-Compose
+    path: "{{  item }}"
     recurse: yes
     mode: 0755
     owner: pi
     group: pi
+  with_fileglob:
+    - "/var/docker-Compose"
+    - "/var/docker-Compose/data/mqtt/config"
+    - "/var/docker-Compose/data/zigbee"
+    - "/var/docker-Compose/data/node-red"
 
 - name: copy Docker Compose files
   copy:
