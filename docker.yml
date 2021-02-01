@@ -11,6 +11,6 @@
       system_hostname: docker
   - role: lcd
   - role: docker
-  - role: docker_zigbee
+#  - role: docker_zigbee
 
   - role: reboot
