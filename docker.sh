@@ -11,7 +11,7 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     sudo apt-get autoremove
 
     sudo apt-get install git -y
-    sudo apt-get install docker-compose
+    sudo apt-get install docker-compose -y
    
     git clone https://github.com/Revenberg/ansible_zigbee.git 
 fi
