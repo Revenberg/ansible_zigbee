@@ -9,7 +9,6 @@ services:
     depends_on:
      - mqtt
     restart: always
-    network_mode: host
   mqtt:
    image: "eclipse-mosquitto:latest"
    ports:
@@ -19,8 +18,7 @@ services:
     - ./data/mqtt/config:/mosquitto/config
     - ./data/mqtt/data:/mosquitto/data
     - ./data/mqtt/log:/mosquitto/log
-   restart: always
-   network_mode: host    
+   restart: always   
   zigbee:
    image: koenkk/zigbee2mqtt    
    volumes:
@@ -29,5 +27,4 @@ services:
      - mqtt     
    devices:
     - "/dev/ttyACM0:/dev/ttyACM0"
-   restart: always
-   network_mode: host
+   restart: always   
