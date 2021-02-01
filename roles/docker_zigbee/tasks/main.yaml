@@ -26,6 +26,7 @@
     group: pi
   with_items:
   - { src: "files/config/mqtt/mosquitto.conf", dest: "/var/docker-Compose/data/mqtt/config/mosquitto.conf" }
+  - { src: "files/config/zigbee/configuration.yaml", dest: "/var/docker-Compose/data/zigbee/configuration.yaml" }
 
 # use files parameter to use multiple docker-compose.yml files
 - name: deploy Docker Compose stack

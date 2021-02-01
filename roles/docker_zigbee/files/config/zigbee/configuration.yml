@@ -1,0 +1,66 @@
+homeassistant: false
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://localhost'
+serial:
+  disable_led: true
+  port: /dev/ttyACM0
+  baudrate: 115200
+  rtscts: false
+advanced:
+  network_key:
+    - 247
+    - 125
+    - 65
+    - 132
+    - 32
+    - 192
+    - 147
+    - 157
+    - 169
+    - 179
+    - 24
+    - 78
+    - 87
+    - 153
+    - 252
+    - 103
+devices:
+  '0x842e14fffe2a3505':
+    friendly_name: Lamp 1
+  '0x00124b0014d9b724':
+    friendly_name: Coordinator
+  '0x00158d0003a3519d':
+    friendly_name: Jelmar
+    retain: true
+  '0x00158d0003538d84':
+    friendly_name: Roan
+    retain: true
+  '0x00158d0003cebcba':
+    friendly_name: Senne
+    retain: true
+  '0x00158d0003a354c8':
+    friendly_name: Zolder
+    retain: true
+  '0x00124b0018e2a303':
+    friendly_name: Router 1
+    retain: true
+  '0x00158d0003c79a0e':
+    friendly_name: Heit en mem
+    retain: true
+  '0x00158d000353b015':
+    friendly_name: Schuur
+    retain: true
+  '0x842e14fffe3ddd43':
+    friendly_name: '0x842e14fffe3ddd43'
+    retain: true
+  '0x842e14fffe28a157':
+    friendly_name: '0x842e14fffe28a157'
+    retain: true
+  '0x00158d00025d69ff':
+    friendly_name: Raam heit en mem
+    retain: true
+  '0x00124b0022674427':
+    friendly_name: Detector 1
+groups: {}
