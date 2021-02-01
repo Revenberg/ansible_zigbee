@@ -40,10 +40,12 @@
   - { src: "files/data/node-red/entrypoint.sh", dest: "/var/docker-Compose/data/node-red/entrypoint.sh" }
 
 - name: deploy Docker Compose stack
-  docker-compose:
-    project_src: /var/docker-Compose
+  debug:
+    msg: "test"
+#  docker-compose:
+#    project_src: /var/docker-Compose
 #    remove_orphans: true
 #    restarted: true
-    files:
-    - docker-zigbee.yml
+#    files:
+#    - docker-zigbee.yml
   
