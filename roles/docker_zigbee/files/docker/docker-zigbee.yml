@@ -8,7 +8,6 @@ services:
      - ./data/nodered:/data      
     depends_on:
      - mqtt
-    restart: always
   mqtt:
    image: "eclipse-mosquitto"
    ports:
@@ -17,7 +16,6 @@ services:
     - ./data/mqtt/config:/mosquitto/config
     - ./data/mqtt/data:/mosquitto/data
     - ./data/mqtt/log:/mosquitto/log
-   restart: always   
   zigbee:
    image: koenkk/zigbee2mqtt    
    volumes:
@@ -26,4 +24,3 @@ services:
      - mqtt     
    devices:
     - "/dev/ttyACM0:/dev/ttyACM0"
-   restart: always   
