@@ -39,11 +39,15 @@
   - { src: "files/data/node-red/flows.json", dest: "/var/docker-Compose/data/node-red/flows.json" }
   - { src: "files/data/node-red/entrypoint.sh", dest: "/var/docker-Compose/data/node-red/entrypoint.sh" }
 
+- name: test
+  debug:
+    msg: "blabla"
+    
 - name: deploy Docker Compose stack
   docker_compose:
     project_src: /var/docker-Compose
     remove_orphans: true
-  #  restarted: true
+    restarted: true
     files:
     - docker-zigbee.yml
   become_user : pi
