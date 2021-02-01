@@ -41,6 +41,6 @@
 
 - name: deploy Docker Compose stack
   shell:
-    cmd: "docker-compose up --remove-orphans"
+    cmd: "docker-compose up -d --remove-orphans"
   args:
     chdir:  /var/docker-Compose
