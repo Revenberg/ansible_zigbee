@@ -17,6 +17,14 @@
   with_fileglob:
     - "files/docker/*"
 
+- name: copy mosquitto.conf
+  copy:
+    src: "mosquitto.conf"
+    dest: "/var/docker-Compose/data/mqtt/config"
+    mode: 0755
+    owner: pi
+    group: pi
+
 # use files parameter to use multiple docker-compose.yml files
 - name: deploy Docker Compose stack
   docker_compose:
