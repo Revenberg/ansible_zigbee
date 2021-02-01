@@ -12,17 +12,6 @@
     - "/var/docker-Compose/data/zigbee"
     - "/var/docker-Compose/data/node-red"
 
-- name: copy Docker data files
-  copy:
-    src: "{{ item }}"
-    dest: "/var/docker-Compose/data"
-    mode: 0755
-    owner: pi
-    group: pi
-  with_fileglob:
-    - "files/config/*"
-
-
 - name: copy Docker Compose files
   copy:
     src: "{{ item }}"
@@ -33,20 +22,20 @@
   with_fileglob:
     - "files/docker/*"
 
-#- name: copy config files
-#  copy:
-#    src: "{{ item.src }}"
-#    dest: "{{ item.dest }}"
-#    mode: 0755
-#    owner: pi
-#    group: pi
-#  with_items:
-#  - { src: "files/config/mqtt/mosquitto.conf", dest: "/var/docker-Compose/data/mqtt/config/mosquitto.conf" }
-#  - { src: "files/config/zigbee/configuration.yaml", dest: "/var/docker-Compose/data/zigbee/configuration.yaml" }
-#  - { src: "files/config/node-red/settings.js", dest: "/var/docker-Compose/data/node-red/settings.js" }
-#  - { src: "files/config/node-red/package.json", dest: "/var/docker-Compose/data/node-red/package.json" }
-#  - { src: "files/config/node-red/flows.json", dest: "/var/docker-Compose/data/node-red/flows.json" }
-#  - { src: "files/config/node-red/entrypoint.sh", dest: "/var/docker-Compose/data/node-red/entrypoint.sh" }
+- name: copy config files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0755
+    owner: pi
+    group: pi
+  with_items:
+  - { src: "files/config/mqtt/mosquitto.conf", dest: "/var/docker-Compose/data/mqtt/config/mosquitto.conf" }
+  - { src: "files/config/zigbee/configuration.yaml", dest: "/var/docker-Compose/data/zigbee/configuration.yaml" }
+  - { src: "files/config/node-red/settings.js", dest: "/var/docker-Compose/data/node-red/settings.js" }
+  - { src: "files/config/node-red/package.json", dest: "/var/docker-Compose/data/node-red/package.json" }
+  - { src: "files/config/node-red/flows.json", dest: "/var/docker-Compose/data/node-red/flows.json" }
+  - { src: "files/config/node-red/entrypoint.sh", dest: "/var/docker-Compose/data/node-red/entrypoint.sh" }
 
 # use files parameter to use multiple docker-compose.yml files
 - name: deploy Docker Compose stack
