@@ -7,7 +7,7 @@
     owner: pi
     group: pi
   with_items:
-    - "/var/docker-Compose"
+    - "/var/docker-Compose/data"
     - "/var/docker-Compose/data/mqtt/config"
     - "/var/docker-Compose/data/zigbee"
     - "/var/docker-Compose/data/node-red"
@@ -35,7 +35,7 @@
   - { src: "files/config/node-red/settings.js", dest: "/var/docker-Compose/data/node-red/settings.js" }
   - { src: "files/config/node-red/package.json", dest: "/var/docker-Compose/data/node-red/package.json" }
   - { src: "files/config/node-red/flows.json", dest: "/var/docker-Compose/data/node-red/flows.json" }
-
+  - { src: "files/config/node-red/entrypoint.sh", dest: "/var/docker-Compose/data/node-red/entrypoint.sh" }
 
 # use files parameter to use multiple docker-compose.yml files
 - name: deploy Docker Compose stack
