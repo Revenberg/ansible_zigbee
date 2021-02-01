@@ -5,13 +5,13 @@ services:
     ports:
      - "1880:1880"
     volumes:
-     - ./data/nodered:/data
+     - ./data/nodered:/data      
     depends_on:
      - mqtt
      restart: always
      network_mode: host
   mqtt:
-   image: "eclipse-mosquitto"
+   image: "eclipse-mosquitto:latest"
    ports:
     - "1883:1883"
     - "9001:9001"
@@ -22,9 +22,11 @@ services:
     restart: always
     network_mode: host    
   zigbee:
-   image: koenkk/zigbee2mqtt
+   image: koenkk/zigbee2mqtt    
    volumes:
     - ./data/zigbee:/app/data
+   depends_on:
+     - mqtt     
    devices:
     - "/dev/ttyACM0:/dev/ttyACM0"
     restart: always
