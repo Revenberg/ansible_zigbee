@@ -11,6 +11,7 @@
     - "/var/docker-Compose/data/mqtt/config"
     - "/var/docker-Compose/data/zigbee"
     - "/var/docker-Compose/data/node-red"
+    - "/var/docker-Compose/data/home-assistant"    
 
 - name: copy Docker Compose files
   copy:
