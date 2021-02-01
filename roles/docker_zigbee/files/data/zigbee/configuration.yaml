@@ -2,7 +2,7 @@ homeassistant: false
 permit_join: true
 mqtt:
   base_topic: zigbee2mqtt
-  server: 'mqtt://192.168.2.15:1883'
+  server: 'mqtt://MACHINE_VM_IP:1883'
   #user: pi
   # Optional: MQTT server authentication password (default: nothing)
   #password: 
