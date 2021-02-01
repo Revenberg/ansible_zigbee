@@ -6,5 +6,9 @@
     ansible_python_interpreter: /usr/bin/python3
 
   roles: 
-  - role: docker_zigbee
-
+  - role: local
+    vars:
+      system_hostname: docker
+  - role: lcd
+  - role: docker
+  - role: reboot

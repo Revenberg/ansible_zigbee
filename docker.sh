@@ -65,4 +65,5 @@ cd ~
 cp /home/pi/ansible_zigbee/docker.sh /home/pi/docker.sh
 chmod +x ~/docker.sh
 
+#ansible-playbook  /home/pi/ansible_zigbee/docker-install.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts | tee ~/ansible.log
 ansible-playbook  /home/pi/ansible_zigbee/docker.yml --vault-password-file /home/pi/.pswrd -i /home/pi/ansible/hosts | tee ~/ansible.log
