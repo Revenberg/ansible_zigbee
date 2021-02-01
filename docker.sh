@@ -3,7 +3,7 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     if [ $# -ne 1 ]; then
         echo $0: usage: ./$0  password
         exit 0
-    fi -y
+    fi 
 
     echo $1 > /home/pi/.pswrd
 
