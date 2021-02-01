@@ -3,7 +3,7 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     if [ $# -ne 1 ]; then
         echo $0: usage: ./$0  password
         exit 0
-    fi
+    fi -y
 
     echo $1 > /home/pi/.pswrd
 
@@ -11,21 +11,11 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     sudo apt-get autoremove
 
     sudo apt-get install git -y
-
-    # Install Ansible and Git on the machine.
-    sudo apt-get install git ansible sshpass -y
-    #sudo apt-get install python-pip git python-dev sshpass -y
-    #sudo pip install ansible
-    #sudo pip install markupsafe
-
-    # Configure IP address in "hosts" file. If you have more than one
-    # Raspberry Pi, add more lines and enter details
-
+    sudo apt-get install docker-compose
+   
     mkdir /home/pi/ansible
 
     git clone https://github.com/Revenberg/ansible_zigbee.git 
-
-    ansible-playbook --connection=local /home/pi/ansible_zigbee/changepassword.yml
 fi
 
 mkdir /home/pi/.ssh 2>/dev/null
