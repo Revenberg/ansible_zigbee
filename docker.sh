@@ -13,8 +13,6 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     sudo apt-get install git -y
     sudo apt-get install docker-compose
    
-    mkdir /home/pi/ansible
-
     git clone https://github.com/Revenberg/ansible_zigbee.git 
 fi
 
