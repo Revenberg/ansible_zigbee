@@ -3,6 +3,10 @@ permit_join: true
 mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://172.18.0.1:1883'
+  #user: pi
+  # Optional: MQTT server authentication password (default: nothing)
+  #password: 
+  # Optional: MQTT client ID (default: nothing)
 serial:
   disable_led: true
   port: /dev/ttyACM0
