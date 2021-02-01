@@ -6,6 +6,7 @@ services:
       - TZ=Europe/Amsterdam
     ports:
       - "80:80"    
+    restart: always
   node-red:
     image: nodered/node-red:latest-minimal
     entrypoint: /data/entrypoint.sh
@@ -17,26 +18,29 @@ services:
       - ./data/node-red:/data
     depends_on:
      - mqtt
+    restart: always
   mqtt:
    image: "eclipse-mosquitto"
    environment:
       - TZ=Europe/Amsterdam
    ports:
-    - "1883:1883"
+      - "1883:1883"
    volumes:
-    - ./data/mqtt/config:/mosquitto/config
-    - ./data/mqtt/data:/mosquitto/data
-    - ./data/mqtt/log:/mosquitto/log
+      - ./data/mqtt/config:/mosquitto/config
+      - ./data/mqtt/data:/mosquitto/data
+      - ./data/mqtt/log:/mosquitto/log
+    restart: always
   zigbee:
-   image: koenkk/zigbee2mqtt
-   environment:
+    image: koenkk/zigbee2mqtt
+    environment:
       - TZ=Europe/Amsterdam
-   volumes:
-    - ./data/zigbee:/app/data
-   depends_on:
-     - mqtt
-   devices:
-    - "/dev/ttyACM0:/dev/ttyACM0"
+    volumes:
+      - ./data/zigbee:/app/data
+    depends_on:
+      - mqtt
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+    restart: always
   homeassistant:
     container_name: home-assistant
     image: homeassistant/home-assistant:stable
@@ -45,4 +49,4 @@ services:
     environment:
       - TZ=Europe/Amsterdam
     restart: always
-    network_mode: host
+#    network_mode: host
