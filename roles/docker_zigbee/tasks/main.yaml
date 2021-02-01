@@ -12,6 +12,11 @@
     - "/var/docker-Compose/data/zigbee"
     - "/var/docker-Compose/data/node-red"
 
+- name: copy Docker Config files
+  copy:
+    src: "files/config"
+    dest: "/var/docker-Compose/data"
+
 - name: copy Docker Compose files
   copy:
     src: "{{ item }}"
