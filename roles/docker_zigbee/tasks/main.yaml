@@ -42,7 +42,7 @@
 - name: test
   debug:
     msg: "blabla"
-    
+
 - name: deploy Docker Compose stack
   docker_compose:
     project_src: /var/docker-Compose
@@ -50,4 +50,4 @@
     restarted: true
     files:
     - docker-zigbee.yml
-  become_user : pi
+  
