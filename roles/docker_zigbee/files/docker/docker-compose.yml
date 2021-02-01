@@ -20,12 +20,12 @@ services:
      - mqtt
     restart: always
   mqtt:
-   image: "eclipse-mosquitto"
-   environment:
+    image: "eclipse-mosquitto"
+    environment:
       - TZ=Europe/Amsterdam
-   ports:
+    ports:
       - "1883:1883"
-   volumes:
+    volumes:
       - ./data/mqtt/config:/mosquitto/config
       - ./data/mqtt/data:/mosquitto/data
       - ./data/mqtt/log:/mosquitto/log
