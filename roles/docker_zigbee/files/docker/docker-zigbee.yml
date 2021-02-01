@@ -1,7 +1,7 @@
 version: '3'
 services:
   node-red:
-    image: nodered/node-red:latest
+    image: nodered/node-red:latest-minimal
     environment:
       - TZ=Europe/Amsterdam
     ports:

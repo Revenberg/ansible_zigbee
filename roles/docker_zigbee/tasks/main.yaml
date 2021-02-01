@@ -27,6 +27,10 @@
   with_items:
   - { src: "files/config/mqtt/mosquitto.conf", dest: "/var/docker-Compose/data/mqtt/config/mosquitto.conf" }
   - { src: "files/config/zigbee/configuration.yaml", dest: "/var/docker-Compose/data/zigbee/configuration.yaml" }
+  - { src: "files/config/node-red/settings.js", dest: "/var/docker-Compose/data/settings.js" }
+  - { src: "files/config/node-red/package.json", dest: "/var/docker-Compose/data/package.json" }
+  - { src: "files/config/node-red/flows.json", dest: "/var/docker-Compose/data/flows.json" }
+
 
 # use files parameter to use multiple docker-compose.yml files
 - name: deploy Docker Compose stack
