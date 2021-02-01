@@ -12,17 +12,21 @@ services:
      - mqtt
   mqtt:
    image: "eclipse-mosquitto"
+   environment:
+      - TZ=Europe/Amsterdam
    ports:
-    - "1883:1883"    
+    - "1883:1883"
    volumes:
     - ./data/mqtt/config:/mosquitto/config
     - ./data/mqtt/data:/mosquitto/data
     - ./data/mqtt/log:/mosquitto/log
   zigbee:
-   image: koenkk/zigbee2mqtt    
+   image: koenkk/zigbee2mqtt
+   environment:
+      - TZ=Europe/Amsterdam
    volumes:
     - ./data/zigbee:/app/data
    depends_on:
-     - mqtt     
+     - mqtt
    devices:
     - "/dev/ttyACM0:/dev/ttyACM0"
