@@ -1,5 +1,11 @@
 version: '3'
 services:
+  chromium:
+    image: ./chromium
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - "80:80"    
   node-red:
     image: nodered/node-red:latest-minimal
     entrypoint: /data/entrypoint.sh
