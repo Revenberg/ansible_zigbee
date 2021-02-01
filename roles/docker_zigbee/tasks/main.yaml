@@ -43,6 +43,7 @@
   docker_compose:
     project_src: /var/docker-Compose
     remove_orphans: true
+    restarted: true
     files:
     - docker-zigbee.yml
   become_user : pi
