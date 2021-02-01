@@ -17,7 +17,7 @@
   with_fileglob:
     - "files/docker/*"
 
-- name: copy mosquitto.conf
+- name: copy config files
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -25,7 +25,7 @@
     owner: pi
     group: pi
   with_items:
-  - { src: "files/config/mosquitto.conf", dest: "/var/docker-Compose/data/mqtt/config/mosquitto.conf" }
+  - { src: "files/config/mqtt/mosquitto.conf", dest: "/var/docker-Compose/data/mqtt/config/mosquitto.conf" }
 
 # use files parameter to use multiple docker-compose.yml files
 - name: deploy Docker Compose stack
