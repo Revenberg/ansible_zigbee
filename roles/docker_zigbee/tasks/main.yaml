@@ -12,6 +12,17 @@
     - "/var/docker-Compose/data/zigbee"
     - "/var/docker-Compose/data/node-red"
 
+- name: copy Docker data files
+  copy:
+    src: "{{ item }}"
+    dest: "/var/docker-Compose/data"
+    mode: 0755
+    owner: pi
+    group: pi
+  with_fileglob:
+    - "files/config/*"
+
+
 - name: copy Docker Compose files
   copy:
     src: "{{ item }}"

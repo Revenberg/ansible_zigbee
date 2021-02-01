@@ -2,6 +2,7 @@ version: '3'
 services:
   node-red:
     image: nodered/node-red:latest-minimal
+    entrypoint: ./data/node-red/entrypoint.sh
     environment:
       - TZ=Europe/Amsterdam
     ports:
