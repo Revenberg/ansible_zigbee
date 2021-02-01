@@ -39,11 +39,11 @@
   - { src: "files/data/node-red/flows.json", dest: "/var/docker-Compose/data/node-red/flows.json" }
   - { src: "files/data/node-red/entrypoint.sh", dest: "/var/docker-Compose/data/node-red/entrypoint.sh" }
 
-# use files parameter to use multiple docker-compose.yml files
 - name: deploy Docker Compose stack
   docker_compose:
     project_src: /var/docker-Compose
     remove_orphans: true
     restarted: true
-    files: [ "docker-zigbee.yml" ]
+    files: 
+    - docker-zigbee.yml
   become_user : pi
