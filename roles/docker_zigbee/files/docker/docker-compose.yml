@@ -25,6 +25,7 @@ services:
       - TZ=Europe/Amsterdam
     ports:
       - "1883:1883"
+    user: "1000:1000"
     volumes:
       - ./data/mqtt/config:/mosquitto/config
       - ./data/mqtt/data:/mosquitto/data
