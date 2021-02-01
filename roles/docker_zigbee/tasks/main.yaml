@@ -1,7 +1,4 @@
 ---
-- name: include lcd
-  include_tasks: lcd.yaml
-
 - name: create /var/docker-Compose
   file:
     path: "{{  item }}"
