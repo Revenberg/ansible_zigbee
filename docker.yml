@@ -9,4 +9,5 @@
   - role: docker_local
   - role: docker_lcd
   - role: docker_zigbee
+  - role: docker_chromium
 
