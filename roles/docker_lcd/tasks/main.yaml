@@ -142,3 +142,10 @@
     name: screen.service
     state: started
     enabled: yes    
+
+
+- name: Copy file 99-fbdev.conf
+  copy:
+    src: 99-fbdev.conf
+    dest: /usr/share/X11/xorg.conf.d/99-fbdev.conf
+      
