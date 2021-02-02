@@ -3,9 +3,7 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     if [ $# -ne 1 ]; then
         echo $0: usage: $0  password
         exit 0
-    fi 
-
-    echo $1 > /home/pi/.pswrd
+    fi     
 
     sudo apt-get update
     sudo apt-get autoremove
@@ -14,6 +12,8 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     sudo apt-get install docker-compose -y
     mkdir /home/pi/ansible
     git clone https://github.com/Revenberg/ansible_zigbee.git 
+
+    echo $1 > /home/pi/.pswrd
 fi
 
 mkdir /home/pi/.ssh 2>/dev/null
