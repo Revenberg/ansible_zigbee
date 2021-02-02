@@ -1,4 +1,12 @@
 ---
+- name: current date time
+  debug: 
+    msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
+
+- name: sudo apt-get update
+  shell:
+    cmd: "sudo apt-get update"
+
 - name: install x11
   shell:
     cmd: "curl -sSL https://github.com/hypriot/x11-on-HypriotOS/raw/master/install-x11-basics.sh | bash"

@@ -6,19 +6,12 @@
 - name: Update apt-get cache
   apt: >
     update_cache=yes
-    cache_valid_time=360
-
-- name: Change locale
-  shell: "raspi-config nonint do_change_locale {{ locale }}"
+    cache_valid_time=3600
 
 - name: "set timezone to {{ timezone }}"
   timezone:
     name: "{{ timezone }}"
 
-- name: apt-get clean
-  shell:
-    cmd: "apt-get clean"
-  
 - name: apt-get autoremove -y
   shell:
     cmd: "apt-get autoremove -y"
