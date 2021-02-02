@@ -27,7 +27,7 @@
 
   - name: install x11 2
     apt: 
-      name: [ "policykit-1", "hal-info" ]
+      name: [ "policykit-1" ]
       install_recommends: no
 
   - name: auto logon
@@ -42,7 +42,7 @@
 
   - name: download pre-compiled fbturbo
     get_url:
-      url: =https://github.com/hypriot/x11-on-HypriotOS/raw/master/fbturbo/fbturbo.tar.gz
+      url: https://github.com/hypriot/x11-on-HypriotOS/raw/master/fbturbo/fbturbo.tar.gz
       dest: /tmp
       mode: 0760
 
