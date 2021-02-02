@@ -37,7 +37,7 @@
       state: present  
     with_items:
     - "[SeatDefaults]"
-    - "autologin-user=pirate"
+    - "autologin-user=pi"
     - "autologin-user-timeout=0"
 
   - name: download pre-compiled fbturbo
@@ -57,19 +57,18 @@
       path: "/tmp/fbturbo.tar.gz"
       state: absent
     ignore_errors: yes
-#      creates: "/usr/local/bin/python3.8"
 
-#  - name: install x11
-#    shell:
-#      cmd: "curl -sSL https://github.com/hypriot/x11-on-HypriotOS/raw/master/install-x11-basics.sh | bash"
-#    args:
-#      chdir: /var/tmp
+#  - name: update /etc/lightdm/lightdm.conf
+#    lineinfile:
+#      dest: /etc/lightdm/lightdm.conf
+#      line: "xserver-allow-tcp=true"
+#      state: present  
 
-  - name: update /etc/lightdm/lightdm.conf
-    lineinfile:
-      dest: /etc/lightdm/lightdm.conf
-      line: "xserver-allow-tcp=true"
-      state: present  
+#  - name: update /etc/lightdm/lightdm.conf
+#    lineinfile:
+#      dest: /etc/lightdm/lightdm.conf
+#      line: "allow-tcp=true"
+#      state: present  
 
   - name: update /etc/X11/Xsession.d/36x11-xhost-docker
     lineinfile:
@@ -89,3 +88,52 @@
 
   # runce only once
   when: not p.stat.exists
+
+#- name: install gui applications
+#  apt:
+#    name: [ "xinit", "xfce4", "xfce4-terminal", "lightdm", "xscreensaver"]
+#    install_recommends: yes
+
+- name: Check for lcd-show exists in /opt
+  stat:
+    path: /opt/lcd-show
+  register: p
+
+- name: download LCD-show
+  git:
+    repo: https://github.com/goodtft/LCD-show.git
+    dest: /opt/lcd-show
+    force: yes
+  when: not p.stat.exists
+
+- name: chmod /opt/lcd-show
+  file:
+    path: /opt/lcd-show
+    recurse: yes
+    mode: 0755
+    owner: pi
+    group: pi
+  when: not p.stat.exists
+
+- name: write LightDM configuration
+  become: yes
+  template:
+    src: lightdm.conf.j2
+    dest: '/usr/share/lightdm/lightdm.conf.d/70-ansible.conf'
+    owner: root
+    group: root
+    mode: 'u=rw,go=r'
+
+- name: HDMI output to LCD screen
+  shell:
+    cmd: "./MHS40-show"
+  args:
+    chdir: /opt/lcd-show
+
+- name: HDMI output to LCD screen
+  shell:
+    cmd: "update-rc.d lightdm disable"
+
+- name: dpkg-reconfigure lightdm
+  shell:
+    cmd: "dpkg-reconfigure lightdm"
