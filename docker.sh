@@ -10,7 +10,7 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     sudo apt-get update
     sudo apt-get autoremove
 
-    sudo apt-get install git -y
+    sudo apt-get install git ansible sshpass -y
     sudo apt-get install docker-compose -y
     mkdir /home/pi/ansible
     git clone https://github.com/Revenberg/ansible_zigbee.git 
