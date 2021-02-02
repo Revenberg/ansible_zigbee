@@ -48,9 +48,15 @@
 
   - name: untar
     shell: |
-      tar xvf fbturbo.tar.gz
+      tar xvf fbturbo.tar.gz -C
     args:
       chdir: /tmp
+
+    - name: clean
+      file:
+        path: "/tmp/fbturbo.tar.gz"
+        state: absent
+      ignore_errors: yes
 #      creates: "/usr/local/bin/python3.8"
 
 #  - name: install x11
