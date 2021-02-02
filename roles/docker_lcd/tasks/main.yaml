@@ -14,11 +14,50 @@
     shell:
       cmd: "apt-get update"
 
-  - name: install x11
-    shell:
-      cmd: "curl -sSL https://github.com/hypriot/x11-on-HypriotOS/raw/master/install-x11-basics.sh | bash"
+  - name: update /boot/config.txt
+    lineinfile:
+      dest: /boot/config.txt
+      line: "display_rotate=0"
+      state: present  
+  
+  - name: install x11 1
+    apt: 
+      name: [ "xserver-xorg", "xinit", "xserver-xorg-video-fbdev", "lxde", "lxde-common", "lightdm", "x11-xserver-utils" ]
+      install_recommends: no
+
+  - name: install x11 2
+    apt: 
+      name: [ "policykit-1", "hal-info" ]
+      install_recommends: no
+
+  - name: auto logon
+    lineinfile:
+      dest: /etc/lightdm/lightdm.conf
+      line: "{{ item }}"
+      state: present  
+    with_items:
+    - "[SeatDefaults]"
+    - "autologin-user=pirate"
+    - "autologin-user-timeout=0"
+
+  - name: download pre-compiled fbturbo
+    get_url:
+      url: =https://github.com/hypriot/x11-on-HypriotOS/raw/master/fbturbo/fbturbo.tar.gz
+      dest: /tmp
+      mode: 0760
+
+  - name: untar
+    shell: |
+      tar xvf fbturbo.tar.gz -C rm -f rm -f fbturbo.tar.gz
     args:
-      chdir: /var/tmp
+      chdir: /tmp
+#      creates: "/usr/local/bin/python3.8"
+
+#  - name: install x11
+#    shell:
+#      cmd: "curl -sSL https://github.com/hypriot/x11-on-HypriotOS/raw/master/install-x11-basics.sh | bash"
+#    args:
+#      chdir: /var/tmp
 
   - name: update /etc/lightdm/lightdm.conf
     lineinfile:
@@ -31,7 +70,7 @@
       dest: /etc/X11/Xsession.d/36x11-xhost-docker
       line: "xhost +e"
       state: present  
-      
+
   - name: Touch /var/lcd_installed
     file:
       path: /var/lcd_installed
