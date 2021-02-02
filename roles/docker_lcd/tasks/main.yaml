@@ -30,16 +30,6 @@
       name: [ "policykit-1" ]
       install_recommends: no
 
-  - name: auto logon
-    lineinfile:
-      dest: /etc/lightdm/lightdm.conf
-      line: "{{ item }}"
-      state: present  
-    with_items:
-    - "[SeatDefaults]"
-    - "autologin-user=pi"
-    - "autologin-user-timeout=0"
-
   - name: download pre-compiled fbturbo
     get_url:
       url: https://github.com/hypriot/x11-on-HypriotOS/raw/master/fbturbo/fbturbo.tar.gz
@@ -108,7 +98,7 @@
     become: yes
     template:
       src: lightdm.conf.j2
-      dest: '/usr/share/lightdm/lightdm.conf.d/70-ansible.conf'
+      dest: '/etc/lightdm/lightdm.conf'
       owner: root
       group: root
       mode: 'u=rw,go=r'
@@ -119,7 +109,7 @@
     args:
       chdir: /opt/lcd-show
   when: not p.stat.exists
-
+  
 - name: HDMI output to LCD screen
   shell:
     cmd: "update-rc.d lightdm disable"
@@ -127,3 +117,28 @@
 - name: dpkg-reconfigure lightdm
   shell:
     cmd: "dpkg-reconfigure lightdm"
+
+
+
+
+- name: Copy screen.sh
+  template:
+    src: "screen.sh"
+    dest: "/home/pi/screen.sh"
+    owner: pi
+    group: pi
+    mode: 0644   
+
+- name: Copy screen.service
+  copy:
+    src: "screen.service"
+    dest: "/lib/systemd/system/screen.service"
+    owner: pi
+    group: pi
+    mode: 0644   
+
+- name: screen.service
+  service:
+    name: screen.service
+    state: started
+    enabled: yes    
