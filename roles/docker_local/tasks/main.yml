@@ -8,10 +8,6 @@
     update_cache=yes
     cache_valid_time=360
 
-- name: Update all packages to the latest version
-  apt: > 
-    upgrade=yes
-
 - name: Change locale
   shell: "raspi-config nonint do_change_locale {{ locale }}"
 
