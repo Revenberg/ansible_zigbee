@@ -10,5 +10,6 @@
     vars:
       system_hostname: docker
   - role: lcd
-  - role: docker
+  - role: docker  
+  - roel: docker_chromium
   - role: reboot

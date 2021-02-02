@@ -1,0 +1,34 @@
+---
+- name: install chromium
+  apt: 
+    name: [ "xdotool", "unclutter", "sed", "chromium-browser" ]
+    install_recommends: yes
+
+- name: Copy kiosk_screen.sh
+  template:
+    src: "kiosk_screen.sh"
+    dest: "/home/pi/kiosk_screen.sh"
+    owner: pi
+    group: pi
+    mode: 0644   
+
+- name: Copy kiosk.service
+  copy:
+    src: "kiosk.service"
+    dest: "/lib/systemd/system/kiosk.service"
+    owner: pi
+    group: pi
+    mode: 0644   
+
+- name: kiosk.service
+  service:
+    name: kiosk.service
+    state: started
+    enabled: yes
+
+- name: clean
+  file:
+    path: "/home/pi/.config/chromium/Singleton*"
+    state: absent
+  ignore_errors: yes
+  
