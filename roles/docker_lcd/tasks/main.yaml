@@ -148,4 +148,20 @@
   copy:
     src: 99-fbdev.conf
     dest: /usr/share/X11/xorg.conf.d
-      
+
+- name: Check for /var/lcd_installed1
+  stat:
+    path: /var/lcd_installed1
+  register: p
+
+- name: Execute only once
+  block:
+  - name: Touch /var/lcd_installed1
+    file:
+      path: /var/lcd_installed1
+      state: touch
+      mode: 755
+
+  - name: Reboot
+    shell: reboot    
+  when: not p.stat.exists    
