@@ -1,0 +1,29 @@
+---
+- name: current date time
+  debug: 
+    msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
+
+- name: Update apt-get cache
+  apt: >
+    update_cache=yes
+    cache_valid_time=360
+
+- name: Update all packages to the latest version
+  apt: > 
+    upgrade=yes
+
+- name: Change locale
+  shell: "raspi-config nonint do_change_locale {{ locale }}"
+
+- name: "set timezone to {{ timezone }}"
+  timezone:
+    name: "{{ timezone }}"
+
+- name: apt-get clean
+  shell:
+    cmd: "apt-get clean"
+  
+- name: apt-get autoremove -y
+  shell:
+    cmd: "apt-get autoremove -y"
+  
