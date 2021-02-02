@@ -48,7 +48,7 @@
 
   - name: untar
     shell: |
-      tar xvf fbturbo.tar.gz -C rm -f rm -f fbturbo.tar.gz
+      tar zxf fbturbo.tar.gz -C rm -f fbturbo.tar.gz
     args:
       chdir: /tmp
 #      creates: "/usr/local/bin/python3.8"
