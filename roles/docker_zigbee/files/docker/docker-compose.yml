@@ -17,7 +17,8 @@ services:
     volumes:
       - ./data/node-red:/data
     depends_on:
-     - mqtt
+      - mqtt
+      - zigbee
     restart: always
   mqtt:
     image: "eclipse-mosquitto"
