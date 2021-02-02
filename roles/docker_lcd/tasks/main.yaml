@@ -83,8 +83,8 @@
       state: touch
       mode: 755
 
-  - name: Reboot
-    shell: reboot
+#  - name: Reboot
+#    shell: reboot
 
   # runce only once
   when: not p.stat.exists
