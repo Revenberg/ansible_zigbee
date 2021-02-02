@@ -83,52 +83,42 @@
       state: touch
       mode: 755
 
-#  - name: Reboot
-#    shell: reboot
+  - name: Check for lcd-show exists in /opt
+    stat:
+      path: /opt/lcd-show
+    register: p
 
-  # runce only once
+  - name: download LCD-show
+    git:
+      repo: https://github.com/goodtft/LCD-show.git
+      dest: /opt/lcd-show
+      force: yes
+    when: not p.stat.exists
+
+  - name: chmod /opt/lcd-show
+    file:
+      path: /opt/lcd-show
+      recurse: yes
+      mode: 0755
+      owner: pi
+      group: pi
+    when: not p.stat.exists
+
+  - name: write LightDM configuration
+    become: yes
+    template:
+      src: lightdm.conf.j2
+      dest: '/usr/share/lightdm/lightdm.conf.d/70-ansible.conf'
+      owner: root
+      group: root
+      mode: 'u=rw,go=r'
+
+  - name: HDMI output to LCD screen
+    shell:
+      cmd: "./MHS40-show"
+    args:
+      chdir: /opt/lcd-show
   when: not p.stat.exists
-
-#- name: install gui applications
-#  apt:
-#    name: [ "xinit", "xfce4", "xfce4-terminal", "lightdm", "xscreensaver"]
-#    install_recommends: yes
-
-- name: Check for lcd-show exists in /opt
-  stat:
-    path: /opt/lcd-show
-  register: p
-
-- name: download LCD-show
-  git:
-    repo: https://github.com/goodtft/LCD-show.git
-    dest: /opt/lcd-show
-    force: yes
-  when: not p.stat.exists
-
-- name: chmod /opt/lcd-show
-  file:
-    path: /opt/lcd-show
-    recurse: yes
-    mode: 0755
-    owner: pi
-    group: pi
-  when: not p.stat.exists
-
-- name: write LightDM configuration
-  become: yes
-  template:
-    src: lightdm.conf.j2
-    dest: '/usr/share/lightdm/lightdm.conf.d/70-ansible.conf'
-    owner: root
-    group: root
-    mode: 'u=rw,go=r'
-
-- name: HDMI output to LCD screen
-  shell:
-    cmd: "./MHS40-show"
-  args:
-    chdir: /opt/lcd-show
 
 - name: HDMI output to LCD screen
   shell:
