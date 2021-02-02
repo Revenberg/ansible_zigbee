@@ -3,24 +3,43 @@
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
 
-- name: apt-get update
-  shell:
-    cmd: "apt-get update"
+- name: Check for /var/lcd_installed
+  stat:
+    path: /var/lcd_installed
+  register: p
 
-- name: install x11
-  shell:
-    cmd: "curl -sSL https://github.com/hypriot/x11-on-HypriotOS/raw/master/install-x11-basics.sh | bash"
-  args:
-    chdir: /var/tmp
+- name: Execute only once
+  block:
+  - name: apt-get update
+    shell:
+      cmd: "apt-get update"
 
-- name: update /etc/lightdm/lightdm.conf
-  lineinfile:
-    dest: /etc/lightdm/lightdm.conf
-    line: "xserver-allow-tcp=true"
-    state: present  
+  - name: install x11
+    shell:
+      cmd: "curl -sSL https://github.com/hypriot/x11-on-HypriotOS/raw/master/install-x11-basics.sh | bash"
+    args:
+      chdir: /var/tmp
 
-- name: update /etc/X11/Xsession.d/36x11-xhost-docker
-  lineinfile:
-    dest: /etc/X11/Xsession.d/36x11-xhost-docker
-    line: "xhost +e"
-    state: present  
+  - name: update /etc/lightdm/lightdm.conf
+    lineinfile:
+      dest: /etc/lightdm/lightdm.conf
+      line: "xserver-allow-tcp=true"
+      state: present  
+
+  - name: update /etc/X11/Xsession.d/36x11-xhost-docker
+    lineinfile:
+      dest: /etc/X11/Xsession.d/36x11-xhost-docker
+      line: "xhost +e"
+      state: present  
+      
+  - name: Touch /var/lcd_installed
+    file:
+      path: /var/lcd_installed
+      state: touch
+      mode: 755
+
+  - name: Reboot
+    shell: reboot
+
+  # runce only once
+  when: not p.stat.exists
