@@ -1,12 +1,16 @@
 version: '3'
 services:
-#  chromium:
-#    image: markadams/chromium-xvfb
-#    environment:
-#      - TZ=Europe/Amsterdam
-#    ports:
-#      - "80:80"    
-#    restart: always
+  chromium:
+    image: markadams/chromium-xvfb
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - "80:80"    
+    depends_on:
+      - mqtt
+      - zigbee
+      - node-red
+    restart: always
   node-red:
     image: nodered/node-red:latest-minimal
     entrypoint: /data/entrypoint.sh
