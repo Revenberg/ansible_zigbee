@@ -8,12 +8,12 @@
     path: /var/lcd_installed
   register: p
 
+- name: apt-get update
+  shell:
+    cmd: "apt-get update"
+
 - name: Execute only once
   block:
-  - name: apt-get update
-    shell:
-      cmd: "apt-get update"
-
   - name: update /boot/config.txt
     lineinfile:
       dest: /boot/config.txt
