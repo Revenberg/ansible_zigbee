@@ -10,6 +10,8 @@ services:
       - mqtt
       - zigbee
       - node-red
+    environment:
+      - DISPLAY
     restart: always
   node-red:
     image: nodered/node-red:latest-minimal

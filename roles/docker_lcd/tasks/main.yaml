@@ -165,3 +165,9 @@
   - name: Reboot
     shell: reboot    
   when: not p.stat.exists    
+
+- name: install chromium-browser
+  shell:
+    cmd: "curl -sSL https://github.com/hypriot/x11-on-HypriotOS/raw/master/install-chromium-browser.sh | bash"
+
+  
