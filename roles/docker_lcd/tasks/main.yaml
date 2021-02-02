@@ -76,6 +76,7 @@
       dest: /etc/X11/Xsession.d/36x11-xhost-docker
       line: "xhost +e"
       state: present  
+      create: yes
 
   - name: Touch /var/lcd_installed
     file:
