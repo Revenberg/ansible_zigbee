@@ -3,9 +3,9 @@
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
 
-- name: sudo apt-get update
+- name: apt-get update
   shell:
-    cmd: "sudo apt-get update"
+    cmd: "apt-get update"
 
 - name: install x11
   shell:
