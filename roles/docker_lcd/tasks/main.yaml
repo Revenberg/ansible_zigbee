@@ -86,14 +86,14 @@
   - name: Check for lcd-show exists in /opt
     stat:
       path: /opt/lcd-show
-    register: p
+    register: p1
 
   - name: download LCD-show
     git:
       repo: https://github.com/goodtft/LCD-show.git
       dest: /opt/lcd-show
       force: yes
-    when: not p.stat.exists
+    when: not p1.stat.exists
 
   - name: chmod /opt/lcd-show
     file:
@@ -102,7 +102,7 @@
       mode: 0755
       owner: pi
       group: pi
-    when: not p.stat.exists
+    when: not p1.stat.exists
 
   - name: write LightDM configuration
     become: yes
