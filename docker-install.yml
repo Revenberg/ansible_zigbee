@@ -11,5 +11,5 @@
       system_hostname: docker
   - role: lcd
   - role: docker  
-  - roel: docker_chromium
+  - role: docker_chromium
   - role: reboot
