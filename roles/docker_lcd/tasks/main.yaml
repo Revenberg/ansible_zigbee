@@ -48,7 +48,7 @@
 
   - name: untar
     shell: |
-      tar xvf fbturbo.tar.gz -C
+      tar xvf fbturbo.tar.gz 
     args:
       chdir: /tmp
 
