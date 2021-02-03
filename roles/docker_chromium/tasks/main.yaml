@@ -9,10 +9,10 @@
     install_recommends: yes
 
 - name: update /etc/apt/sources.list
-    lineinfile:
-      dest: /etc/apt/sources.list
-      line: "deb http://ppa.launchpad.net/canonical-chromium-builds/stage/ubuntu vivid main"
-      state: present  
+  lineinfile:
+    dest: /etc/apt/sources.list
+    line: "deb http://ppa.launchpad.net/canonical-chromium-builds/stage/ubuntu vivid main"
+    state: present  
 
 - name: Add an apt key by id from a keyserver
   ansible.builtin.apt_key:
