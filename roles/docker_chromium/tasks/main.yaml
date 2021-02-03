@@ -13,16 +13,17 @@
     cmd: "apt-get update"
 
 - name: get chromium-browser_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
-  shell:
-    cmd: "wget https://launchpad.net/~canonical-chromium-builds/+archive/ubuntu/stage/+build/7916060/+files/chromium-browser_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb"
-  args:
-    chdir: /var/tmp
+  get_url:
+    url: https://launchpad.net/~canonical-chromium-builds/+archive/ubuntu/stage/+build/7916060/+files/chromium-browser_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
+    dest: /var/tmp
+    mode: 0760
+
 
 - name: get chromium-codecs-ffmpeg-extra_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
-  shell:
-    cmd: "wget https://launchpad.net/~canonical-chromium-builds/+archive/ubuntu/stage/+build/7916060/+files/chromium-codecs-ffmpeg-extra_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb"
-  args:
-    chdir: /var/tmp
+  get_url:
+    url: https://launchpad.net/~canonical-chromium-builds/+archive/ubuntu/stage/+build/7916060/+files/chromium-codecs-ffmpeg-extra_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
+    dest: /var/tmp
+    mode: 0760
 
 - name: install chromium-browser 1
   shell:
