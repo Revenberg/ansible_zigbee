@@ -27,7 +27,7 @@
 
 - name: install chromium-browser 1
   shell:
-    cmd: "dpkg -i chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
+    cmd: "dpkg -i /var/tmp/chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb /var/tmp/chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
   args:
     chdir: /var/tmp
   ignore_errors: yes
@@ -38,7 +38,7 @@
 
 - name: install chromium-browser 2
   shell:
-    cmd: "dpkg -i chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
+    cmd: "dpkg -i /var/tmp/chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb /var/tmp/chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
   args:
     chdir: /var/tmp
   ignore_errors: yes
