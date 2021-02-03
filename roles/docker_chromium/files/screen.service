@@ -4,10 +4,10 @@ Wants=graphical.target
 After=graphical.target
 
 [Service]
-Environment=DISPLAY=:0.0
+Environment=DISPLAY
 Environment=XAUTHORITY=/home/pi/.Xauthority
 Type=simple
-ExecStart=/bin/bash /home/pi/kiosk_screen.sh
+ExecStart=/bin/bash /home/pi/screen.sh
 Restart=on-abort
 User=pi
 Group=pi

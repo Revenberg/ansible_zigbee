@@ -1,10 +1,7 @@
 #!/bin/bash
-<<<<<<< HEAD
-=======
 @xset s noblank
 @xset s off
 @xset -dpms
->>>>>>> b5a54d0c7d21a3e5ea63e4ac238ef4b4a28a44e5
 
 #unclutter -idle 0.5 -root &
 

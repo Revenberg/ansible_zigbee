@@ -4,25 +4,25 @@
     name: [ "xdotool", "unclutter", "sed", "chromium-browser" ]
     install_recommends: yes
 
-- name: Copy kiosk_screen.sh
+- name: Copy screen.sh
   template:
-    src: "kiosk_screen.sh"
-    dest: "/home/pi/kiosk_screen.sh"
+    src: "screen.sh"
+    dest: "/home/pi/screen.sh"
     owner: pi
     group: pi
     mode: 0644   
 
-- name: Copy kiosk.service
+- name: Copy screen.service
   copy:
-    src: "kiosk.service"
-    dest: "/lib/systemd/system/kiosk.service"
+    src: "screen.service"
+    dest: "/lib/systemd/system/screen.service"
     owner: pi
     group: pi
     mode: 0644   
 
-- name: kiosk.service
+- name: screen.service
   service:
-    name: kiosk.service
+    name: screen.service
     state: started
     enabled: yes
 
