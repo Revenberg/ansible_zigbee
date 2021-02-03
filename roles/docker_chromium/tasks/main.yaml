@@ -8,22 +8,26 @@
     name: [ "xdotool", "unclutter", "sed" ]
     install_recommends: yes
 
+- name: update /etc/apt/sources.list
+    lineinfile:
+      dest: /etc/apt/sources.list
+      line: "deb http://ppa.launchpad.net/canonical-chromium-builds/stage/ubuntu vivid main"
+      state: present  
+
+- name: Add an apt key by id from a keyserver
+  ansible.builtin.apt_key:
+    keyserver:  keyserver.ubuntu.com
+    id: DB69B232436DAC4B50BDC59E4E1B983C5B393194
+
 - name: apt-get update
   shell:
     cmd: "apt-get update"
 
-- name: get chromium-browser_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
-  apt:
-    deb: [ "https://launchpad.net/~canonical-chromium-builds/+archive/ubuntu/stage/+build/7916060/+files/chromium-browser_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb",
-         "https://launchpad.net/~canonical-chromium-builds/+archive/ubuntu/stage/+build/7916060/+files/chromium-codecs-ffmpeg-extra_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb" ]
+- name: install pre chromium
+  apt: 
+    name: [ "chromium-browser" ]
     install_recommends: yes
 
-#    ignore_errors: yes
-  
-#- name: apt-get update 2
-#  shell:
-#    cmd: "apt-get install -f -y"
-  
 - name: Copy screen.sh
   template:
     src: "screen.sh"
