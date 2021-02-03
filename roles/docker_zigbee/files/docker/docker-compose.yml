@@ -1,6 +1,26 @@
 version: '3'
 services:  
-  node-red:
+  weba:
+    image: hypriot/rpi-node:0.12.0
+    volumes:
+    - ./data/webserver/weba:/src
+    expose:
+      - 80:80
+    command: sh -c "npm install && node index.js"
+
+  haproxy:
+    image: hypriot/rpi-haproxy
+    volumes:
+    - ./haproxy:/haproxy
+    links:
+    - weba
+    ports:
+    - "80:80"
+    - "70:70"
+    expose:
+    - "80"
+    - "70"
+node-red:
     image: nodered/node-red:latest-minimal
     entrypoint: /data/entrypoint.sh
     environment:
