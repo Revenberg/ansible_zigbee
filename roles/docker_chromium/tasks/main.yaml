@@ -28,25 +28,25 @@
     name: [ "chromium-browser" ]
     install_recommends: yes
 
-- name: Copy screen.sh
-  template:
-    src: "screen.sh"
-    dest: "/home/pi/screen.sh"
-    owner: pi
-    group: pi
-    mode: 0644   
-
-- name: Copy screen.service
+- name: Copy myscreen.sh
   copy:
-    src: "screen.service"
-    dest: "/lib/systemd/system/screen.service"
+    src: "myscreen.sh"
+    dest: "/home/pi/myscreen.sh"
     owner: pi
     group: pi
     mode: 0644   
 
-- name: screen.service
+- name: Copy myscreen.service
+  copy:
+    src: "myscreen.service"
+    dest: "/lib/systemd/system/myscreen.service"
+    owner: pi
+    group: pi
+    mode: 0644   
+
+- name: myscreen.service
   service:
-    name: screen.service
+    name: myscreen.service
     state: started
     enabled: yes
  

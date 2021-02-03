@@ -7,7 +7,7 @@ After=graphical.target
 Environment=DISPLAY=:0.0
 Environment=XAUTHORITY=/home/pi/.Xauthority
 Type=simple
-ExecStart=/bin/bash /home/pi/screen.sh
+ExecStart=/bin/bash /home/pi/myscreen.sh
 Restart=on-abort
 User=pi
 Group=pi
