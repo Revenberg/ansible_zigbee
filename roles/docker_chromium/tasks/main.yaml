@@ -30,11 +30,13 @@
     cmd: "dpkg -i /var/tmp/chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb /var/tmp/chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
   args:
     chdir: /var/tmp
+  become: root
   ignore_errors: yes
 
 - name: apt-get update 1
   shell:
     cmd: "apt-get install -f -y"
+  become: root
 
 - name: install chromium-browser 2
   shell:
@@ -42,11 +44,12 @@
   args:
     chdir: /var/tmp
   ignore_errors: yes
+  become: root
 
 - name: apt-get update 2
   shell:
     cmd: "apt-get install -f -y"
-
+  become: root
 
 #- name: Copy screen.sh
 #  template:
