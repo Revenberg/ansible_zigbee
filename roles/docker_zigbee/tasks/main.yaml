@@ -44,3 +44,4 @@
     cmd: "docker-compose up -d"
   args:
     chdir:  /var/docker-Compose
+  become: pi
