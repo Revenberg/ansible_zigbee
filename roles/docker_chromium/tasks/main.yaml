@@ -15,28 +15,36 @@
 - name: get chromium-browser_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
   shell:
     cmd: "wget https://launchpad.net/~canonical-chromium-builds/+archive/ubuntu/stage/+build/7916060/+files/chromium-browser_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb"
+  args:
+    chdir: /var/tmp
 
 - name: get chromium-codecs-ffmpeg-extra_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
   shell:
     cmd: "wget https://launchpad.net/~canonical-chromium-builds/+archive/ubuntu/stage/+build/7916060/+files/chromium-codecs-ffmpeg-extra_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb"
+  args:
+    chdir: /var/tmp
 
 - name: install chromium-browser 1
   shell:
-    cmd: "sudo dpkg -i chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
+    cmd: "dpkg -i chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
+  args:
+    chdir: /var/tmp
   ignore_errors: yes
 
 - name: apt-get update 1
   shell:
-    cmd: "sudo apt-get install -f -y"
+    cmd: "apt-get install -f -y"
 
 - name: install chromium-browser 2
   shell:
-    cmd: "sudo dpkg -i chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
+    cmd: "dpkg -i chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
+  args:
+    chdir: /var/tmp
   ignore_errors: yes
-  
+
 - name: apt-get update 2
   shell:
-    cmd: "sudo apt-get install -f -y"
+    cmd: "apt-get install -f -y"
 
 
 #- name: Copy screen.sh
