@@ -1,34 +1,65 @@
 ---
-- name: install chromium
+- name: current date time
+  debug: 
+    msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
+
+- name: install pre chromium
   apt: 
-    name: [ "xdotool", "unclutter", "sed", "chromium-browser" ]
+    name: [ "xdotool", "unclutter", "sed" ]
     install_recommends: yes
 
-- name: Copy screen.sh
-  template:
-    src: "screen.sh"
-    dest: "/home/pi/screen.sh"
-    owner: pi
-    group: pi
-    mode: 0644   
+- name: apt-get update
+  shell:
+    cmd: "apt-get update"
 
-- name: Copy screen.service
-  copy:
-    src: "screen.service"
-    dest: "/lib/systemd/system/screen.service"
-    owner: pi
-    group: pi
-    mode: 0644   
+- name: get chromium-browser_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
+  shell:
+    cmd: "wget https://launchpad.net/~canonical-chromium-builds/+archive/ubuntu/stage/+build/7916060/+files/chromium-browser_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb"
 
-- name: screen.service
-  service:
-    name: screen.service
-    state: started
-    enabled: yes
+- name: get chromium-codecs-ffmpeg-extra_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb
+  shell:
+    cmd: "wget https://launchpad.net/~canonical-chromium-builds/+archive/ubuntu/stage/+build/7916060/+files/chromium-codecs-ffmpeg-extra_45.0.2454.85-0ubuntu0.15.04.1.1181_armhf.deb"
 
-- name: clean
-  file:
-    path: "/home/pi/.config/chromium/Singleton*"
-    state: absent
+- name: install chromium-browser 1
+  shell:
+    cmd: "sudo dpkg -i chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
   ignore_errors: yes
+
+- name: apt-get update 1
+  shell:
+    cmd: "sudo apt-get install -f -y"
+
+- name: install chromium-browser 2
+  shell:
+    cmd: "sudo dpkg -i chromium-codecs-ffmpeg-extra_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb chromium-browser_45.0.2454.85–0ubuntu0.15.04.1.1181_armhf.deb"
+  ignore_errors: yes
+  
+- name: apt-get update 2
+  shell:
+    cmd: "sudo apt-get install -f -y"
+
+
+#- name: Copy screen.sh
+#  template:
+#    src: "screen.sh"
+#    dest: "/home/pi/screen.sh"
+#    owner: pi
+#    group: pi
+#    mode: 0644   
+
+#- name: Copy screen.service
+#  copy:
+#    src: "screen.service"
+#    dest: "/lib/systemd/system/screen.service"
+#    owner: pi
+#    group: pi
+#    mode: 0644   
+
+#- name: screen.service
+#  service:
+#    name: screen.service
+#    state: started
+#    enabled: yes
+
+
   
