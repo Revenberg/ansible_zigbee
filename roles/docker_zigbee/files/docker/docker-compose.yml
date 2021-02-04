@@ -1,41 +1,17 @@
 version: '3'
 services:  
-  weba:
-    image: hypriot/rpi-node
-    volumes:
-      - ./data/webserver/weba:/data
+  web:
+    image: amble/nodemonjs7-pi
+    container_name: nodemonjs7-app
     expose:
-      - 80
-    command: sh -c "npm install && node index.js"
-  webb:
-    image: hypriot/rpi-node
-    volumes:
-      - ./data/webserver/weba:/data
-    expose:
-      - 80
-    command: sh -c "npm install && node index.js"
-  webc:
-    image: hypriot/rpi-node
-    volumes:
-      - ./data/webserver/weba:/data
-    expose:
-      - 80
-    command: sh -c "npm install && node index.js"
-
-  haproxy:
-    image: hypriot/rpi-haproxy
-    volumes:
-    - ./data/haproxy:/haproxy
-    links:
-    - weba
-    - webb
-    - webc
+      - "8080"
     ports:
-    - "80:80"
-    - "70:70"
-    expose:
-    - "80"
-    - "70"
+      - "8080:8080"
+    volumes:
+      - .:/src
+    command:
+      nodemon index.js
+
   node-red:
     image: nodered/node-red:latest-minimal
     entrypoint: /data/entrypoint.sh
