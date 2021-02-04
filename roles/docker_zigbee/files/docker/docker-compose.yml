@@ -11,7 +11,7 @@ services:
   haproxy:
     image: hypriot/rpi-haproxy
     volumes:
-    - ./haproxy:/haproxy
+    - ./data/haproxy:/haproxy
     links:
     - weba
     ports:
