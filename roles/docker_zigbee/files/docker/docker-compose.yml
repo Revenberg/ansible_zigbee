@@ -34,17 +34,20 @@ services:
       - zigbee
     restart: always
   mqtt:
-    image: "eclipse-mosquitto"
+    image: "eclipse-mosquitto:latest"
     environment:
       - TZ=Europe/Amsterdam
+      - "MQTT_BROKER_URL=mqtt://mosquitto"
     ports:
       - "1883:1883"
+      - "9001:9001"
     user: "1000:1000"
     volumes:
       - ./data/mqtt/config:/mosquitto/config
       - ./data/mqtt/data:/mosquitto/data
       - ./data/mqtt/log:/mosquitto/log
     restart: always
+    
   zigbee:
     image: koenkk/zigbee2mqtt
     environment:
