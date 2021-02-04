@@ -13,6 +13,7 @@ serial:
   baudrate: 115200
   rtscts: false
 advanced:
+  log_level: debug
   log_rotation: true
   network_key:
     - 247
