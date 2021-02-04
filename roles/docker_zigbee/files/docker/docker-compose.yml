@@ -1,25 +1,25 @@
 version: '3'
 services:  
-  weba:
-    image: hypriot/rpi-node:0.12.0
-    volumes:
-    - ./data/webserver/weba:/data
-    ports:
-      - 8080:80
-    command: sh -c "npm install && node index.js"
+#  weba:
+#    image: hypriot/rpi-node:0.12.0
+#    volumes:
+#    - ./data/webserver/weba:/data
+#    ports:
+#      - 8080:80
+#    command: sh -c "npm install && node index.js"
 
-  haproxy:
-    image: hypriot/rpi-haproxy
-    volumes:
-    - ./data/haproxy:/haproxy
-    links:
-    - weba
-    ports:
-    - "80:80"
-    - "70:70"
-    expose:
-    - "80"
-    - "70"
+#  haproxy:
+#    image: hypriot/rpi-haproxy
+#    volumes:
+#    - ./data/haproxy:/haproxy
+#    links:
+#    - weba
+#    ports:
+#    - "80:80"
+#    - "70:70"
+#    expose:
+#    - "80"
+#    - "70"
   node-red:
     image: nodered/node-red:latest-minimal
     entrypoint: /data/entrypoint.sh
@@ -58,12 +58,11 @@ services:
     network_mode: host
     privileged: true
     restart: always
-  homeassistant:
-    container_name: home-assistant
-    image: homeassistant/home-assistant:stable
-    volumes:
-      - ./data/home-assistant:/config
-    environment:
-      - TZ=Europe/Amsterdam
-    restart: always
+#  homeassistant:
+#    container_name: home-assistant
+#    image: homeassistant/home-assistant:stable
+#    volumes:
+#      - ./data/home-assistant:/config
+#    environment:
+#      - TZ=Europe/Amsterdam
 #    network_mode: host
