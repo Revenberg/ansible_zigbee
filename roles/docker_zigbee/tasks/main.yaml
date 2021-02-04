@@ -17,8 +17,7 @@
     - "/var/docker-compose/data/zigbee"
     - "/var/docker-compose/data/node-red"
     - "/var/docker-compose/data/home-assistant"
-    - "/var/docker-compose/data/haproxy"
-    - "/var/docker-compose/data/webserver/weba"
+    - "/var/docker-compose/data/web"
 
 - name: copy Docker Compose files
   copy:
@@ -45,8 +44,8 @@
   - { src: "files/data/node-red/package.json", dest: "/var/docker-compose/data/node-red/package.json" }
   - { src: "files/data/node-red/flows.json", dest: "/var/docker-compose/data/node-red/flows.json" }
   - { src: "files/data/node-red/entrypoint.sh", dest: "/var/docker-compose/data/node-red/entrypoint.sh" }
-  - { src: "files/data/webserver/weba/index.js", dest: "/var/docker-compose/data/webserver/weba/index.js" }
-  - { src: "files/data/webserver/weba/package.json", dest: "/var/docker-compose/data/webserver/weba/package.json" }
+  - { src: "files/data/web/index.js", dest: "/var/docker-compose/data/web/index.js" }
+  - { src: "files/data/web/package.json", dest: "/var/docker-compose/data/web/package.json" }
 
 - name: deploy Docker Compose stack
   shell:
