@@ -1,5 +1,5 @@
 ---
-- name: rempve /var/docker-compose
+- name: remove /var/docker-compose
   file:
     path: "/var/docker-compose"
     state: absent
