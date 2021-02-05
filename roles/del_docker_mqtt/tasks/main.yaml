@@ -23,6 +23,9 @@
 - name: deploy Docker Compose stack
   docker_compose:
     project_src: /var/docker-compose
+    build : yes
+    remove_orphans: yes
+    restarted : yes
     files:
     - docker-compose.yml
     
