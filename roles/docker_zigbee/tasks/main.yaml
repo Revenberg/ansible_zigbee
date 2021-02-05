@@ -18,7 +18,8 @@
     - "/var/docker-compose/data/node-red"
     - "/var/docker-compose/data/home-assistant"
     - "/var/docker-compose/data/nginx/html"
-
+    - "/var/docker-compose/data/nginx/sites-enabled"
+    
 - name: copy Docker Compose files
   copy:
     src: "{{ item }}"
