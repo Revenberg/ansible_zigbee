@@ -3,9 +3,17 @@
   debug: 
     msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
 
-- name: Check for /var/lcd_installed
+- name: create /var/progress/
+  file:
+    path: /var/progress/
+    recurse: yes
+    mode: 0755
+    owner: pi
+    group: pi
+
+- name: Check for /var/progress/lcd_installed
   stat:
-    path: /var/lcd_installed
+    path: /var/progress/lcd_installed
   register: p
 
 - name: apt-get update
@@ -67,9 +75,9 @@
       state: present  
       create: yes
 
-  - name: Touch /var/lcd_installed
+  - name: Touch /var/progress/lcd_installed
     file:
-      path: /var/lcd_installed
+      path: /var/progress/lcd_installed
       state: touch
       mode: 755
 
@@ -118,9 +126,6 @@
   shell:
     cmd: "dpkg-reconfigure lightdm"
 
-
-
-
 #- name: Copy screen.sh
 #  template:
 #    src: "screen.sh"
@@ -149,16 +154,16 @@
     src: 99-fbdev.conf
     dest: /usr/share/X11/xorg.conf.d
 
-- name: Check for /var/lcd_installed1
+- name: Check for //var/progress/cd_installed1
   stat:
-    path: /var/lcd_installed1
+    path: /var/progress/lcd_installed1
   register: p
 
 - name: Execute only once
   block:
-  - name: Touch /var/lcd_installed1
+  - name: Touch /var/progress/lcd_installed1
     file:
-      path: /var/lcd_installed1
+      path: /var/progress/lcd_installed1
       state: touch
       mode: 755
 

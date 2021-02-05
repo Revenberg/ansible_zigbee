@@ -1,16 +1,11 @@
 version: '3'
 services:  
-  web:
-    image: amble/nodemonjs7-pi
-    container_name: nodemonjs7-app
-    expose:
-      - "8080"
+  nginx:
+    image: nginx
     ports:
-      - "8080:8080"
+      - 8000:80
     volumes:
-      - .:/src
-    command:
-      nodemon index.js
+      - ./data/nginx/html:/usr/share/nginx/html
 
   node-red:
     image: nodered/node-red:latest-minimal
