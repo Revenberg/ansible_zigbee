@@ -45,6 +45,7 @@
   - { src: "files/data/node-red/flows.json", dest: "/var/docker-compose/data/node-red/flows.json" }
   - { src: "files/data/node-red/entrypoint.sh", dest: "/var/docker-compose/data/node-red/entrypoint.sh" }
   - { src: "files/data/nginx/html/index.html", dest: "/var/docker-compose/data/nginx/html/index.html" }
+  - { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
   
 - name: deploy Docker Compose stack
   shell:

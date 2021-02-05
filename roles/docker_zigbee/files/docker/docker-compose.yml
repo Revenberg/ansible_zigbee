@@ -3,9 +3,9 @@ services:
   nginx:
     image: nginx
     ports:
-      - 8000:80
+      - 80:80
     volumes:
-      - ./data/nginx/html:/usr/share/nginx/html
+      - ./data/nginx:/usr/share/nginx
 
   node-red:
     image: nodered/node-red:latest-minimal
