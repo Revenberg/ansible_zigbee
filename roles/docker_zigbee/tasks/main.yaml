@@ -1,9 +1,4 @@
----
-- name: remove /var/docker-compose
-  file:
-    path: "/var/docker-compose"
-    state: absent
-  
+--- 
 - name: create /var/docker-compose
   file:
     path: "{{  item }}"
@@ -19,7 +14,7 @@
     - "/var/docker-compose/data/home-assistant"
     - "/var/docker-compose/data/nginx/html"
     - "/var/docker-compose/data/nginx/sites-enabled"
-    
+
 - name: copy Docker Compose files
   copy:
     src: "{{ item }}"
