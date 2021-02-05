@@ -6,6 +6,7 @@ services:
       - 80:80
     volumes:
       - ./data/nginx:/usr/share/nginx
+    network_mode: host
   node-red:
     image: nodered/node-red
     entrypoint: /data/entrypoint.sh
@@ -19,6 +20,7 @@ services:
       - mqtt
       - zigbee
     restart: always
+    network_mode: host
   mqtt:
     image: "eclipse-mosquitto:latest"
     environment:
