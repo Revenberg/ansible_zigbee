@@ -6,9 +6,8 @@ services:
       - 80:80
     volumes:
       - ./data/nginx:/usr/share/nginx
-
   node-red:
-    image: nodered/node-red:latest-minimal
+    image: nodered/node-red
     entrypoint: /data/entrypoint.sh
     environment:
       - TZ=Europe/Amsterdam
