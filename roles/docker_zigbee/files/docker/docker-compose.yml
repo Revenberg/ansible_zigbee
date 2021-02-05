@@ -50,11 +50,11 @@ services:
     network_mode: host
     privileged: true
     restart: always
-#  homeassistant:
-#    container_name: home-assistant
-#    image: homeassistant/home-assistant:stable
-#    volumes:
-#      - ./data/home-assistant:/config
-#    environment:
-#      - TZ=Europe/Amsterdam
-#    network_mode: host
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/home-assistant:stable
+    volumes:
+      - ./data/home-assistant:/config
+    environment:
+      - TZ=Europe/Amsterdam
+    network_mode: host
