@@ -52,7 +52,7 @@ services:
     privileged: true
     restart: always
   postgres:
-    container_name: postgres-ha
+    container_name: postgres
     image: postgres
     ports:
       - "5432:5432"
@@ -62,7 +62,7 @@ services:
       resources:
         limits:
           memory: 250M
-  homeassistant:
+  home-assistant:
     container_name: home-assistant
     restart: always
     ports: 
