@@ -14,6 +14,8 @@
     - "/var/docker-compose/data/home-assistant"
     - "/var/docker-compose/data/nginx/html"
     - "/var/docker-compose/data/nginx/sites-enabled"
+    - "/var/docker-compose/data/postgres"
+    - "/var/docker-compose/data/home-assistant"
 
 - name: copy Docker Compose files
   copy:
@@ -42,6 +44,8 @@
   - { src: "files/data/node-red/entrypoint.sh", dest: "/var/docker-compose/data/node-red/entrypoint.sh" }
   - { src: "files/data/nginx/html/index.html", dest: "/var/docker-compose/data/nginx/html/index.html" }
   - { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
+  - { src: "files/data/postgres/.env", dest: "/var/docker-compose/data/postgres/.env" }
+  - { src: "files/data/home-assistant/configuration.yaml", dest: "/var/docker-compose/data/home-assistant/configuration.yaml" }
   
 - name: deploy Docker Compose stack
   shell:

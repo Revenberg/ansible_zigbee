@@ -2,6 +2,7 @@ version: '3'
 services:  
   nginx:
     image: nginx
+    restart: always
     ports:
       - 80:80
     volumes:
@@ -27,8 +28,8 @@ services:
       - TZ=Europe/Amsterdam
       - "MQTT_BROKER_URL=mqtt://127.0.0.1"
     ports:
-      - "1883:1883"
-      - "9001:9001"
+      - 1883:1883
+      - 9001:9001
     user: "1000:1000"
     volumes:
       - ./data/mqtt/config:/mosquitto/config
@@ -50,8 +51,22 @@ services:
     network_mode: host
     privileged: true
     restart: always
-  homeassistant:
+  postgres:
+    container_name: postgres
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres/:/var/lib/postgresql/data/
+    deploy:
+      resources:
+        limits:
+          memory: 250M
+  home-assistant:
     container_name: home-assistant
+    restart: always
+    ports: 
+    - 8123:8123
     image: homeassistant/home-assistant:stable
     volumes:
       - ./data/home-assistant:/config
