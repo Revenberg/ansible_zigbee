@@ -374,7 +374,7 @@
         "name": "Group 1",
         "tab": "4492a511.4d15cc",
         "order": 1,
-        "disp": true,
+        "disp": false,
         "width": "6",
         "collapse": false
     },
@@ -384,7 +384,7 @@
         "name": "Group 2",
         "tab": "4492a511.4d15cc",
         "order": 2,
-        "disp": true,
+        "disp": false,
         "width": "6",
         "collapse": false
     },
@@ -394,7 +394,7 @@
         "name": "Groep 3",
         "tab": "4492a511.4d15cc",
         "order": 3,
-        "disp": true,
+        "disp": false,
         "width": "6",
         "collapse": false
     },
@@ -404,7 +404,7 @@
         "name": "Groep 4",
         "tab": "4492a511.4d15cc",
         "order": 4,
-        "disp": true,
+        "disp": false,
         "width": "6",
         "collapse": false
     },
@@ -414,7 +414,7 @@
         "name": "Groep 5",
         "tab": "4492a511.4d15cc",
         "order": 5,
-        "disp": true,
+        "disp": false,
         "width": "6",
         "collapse": false
     },
@@ -7655,97 +7655,6 @@
         "payloadType": "json",
         "topic": "",
         "x": 120,
-        "y": 100,
-        "wires": [
-            [
-                "607c3a96.4cec04"
-            ]
-        ]
-    },
-    {
-        "id": "d6938c7f.3369",
-        "type": "ui_colour_picker",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Color Groep 1",
-        "label": "Color Groep 1",
-        "group": "fd8a5c66.51244",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 120,
-        "y": 140,
-        "wires": [
-            [
-                "228dc23c.765c5e"
-            ]
-        ]
-    },
-    {
-        "id": "3766f158.d799ee",
-        "type": "ui_slider",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Brightness Groep 1",
-        "label": "Brightness Groep 1",
-        "tooltip": "",
-        "group": "5b148da4.232e64",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "",
-        "min": 0,
-        "max": "255",
-        "step": 1,
-        "x": 130,
-        "y": 180,
-        "wires": [
-            [
-                "82759d4.9c80a6"
-            ]
-        ]
-    },
-    {
-        "id": "82759d4.9c80a6",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 180,
-        "wires": [
-            [
-                "607c3a96.4cec04"
-            ]
-        ]
-    },
-    {
-        "id": "228dc23c.765c5e",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
         "y": 140,
         "wires": [
             [
@@ -7803,97 +7712,6 @@
         "payloadType": "json",
         "topic": "",
         "x": 120,
-        "y": 300,
-        "wires": [
-            [
-                "42ca6a84.cbbe74"
-            ]
-        ]
-    },
-    {
-        "id": "97844e2c.a2751",
-        "type": "ui_colour_picker",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Color Groep 1",
-        "label": "Color Groep 2",
-        "group": "476cb6e8.7ef1b8",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 120,
-        "y": 340,
-        "wires": [
-            [
-                "c7c771d1.50f84"
-            ]
-        ]
-    },
-    {
-        "id": "e84166ee.6a7c08",
-        "type": "ui_slider",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Brightness Groep 2",
-        "label": "Brightness Groep 2",
-        "tooltip": "",
-        "group": "5b148da4.232e64",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "",
-        "min": 0,
-        "max": "255",
-        "step": 1,
-        "x": 130,
-        "y": 380,
-        "wires": [
-            [
-                "c70a5f71.d7867"
-            ]
-        ]
-    },
-    {
-        "id": "c70a5f71.d7867",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 380,
-        "wires": [
-            [
-                "42ca6a84.cbbe74"
-            ]
-        ]
-    },
-    {
-        "id": "c7c771d1.50f84",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
         "y": 340,
         "wires": [
             [
@@ -7951,97 +7769,6 @@
         "payloadType": "json",
         "topic": "",
         "x": 120,
-        "y": 500,
-        "wires": [
-            [
-                "7ef20591.6171bc"
-            ]
-        ]
-    },
-    {
-        "id": "fb4ebd68.ffdf7",
-        "type": "ui_colour_picker",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Color Groep 3",
-        "label": "Color Groep 3",
-        "group": "615f2632.e1a968",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 120,
-        "y": 540,
-        "wires": [
-            [
-                "6c109311.a168cc"
-            ]
-        ]
-    },
-    {
-        "id": "3e04a1e6.df8bae",
-        "type": "ui_slider",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Brightness Groep 3",
-        "label": "Brightness Groep 3",
-        "tooltip": "",
-        "group": "615f2632.e1a968",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "",
-        "min": 0,
-        "max": "255",
-        "step": 1,
-        "x": 130,
-        "y": 580,
-        "wires": [
-            [
-                "da92fc3f.d6713"
-            ]
-        ]
-    },
-    {
-        "id": "da92fc3f.d6713",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 580,
-        "wires": [
-            [
-                "7ef20591.6171bc"
-            ]
-        ]
-    },
-    {
-        "id": "6c109311.a168cc",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
         "y": 540,
         "wires": [
             [
@@ -8099,97 +7826,6 @@
         "payloadType": "json",
         "topic": "",
         "x": 120,
-        "y": 700,
-        "wires": [
-            [
-                "58e7bb8a.2160a4"
-            ]
-        ]
-    },
-    {
-        "id": "c9672635.62df78",
-        "type": "ui_colour_picker",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Color Groep 1",
-        "label": "Color Groep 4",
-        "group": "8ae5d911.8092a8",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 120,
-        "y": 740,
-        "wires": [
-            [
-                "9ff876.880c1788"
-            ]
-        ]
-    },
-    {
-        "id": "a69e9a96.76ff68",
-        "type": "ui_slider",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Brightness Groep 1",
-        "label": "Brightness Groep 4",
-        "tooltip": "",
-        "group": "5b148da4.232e64",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "",
-        "min": 0,
-        "max": "255",
-        "step": 1,
-        "x": 130,
-        "y": 780,
-        "wires": [
-            [
-                "9cc529e6.dc7ff8"
-            ]
-        ]
-    },
-    {
-        "id": "9cc529e6.dc7ff8",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 780,
-        "wires": [
-            [
-                "58e7bb8a.2160a4"
-            ]
-        ]
-    },
-    {
-        "id": "9ff876.880c1788",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
         "y": 740,
         "wires": [
             [
@@ -8247,97 +7883,6 @@
         "payloadType": "json",
         "topic": "",
         "x": 120,
-        "y": 900,
-        "wires": [
-            [
-                "30aed0a9.ef16c"
-            ]
-        ]
-    },
-    {
-        "id": "a24ab308.d068f",
-        "type": "ui_colour_picker",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Color Groep 5",
-        "label": "Color Groep 5",
-        "group": "782cc8a3.de1238",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 120,
-        "y": 940,
-        "wires": [
-            [
-                "1ad202f7.ffbe1d"
-            ]
-        ]
-    },
-    {
-        "id": "c70ac916.ceeb08",
-        "type": "ui_slider",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Brightness Groep 5",
-        "label": "Brightness Groep 5",
-        "tooltip": "",
-        "group": "782cc8a3.de1238",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "",
-        "min": 0,
-        "max": "255",
-        "step": 1,
-        "x": 130,
-        "y": 980,
-        "wires": [
-            [
-                "cdaa1152.0709a"
-            ]
-        ]
-    },
-    {
-        "id": "cdaa1152.0709a",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 980,
-        "wires": [
-            [
-                "30aed0a9.ef16c"
-            ]
-        ]
-    },
-    {
-        "id": "1ad202f7.ffbe1d",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
         "y": 940,
         "wires": [
             [
