@@ -51,7 +51,7 @@
 
 - name: download weather-icons
   unarchive:
-    src: weather-icons-master.zip
+    src: "files/data/node-red/weather-icons-master.zip"
     dest: /var/docker-compose/data/node-red/
     mode: 0755
     owner: pi
