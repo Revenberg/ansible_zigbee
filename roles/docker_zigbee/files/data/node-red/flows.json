@@ -35,9 +35,9 @@
         "info": ""
     },
     {
-        "id": "d66f1518.a9bb88",
+        "id": "5f633a28.607134",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "OWM Landscape",
         "disabled": false,
         "info": ""
     },
@@ -428,7 +428,7 @@
     {
         "id": "e66edfe2.ea332",
         "type": "ui_group",
-        "name": "Demo",
+        "name": "Schuur",
         "tab": "465038ed.e7bb88",
         "order": 1,
         "disp": true,
@@ -438,7 +438,7 @@
     {
         "id": "465038ed.e7bb88",
         "type": "ui_tab",
-        "name": "Demo",
+        "name": "Schuur",
         "icon": "home",
         "order": "1"
     },
@@ -515,6 +515,25 @@
         "name": "Wetterstation",
         "icon": "fa-thermometer-half",
         "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "70fb931.dfc146c",
+        "type": "ui_group",
+        "name": "MainGroup",
+        "tab": "4bb34f67.69a87",
+        "order": 1,
+        "disp": false,
+        "width": 10,
+        "collapse": false
+    },
+    {
+        "id": "4bb34f67.69a87",
+        "type": "ui_tab",
+        "name": "Weather",
+        "icon": "fa-thermometer-half",
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -7990,547 +8009,382 @@
         "wires": []
     },
     {
-        "id": "eb760bbb.8e5ec",
-        "type": "inject",
-        "z": "d66f1518.a9bb88",
-        "name": "Refresh Timer",
-        "repeat": "3600",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "",
-        "topic": "Refresh Timer",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 460,
-        "y": 180,
-        "wires": [
-            [
-                "e54c1170.c13488",
-                "f6657c5c.2621a8"
-            ]
-        ]
-    },
-    {
-        "id": "74cb77c.92dd108",
+        "id": "180a101a.9cd43",
         "type": "ui_button",
-        "z": "d66f1518.a9bb88",
-        "name": "Weather Refresh",
-        "group": "99a4dc86.46d248",
+        "z": "5f633a28.607134",
+        "name": "IconRefresh",
+        "group": "70fb931.dfc146c",
         "order": 1,
-        "width": 0,
-        "height": 0,
+        "width": 2,
+        "height": 2,
         "passthru": false,
-        "label": "Aktualisieren",
-        "tooltip": "Wetterdaten aktualisieren",
+        "label": "",
+        "tooltip": "Refresh",
         "color": "",
         "bgcolor": "",
-        "icon": "fa-refresh",
+        "icon": "fa-refresh fa-4x",
         "payload": "true",
         "payloadType": "bool",
         "topic": "",
-        "x": 430,
+        "x": 990,
         "y": 260,
         "wires": [
             [
-                "e54c1170.c13488",
-                "f6657c5c.2621a8"
+                "c5efdf55.db32f"
             ]
         ]
     },
     {
-        "id": "4d90e53a.37962c",
+        "id": "9c052db7.3c434",
         "type": "ui_text",
-        "z": "d66f1518.a9bb88",
-        "group": "b12941f.1cd05c",
-        "order": 1,
-        "width": "4",
-        "height": "1",
-        "name": "Condition Txt",
+        "z": "5f633a28.607134",
+        "group": "70fb931.dfc146c",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "name": "Description",
         "label": "",
-        "format": "{{msg.payload.detail}}",
+        "format": "{{msg.payload.current.weather[0].description}}",
+        "layout": "row-left",
+        "x": 990,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ec4eb2d0.974c",
+        "type": "ui_text",
+        "z": "5f633a28.607134",
+        "group": "70fb931.dfc146c",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "name": "Wind",
+        "label": "",
+        "format": "{{msg.payload.current.wind_speed}}&nbsp;&nbsp;<i class=\"wi wi-darksky-wind\"></i>&nbsp;&nbsp;{{msg.payload.current.wind_cardinal}}",
+        "layout": "col-center",
+        "x": 970,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "40f44662.3ecde8",
+        "type": "ui_text",
+        "z": "5f633a28.607134",
+        "group": "70fb931.dfc146c",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "name": "SunriseTime",
+        "label": "",
+        "format": "<i class=\"wi wi-owm-01d\"></i>&nbsp;<i class=\"fa fa-arrow-up\"></i>&nbsp;&nbsp;{{msg.payload.current.sunrise}}",
         "layout": "row-center",
-        "x": 1310,
+        "x": 990,
         "y": 180,
         "wires": []
     },
     {
-        "id": "89a4bed9.5b467",
-        "type": "function",
-        "z": "d66f1518.a9bb88",
-        "name": "Prepare Dashboard Data",
-        "func": "var windDirection = {};\nvar windDirectionIcon = {};\nvar windSpeed = {};\nvar windSpeedIcon = {};\nvar sunRise = {};\nvar sunSet = {};\nvar conditionIcon = {};\nvar date = new Date ();\n\n/* function for converting meteorogical degree to text */\n\nvar degToCard = function(deg){\nif (deg>11.25 && deg<=33.75){\nreturn \"Nord-Nord-Ost\";\n  }else if (deg>33.75 && deg<56.25){\nreturn \"Nord-Ost\";\n  }else if (deg>56.25 && deg<78.75){\nreturn \"Ost-Nord-Ost\";\n  }else if (deg>78.75 && deg<101.25){\nreturn \"Ost\";\n  }else if (deg>101.25 && deg<123.75){\nreturn \"Ost-Süd-Ost\";\n  }else if (deg>123.75 && deg<146.25){\nreturn \"Süd-Ost\";\n  }else if (deg>146.25 && deg<168.75){\nreturn \"Süd-Süd-Ost\";\n  }else if (deg>168.75 && deg<191.25){\nreturn \"Süd\";\n  }else if (deg>191.25 && deg<213.75){\nreturn \"Süd-Süd-West\";\n  }else if (deg>213.75 && deg<236.25){\nreturn \"Süd-West\";\n  }else if (deg>236.25 && deg<258.75){\nreturn \"West-Süd-West\";\n  }else if (deg>258.75 && deg<281.25){\nreturn \"West\";\n  }else if (deg>281.25 && deg<303.75){\nreturn \"West-Nord-West\";\n  }else if (deg>303.75 && deg<326.25){\nreturn \"Nord-West\";\n  }else if (deg>326.25 && deg<348.75){\nreturn \"Nord-Nord-West\";\n  }else{\nreturn \"Nord\"; \n  }\n}\n\n/* function for converting meteorogical degree to weather icons */\n\nvar degToCardIcon = function(deg){\nif (deg>11.25 && deg<=33.75){\nreturn \"wi-from-nne\";\n  }else if (deg>33.75 && deg<56.25){\nreturn \"wi-from-ne\";\n  }else if (deg>56.25 && deg<78.75){\nreturn \"wi-from-ene\";\n  }else if (deg>78.75 && deg<101.25){\nreturn \"wi-from-e\";\n  }else if (deg>101.25 && deg<123.75){\nreturn \"wi-from-ese\";\n  }else if (deg>123.75 && deg<146.25){\nreturn \"wi-from-se\";\n  }else if (deg>146.25 && deg<168.75){\nreturn \"wi-from-sse\";\n  }else if (deg>168.75 && deg<191.25){\nreturn \"wi-from-s\";\n  }else if (deg>191.25 && deg<213.75){\nreturn \"wi-from-ssw\";\n  }else if (deg>213.75 && deg<236.25){\nreturn \"wi-from-sw\";\n  }else if (deg>236.25 && deg<258.75){\nreturn \"wi-from-wsw\";\n  }else if (deg>258.75 && deg<281.25){\nreturn \"wi-from-w\";\n  }else if (deg>281.25 && deg<303.75){\nreturn \"wi-from-wnw\";\n  }else if (deg>303.75 && deg<326.25){\nreturn \"wi-from-nw\";\n  }else if (deg>326.25 && deg<348.75){\nreturn \"wi-from-nnw\";\n  }else{\nreturn \"wi-from-n\"; \n  }\n}\n\n/* Function for converting wind speed into Beaufort scale icon */\n\nvar speedToCardIcon = function(speed){\nif (speed>0.5 && speed<=1.5){\nreturn \"wi-wind-beaufort-1\";\n  }else if (speed>1.5 && speed<=3.3){\nreturn \"wi-wind-beaufort-2\";\n  }else if (speed>3.3 && speed<=5.5){\nreturn \"wi-wind-beaufort-3\";\n  }else if (speed>5.5 && speed<=7.9){\nreturn \"wi-wind-beaufort-4\";\n  }else if (speed>7.9 && speed<=10.7){\nreturn \"wi-wind-beaufort-5\";\n  }else if (speed>10.7 && speed<=13.8){\nreturn \"wi-wind-beaufort-6\";\n  }else if (speed>13.8 && speed<=17.1){\nreturn \"wi-wind-beaufort-7\";\n  }else if (speed>17.1 && speed<=20.7){\nreturn \"wi-wind-beaufort-8\";\n  }else if (speed>20.7 && speed<=24.4){\nreturn \"wi-wind-beaufort-9\";\n  }else if (speed>24.4 && speed<=28.4){\nreturn \"wi-wind-beaufort-10\";\n  }else if (speed>28.4 && speed<=32.6){\nreturn \"wi-wind-beaufort-11\";\n  }else if (speed>32.6){\nreturn \"wi-wind-beaufort-12\";\n  }else{\nreturn \"wi-wind-beaufort-0\"; \n  }\n}\n\n/* Function for Time Conversions */\n\nfunction timeConverter(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n    else {min = min;}\n  var sec = a.getSeconds();\n  if (sec < 10) {sec = \"0\" + sec;}\n    else {sec = sec;}\n    \n  var time = hour + ':' + min + ':' + sec ;\n  return time;\n}\n\n/* Convert OpenWeeather Map Icon to https://erikflowers.github.io/weather-icons/ */\n\nconst owIconMap = new Map();\n\nowIconMap.set('01d', 'wi-day-sunny'); // clear sky\nowIconMap.set('02d', 'wi-day-cloudy'); // few clouds\nowIconMap.set('03d', 'wi-cloud'); // scattered clouds\nowIconMap.set('04d', 'wi-cloudy'); // broken clouds\nowIconMap.set('09d', 'wi-day-showers'); // shower rain\nowIconMap.set('10d', 'wi-day-rain'); // rain\nowIconMap.set('11d', 'wi-thunderstorm'); // thunderstorm\nowIconMap.set('13d', 'wi-snow'); // snow\nowIconMap.set('50d', 'wi-fog'); // mist\nowIconMap.set('01n', 'wi-night-clear'); // clear sky\nowIconMap.set('02n', 'wi-night-alt-cloudy'); // few clouds\nowIconMap.set('03n', 'wi-cloud'); // scattered clouds\nowIconMap.set('04n', 'wi-cloudy'); // broken clouds\nowIconMap.set('09n', 'wi-night-alt-showers'); // shower rain\nowIconMap.set('10n', 'wi-night-alt-rain'); // rain\nowIconMap.set('11n', 'wi-thunderstorm'); // thunderstorm\nowIconMap.set('13n', 'wi-snow'); // snow\nowIconMap.set('50n', 'wi-fog'); // mist\n\nconditionIcon.topic = \"ConditionIcon\";\nconditionIcon.payload = owIconMap.get(msg.payload.icon);\n\nwindDirection.topic = \"WindDirection\";\nwindDirection.payload = degToCard(msg.payload.winddirection);\n\nwindDirectionIcon.topic = \"WindDirectionIcon\";\nwindDirectionIcon.payload = degToCardIcon(msg.payload.winddirection);\n\nwindSpeed.topic = \"WindSpeed\";\nwindSpeed.payload = msg.payload.windspeed +  \" m/s\"; /* \" + windDirection.payload; */\n\nwindSpeedIcon.topic = \"WindSpeedIcon\";\nwindSpeedIcon.payload = speedToCardIcon(msg.payload.windspeed);\n\nsunRise.topic = \"SunRise\";\nsunRise.payload = timeConverter(msg.payload.sunrise);\n\nsunSet.topic = \"SunRet\";\nsunSet.payload = timeConverter(msg.payload.sunset);\n\nowIconMap.clear(); //freeing resource\n\nreturn [conditionIcon, windSpeedIcon, windSpeed, windDirection, windDirectionIcon, sunRise, sunSet];",
-        "outputs": 7,
-        "noerr": 0,
-        "x": 1000,
-        "y": 340,
-        "wires": [
-            [
-                "d0990bb3.6ee1f8"
-            ],
-            [
-                "6bfd9bef.141194"
-            ],
-            [
-                "49e2e33e.486c14"
-            ],
-            [],
-            [
-                "a8c65467.d3352"
-            ],
-            [
-                "393c1d0b.05766a"
-            ],
-            [
-                "d2011150.f678f"
-            ]
-        ]
-    },
-    {
-        "id": "49e2e33e.486c14",
+        "id": "5b97953.01fdd6c",
         "type": "ui_text",
-        "z": "d66f1518.a9bb88",
-        "group": "8da50f69.44fe38",
-        "order": 2,
-        "width": "2",
-        "height": "1",
-        "name": "WindSpeed",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-center",
-        "x": 1300,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "393c1d0b.05766a",
-        "type": "ui_text",
-        "z": "d66f1518.a9bb88",
-        "group": "5a4d76d2.5ae128",
-        "order": 4,
-        "width": "2",
-        "height": "1",
-        "name": "Sunrise",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 1290,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "d2011150.f678f",
-        "type": "ui_text",
-        "z": "d66f1518.a9bb88",
-        "group": "5a4d76d2.5ae128",
+        "z": "5f633a28.607134",
+        "group": "70fb931.dfc146c",
         "order": 6,
-        "width": "2",
-        "height": "1",
-        "name": "Sunset",
+        "width": 3,
+        "height": 1,
+        "name": "SunsetTime",
         "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 1290,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "a767f2cc.5f3478",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5a4d76d2.5ae128",
-        "name": "Sunrise Icon",
-        "order": 3,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: left;align-items: center;\">\n<i class=\"fa-2x wi wi-sunrise\"></i>\n</div> ",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1300,
-        "y": 440,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7dfa615d.50546",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5a4d76d2.5ae128",
-        "name": "Sunset Icon",
-        "order": 5,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: left;align-items: center;\">\n<i class=\"fa-2x wi wi-sunset\"></i>\n</div> ",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1300,
-        "y": 520,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a8c65467.d3352",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "8da50f69.44fe38",
-        "name": "WindDirection icon",
-        "order": 3,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons-wind.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-2x wi wi-wind {{msg.payload}}\"></i>\n</div> ",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1320,
-        "y": 380,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6bfd9bef.141194",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "8da50f69.44fe38",
-        "name": "WindSpeed Icon",
-        "order": 1,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons-wind.css\">\n<div style=\"display: flex;height: 100%;justify-content: left;align-items: center;\">\n<i class=\"fa-2x wi wi-wind {{msg.payload}}\"></i>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1320,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "480a6cbf.880804",
-        "type": "debug",
-        "z": "d66f1518.a9bb88",
-        "name": "Forecast debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 1310,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "5af8efb7.126a98",
-        "type": "comment",
-        "z": "d66f1518.a9bb88",
-        "name": "Open Weather API für aktuelles Wetter und Forecast",
-        "info": "",
-        "x": 800,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "d0990bb3.6ee1f8",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "14584712.7a2929",
-        "name": "Condition Icon",
-        "order": 1,
-        "width": "2",
-        "height": "2",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-4x wi {{msg.payload}}\"></i>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1310,
+        "format": "<i class=\"wi wi-wu-sunny\"></i>&nbsp;<i class=\"fa fa-arrow-down\"></i>&nbsp;&nbsp;{{msg.payload.current.sunset}}",
+        "layout": "row-center",
+        "x": 990,
         "y": 220,
-        "wires": [
-            []
-        ]
+        "wires": []
     },
     {
-        "id": "25b2dc06.cd7bdc",
-        "type": "function",
-        "z": "d66f1518.a9bb88",
-        "name": "Prepare Forecast Icon",
-        "func": "var wfcIcon1 = {};\nvar wfcIcon2 = {}; \nvar wfcIcon3 = {};\nvar wfcIcon4 = {};\nvar wfcIcon5 = {};\nvar wfcIcon6 = {};\nvar wfcIcon7 = {};\nvar wfcIcon8 = {};\n\n\nvar date = new Date ();\n\n/* Function for Time Conversions */\n\nfunction timeConverter(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n    else {min = min;}\n  var sec = a.getSeconds();\n  if (sec < 10) {sec = \"0\" + sec;}\n    else {sec = sec;}\n    \n  var time = hour + ':' + min; /* + ':' + sec ;*/\n  return time;\n}\n\n/* Convert OpenWeeather Map Icon to https://erikflowers.github.io/weather-icons/ */\n\nconst owIconMap = new Map();\n\nowIconMap.set('01d', 'wi-day-sunny'); // clear sky\nowIconMap.set('02d', 'wi-day-cloudy'); // few clouds\nowIconMap.set('03d', 'wi-cloud'); // scattered clouds\nowIconMap.set('04d', 'wi-cloudy'); // broken clouds\nowIconMap.set('09d', 'wi-day-showers'); // shower rain\nowIconMap.set('10d', 'wi-day-rain'); // rain\nowIconMap.set('11d', 'wi-thunderstorm'); // thunderstorm\nowIconMap.set('13d', 'wi-snow'); // snow\nowIconMap.set('50d', 'wi-fog'); // mist\nowIconMap.set('01n', 'wi-night-clear'); // clear sky\nowIconMap.set('02n', 'wi-night-alt-cloudy'); // few clouds\nowIconMap.set('03n', 'wi-cloud'); // scattered clouds\nowIconMap.set('04n', 'wi-cloudy'); // broken clouds\nowIconMap.set('09n', 'wi-night-alt-showers'); // shower rain\nowIconMap.set('10n', 'wi-night-alt-rain'); // rain\nowIconMap.set('11n', 'wi-thunderstorm'); // thunderstorm\nowIconMap.set('13n', 'wi-snow'); // snow\nowIconMap.set('50n', 'wi-fog'); // mist\n\nwfcIcon1.topic = msg.payload[0].dt_txt;\nwfcIcon1.payload = owIconMap.get(msg.payload[0].weather[0].icon);\n\nwfcIcon2.topic = msg.payload[1].dt_txt;\nwfcIcon2.payload = owIconMap.get(msg.payload[1].weather[0].icon);\n\nwfcIcon3.topic = msg.payload[2].dt_txt;\nwfcIcon3.payload = owIconMap.get(msg.payload[2].weather[0].icon);\n\nwfcIcon4.topic = msg.payload[3].dt_txt;\nwfcIcon4.payload = owIconMap.get(msg.payload[3].weather[0].icon);\n\nwfcIcon5.topic = msg.payload[4].dt_txt;\nwfcIcon5.payload = owIconMap.get(msg.payload[4].weather[0].icon);\n\nwfcIcon6.topic = msg.payload[5].dt_txt;\nwfcIcon6.payload = owIconMap.get(msg.payload[5].weather[0].icon);\n\nwfcIcon7.topic = msg.payload[6].dt_txt;\nwfcIcon7.payload = owIconMap.get(msg.payload[6].weather[0].icon);\n\nwfcIcon8.topic = msg.payload[7].dt_txt;\nwfcIcon8.payload = owIconMap.get(msg.payload[7].weather[0].icon);\n\n\nowIconMap.clear(); //freeing resource\n\nreturn [wfcIcon1, wfcIcon2, wfcIcon3, wfcIcon4, wfcIcon5, wfcIcon6, wfcIcon7, wfcIcon8];",
-        "outputs": 8,
-        "noerr": 0,
-        "x": 1010,
-        "y": 700,
-        "wires": [
-            [
-                "39139188.be2256"
-            ],
-            [
-                "c24820ec.48ca8"
-            ],
-            [
-                "764a58c0.442438"
-            ],
-            [
-                "6eab6954.c57d38"
-            ],
-            [
-                "c756059d.18796"
-            ],
-            [
-                "53046826.3645"
-            ],
-            [
-                "229014e6.b0e14c"
-            ],
-            [
-                "fd1a001d.2fc35"
-            ]
-        ]
+        "id": "d284ed2f.c15c8",
+        "type": "comment",
+        "z": "5f633a28.607134",
+        "name": "OpenWeatherMap One Call API for Weather and Forecast",
+        "info": "",
+        "x": 270,
+        "y": 40,
+        "wires": []
     },
     {
-        "id": "39139188.be2256",
+        "id": "9dbf3c95.67c74",
         "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5e0d6747.b726b",
-        "name": "WFc Icon 1",
-        "order": 2,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
+        "z": "5f633a28.607134",
+        "group": "70fb931.dfc146c",
+        "name": "Forecast2",
+        "order": 7,
+        "width": 10,
+        "height": 2,
+        "format": "<div style=\"height: 100%; justify-content: center; align-items: center;\">\n <div layout=\"rowicons\" layout-align=\"space-around start\" ng-repeat=\"data in msg.payload.rowicons\" style=\"font-size:150%;padding-top: 5px;padding-bottom: 5px\">\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell01}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell02}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell03}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell04}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell05}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell06}}\"></i></span>\n  <span flex style=\"color: #097479;text-align: center\"><i class=\"wi wi-owm-{{data.cell07}}\"></i></span>\n  <span flex style=\"color: #097479;text-align: center\"><i class=\"wi wi-owm-{{data.cell08}}\"></i></span>\n  <span flex style=\"color: #097479;text-align: center\"><i class=\"wi wi-owm-{{data.cell09}}\"></i></span>\n  <span flex style=\"color: #097479;text-align: center\"><i class=\"wi wi-owm-{{data.cell10}}\"></i></span>\n </div>\n <div layout=\"rowtext\" layout-align=\"space-around start\" ng-repeat=\"data in msg.payload.rowtext\" style=\"line-height: 150%\">\n  <span flex style=\"color: white;text-align: center;\">{{data.cell01}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell02}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell03}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell04}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell05}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell06}}</span>\n  <span flex style=\"color: #097479;text-align: center\">{{data.cell07}}</span>\n  <span flex style=\"color: #097479;text-align: center\">{{data.cell08}}</span>\n  <span flex style=\"color: #097479;text-align: center\">{{data.cell09}}</span>\n  <span flex style=\"color: #097479;text-align: center\">{{data.cell10}}</span>\n </div>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": false,
         "templateScope": "local",
-        "x": 1300,
-        "y": 640,
+        "x": 980,
+        "y": 320,
         "wires": [
             []
         ]
     },
     {
-        "id": "c24820ec.48ca8",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5e0d6747.b726b",
-        "name": "WFc Icon 2",
-        "order": 3,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1300,
-        "y": 680,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "764a58c0.442438",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5e0d6747.b726b",
-        "name": "WFc Icon 3",
-        "order": 4,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1300,
-        "y": 720,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6eab6954.c57d38",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5e0d6747.b726b",
-        "name": "WFc Icon 4",
-        "order": 5,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1300,
-        "y": 760,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c756059d.18796",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5e0d6747.b726b",
-        "name": "WFc Icon 5",
-        "order": 6,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1300,
-        "y": 800,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "53046826.3645",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5e0d6747.b726b",
-        "name": "WFc Icon 6",
-        "order": 7,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1300,
-        "y": 840,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "229014e6.b0e14c",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5e0d6747.b726b",
-        "name": "WFc Icon 7",
-        "order": 8,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1300,
-        "y": 880,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "fd1a001d.2fc35",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5e0d6747.b726b",
-        "name": "WFc Icon 8",
-        "order": 9,
-        "width": "1",
-        "height": "1",
-        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1300,
-        "y": 920,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e58a247.3094b58",
+        "id": "7adde26c.514aec",
         "type": "function",
-        "z": "d66f1518.a9bb88",
-        "name": "Prepare Forecast Data",
-        "func": "var fcdata = {};\n\nfcdata.payload = {\n  forecast: {\n    dt00: {\n      dt_txt: msg.payload[0].dt_txt,\n      temp_min: msg.payload[0].main.temp_min,\n      temp_max: msg.payload[0].main.temp_max,\n      temp: msg.payload[0].main.temp,\n      desc: msg.payload[0].weather[0].description\n    },\n    dt01: {\n      dt_txt: msg.payload[1].dt_txt,\n      temp_min: msg.payload[1].main.temp_min,\n      temp_max: msg.payload[1].main.temp_max,\n      temp: msg.payload[1].main.temp,\n      desc: msg.payload[1].weather[0].description\n    },\n    dt02: {\n      dt_txt: msg.payload[2].dt_txt,\n      temp_min: msg.payload[2].main.temp_min,\n      temp_max: msg.payload[2].main.temp_max,\n      temp: msg.payload[2].main.temp,\n      desc: msg.payload[2].weather[0].description\n    },\n    dt03: {\n      dt_txt: msg.payload[3].dt_txt,\n      temp_min: msg.payload[3].main.temp_min,\n      temp_max: msg.payload[3].main.temp_max,\n      temp: msg.payload[3].main.temp,\n      desc: msg.payload[3].weather[0].description\n    },\n    dt04: {\n      dt_txt: msg.payload[4].dt_txt,\n      temp_min: msg.payload[4].main.temp_min,\n      temp_max: msg.payload[4].main.temp_max,\n      temp: msg.payload[4].main.temp,\n      desc: msg.payload[4].weather[0].description\n    },\n    dt05: {\n      dt_txt: msg.payload[5].dt_txt,\n      temp_min: msg.payload[5].main.temp_min,\n      temp_max: msg.payload[5].main.temp_max,\n      temp: msg.payload[5].main.temp,\n      desc: msg.payload[5].weather[0].description\n    },\n    dt06: {\n      dt_txt: msg.payload[6].dt_txt,\n      temp_min: msg.payload[6].main.temp_min,\n      temp_max: msg.payload[6].main.temp_max,\n      temp: msg.payload[6].main.temp,\n      desc: msg.payload[6].weather[0].description\n    },\n    dt07: {\n      dt_txt: msg.payload[7].dt_txt,\n      temp_min: msg.payload[7].main.temp_min,\n      temp_max: msg.payload[7].main.temp_max,\n      temp: msg.payload[7].main.temp,\n      desc: msg.payload[7].weather[0].description\n    }\n  }\n}\n\n\n\nreturn fcdata;",
+        "z": "5f633a28.607134",
+        "name": "Format forecast data",
+        "func": "var fcdata = {};\nvar units=flow.get('units');\nif (units===undefined)\n{\n  units=\"imperial\";\n}\n\nfunction formatTemp(high, low){\n    if (units == \"imperial\") {\n        if (low){\n          temp = parseFloat(high).toFixed() + '/' + parseFloat(low).toFixed()\n        }\n        else {\n          temp = parseFloat(high).toFixed() + '°F'\n        }\n    }\n    else { // metric\n//        temp = parseFloat(temp).toFixed(1) + '°C'\n        if (low){\n          temp = parseFloat(high).toFixed() + '/' + parseFloat(low).toFixed()\n        }\n        else {\n          temp = parseFloat(high).toFixed() + '°C'\n        }\n    }\n    return temp;\n}\nfunction dayName(unixTime){\n    var d = new Date(unixTime * 1000);\n    var weekday = new Array(7);\n        weekday[0] = \"Sun\";\n        weekday[1] = \"Mon\";\n        weekday[2] = \"Tue\";\n        weekday[3] = \"Wed\";\n        weekday[4] = \"Thu\";\n        weekday[5] = \"Fri\";\n        weekday[6] = \"Sat\";\n\n    return weekday[d.getDay()]\n}\nfunction timeConvert(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var suffix = \" am\";\n  if (hour >= 12) {\n    hour = hour - 12;\n    suffix = \" pm\";\n  }\n  if (hour === 0) {\n    hour = 12;\n  }\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n//  return hour + ':' + min + suffix;\n  return hour + suffix;\n}\n// prepare forecast data for CSS based ui widget\n\nfcdata.payload = {\n  rowtext: {\n  \tdata01: {\n      cell01: timeConvert(msg.payload.hourly[1].dt),\n      cell02: timeConvert(msg.payload.hourly[2].dt),\n      cell03: timeConvert(msg.payload.hourly[3].dt),\n      cell04: timeConvert(msg.payload.hourly[4].dt),\n      cell05: timeConvert(msg.payload.hourly[5].dt),\n      cell06: timeConvert(msg.payload.hourly[6].dt),\n      cell07: dayName(msg.payload.daily[1].dt),\n      cell08: dayName(msg.payload.daily[2].dt),\n      cell09: dayName(msg.payload.daily[3].dt),\n      cell10: dayName(msg.payload.daily[4].dt),\n  \t},\n  \tdata02: {\n       cell01: formatTemp(msg.payload.hourly[1].temp),\n       cell02: formatTemp(msg.payload.hourly[2].temp),\n       cell03: formatTemp(msg.payload.hourly[3].temp),\n       cell04: formatTemp(msg.payload.hourly[4].temp),\n       cell05: formatTemp(msg.payload.hourly[5].temp),\n       cell06: formatTemp(msg.payload.hourly[6].temp),\n       cell07: formatTemp(msg.payload.daily[1].temp.max, msg.payload.daily[0].temp.min),\n       cell08: formatTemp(msg.payload.daily[2].temp.max, msg.payload.daily[1].temp.min),\n       cell09: formatTemp(msg.payload.daily[3].temp.max, msg.payload.daily[2].temp.min),\n       cell10: formatTemp(msg.payload.daily[4].temp.max, msg.payload.daily[3].temp.min),\n  \t}\n  },\n  rowicons: {\n  \tdata01: {\n  \t\tcell01: msg.payload.hourly[1].weather[0].icon,\n  \t\tcell02: msg.payload.hourly[2].weather[0].icon,\n  \t\tcell03: msg.payload.hourly[3].weather[0].icon,\n  \t\tcell04: msg.payload.hourly[4].weather[0].icon,\n  \t\tcell05: msg.payload.hourly[5].weather[0].icon,\n  \t\tcell06: msg.payload.hourly[6].weather[0].icon,\n  \t\tcell07: msg.payload.daily[1].weather[0].icon,\n  \t\tcell08: msg.payload.daily[2].weather[0].icon,\n  \t\tcell09: msg.payload.daily[3].weather[0].icon,\n  \t\tcell10: msg.payload.daily[4].weather[0].icon,\n  \t}\n  }\n}\n\nreturn fcdata;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1010,
-        "y": 980,
+        "x": 760,
+        "y": 320,
         "wires": [
-            []
+            [
+                "9dbf3c95.67c74"
+            ]
         ]
     },
     {
-        "id": "770400c.08ade8",
-        "type": "ui_template",
-        "z": "d66f1518.a9bb88",
-        "group": "5e0d6747.b726b",
-        "name": "Forecast",
-        "order": 1,
-        "width": "8",
-        "height": "1",
-        "format": "<div layout=\"row\" layout-align=\"space-around start\" ng-repeat=\"data in msg.payload.row\">\n  <span flex style=\"color: white\">{{data.cell01}}</span>\n  <span flex style=\"color: white\">{{data.cell02}}</span>\n  <span flex style=\"color: white\">{{data.cell03}}</span>\n  <span flex style=\"color: white\">{{data.cell04}}</span>\n  <span flex style=\"color: white\">{{data.cell05}}</span>\n  <span flex style=\"color: white\">{{data.cell06}}</span>\n  <span flex style=\"color: white\">{{data.cell07}}</span>\n  <span flex style=\"color: white\">{{data.cell08}}</span>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1280,
-        "y": 1120,
+        "id": "d8c5527f.7739",
+        "type": "ui_text",
+        "z": "5f633a28.607134",
+        "group": "70fb931.dfc146c",
+        "order": 2,
+        "width": 2,
+        "height": 1,
+        "name": "Temperature",
+        "label": "",
+        "format": "<p style=\"font-size: 200%\">{{msg.payload.current.temp}}</p>",
+        "layout": "row-left",
+        "x": 990,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "681b2b94.9f7a44",
+        "type": "http request",
+        "z": "5f633a28.607134",
+        "name": "Get OWM data",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "https://api.openweathermap.org/data/2.5/onecall",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 480,
+        "y": 160,
         "wires": [
-            []
+            [
+                "67075190.fc6f3",
+                "7adde26c.514aec",
+                "938dc9bb.e9fb48"
+            ]
         ]
     },
     {
-        "id": "c5b71946.ca4de",
+        "id": "c72d96f0.204148",
+        "type": "inject",
+        "z": "5f633a28.607134",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "79276db2.a2ce14"
+            ]
+        ]
+    },
+    {
+        "id": "67075190.fc6f3",
         "type": "function",
-        "z": "d66f1518.a9bb88",
-        "name": "Prepare forecast for UI widget",
-        "func": "var fcdata = {};\n\n// prepare forecast data for CSS based ui widget\n\nfcdata.payload = {\n  row: {\n  \tdata01: {\n  \t\tcell01: msg.payload[0].dt_txt.substring(11, 16),\n  \t\tcell02: msg.payload[1].dt_txt.substring(11, 16),\n  \t\tcell03: msg.payload[2].dt_txt.substring(11, 16),\n  \t\tcell04: msg.payload[3].dt_txt.substring(11, 16),\n  \t\tcell05: msg.payload[4].dt_txt.substring(11, 16),\n  \t\tcell06: msg.payload[5].dt_txt.substring(11, 16),\n  \t\tcell07: msg.payload[6].dt_txt.substring(11, 16),\n  \t\tcell08: msg.payload[7].dt_txt.substring(11, 16)\n  \t},\n  \tdata02: {\n  \t\tcell01: msg.payload[0].main.temp,\n  \t\tcell02: msg.payload[1].main.temp,\n  \t\tcell03: msg.payload[2].main.temp,\n  \t\tcell04: msg.payload[3].main.temp,\n  \t\tcell05: msg.payload[4].main.temp,\n  \t\tcell06: msg.payload[5].main.temp,\n  \t\tcell07: msg.payload[6].main.temp,\n  \t\tcell08: msg.payload[7].main.temp\n  \t}\n  }\n}\n\nreturn fcdata;",
-        "outputs": 1,
+        "z": "5f633a28.607134",
+        "name": "Format current data",
+        "func": "var icon = {};\n\nvar units=flow.get('units');\nif (units===undefined)\n{\n  units=\"imperial\";\n}\n\nfunction timeConvert(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n  return hour + ':' + min;\n}\n\nvar degreesToCardinal = function(deg){\nif (deg>11.25 && deg<=33.75){\nreturn \"NNE\";\n  }else if (deg>33.75 && deg<56.25){\nreturn \"NE\";\n  }else if (deg>56.25 && deg<78.75){\nreturn \"ENE\";\n  }else if (deg>78.75 && deg<101.25){\nreturn \"E\";\n  }else if (deg>101.25 && deg<123.75){\nreturn \"ESE\";\n  }else if (deg>123.75 && deg<146.25){\nreturn \"SE\";\n  }else if (deg>146.25 && deg<168.75){\nreturn \"SSE\";\n  }else if (deg>168.75 && deg<191.25){\nreturn \"S\";\n  }else if (deg>191.25 && deg<213.75){\nreturn \"SSW\";\n  }else if (deg>213.75 && deg<236.25){\nreturn \"SW\";\n  }else if (deg>236.25 && deg<258.75){\nreturn \"WSW\";\n  }else if (deg>258.75 && deg<281.25){\nreturn \"W\";\n  }else if (deg>281.25 && deg<303.75){\nreturn \"WNW\";\n  }else if (deg>303.75 && deg<326.25){\nreturn \"NW\";\n  }else if (deg>326.25 && deg<348.75){\nreturn \"NNW\";\n  }else{\nreturn \"N\"; \n  }\n}\n\nif (units == \"imperial\")\n{\n  msg.payload.current.temp = msg.payload.current.temp.toFixed() + ' °F';\n  msg.payload.current.wind_speed = msg.payload.current.wind_speed.toFixed() + ' mph';\n}\nelse // metric units\n{\n  msg.payload.current.temp = msg.payload.current.temp.toFixed(1) + ' °C';\n  msg.payload.current.wind_speed = msg.payload.current.wind_speed.toFixed(1) + ' m/s';\n}\n\nmsg.payload.current.wind_cardinal = degreesToCardinal(msg.payload.current.wind_deg);\nmsg.payload.current.sunrise = timeConvert(msg.payload.current.sunrise);\nmsg.payload.current.sunset = timeConvert(msg.payload.current.sunset);\n\nvar iconString = 'wi-owm-' + msg.payload.current.weather[0].icon + ' wi-4x';\nicon = {\n    ui_control: {\n        icon: iconString\n    }\n}; \n\nreturn [msg, icon];",
+        "outputs": 2,
         "noerr": 0,
-        "x": 1050,
-        "y": 1120,
+        "initialize": "",
+        "finalize": "",
+        "x": 720,
+        "y": 160,
         "wires": [
             [
-                "770400c.08ade8"
+                "d8c5527f.7739",
+                "ec4eb2d0.974c",
+                "9c052db7.3c434",
+                "40f44662.3ecde8",
+                "5b97953.01fdd6c"
+            ],
+            [
+                "180a101a.9cd43"
             ]
         ]
     },
     {
-        "id": "e54c1170.c13488",
-        "type": "openweathermap",
-        "z": "d66f1518.a9bb88",
-        "name": "Huidige weer",
-        "wtype": "current",
-        "lon": "6.168301",
-        "lat": "53.179832",
-        "city": "",
-        "country": "",
-        "language": "nl",
-        "x": 680,
-        "y": 180,
+        "id": "79276db2.a2ce14",
+        "type": "change",
+        "z": "5f633a28.607134",
+        "name": "Set location, appid, units",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.lat",
+                "pt": "msg",
+                "to": "53.179832",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.lon",
+                "pt": "msg",
+                "to": "6.168301",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.appid",
+                "pt": "msg",
+                "to": "89dfdcc42cecd7eaaf1d2addba5c2ff5",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.units",
+                "pt": "msg",
+                "to": "metric",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "units",
+                "pt": "flow",
+                "to": "payload.units",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.lang",
+                "pt": "msg",
+                "to": "NL",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 100,
         "wires": [
             [
-                "89a4bed9.5b467",
-                "4d90e53a.37962c"
+                "681b2b94.9f7a44"
             ]
         ]
     },
     {
-        "id": "f6657c5c.2621a8",
-        "type": "openweathermap",
-        "z": "d66f1518.a9bb88",
-        "name": "5 Dagen verwachting",
-        "wtype": "forecast",
-        "lon": "6.168301",
-        "lat": "53.179832",
-        "city": "",
-        "country": "",
-        "language": "nl",
-        "x": 690,
-        "y": 640,
+        "id": "16181411.5a365c",
+        "type": "ui_ui_control",
+        "z": "5f633a28.607134",
+        "name": "Update tab",
+        "events": "all",
+        "x": 110,
+        "y": 200,
         "wires": [
             [
-                "25b2dc06.cd7bdc",
-                "e58a247.3094b58",
-                "c5b71946.ca4de",
-                "480a6cbf.880804"
+                "3f3d5ab9.82b3a6"
             ]
         ]
+    },
+    {
+        "id": "c5efdf55.db32f",
+        "type": "link out",
+        "z": "5f633a28.607134",
+        "name": "Refresh",
+        "links": [
+            "a6b24cea.e52a7"
+        ],
+        "x": 1115,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a6b24cea.e52a7",
+        "type": "link in",
+        "z": "5f633a28.607134",
+        "name": "",
+        "links": [
+            "c5efdf55.db32f"
+        ],
+        "x": 155,
+        "y": 140,
+        "wires": [
+            [
+                "79276db2.a2ce14"
+            ]
+        ]
+    },
+    {
+        "id": "3f3d5ab9.82b3a6",
+        "type": "switch",
+        "z": "5f633a28.607134",
+        "name": "tab focus",
+        "property": "tab",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 280,
+        "y": 200,
+        "wires": [
+            [
+                "79276db2.a2ce14"
+            ]
+        ]
+    },
+    {
+        "id": "938dc9bb.e9fb48",
+        "type": "debug",
+        "z": "5f633a28.607134",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 420,
+        "wires": []
     }
 ]
