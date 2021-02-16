@@ -1,10 +1,4 @@
 --- 
-- name: install unzip
-  apt: 
-    name: [ "unzip" ]
-    install_recommends: yes
-
-
 - name: create /var/docker-compose
   file:
     path: "{{  item }}"
@@ -54,16 +48,7 @@
   - { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
   - { src: "files/data/postgres/.env", dest: "/var/docker-compose/data/postgres/.env" }
   - { src: "files/data/home-assistant/configuration.yaml", dest: "/var/docker-compose/data/home-assistant/configuration.yaml" }
-
-- name: download weather-icons
-  unarchive:
-    src: "files/data/node-red/weather-icons-master.zip"
-    dest: /var/docker-compose/data/node-red/
-    mode: 0755
-    owner: pi
-    group: pi
-    force: yes
-  
+ 
 - name: deploy Docker Compose stack
   shell:
     cmd: "docker-compose up -d"
