@@ -48,7 +48,21 @@
   - { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
   - { src: "files/data/postgres/.env", dest: "/var/docker-compose/data/postgres/.env" }
   - { src: "files/data/home-assistant/configuration.yaml", dest: "/var/docker-compose/data/home-assistant/configuration.yaml" }
-  
+
+- name: Check for weather-icons exists 
+  stat:
+    path: /var/docker-compose/data/node-red/weather-icons
+  register: p1
+
+- name: download weather-icons
+  git:
+    repo: https://github.com/Paul-Reed/weather-icons-lite.git  
+    dest: /var/docker-compose/data/node-red/
+    force: yes
+  when: not p1.stat.exists
+
+git:
+
 - name: deploy Docker Compose stack
   shell:
     cmd: "docker-compose up -d"
