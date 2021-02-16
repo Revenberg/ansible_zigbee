@@ -43,6 +43,8 @@
   - { src: "files/data/node-red/flows.json", dest: "/var/docker-compose/data/node-red/flows.json" }
   - { src: "files/data/node-red/entrypoint.sh", dest: "/var/docker-compose/data/node-red/entrypoint.sh" }
   - { src: "files/data/nginx/html/index.html", dest: "/var/docker-compose/data/nginx/html/index.html" }
+  - { src: "files/data/nginx/html/schuur.jpg", dest: "/var/docker-compose/data/nginx/html/schuur.jpg" }
+  - { src: "files/data/nginx/html/schuur.png", dest: "/var/docker-compose/data/nginx/html/schuur.png" }
   - { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
   - { src: "files/data/postgres/.env", dest: "/var/docker-compose/data/postgres/.env" }
   - { src: "files/data/home-assistant/configuration.yaml", dest: "/var/docker-compose/data/home-assistant/configuration.yaml" }
