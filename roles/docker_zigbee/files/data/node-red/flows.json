@@ -28,14 +28,14 @@
         "info": ""
     },
     {
-        "id": "4ed8ffa9.fa37d",
+        "id": "4e1ea33e.b7a54c",
         "type": "tab",
         "label": "Schuur",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "4e1ea33e.b7a54c",
+        "id": "d66f1518.a9bb88",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -441,6 +441,82 @@
         "name": "Demo",
         "icon": "home",
         "order": "1"
+    },
+    {
+        "id": "99a4dc86.46d248",
+        "type": "ui_group",
+        "name": "Masterswitches",
+        "tab": "258c6649.0213da",
+        "order": 6,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b12941f.1cd05c",
+        "type": "ui_group",
+        "name": "Condition",
+        "tab": "eb94216d.968598",
+        "order": 5,
+        "disp": false,
+        "width": "4",
+        "collapse": false
+    },
+    {
+        "id": "8da50f69.44fe38",
+        "type": "ui_group",
+        "name": "Wind",
+        "tab": "eb94216d.968598",
+        "order": 4,
+        "disp": false,
+        "width": "4",
+        "collapse": false
+    },
+    {
+        "id": "5a4d76d2.5ae128",
+        "type": "ui_group",
+        "name": "Luftfeuchtigkeit",
+        "tab": "258c6649.0213da",
+        "order": 4,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "14584712.7a2929",
+        "type": "ui_group",
+        "name": "Condition",
+        "tab": "eb94216d.968598",
+        "order": 2,
+        "disp": false,
+        "width": "2",
+        "collapse": false
+    },
+    {
+        "id": "5e0d6747.b726b",
+        "type": "ui_group",
+        "name": "Forecast",
+        "tab": "eb94216d.968598",
+        "order": 6,
+        "disp": false,
+        "width": "8",
+        "collapse": false
+    },
+    {
+        "id": "258c6649.0213da",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "home",
+        "order": 1
+    },
+    {
+        "id": "eb94216d.968598",
+        "type": "ui_tab",
+        "name": "Wetterstation",
+        "icon": "fa-thermometer-half",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "1e86e070.517",
@@ -6924,1531 +7000,6 @@
         ]
     },
     {
-        "id": "f1729033.1c041",
-        "type": "mqtt in",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Group 1",
-        "topic": "home assistant/Group 1",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "4ec1ae6.5ee7c5",
-        "x": 1160,
-        "y": 140,
-        "wires": [
-            [
-                "f0559aee.5dd1d8"
-            ]
-        ]
-    },
-    {
-        "id": "edbf9716.8188e8",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_1",
-        "device_id": "1",
-        "command": "state",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1650,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "48533aa9.f41464",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_1",
-        "device_id": "1",
-        "command": "color_rgb",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1650,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "cc55953.4686b68",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "state",
-        "func": "msg.payload = msg.payload.state;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1470,
-        "y": 80,
-        "wires": [
-            [
-                "edbf9716.8188e8"
-            ]
-        ]
-    },
-    {
-        "id": "8bb7939e.b7ecc",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "color",
-        "func": "msg.payload = msg.payload.color;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1470,
-        "y": 140,
-        "wires": [
-            [
-                "48533aa9.f41464"
-            ]
-        ]
-    },
-    {
-        "id": "f0559aee.5dd1d8",
-        "type": "switch",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "hask",
-                "v": "state",
-                "vt": "str"
-            },
-            {
-                "t": "hask",
-                "v": "color",
-                "vt": "str"
-            },
-            {
-                "t": "hask",
-                "v": "brightness",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 1290,
-        "y": 140,
-        "wires": [
-            [
-                "cc55953.4686b68"
-            ],
-            [
-                "8bb7939e.b7ecc"
-            ],
-            [
-                "45340919.707618"
-            ]
-        ]
-    },
-    {
-        "id": "c8b790c.81e327",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_1",
-        "device_id": "1",
-        "command": "brightness",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1650,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "45340919.707618",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "brightness",
-        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1490,
-        "y": 200,
-        "wires": [
-            [
-                "c8b790c.81e327"
-            ]
-        ]
-    },
-    {
-        "id": "969dbae2.ef0dc8",
-        "type": "mqtt in",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Group 2",
-        "topic": "home assistant/Group 2",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "4ec1ae6.5ee7c5",
-        "x": 1160,
-        "y": 340,
-        "wires": [
-            [
-                "b332e7ba.edfbf8"
-            ]
-        ]
-    },
-    {
-        "id": "646831b7.45b9f",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_2",
-        "device_id": "2",
-        "command": "state",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1660,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "60b83d25.3ae5e4",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_2",
-        "device_id": "2",
-        "command": "color_rgb",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1660,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "e61bafc5.b1269",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "state",
-        "func": "msg.payload = msg.payload.state;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1470,
-        "y": 280,
-        "wires": [
-            [
-                "646831b7.45b9f"
-            ]
-        ]
-    },
-    {
-        "id": "8879e81e.2bf938",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "color",
-        "func": "msg.payload = msg.payload.color;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1470,
-        "y": 340,
-        "wires": [
-            [
-                "60b83d25.3ae5e4"
-            ]
-        ]
-    },
-    {
-        "id": "b332e7ba.edfbf8",
-        "type": "switch",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "hask",
-                "v": "state",
-                "vt": "str"
-            },
-            {
-                "t": "hask",
-                "v": "color",
-                "vt": "str"
-            },
-            {
-                "t": "hask",
-                "v": "brightness",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 1290,
-        "y": 340,
-        "wires": [
-            [
-                "e61bafc5.b1269"
-            ],
-            [
-                "8879e81e.2bf938"
-            ],
-            [
-                "729f005e.14a5b"
-            ]
-        ]
-    },
-    {
-        "id": "ef6e6ba8.5b8498",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_2",
-        "device_id": "2",
-        "command": "brightness",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1660,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "729f005e.14a5b",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "brightness",
-        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1490,
-        "y": 400,
-        "wires": [
-            [
-                "ef6e6ba8.5b8498"
-            ]
-        ]
-    },
-    {
-        "id": "4cd01d8c.74bdb4",
-        "type": "mqtt in",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Group 3",
-        "topic": "home assistant/Group 3",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "4ec1ae6.5ee7c5",
-        "x": 1160,
-        "y": 540,
-        "wires": [
-            [
-                "56e786ab.6a6178"
-            ]
-        ]
-    },
-    {
-        "id": "3eb715cb.47d22a",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_3",
-        "device_id": "3",
-        "command": "state",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1660,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "1add0ed2.59a241",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_3",
-        "device_id": "3",
-        "command": "color_rgb",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1660,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "d16699ea.47bae8",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "state",
-        "func": "msg.payload = msg.payload.state;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1470,
-        "y": 480,
-        "wires": [
-            [
-                "3eb715cb.47d22a"
-            ]
-        ]
-    },
-    {
-        "id": "d2e1ba32.e1b008",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "color",
-        "func": "msg.payload = msg.payload.color;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1470,
-        "y": 540,
-        "wires": [
-            [
-                "1add0ed2.59a241"
-            ]
-        ]
-    },
-    {
-        "id": "56e786ab.6a6178",
-        "type": "switch",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "hask",
-                "v": "state",
-                "vt": "str"
-            },
-            {
-                "t": "hask",
-                "v": "color",
-                "vt": "str"
-            },
-            {
-                "t": "hask",
-                "v": "brightness",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 1290,
-        "y": 540,
-        "wires": [
-            [
-                "d16699ea.47bae8"
-            ],
-            [
-                "d2e1ba32.e1b008"
-            ],
-            [
-                "c6542bab.5d76b8"
-            ]
-        ]
-    },
-    {
-        "id": "45224183.035bd",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_3",
-        "device_id": "3",
-        "command": "brightness",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1660,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "c6542bab.5d76b8",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "brightness",
-        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1490,
-        "y": 600,
-        "wires": [
-            [
-                "45224183.035bd"
-            ]
-        ]
-    },
-    {
-        "id": "f29b794c.02faa8",
-        "type": "mqtt in",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Group 4",
-        "topic": "home assistant/Group 4",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "4ec1ae6.5ee7c5",
-        "x": 1160,
-        "y": 740,
-        "wires": [
-            [
-                "15f8448f.c6a33b"
-            ]
-        ]
-    },
-    {
-        "id": "6f0017f.8db2ae8",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_4",
-        "device_id": "4",
-        "command": "state",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1640,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "eef35835.41c108",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_4",
-        "device_id": "4",
-        "command": "color_rgb",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1640,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "5648117d.403",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "state",
-        "func": "msg.payload = msg.payload.state;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1470,
-        "y": 680,
-        "wires": [
-            [
-                "6f0017f.8db2ae8"
-            ]
-        ]
-    },
-    {
-        "id": "4de3179.c56abe8",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "color",
-        "func": "msg.payload = msg.payload.color;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1470,
-        "y": 740,
-        "wires": [
-            [
-                "eef35835.41c108"
-            ]
-        ]
-    },
-    {
-        "id": "15f8448f.c6a33b",
-        "type": "switch",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "hask",
-                "v": "state",
-                "vt": "str"
-            },
-            {
-                "t": "hask",
-                "v": "color",
-                "vt": "str"
-            },
-            {
-                "t": "hask",
-                "v": "brightness",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 1290,
-        "y": 740,
-        "wires": [
-            [
-                "5648117d.403"
-            ],
-            [
-                "4de3179.c56abe8"
-            ],
-            [
-                "c094fbba.cdcac8"
-            ]
-        ]
-    },
-    {
-        "id": "3fcd045e.97256c",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_4",
-        "device_id": "4",
-        "command": "brightness",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1640,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "c094fbba.cdcac8",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "brightness",
-        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1490,
-        "y": 800,
-        "wires": [
-            [
-                "3fcd045e.97256c"
-            ]
-        ]
-    },
-    {
-        "id": "faac2c0e.3a78a",
-        "type": "mqtt in",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Group 5",
-        "topic": "home assistant/Group 5",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "4ec1ae6.5ee7c5",
-        "x": 1160,
-        "y": 920,
-        "wires": [
-            [
-                "390e2209.6a652e"
-            ]
-        ]
-    },
-    {
-        "id": "794d5d77.167544",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_5",
-        "device_id": "5",
-        "command": "state",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1670,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "4efb8d9a.e67e84",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_5",
-        "device_id": "5",
-        "command": "color_rgb",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1670,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "dce02fd6.d0e9b",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "state",
-        "func": "msg.payload = msg.payload.state;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1470,
-        "y": 860,
-        "wires": [
-            [
-                "794d5d77.167544"
-            ]
-        ]
-    },
-    {
-        "id": "e1bfaae7.66c378",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "color",
-        "func": "msg.payload = msg.payload.color;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1470,
-        "y": 920,
-        "wires": [
-            [
-                "4efb8d9a.e67e84"
-            ]
-        ]
-    },
-    {
-        "id": "390e2209.6a652e",
-        "type": "switch",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "hask",
-                "v": "state",
-                "vt": "str"
-            },
-            {
-                "t": "hask",
-                "v": "color",
-                "vt": "str"
-            },
-            {
-                "t": "hask",
-                "v": "brightness",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 1290,
-        "y": 920,
-        "wires": [
-            [
-                "dce02fd6.d0e9b"
-            ],
-            [
-                "e1bfaae7.66c378"
-            ],
-            [
-                "ab45f605.1f2658"
-            ]
-        ]
-    },
-    {
-        "id": "902eb691.ae7598",
-        "type": "zigbee2mqtt-out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "server": "54720da2.31fe84",
-        "friendly_name": "groep_5",
-        "device_id": "5",
-        "command": "brightness",
-        "commandType": "z2m_cmd",
-        "payload": "payload",
-        "payloadType": "msg",
-        "transition": 0,
-        "x": 1670,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "ab45f605.1f2658",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "brightness",
-        "func": "msg.payload = msg.payload.brightness;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1490,
-        "y": 980,
-        "wires": [
-            [
-                "902eb691.ae7598"
-            ]
-        ]
-    },
-    {
-        "id": "3d5bd3d0.a4bb4c",
-        "type": "ui_button",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "group": "fd8a5c66.51244",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Toggle groep 1",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "{\"state\":\"toggle\"}",
-        "payloadType": "json",
-        "topic": "",
-        "x": 120,
-        "y": 100,
-        "wires": [
-            [
-                "607c3a96.4cec04"
-            ]
-        ]
-    },
-    {
-        "id": "d6938c7f.3369",
-        "type": "ui_colour_picker",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Color Groep 1",
-        "label": "Color Groep 1",
-        "group": "fd8a5c66.51244",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 120,
-        "y": 140,
-        "wires": [
-            [
-                "228dc23c.765c5e"
-            ]
-        ]
-    },
-    {
-        "id": "3766f158.d799ee",
-        "type": "ui_slider",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Brightness Groep 1",
-        "label": "Brightness Groep 1",
-        "tooltip": "",
-        "group": "5b148da4.232e64",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "",
-        "min": 0,
-        "max": "255",
-        "step": 1,
-        "x": 130,
-        "y": 180,
-        "wires": [
-            [
-                "82759d4.9c80a6"
-            ]
-        ]
-    },
-    {
-        "id": "82759d4.9c80a6",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 180,
-        "wires": [
-            [
-                "607c3a96.4cec04"
-            ]
-        ]
-    },
-    {
-        "id": "228dc23c.765c5e",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 140,
-        "wires": [
-            [
-                "607c3a96.4cec04"
-            ]
-        ]
-    },
-    {
-        "id": "607c3a96.4cec04",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 610,
-        "y": 140,
-        "wires": [
-            [
-                "4d4f6c20.301c34"
-            ]
-        ]
-    },
-    {
-        "id": "4d4f6c20.301c34",
-        "type": "mqtt out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Send info to Group 1 mqtt",
-        "topic": "home assistant/Group 1",
-        "qos": "2",
-        "retain": "false",
-        "broker": "4ec1ae6.5ee7c5",
-        "x": 810,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "8ec39eb.1c9026",
-        "type": "ui_button",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "group": "476cb6e8.7ef1b8",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Toggle groep 2",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "{\"state\":\"toggle\"}",
-        "payloadType": "json",
-        "topic": "",
-        "x": 120,
-        "y": 300,
-        "wires": [
-            [
-                "42ca6a84.cbbe74"
-            ]
-        ]
-    },
-    {
-        "id": "97844e2c.a2751",
-        "type": "ui_colour_picker",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Color Groep 1",
-        "label": "Color Groep 2",
-        "group": "476cb6e8.7ef1b8",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 120,
-        "y": 340,
-        "wires": [
-            [
-                "c7c771d1.50f84"
-            ]
-        ]
-    },
-    {
-        "id": "e84166ee.6a7c08",
-        "type": "ui_slider",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Brightness Groep 2",
-        "label": "Brightness Groep 2",
-        "tooltip": "",
-        "group": "5b148da4.232e64",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "",
-        "min": 0,
-        "max": "255",
-        "step": 1,
-        "x": 130,
-        "y": 380,
-        "wires": [
-            [
-                "c70a5f71.d7867"
-            ]
-        ]
-    },
-    {
-        "id": "c70a5f71.d7867",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 380,
-        "wires": [
-            [
-                "42ca6a84.cbbe74"
-            ]
-        ]
-    },
-    {
-        "id": "c7c771d1.50f84",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 340,
-        "wires": [
-            [
-                "42ca6a84.cbbe74"
-            ]
-        ]
-    },
-    {
-        "id": "42ca6a84.cbbe74",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 610,
-        "y": 340,
-        "wires": [
-            [
-                "7977bff9.7c54b"
-            ]
-        ]
-    },
-    {
-        "id": "7977bff9.7c54b",
-        "type": "mqtt out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Send info to Group 2 mqtt",
-        "topic": "home assistant/Group 2",
-        "qos": "2",
-        "retain": "false",
-        "broker": "4ec1ae6.5ee7c5",
-        "x": 810,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "3644b21c.bcb08e",
-        "type": "ui_button",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "group": "615f2632.e1a968",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Toggle groep 3",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "{\"state\":\"toggle\"}",
-        "payloadType": "json",
-        "topic": "",
-        "x": 120,
-        "y": 500,
-        "wires": [
-            [
-                "7ef20591.6171bc"
-            ]
-        ]
-    },
-    {
-        "id": "fb4ebd68.ffdf7",
-        "type": "ui_colour_picker",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Color Groep 3",
-        "label": "Color Groep 3",
-        "group": "615f2632.e1a968",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 120,
-        "y": 540,
-        "wires": [
-            [
-                "6c109311.a168cc"
-            ]
-        ]
-    },
-    {
-        "id": "3e04a1e6.df8bae",
-        "type": "ui_slider",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Brightness Groep 3",
-        "label": "Brightness Groep 3",
-        "tooltip": "",
-        "group": "615f2632.e1a968",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "",
-        "min": 0,
-        "max": "255",
-        "step": 1,
-        "x": 130,
-        "y": 580,
-        "wires": [
-            [
-                "da92fc3f.d6713"
-            ]
-        ]
-    },
-    {
-        "id": "da92fc3f.d6713",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 580,
-        "wires": [
-            [
-                "7ef20591.6171bc"
-            ]
-        ]
-    },
-    {
-        "id": "6c109311.a168cc",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 540,
-        "wires": [
-            [
-                "7ef20591.6171bc"
-            ]
-        ]
-    },
-    {
-        "id": "7ef20591.6171bc",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 610,
-        "y": 540,
-        "wires": [
-            [
-                "f70669cb.d2e5d8"
-            ]
-        ]
-    },
-    {
-        "id": "f70669cb.d2e5d8",
-        "type": "mqtt out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Send info to Group 3 mqtt",
-        "topic": "home assistant/Group 3",
-        "qos": "2",
-        "retain": "false",
-        "broker": "4ec1ae6.5ee7c5",
-        "x": 810,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "24f7055a.e1647a",
-        "type": "ui_button",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "group": "8ae5d911.8092a8",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Toggle groep 4",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "{\"state\":\"toggle\"}",
-        "payloadType": "json",
-        "topic": "",
-        "x": 120,
-        "y": 700,
-        "wires": [
-            [
-                "58e7bb8a.2160a4"
-            ]
-        ]
-    },
-    {
-        "id": "c9672635.62df78",
-        "type": "ui_colour_picker",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Color Groep 1",
-        "label": "Color Groep 4",
-        "group": "8ae5d911.8092a8",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 120,
-        "y": 740,
-        "wires": [
-            [
-                "9ff876.880c1788"
-            ]
-        ]
-    },
-    {
-        "id": "a69e9a96.76ff68",
-        "type": "ui_slider",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Brightness Groep 1",
-        "label": "Brightness Groep 4",
-        "tooltip": "",
-        "group": "5b148da4.232e64",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "",
-        "min": 0,
-        "max": "255",
-        "step": 1,
-        "x": 130,
-        "y": 780,
-        "wires": [
-            [
-                "9cc529e6.dc7ff8"
-            ]
-        ]
-    },
-    {
-        "id": "9cc529e6.dc7ff8",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 780,
-        "wires": [
-            [
-                "58e7bb8a.2160a4"
-            ]
-        ]
-    },
-    {
-        "id": "9ff876.880c1788",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 740,
-        "wires": [
-            [
-                "58e7bb8a.2160a4"
-            ]
-        ]
-    },
-    {
-        "id": "58e7bb8a.2160a4",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 610,
-        "y": 740,
-        "wires": [
-            [
-                "c8795f20.39e88"
-            ]
-        ]
-    },
-    {
-        "id": "c8795f20.39e88",
-        "type": "mqtt out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Send info to Group 4 mqtt",
-        "topic": "home assistant/Group 4",
-        "qos": "2",
-        "retain": "false",
-        "broker": "4ec1ae6.5ee7c5",
-        "x": 810,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "ee0aa6fd.3a09a8",
-        "type": "ui_button",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "group": "782cc8a3.de1238",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Toggle groep 5",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "{\"state\":\"toggle\"}",
-        "payloadType": "json",
-        "topic": "",
-        "x": 120,
-        "y": 900,
-        "wires": [
-            [
-                "30aed0a9.ef16c"
-            ]
-        ]
-    },
-    {
-        "id": "a24ab308.d068f",
-        "type": "ui_colour_picker",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Color Groep 5",
-        "label": "Color Groep 5",
-        "group": "782cc8a3.de1238",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 120,
-        "y": 940,
-        "wires": [
-            [
-                "1ad202f7.ffbe1d"
-            ]
-        ]
-    },
-    {
-        "id": "c70ac916.ceeb08",
-        "type": "ui_slider",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Brightness Groep 5",
-        "label": "Brightness Groep 5",
-        "tooltip": "",
-        "group": "782cc8a3.de1238",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "",
-        "min": 0,
-        "max": "255",
-        "step": 1,
-        "x": 130,
-        "y": 980,
-        "wires": [
-            [
-                "cdaa1152.0709a"
-            ]
-        ]
-    },
-    {
-        "id": "cdaa1152.0709a",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nvalue.brightness = msg.payload;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 980,
-        "wires": [
-            [
-                "30aed0a9.ef16c"
-            ]
-        ]
-    },
-    {
-        "id": "1ad202f7.ffbe1d",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nvalue = {};\nc = msg.payload;\nvalue.color = c.r + \",\" + c.g + \",\" + c.b;\nvalue.state = \"on\";\n\nmsg.payload = value;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 940,
-        "wires": [
-            [
-                "30aed0a9.ef16c"
-            ]
-        ]
-    },
-    {
-        "id": "30aed0a9.ef16c",
-        "type": "function",
-        "z": "4ed8ffa9.fa37d",
-        "name": "",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 610,
-        "y": 940,
-        "wires": [
-            [
-                "73eeacb3.b0e904"
-            ]
-        ]
-    },
-    {
-        "id": "73eeacb3.b0e904",
-        "type": "mqtt out",
-        "z": "4ed8ffa9.fa37d",
-        "name": "Send info to Group 5 mqtt",
-        "topic": "home assistant/Group 5",
-        "qos": "2",
-        "retain": "false",
-        "broker": "4ec1ae6.5ee7c5",
-        "x": 810,
-        "y": 940,
-        "wires": []
-    },
-    {
         "id": "e644391d.a8fa88",
         "type": "ui_slider",
         "z": "d9d0239.9656ae",
@@ -9168,8 +7719,8 @@
         "z": "4e1ea33e.b7a54c",
         "name": "Lamp C2",
         "server": "54720da2.31fe84",
-        "friendly_name": "Lamp 1",
-        "device_id": "0x842e14fffe2a3505",
+        "friendly_name": "C2",
+        "device_id": "0x588e81fffef09fd0",
         "command": "state",
         "commandType": "z2m_cmd",
         "payload": "payload",
@@ -9437,5 +7988,549 @@
         "x": 690,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "eb760bbb.8e5ec",
+        "type": "inject",
+        "z": "d66f1518.a9bb88",
+        "name": "Refresh Timer",
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "Refresh Timer",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 460,
+        "y": 180,
+        "wires": [
+            [
+                "e54c1170.c13488",
+                "f6657c5c.2621a8"
+            ]
+        ]
+    },
+    {
+        "id": "74cb77c.92dd108",
+        "type": "ui_button",
+        "z": "d66f1518.a9bb88",
+        "name": "Weather Refresh",
+        "group": "99a4dc86.46d248",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Aktualisieren",
+        "tooltip": "Wetterdaten aktualisieren",
+        "color": "",
+        "bgcolor": "",
+        "icon": "fa-refresh",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "e54c1170.c13488",
+                "f6657c5c.2621a8"
+            ]
+        ]
+    },
+    {
+        "id": "4d90e53a.37962c",
+        "type": "ui_text",
+        "z": "d66f1518.a9bb88",
+        "group": "b12941f.1cd05c",
+        "order": 1,
+        "width": "4",
+        "height": "1",
+        "name": "Condition Txt",
+        "label": "",
+        "format": "{{msg.payload.detail}}",
+        "layout": "row-center",
+        "x": 1310,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "89a4bed9.5b467",
+        "type": "function",
+        "z": "d66f1518.a9bb88",
+        "name": "Prepare Dashboard Data",
+        "func": "var windDirection = {};\nvar windDirectionIcon = {};\nvar windSpeed = {};\nvar windSpeedIcon = {};\nvar sunRise = {};\nvar sunSet = {};\nvar conditionIcon = {};\nvar date = new Date ();\n\n/* function for converting meteorogical degree to text */\n\nvar degToCard = function(deg){\nif (deg>11.25 && deg<=33.75){\nreturn \"Nord-Nord-Ost\";\n  }else if (deg>33.75 && deg<56.25){\nreturn \"Nord-Ost\";\n  }else if (deg>56.25 && deg<78.75){\nreturn \"Ost-Nord-Ost\";\n  }else if (deg>78.75 && deg<101.25){\nreturn \"Ost\";\n  }else if (deg>101.25 && deg<123.75){\nreturn \"Ost-Süd-Ost\";\n  }else if (deg>123.75 && deg<146.25){\nreturn \"Süd-Ost\";\n  }else if (deg>146.25 && deg<168.75){\nreturn \"Süd-Süd-Ost\";\n  }else if (deg>168.75 && deg<191.25){\nreturn \"Süd\";\n  }else if (deg>191.25 && deg<213.75){\nreturn \"Süd-Süd-West\";\n  }else if (deg>213.75 && deg<236.25){\nreturn \"Süd-West\";\n  }else if (deg>236.25 && deg<258.75){\nreturn \"West-Süd-West\";\n  }else if (deg>258.75 && deg<281.25){\nreturn \"West\";\n  }else if (deg>281.25 && deg<303.75){\nreturn \"West-Nord-West\";\n  }else if (deg>303.75 && deg<326.25){\nreturn \"Nord-West\";\n  }else if (deg>326.25 && deg<348.75){\nreturn \"Nord-Nord-West\";\n  }else{\nreturn \"Nord\"; \n  }\n}\n\n/* function for converting meteorogical degree to weather icons */\n\nvar degToCardIcon = function(deg){\nif (deg>11.25 && deg<=33.75){\nreturn \"wi-from-nne\";\n  }else if (deg>33.75 && deg<56.25){\nreturn \"wi-from-ne\";\n  }else if (deg>56.25 && deg<78.75){\nreturn \"wi-from-ene\";\n  }else if (deg>78.75 && deg<101.25){\nreturn \"wi-from-e\";\n  }else if (deg>101.25 && deg<123.75){\nreturn \"wi-from-ese\";\n  }else if (deg>123.75 && deg<146.25){\nreturn \"wi-from-se\";\n  }else if (deg>146.25 && deg<168.75){\nreturn \"wi-from-sse\";\n  }else if (deg>168.75 && deg<191.25){\nreturn \"wi-from-s\";\n  }else if (deg>191.25 && deg<213.75){\nreturn \"wi-from-ssw\";\n  }else if (deg>213.75 && deg<236.25){\nreturn \"wi-from-sw\";\n  }else if (deg>236.25 && deg<258.75){\nreturn \"wi-from-wsw\";\n  }else if (deg>258.75 && deg<281.25){\nreturn \"wi-from-w\";\n  }else if (deg>281.25 && deg<303.75){\nreturn \"wi-from-wnw\";\n  }else if (deg>303.75 && deg<326.25){\nreturn \"wi-from-nw\";\n  }else if (deg>326.25 && deg<348.75){\nreturn \"wi-from-nnw\";\n  }else{\nreturn \"wi-from-n\"; \n  }\n}\n\n/* Function for converting wind speed into Beaufort scale icon */\n\nvar speedToCardIcon = function(speed){\nif (speed>0.5 && speed<=1.5){\nreturn \"wi-wind-beaufort-1\";\n  }else if (speed>1.5 && speed<=3.3){\nreturn \"wi-wind-beaufort-2\";\n  }else if (speed>3.3 && speed<=5.5){\nreturn \"wi-wind-beaufort-3\";\n  }else if (speed>5.5 && speed<=7.9){\nreturn \"wi-wind-beaufort-4\";\n  }else if (speed>7.9 && speed<=10.7){\nreturn \"wi-wind-beaufort-5\";\n  }else if (speed>10.7 && speed<=13.8){\nreturn \"wi-wind-beaufort-6\";\n  }else if (speed>13.8 && speed<=17.1){\nreturn \"wi-wind-beaufort-7\";\n  }else if (speed>17.1 && speed<=20.7){\nreturn \"wi-wind-beaufort-8\";\n  }else if (speed>20.7 && speed<=24.4){\nreturn \"wi-wind-beaufort-9\";\n  }else if (speed>24.4 && speed<=28.4){\nreturn \"wi-wind-beaufort-10\";\n  }else if (speed>28.4 && speed<=32.6){\nreturn \"wi-wind-beaufort-11\";\n  }else if (speed>32.6){\nreturn \"wi-wind-beaufort-12\";\n  }else{\nreturn \"wi-wind-beaufort-0\"; \n  }\n}\n\n/* Function for Time Conversions */\n\nfunction timeConverter(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n    else {min = min;}\n  var sec = a.getSeconds();\n  if (sec < 10) {sec = \"0\" + sec;}\n    else {sec = sec;}\n    \n  var time = hour + ':' + min + ':' + sec ;\n  return time;\n}\n\n/* Convert OpenWeeather Map Icon to https://erikflowers.github.io/weather-icons/ */\n\nconst owIconMap = new Map();\n\nowIconMap.set('01d', 'wi-day-sunny'); // clear sky\nowIconMap.set('02d', 'wi-day-cloudy'); // few clouds\nowIconMap.set('03d', 'wi-cloud'); // scattered clouds\nowIconMap.set('04d', 'wi-cloudy'); // broken clouds\nowIconMap.set('09d', 'wi-day-showers'); // shower rain\nowIconMap.set('10d', 'wi-day-rain'); // rain\nowIconMap.set('11d', 'wi-thunderstorm'); // thunderstorm\nowIconMap.set('13d', 'wi-snow'); // snow\nowIconMap.set('50d', 'wi-fog'); // mist\nowIconMap.set('01n', 'wi-night-clear'); // clear sky\nowIconMap.set('02n', 'wi-night-alt-cloudy'); // few clouds\nowIconMap.set('03n', 'wi-cloud'); // scattered clouds\nowIconMap.set('04n', 'wi-cloudy'); // broken clouds\nowIconMap.set('09n', 'wi-night-alt-showers'); // shower rain\nowIconMap.set('10n', 'wi-night-alt-rain'); // rain\nowIconMap.set('11n', 'wi-thunderstorm'); // thunderstorm\nowIconMap.set('13n', 'wi-snow'); // snow\nowIconMap.set('50n', 'wi-fog'); // mist\n\nconditionIcon.topic = \"ConditionIcon\";\nconditionIcon.payload = owIconMap.get(msg.payload.icon);\n\nwindDirection.topic = \"WindDirection\";\nwindDirection.payload = degToCard(msg.payload.winddirection);\n\nwindDirectionIcon.topic = \"WindDirectionIcon\";\nwindDirectionIcon.payload = degToCardIcon(msg.payload.winddirection);\n\nwindSpeed.topic = \"WindSpeed\";\nwindSpeed.payload = msg.payload.windspeed +  \" m/s\"; /* \" + windDirection.payload; */\n\nwindSpeedIcon.topic = \"WindSpeedIcon\";\nwindSpeedIcon.payload = speedToCardIcon(msg.payload.windspeed);\n\nsunRise.topic = \"SunRise\";\nsunRise.payload = timeConverter(msg.payload.sunrise);\n\nsunSet.topic = \"SunRet\";\nsunSet.payload = timeConverter(msg.payload.sunset);\n\nowIconMap.clear(); //freeing resource\n\nreturn [conditionIcon, windSpeedIcon, windSpeed, windDirection, windDirectionIcon, sunRise, sunSet];",
+        "outputs": 7,
+        "noerr": 0,
+        "x": 1000,
+        "y": 340,
+        "wires": [
+            [
+                "d0990bb3.6ee1f8"
+            ],
+            [
+                "6bfd9bef.141194"
+            ],
+            [
+                "49e2e33e.486c14"
+            ],
+            [],
+            [
+                "a8c65467.d3352"
+            ],
+            [
+                "393c1d0b.05766a"
+            ],
+            [
+                "d2011150.f678f"
+            ]
+        ]
+    },
+    {
+        "id": "49e2e33e.486c14",
+        "type": "ui_text",
+        "z": "d66f1518.a9bb88",
+        "group": "8da50f69.44fe38",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "name": "WindSpeed",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 1300,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "393c1d0b.05766a",
+        "type": "ui_text",
+        "z": "d66f1518.a9bb88",
+        "group": "5a4d76d2.5ae128",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "name": "Sunrise",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1290,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "d2011150.f678f",
+        "type": "ui_text",
+        "z": "d66f1518.a9bb88",
+        "group": "5a4d76d2.5ae128",
+        "order": 6,
+        "width": "2",
+        "height": "1",
+        "name": "Sunset",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1290,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "a767f2cc.5f3478",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5a4d76d2.5ae128",
+        "name": "Sunrise Icon",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: left;align-items: center;\">\n<i class=\"fa-2x wi wi-sunrise\"></i>\n</div> ",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7dfa615d.50546",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5a4d76d2.5ae128",
+        "name": "Sunset Icon",
+        "order": 5,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: left;align-items: center;\">\n<i class=\"fa-2x wi wi-sunset\"></i>\n</div> ",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8c65467.d3352",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "8da50f69.44fe38",
+        "name": "WindDirection icon",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons-wind.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-2x wi wi-wind {{msg.payload}}\"></i>\n</div> ",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6bfd9bef.141194",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "8da50f69.44fe38",
+        "name": "WindSpeed Icon",
+        "order": 1,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons-wind.css\">\n<div style=\"display: flex;height: 100%;justify-content: left;align-items: center;\">\n<i class=\"fa-2x wi wi-wind {{msg.payload}}\"></i>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1320,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "480a6cbf.880804",
+        "type": "debug",
+        "z": "d66f1518.a9bb88",
+        "name": "Forecast debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1310,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "5af8efb7.126a98",
+        "type": "comment",
+        "z": "d66f1518.a9bb88",
+        "name": "Open Weather API für aktuelles Wetter und Forecast",
+        "info": "",
+        "x": 800,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d0990bb3.6ee1f8",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "14584712.7a2929",
+        "name": "Condition Icon",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-4x wi {{msg.payload}}\"></i>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1310,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "25b2dc06.cd7bdc",
+        "type": "function",
+        "z": "d66f1518.a9bb88",
+        "name": "Prepare Forecast Icon",
+        "func": "var wfcIcon1 = {};\nvar wfcIcon2 = {}; \nvar wfcIcon3 = {};\nvar wfcIcon4 = {};\nvar wfcIcon5 = {};\nvar wfcIcon6 = {};\nvar wfcIcon7 = {};\nvar wfcIcon8 = {};\n\n\nvar date = new Date ();\n\n/* Function for Time Conversions */\n\nfunction timeConverter(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n    else {min = min;}\n  var sec = a.getSeconds();\n  if (sec < 10) {sec = \"0\" + sec;}\n    else {sec = sec;}\n    \n  var time = hour + ':' + min; /* + ':' + sec ;*/\n  return time;\n}\n\n/* Convert OpenWeeather Map Icon to https://erikflowers.github.io/weather-icons/ */\n\nconst owIconMap = new Map();\n\nowIconMap.set('01d', 'wi-day-sunny'); // clear sky\nowIconMap.set('02d', 'wi-day-cloudy'); // few clouds\nowIconMap.set('03d', 'wi-cloud'); // scattered clouds\nowIconMap.set('04d', 'wi-cloudy'); // broken clouds\nowIconMap.set('09d', 'wi-day-showers'); // shower rain\nowIconMap.set('10d', 'wi-day-rain'); // rain\nowIconMap.set('11d', 'wi-thunderstorm'); // thunderstorm\nowIconMap.set('13d', 'wi-snow'); // snow\nowIconMap.set('50d', 'wi-fog'); // mist\nowIconMap.set('01n', 'wi-night-clear'); // clear sky\nowIconMap.set('02n', 'wi-night-alt-cloudy'); // few clouds\nowIconMap.set('03n', 'wi-cloud'); // scattered clouds\nowIconMap.set('04n', 'wi-cloudy'); // broken clouds\nowIconMap.set('09n', 'wi-night-alt-showers'); // shower rain\nowIconMap.set('10n', 'wi-night-alt-rain'); // rain\nowIconMap.set('11n', 'wi-thunderstorm'); // thunderstorm\nowIconMap.set('13n', 'wi-snow'); // snow\nowIconMap.set('50n', 'wi-fog'); // mist\n\nwfcIcon1.topic = msg.payload[0].dt_txt;\nwfcIcon1.payload = owIconMap.get(msg.payload[0].weather[0].icon);\n\nwfcIcon2.topic = msg.payload[1].dt_txt;\nwfcIcon2.payload = owIconMap.get(msg.payload[1].weather[0].icon);\n\nwfcIcon3.topic = msg.payload[2].dt_txt;\nwfcIcon3.payload = owIconMap.get(msg.payload[2].weather[0].icon);\n\nwfcIcon4.topic = msg.payload[3].dt_txt;\nwfcIcon4.payload = owIconMap.get(msg.payload[3].weather[0].icon);\n\nwfcIcon5.topic = msg.payload[4].dt_txt;\nwfcIcon5.payload = owIconMap.get(msg.payload[4].weather[0].icon);\n\nwfcIcon6.topic = msg.payload[5].dt_txt;\nwfcIcon6.payload = owIconMap.get(msg.payload[5].weather[0].icon);\n\nwfcIcon7.topic = msg.payload[6].dt_txt;\nwfcIcon7.payload = owIconMap.get(msg.payload[6].weather[0].icon);\n\nwfcIcon8.topic = msg.payload[7].dt_txt;\nwfcIcon8.payload = owIconMap.get(msg.payload[7].weather[0].icon);\n\n\nowIconMap.clear(); //freeing resource\n\nreturn [wfcIcon1, wfcIcon2, wfcIcon3, wfcIcon4, wfcIcon5, wfcIcon6, wfcIcon7, wfcIcon8];",
+        "outputs": 8,
+        "noerr": 0,
+        "x": 1010,
+        "y": 700,
+        "wires": [
+            [
+                "39139188.be2256"
+            ],
+            [
+                "c24820ec.48ca8"
+            ],
+            [
+                "764a58c0.442438"
+            ],
+            [
+                "6eab6954.c57d38"
+            ],
+            [
+                "c756059d.18796"
+            ],
+            [
+                "53046826.3645"
+            ],
+            [
+                "229014e6.b0e14c"
+            ],
+            [
+                "fd1a001d.2fc35"
+            ]
+        ]
+    },
+    {
+        "id": "39139188.be2256",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5e0d6747.b726b",
+        "name": "WFc Icon 1",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c24820ec.48ca8",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5e0d6747.b726b",
+        "name": "WFc Icon 2",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "764a58c0.442438",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5e0d6747.b726b",
+        "name": "WFc Icon 3",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6eab6954.c57d38",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5e0d6747.b726b",
+        "name": "WFc Icon 4",
+        "order": 5,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c756059d.18796",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5e0d6747.b726b",
+        "name": "WFc Icon 5",
+        "order": 6,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "53046826.3645",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5e0d6747.b726b",
+        "name": "WFc Icon 6",
+        "order": 7,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "229014e6.b0e14c",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5e0d6747.b726b",
+        "name": "WFc Icon 7",
+        "order": 8,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd1a001d.2fc35",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5e0d6747.b726b",
+        "name": "WFc Icon 8",
+        "order": 9,
+        "width": "1",
+        "height": "1",
+        "format": "<link rel=\"stylesheet\" href=\"/weather-icons/mycss/weather-icons.min.css\">\n<div style=\"display: flex;height: 100%;justify-content: center;align-items: center;\">\n<i class=\"fa-1x wi {{msg.payload}}\"></i>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1300,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e58a247.3094b58",
+        "type": "function",
+        "z": "d66f1518.a9bb88",
+        "name": "Prepare Forecast Data",
+        "func": "var fcdata = {};\n\nfcdata.payload = {\n  forecast: {\n    dt00: {\n      dt_txt: msg.payload[0].dt_txt,\n      temp_min: msg.payload[0].main.temp_min,\n      temp_max: msg.payload[0].main.temp_max,\n      temp: msg.payload[0].main.temp,\n      desc: msg.payload[0].weather[0].description\n    },\n    dt01: {\n      dt_txt: msg.payload[1].dt_txt,\n      temp_min: msg.payload[1].main.temp_min,\n      temp_max: msg.payload[1].main.temp_max,\n      temp: msg.payload[1].main.temp,\n      desc: msg.payload[1].weather[0].description\n    },\n    dt02: {\n      dt_txt: msg.payload[2].dt_txt,\n      temp_min: msg.payload[2].main.temp_min,\n      temp_max: msg.payload[2].main.temp_max,\n      temp: msg.payload[2].main.temp,\n      desc: msg.payload[2].weather[0].description\n    },\n    dt03: {\n      dt_txt: msg.payload[3].dt_txt,\n      temp_min: msg.payload[3].main.temp_min,\n      temp_max: msg.payload[3].main.temp_max,\n      temp: msg.payload[3].main.temp,\n      desc: msg.payload[3].weather[0].description\n    },\n    dt04: {\n      dt_txt: msg.payload[4].dt_txt,\n      temp_min: msg.payload[4].main.temp_min,\n      temp_max: msg.payload[4].main.temp_max,\n      temp: msg.payload[4].main.temp,\n      desc: msg.payload[4].weather[0].description\n    },\n    dt05: {\n      dt_txt: msg.payload[5].dt_txt,\n      temp_min: msg.payload[5].main.temp_min,\n      temp_max: msg.payload[5].main.temp_max,\n      temp: msg.payload[5].main.temp,\n      desc: msg.payload[5].weather[0].description\n    },\n    dt06: {\n      dt_txt: msg.payload[6].dt_txt,\n      temp_min: msg.payload[6].main.temp_min,\n      temp_max: msg.payload[6].main.temp_max,\n      temp: msg.payload[6].main.temp,\n      desc: msg.payload[6].weather[0].description\n    },\n    dt07: {\n      dt_txt: msg.payload[7].dt_txt,\n      temp_min: msg.payload[7].main.temp_min,\n      temp_max: msg.payload[7].main.temp_max,\n      temp: msg.payload[7].main.temp,\n      desc: msg.payload[7].weather[0].description\n    }\n  }\n}\n\n\n\nreturn fcdata;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1010,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "770400c.08ade8",
+        "type": "ui_template",
+        "z": "d66f1518.a9bb88",
+        "group": "5e0d6747.b726b",
+        "name": "Forecast",
+        "order": 1,
+        "width": "8",
+        "height": "1",
+        "format": "<div layout=\"row\" layout-align=\"space-around start\" ng-repeat=\"data in msg.payload.row\">\n  <span flex style=\"color: white\">{{data.cell01}}</span>\n  <span flex style=\"color: white\">{{data.cell02}}</span>\n  <span flex style=\"color: white\">{{data.cell03}}</span>\n  <span flex style=\"color: white\">{{data.cell04}}</span>\n  <span flex style=\"color: white\">{{data.cell05}}</span>\n  <span flex style=\"color: white\">{{data.cell06}}</span>\n  <span flex style=\"color: white\">{{data.cell07}}</span>\n  <span flex style=\"color: white\">{{data.cell08}}</span>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1280,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5b71946.ca4de",
+        "type": "function",
+        "z": "d66f1518.a9bb88",
+        "name": "Prepare forecast for UI widget",
+        "func": "var fcdata = {};\n\n// prepare forecast data for CSS based ui widget\n\nfcdata.payload = {\n  row: {\n  \tdata01: {\n  \t\tcell01: msg.payload[0].dt_txt.substring(11, 16),\n  \t\tcell02: msg.payload[1].dt_txt.substring(11, 16),\n  \t\tcell03: msg.payload[2].dt_txt.substring(11, 16),\n  \t\tcell04: msg.payload[3].dt_txt.substring(11, 16),\n  \t\tcell05: msg.payload[4].dt_txt.substring(11, 16),\n  \t\tcell06: msg.payload[5].dt_txt.substring(11, 16),\n  \t\tcell07: msg.payload[6].dt_txt.substring(11, 16),\n  \t\tcell08: msg.payload[7].dt_txt.substring(11, 16)\n  \t},\n  \tdata02: {\n  \t\tcell01: msg.payload[0].main.temp,\n  \t\tcell02: msg.payload[1].main.temp,\n  \t\tcell03: msg.payload[2].main.temp,\n  \t\tcell04: msg.payload[3].main.temp,\n  \t\tcell05: msg.payload[4].main.temp,\n  \t\tcell06: msg.payload[5].main.temp,\n  \t\tcell07: msg.payload[6].main.temp,\n  \t\tcell08: msg.payload[7].main.temp\n  \t}\n  }\n}\n\nreturn fcdata;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 1120,
+        "wires": [
+            [
+                "770400c.08ade8"
+            ]
+        ]
+    },
+    {
+        "id": "e54c1170.c13488",
+        "type": "openweathermap",
+        "z": "d66f1518.a9bb88",
+        "name": "Huidige weer",
+        "wtype": "current",
+        "lon": "6.168301",
+        "lat": "53.179832",
+        "city": "",
+        "country": "",
+        "language": "nl",
+        "x": 680,
+        "y": 180,
+        "wires": [
+            [
+                "89a4bed9.5b467",
+                "4d90e53a.37962c"
+            ]
+        ]
+    },
+    {
+        "id": "f6657c5c.2621a8",
+        "type": "openweathermap",
+        "z": "d66f1518.a9bb88",
+        "name": "5 Dagen verwachting",
+        "wtype": "forecast",
+        "lon": "6.168301",
+        "lat": "53.179832",
+        "city": "",
+        "country": "",
+        "language": "nl",
+        "x": 690,
+        "y": 640,
+        "wires": [
+            [
+                "25b2dc06.cd7bdc",
+                "e58a247.3094b58",
+                "c5b71946.ca4de",
+                "480a6cbf.880804"
+            ]
+        ]
     }
 ]
