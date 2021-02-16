@@ -58,6 +58,9 @@
   git:
     repo: https://github.com/Paul-Reed/weather-icons-lite.git  
     dest: /var/docker-compose/data/node-red/weather-icons
+    mode: 0755
+    owner: pi
+    group: pi
     force: yes
   when: not p1.stat.exists
 
