@@ -1,4 +1,10 @@
 --- 
+- name: install unzip
+  apt: 
+    name: [ "unzip" ]
+    install_recommends: yes
+
+
 - name: create /var/docker-compose
   file:
     path: "{{  item }}"
