@@ -57,7 +57,7 @@
 - name: download weather-icons
   git:
     repo: https://github.com/Paul-Reed/weather-icons-lite.git  
-    dest: /var/docker-compose/data/node-red/
+    dest: /var/docker-compose/data/node-red/weather-icons
     force: yes
   when: not p1.stat.exists
 
