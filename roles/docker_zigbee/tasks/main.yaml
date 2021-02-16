@@ -61,8 +61,6 @@
     force: yes
   when: not p1.stat.exists
 
-git:
-
 - name: deploy Docker Compose stack
   shell:
     cmd: "docker-compose up -d"
