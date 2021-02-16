@@ -49,21 +49,15 @@
   - { src: "files/data/postgres/.env", dest: "/var/docker-compose/data/postgres/.env" }
   - { src: "files/data/home-assistant/configuration.yaml", dest: "/var/docker-compose/data/home-assistant/configuration.yaml" }
 
-- name: Check for weather-icons exists 
-  stat:
-    path: /var/docker-compose/data/node-red/weather-icons
-  register: p1
-
 - name: download weather-icons
-  git:
-    repo: https://github.com/Paul-Reed/weather-icons-lite.git  
-    dest: /var/docker-compose/data/node-red/weather-icons
+  unarchive:
+    src: weather-icons-master.zip
+    dest: /var/docker-compose/data/node-red/
     mode: 0755
     owner: pi
     group: pi
     force: yes
-  when: not p1.stat.exists
-
+  
 - name: deploy Docker Compose stack
   shell:
     cmd: "docker-compose up -d"
