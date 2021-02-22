@@ -52,7 +52,7 @@ devices:
   '0x00124b0018e2a303':
     friendly_name: 'Router 1'
     retain: true
-  '0x00124b0014d9b445'
+  '0x00124b0014d9b445':
     friendly_name: 'Router 2'
     retain: true
   '0x00158d0003c79a0e':
