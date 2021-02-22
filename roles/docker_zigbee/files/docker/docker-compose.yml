@@ -51,25 +51,25 @@ services:
     network_mode: host
     privileged: true
     restart: always
-  postgres:
-    container_name: postgres
-    image: postgres
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./data/postgres/:/var/lib/postgresql/data/
-    deploy:
-      resources:
-        limits:
-          memory: 250M
-  home-assistant:
-    container_name: home-assistant
-    restart: always
-    ports: 
-    - 8123:8123
-    image: homeassistant/home-assistant:stable
-    volumes:
-      - ./data/home-assistant:/config
-    environment:
-      - TZ=Europe/Amsterdam
-    network_mode: host
+#  postgres:
+#    container_name: postgres
+#    image: postgres
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - ./data/postgres/:/var/lib/postgresql/data/
+#    deploy:
+#      resources:
+#        limits:
+#          memory: 250M
+#  home-assistant:
+#    container_name: home-assistant
+#    restart: always
+#    ports: 
+#    - 8123:8123
+#    image: homeassistant/home-assistant:stable
+#    volumes:
+#      - ./data/home-assistant:/config
+#    environment:
+#      - TZ=Europe/Amsterdam
+#    network_mode: host
