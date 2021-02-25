@@ -1,0 +1,57 @@
+version: '3'
+services:  
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./data/nginx:/usr/share/nginx
+    network_mode: host  
+  mqtt:
+    image: "eclipse-mosquitto:latest"
+    environment:
+      - TZ=Europe/Amsterdam
+      - "MQTT_BROKER_URL=mqtt://127.0.0.1"
+    ports:
+      - 1883:1883
+      - 9001:9001
+    user: "1000:1000"
+    volumes:
+      - ./data/mqtt/config:/mosquitto/config
+      - ./data/mqtt/data:/mosquitto/data
+      - ./data/mqtt/log:/mosquitto/log
+    restart: always
+    network_mode: host
+  dsmrdb:
+    image: postgres:12
+    restart: always
+    volumes:
+      - ./data/dsmrdb/etc/localtime:/etc/localtime:ro
+      - ./data/dsmrdb/postgresql:/var/lib/postgresql/data
+    environment:
+      - TZ=Europe/Amsterdam
+      - PG_TZ=Europe/Amsterdam
+      - POSTGRES_USER=dsmrreader
+      - POSTGRES_PASSWORD=dsmrreader
+      - POSTGRES_DB=dsmrreader
+
+  dsmr:
+#    build: .
+    image: xirixiz/dsmr-reader-docker:latest
+    depends_on:
+      - dsmrdb
+    cap_add:
+      - NET_ADMIN
+    restart: always
+    volumes:
+      - ./data/dsmr/etc/localtime:/etc/localtime:ro
+      - ./data/dsmr/dsmr_backups:/dsmr/backups
+    environment:
+      - DJANGO_TIME_ZONE=Europe/Amsterdam
+      - VIRTUAL_HOST=localhost
+    ports:
+      - 7777:80
+      - 7779:443
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
