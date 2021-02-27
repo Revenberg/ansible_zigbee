@@ -1,56 +1,34 @@
 version: '3'
-services:  
-  nginx:
-    image: nginx
-    restart: always
-    ports:
-      - 80:80
-    volumes:
-      - ./data/nginx:/usr/share/nginx
-    network_mode: host  
-  mqtt:
-    image: "eclipse-mosquitto:latest"
-    environment:
-      - TZ=Europe/Amsterdam
-      - "MQTT_BROKER_URL=mqtt://127.0.0.1"
-    ports:
-      - 1883:1883
-      - 9001:9001
-    user: "1000:1000"
-    volumes:
-      - ./data/mqtt/config:/mosquitto/config
-      - ./data/mqtt/data:/mosquitto/data
-      - ./data/mqtt/log:/mosquitto/log
-    restart: always
-    network_mode: host
+services:
   dsmrdb:
-    image: postgres:12
-    restart: always
+    image: postgres:10.5-alpine
+    container_name: dsmrdb
     volumes:
-#      - ./data/dsmrdb/etc/localtime:/etc/localtime:ro
-      - ./data/dsmrdb/postgresql:/var/lib/postgresql/data
-    network_mode: host
+      - ./data/dsmrdb/data:/var/lib/postgresql/data
+      - ./data/dsmrdb/dsmrdb_backups:/dsmr/backups
+    restart: always
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
     environment:
-      - TZ=Europe/Amsterdam
-      - PG_TZ=Europe/Amsterdam
       - POSTGRES_USER=dsmrreader
       - POSTGRES_PASSWORD=dsmrreader
       - POSTGRES_DB=dsmrreader
 
   dsmr:
-#    build: .
-    image: xirixiz/dsmr-reader-docker:latest
+    image: xirixiz/dsmr-reader-docker
+    container_name: dsmr
     depends_on:
       - dsmrdb
     cap_add:
       - NET_ADMIN
+    links:
+      - dsmrdb
     restart: always
-    volumes:
-#      - ./data/dsmr/etc/localtime:/etc/localtime:ro
-      - ./data/dsmr/dsmr_backups:/dsmr/backups
-    network_mode: host
     environment:
-      - DJANGO_TIME_ZONE=Europe/Amsterdam
+      - DB_HOST=dsmrdb
+      - DSMR_USER=admin
+      - DSMR_EMAIL=admin@localhost.nl
+      - DSMR_PASSWORD=admin
       - VIRTUAL_HOST=localhost
     ports:
       - 7777:80

@@ -1,4 +1,24 @@
 --- 
+- name: Add an apt key by id from a keyserver
+  ansible.builtin.apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 04EE7237B7D453EC
+
+- name: Add an apt key by id from a keyserver
+  ansible.builtin.apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 648ACFD622F3D138
+
+- name: Add specified repository into sources list
+  ansible.builtin.apt_repository:
+    repo: deb http://deb.debian.org/debian buster-backports main
+    state: present
+
+- name: install pre dsmr reader
+  apt: 
+    name: [ "libseccomp2/buster-backports" ]
+    install_recommends: yes
+
 - name: create /var/docker-compose
   file:
     path: "{{  item }}"
@@ -12,10 +32,12 @@
     - "/var/docker-compose/data/nginx/html"
     - "/var/docker-compose/data/nginx/sites-enabled"    
 #    - "/var/docker-compose/data/dsmrdb/etc"
-    - "/var/docker-compose/data/dsmrdb/postgresql"   
+#    - "/var/docker-compose/data/dsmrdb/postgresql"   
 #    - "/var/docker-compose/data/dsmr/etc"
-    - "/var/docker-compose/data/dsmr/dsmr_backups"
-       
+#    - "/var/docker-compose/data/dsmr/dsmr_backups"
+    - "/var/docker-compose/data/dsmrdb/data"
+    - "/var/docker-compose/data/dsmrdb/dsmr_backups"
+    
 - name: copy Docker Compose files
   copy:
     src: "{{ item }}"
