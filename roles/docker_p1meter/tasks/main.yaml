@@ -11,9 +11,9 @@
     - "/var/docker-compose/data/mqtt/config"
     - "/var/docker-compose/data/nginx/html"
     - "/var/docker-compose/data/nginx/sites-enabled"    
-    - "/var/docker-compose/data/dsmrdb/etc"
+#    - "/var/docker-compose/data/dsmrdb/etc"
     - "/var/docker-compose/data/dsmrdb/postgresql"   
-    - "/var/docker-compose/data/dsmr/etc"
+#    - "/var/docker-compose/data/dsmr/etc"
     - "/var/docker-compose/data/dsmr/dsmr_backups"
        
 - name: copy Docker Compose files

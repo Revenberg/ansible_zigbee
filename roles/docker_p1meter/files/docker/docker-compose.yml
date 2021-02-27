@@ -27,7 +27,7 @@ services:
     image: postgres:12
     restart: always
     volumes:
-      - ./data/dsmrdb/etc/localtime:/etc/localtime:ro
+#      - ./data/dsmrdb/etc/localtime:/etc/localtime:ro
       - ./data/dsmrdb/postgresql:/var/lib/postgresql/data
     network_mode: host
     environment:
@@ -46,7 +46,7 @@ services:
       - NET_ADMIN
     restart: always
     volumes:
-      - ./data/dsmr/etc/localtime:/etc/localtime:ro
+#      - ./data/dsmr/etc/localtime:/etc/localtime:ro
       - ./data/dsmr/dsmr_backups:/dsmr/backups
     network_mode: host
     environment:
