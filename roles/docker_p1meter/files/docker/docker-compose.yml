@@ -38,8 +38,8 @@ services:
       - mqtt
 #    cap_add:
 #      - NET_ADMIN
-    links:
-      - dsmrdb
+#    links:
+#      - dsmrdb
     restart: always
     network_mode: host   
     environment:
