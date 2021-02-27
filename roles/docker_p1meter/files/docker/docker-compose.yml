@@ -14,7 +14,7 @@ services:
       - ./data/mqtt/data:/mosquitto/data
       - ./data/mqtt/log:/mosquitto/log
     restart: always
-    network_mode: host   
+    network_mode: host
   dsmrdb:
     image: postgres:10.5-alpine
     container_name: dsmrdb
@@ -25,10 +25,10 @@ services:
     labels:
       - com.centurylinklabs.watchtower.enable=true
     environment:
+      - TZ=Europe/Amsterdam
       - POSTGRES_USER=dsmrreader
       - POSTGRES_PASSWORD=dsmrreader
       - POSTGRES_DB=dsmrreader
-
   dsmr:
     image: xirixiz/dsmr-reader-docker
     container_name: dsmr
@@ -41,11 +41,14 @@ services:
       - dsmrdb
     restart: always
     environment:
+      - TZ=Europe/Amsterdam
       - DB_HOST=dsmrdb
       - DSMR_USER=admin
       - DSMR_EMAIL=admin@localhost.nl
       - DSMR_PASSWORD=admin
       - VIRTUAL_HOST=localhost
+      - SD_AUTOSTART_MQTT=true
+      - SD_AUTORESTART_MQTT=true
     ports:
       - 7777:80
       - 7779:443
