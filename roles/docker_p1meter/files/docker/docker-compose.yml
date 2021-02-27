@@ -36,12 +36,12 @@ services:
     depends_on:
       - dsmrdb
       - mqtt
-#    cap_add:
-#      - NET_ADMIN
-#    links:
-#      - dsmrdb
+    cap_add:
+      - NET_ADMIN
+    links:
+      - dsmrdb
     restart: always
-    network_mode: host   
+#    network_mode: host   
     environment:
       - DB_HOST=dsmrdb
       - DSMR_USER=admin
