@@ -1,16 +1,16 @@
 --- 
 - name: Add an apt key by id from a keyserver
-  ansible.builtin.apt_key:
+  apt_key:
     keyserver: keyserver.ubuntu.com
     id: 04EE7237B7D453EC
 
 - name: Add an apt key by id from a keyserver
-  ansible.builtin.apt_key:
+  apt_key:
     keyserver: keyserver.ubuntu.com
     id: 648ACFD622F3D138
 
 - name: Add specified repository into sources list
-  ansible.builtin.apt_repository:
+  apt_repository:
     repo: deb http://deb.debian.org/debian buster-backports main
     state: present
 
