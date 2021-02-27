@@ -29,6 +29,7 @@ services:
     volumes:
       - ./data/dsmrdb/etc/localtime:/etc/localtime:ro
       - ./data/dsmrdb/postgresql:/var/lib/postgresql/data
+    network_mode: host
     environment:
       - TZ=Europe/Amsterdam
       - PG_TZ=Europe/Amsterdam
@@ -47,6 +48,7 @@ services:
     volumes:
       - ./data/dsmr/etc/localtime:/etc/localtime:ro
       - ./data/dsmr/dsmr_backups:/dsmr/backups
+    network_mode: host
     environment:
       - DJANGO_TIME_ZONE=Europe/Amsterdam
       - VIRTUAL_HOST=localhost
