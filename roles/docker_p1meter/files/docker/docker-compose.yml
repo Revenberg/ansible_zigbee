@@ -40,6 +40,8 @@ services:
     links:
       - dsmrdb
     restart: always
+    volumes:
+      - ./data/dsmr:/var/lib/postgresql/data
     environment:
       - TZ=Europe/Amsterdam
       - DB_HOST=dsmrdb
