@@ -19,6 +19,11 @@
     name: [ "libseccomp2/buster-backports" ]
     install_recommends: yes
 
+- name: Update apt-get cache
+  apt: >
+    update_cache=yes
+    cache_valid_time=0
+
 - name: create /var/docker-compose
   file:
     path: "{{  item }}"
