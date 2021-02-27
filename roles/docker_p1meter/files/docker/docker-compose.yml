@@ -22,9 +22,8 @@ services:
       - ./data/dsmrdb/data:/var/lib/postgresql/data
       - ./data/dsmrdb/dsmrdb_backups:/dsmr/backups
     restart: always
-    network_mode: host   
-#    labels:
-#      - com.centurylinklabs.watchtower.enable=true
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
     environment:
       - POSTGRES_USER=dsmrreader
       - POSTGRES_PASSWORD=dsmrreader
@@ -41,7 +40,6 @@ services:
     links:
       - dsmrdb
     restart: always
-#    network_mode: host   
     environment:
       - DB_HOST=dsmrdb
       - DSMR_USER=admin
