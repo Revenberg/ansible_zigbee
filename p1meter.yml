@@ -7,6 +7,6 @@
 
   roles: 
   - role: docker_local
-  - role: docker_p1meter
   - role: docker_chromium
-
+  - role: docker_p1meter
+  
