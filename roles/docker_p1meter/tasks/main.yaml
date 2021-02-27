@@ -14,15 +14,15 @@
     path: /etc/apt/sources.list
     line: deb http://deb.debian.org/debian buster-backports main    
 
-- name: install pre dsmr reader
-  apt: 
-    name: [ "libseccomp2/buster-backports" ]
-    install_recommends: yes
-
 - name: Update apt-get cache
   apt: >
     update_cache=yes
     cache_valid_time=0
+
+- name: install pre dsmr reader
+  apt: 
+    name: [ "libseccomp2/buster-backports" ]
+    install_recommends: yes
 
 - name: create /var/docker-compose
   file:
