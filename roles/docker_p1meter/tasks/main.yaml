@@ -9,10 +9,10 @@
     keyserver: keyserver.ubuntu.com
     id: 648ACFD622F3D138
 
-- name: Add specified repository into sources list
-  apt_repository:
-    repo: deb http://deb.debian.org/debian buster-backports main
-    state: present
+- name: Add buster-backports to /etc/apt/sources.list
+  lineinfile:
+    path: /etc/apt/sources.list
+    line: deb http://deb.debian.org/debian buster-backports main    
 
 - name: install pre dsmr reader
   apt: 
