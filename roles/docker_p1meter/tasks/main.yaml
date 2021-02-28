@@ -65,8 +65,8 @@
 #  - { src: "files/data/nginx/html/schuur.jpg", dest: "/var/docker-compose/data/nginx/html/schuur.jpg" }
 #  - { src: "files/data/nginx/html/schuur.png", dest: "/var/docker-compose/data/nginx/html/schuur.png" }
 #  - { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
-  - { src: "/var/docker-compose/data/dsmr/config",  dest: "/var/docker-compose/data/dsmr/config/supervisord.conf" }
-  - { src: "/var/docker-compose/data/dsmr/config",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
+  - { src: "/var/docker-compose/data/dsmr/config/supervisord.conf",  dest: "/var/docker-compose/data/dsmr/config/supervisord.conf" }
+  - { src: "/var/docker-compose/data/dsmr/config/bashrc",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
   
 - name: deploy Docker Compose stack
   shell:
