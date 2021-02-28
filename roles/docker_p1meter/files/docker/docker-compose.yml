@@ -41,7 +41,7 @@ services:
       - dsmrdb
     restart: always
     volumes:
-      - ./dsmr_backups:/dsmr/backups
+      - ./data/dsmr_backups:/dsmr/backups
       - ./data/dsmr/config:/var/lib/postgresql/data/config/
     environment:
       - TZ=Europe/Amsterdam

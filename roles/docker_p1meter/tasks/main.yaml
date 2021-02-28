@@ -37,6 +37,7 @@
 #    - "/var/docker-compose/data/dsmrdb/etc"
 #    - "/var/docker-compose/data/dsmrdb/postgresql"   
     - "/var/docker-compose/data/dsmr/config"
+    - "/var/docker-compose/data/dsmr/dsmr_backups"
 #    - "/var/docker-compose/data/dsmr/dsmr_backups"
     - "/var/docker-compose/data/dsmrdb/data"
     - "/var/docker-compose/data/dsmrdb/dsmr_backups"
