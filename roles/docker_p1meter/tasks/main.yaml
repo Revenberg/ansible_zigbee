@@ -17,8 +17,8 @@
 
 - name: Create symbolic link
   file:
-    src: /var/docker-compose/data
-    path: /data
+    src: /data
+    path: /var/docker-compose/data
     state: link
 
 - name: Add an apt key by id from a keyserver
