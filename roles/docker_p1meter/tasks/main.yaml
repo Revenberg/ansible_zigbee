@@ -7,13 +7,18 @@
     owner: pi
     group: pi
 
-- name: Create variable from command
-  command:
-    cmd: lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL | grep DATA | cut -d" " -f1
-  register: command_output
+- name: install usbmount
+  apt: 
+    name: [ "usbmount" ]
+    install_recommends: yes
 
-- debug: msg="{{command_output.stdout}}"
-
+- name: Replace in /lib/systemd/system/systemd-udevd.service
+  ansible.builtin.replace:
+    path: /lib/systemd/system/systemd-udevd.service
+    after: 'MountFlags=shared'
+    before: ' MountFlags=slave'
+    regexp: '^(.+)$'
+    replace: '# \1'
 
 - name: Add an apt key by id from a keyserver
   apt_key:
