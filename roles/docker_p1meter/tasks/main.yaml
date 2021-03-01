@@ -9,11 +9,20 @@
 
 - name: Mount up device by label DATA
   mount:
-    path: /data
+    path: /media/usb
     src: LABEL=DATA
     fstype: vfat
     opts: defaults,auto,users,rw,nofail,umask=0000
     state: mounted
+
+- name: Create symbolic link
+  file:
+    src: /media/usb
+    path: /data
+    state: link
+    mode: 0755
+    owner: pi
+    group: pi
 
 - name: Create symbolic link
   file:
