@@ -1,5 +1,5 @@
 --- 
-- name: create /data
+- name: create /media/usb
   file:
     path: /media/usb
     recurse: yes
@@ -14,11 +14,11 @@
     fstype: vfat
     opts: defaults,auto,users,rw,nofail,umask=0000
     state: mounted
-
+   
 - name: Create symbolic link
   file:
     src: /media/usb
-    path: /data
+    path: /var/docker-compose/data
     state: link
     mode: 0755
     owner: pi
@@ -26,8 +26,8 @@
 
 - name: Create symbolic link
   file:
-    src: /data
-    path: /var/docker-compose/data
+    src: /var/docker-compose/data
+    path: /data
     state: link
     mode: 0755
     owner: pi
@@ -64,6 +64,7 @@
     owner: pi
     group: pi
   with_items:    
+    - "/var/docker-compose/data"
     - "/var/docker-compose/data/mqtt/config"
 #    - "/var/docker-compose/data/nginx/html"
 #    - "/var/docker-compose/data/nginx/sites-enabled"    
