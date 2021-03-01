@@ -12,7 +12,7 @@
     path: /data
     src: LABEL=DATA
     fstype: vfat
-    opts: defaults,auto,users,rw,nofail
+    opts: defaults,auto,users,rw,nofail,umask=0000
     state: mounted
 
 - name: Create symbolic link
