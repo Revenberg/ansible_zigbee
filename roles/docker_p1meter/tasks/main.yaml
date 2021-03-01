@@ -13,7 +13,7 @@
     install_recommends: yes
 
 - name: Replace in /lib/systemd/system/systemd-udevd.service
-  ansible.builtin.replace:
+  replace:
     path: /lib/systemd/system/systemd-udevd.service
     after: 'MountFlags=shared'
     before: ' MountFlags=slave'
