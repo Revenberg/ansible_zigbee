@@ -12,7 +12,8 @@
     path: /media/usb
     src: LABEL=DATA
     fstype: vfat
-    state: present
+    opts: defaults,auto,users,rw,nofail
+    state: mounted
 
 - name: Add an apt key by id from a keyserver
   apt_key:
