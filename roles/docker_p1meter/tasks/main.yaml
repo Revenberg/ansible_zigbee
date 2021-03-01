@@ -1,7 +1,7 @@
 --- 
-- name: create /media/usb
+- name: create /data
   file:
-    path: "/media/usb"
+    path: "/data"
     recurse: yes
     mode: 0755
     owner: pi
@@ -9,11 +9,17 @@
 
 - name: Mount up device by label DATA
   mount:
-    path: /media/usb
+    path: /data
     src: LABEL=DATA
     fstype: vfat
     opts: defaults,auto,users,rw,nofail
     state: mounted
+
+- name: Create symbolic link
+  file:
+    src: /var/docker-compose/data
+    path: /data
+    state: link
 
 - name: Add an apt key by id from a keyserver
   apt_key:
@@ -36,7 +42,7 @@
 
 - name: apt-get update
   shell:
-    cmd: "apt install libseccomp2/buster-backports"
+    cmd: "apt install libseccomp2/buster-backports"    
 
 - name: create /var/docker-compose
   file:
@@ -45,8 +51,7 @@
     mode: 0755
     owner: pi
     group: pi
-  with_items:
-    - "/var/docker-compose/data"
+  with_items:    
     - "/var/docker-compose/data/mqtt/config"
 #    - "/var/docker-compose/data/nginx/html"
 #    - "/var/docker-compose/data/nginx/sites-enabled"    
