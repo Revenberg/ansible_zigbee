@@ -8,7 +8,8 @@
     group: pi
 
 - name: Create variable from command
-  command: lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL | grep DATA | cut -d" " -f1
+  command:
+    cmd: lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL | grep DATA | cut -d" " -f1
   register: command_output
 
 - debug: msg="{{command_output.stdout}}"
