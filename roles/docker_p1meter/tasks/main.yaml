@@ -7,17 +7,12 @@
     owner: pi
     group: pi
 
-- name: install usbmount
-  apt: 
-    name: [ "usbmount" ]
-    install_recommends: yes
-
-- name: Replace in /lib/systemd/system/systemd-udevd.service
-  lineinfile:
-    path: /lib/systemd/system/systemd-udevd.service    
-    regexp: '^MountFlags=slave'
-    line: 'MountFlags=shared'
-
+- name: Mount up device by label DATA
+  mount:
+    path: /media/usb
+    src: LABEL=DATA
+    fstype: vfat
+    state: present
 
 - name: Add an apt key by id from a keyserver
   apt_key:
