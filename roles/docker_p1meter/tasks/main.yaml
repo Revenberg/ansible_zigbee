@@ -1,4 +1,19 @@
 --- 
+- name: create /media/usb
+  file:
+    path: "/media/usb"
+    recurse: yes
+    mode: 0755
+    owner: pi
+    group: pi
+
+- name: Create variable from command
+  command: 'sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL | grep DATA | cut -d" " -f1'
+  register: command_output
+
+- debug: msg="{{command_output.stdout}}"
+
+
 - name: Add an apt key by id from a keyserver
   apt_key:
     keyserver: keyserver.ubuntu.com
