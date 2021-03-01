@@ -13,12 +13,11 @@
     install_recommends: yes
 
 - name: Replace in /lib/systemd/system/systemd-udevd.service
-  replace:
-    path: /lib/systemd/system/systemd-udevd.service
-    after: 'MountFlags=shared'
-    before: ' MountFlags=slave'
-    regexp: '^(.+)$'
-    replace: '# \1'
+  lineinfile:
+    path: /lib/systemd/system/systemd-udevd.service    
+    regexp: '^MountFlags=slave'
+    line: 'MountFlags=shared'
+
 
 - name: Add an apt key by id from a keyserver
   apt_key:
