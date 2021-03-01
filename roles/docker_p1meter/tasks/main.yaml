@@ -1,7 +1,7 @@
 --- 
 - name: create /data
   file:
-    path: "/data"
+    path: /media/usb
     recurse: yes
     mode: 0755
     owner: pi
