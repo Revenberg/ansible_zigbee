@@ -20,6 +20,9 @@
     src: /data
     path: /var/docker-compose/data
     state: link
+    mode: 0755
+    owner: pi
+    group: pi
 
 - name: Add an apt key by id from a keyserver
   apt_key:
