@@ -14,9 +14,10 @@
     fstype: vfat
     opts: defaults,auto,users,rw,nofail,umask=0000
     state: mounted
-  become: pi
+  become: true
+  become_user: pi
    
-- name: Create symbolic link
+- name: Create symbolic link to /var/docker-compose/data
   file:
     src: /media/usb
     path: /var/docker-compose/data
@@ -25,7 +26,7 @@
     owner: pi
     group: pi
 
-- name: Create symbolic link
+- name: Create symbolic link to /data
   file:
     src: /var/docker-compose/data
     path: /data
