@@ -16,6 +16,7 @@
     state: mounted
   become: true
   become_user: pi
+  ignore_errors: yes
    
 - name: Create symbolic link to /var/docker-compose/data
   file:
