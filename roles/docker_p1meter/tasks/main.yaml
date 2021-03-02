@@ -37,6 +37,7 @@
     mode: 0755
     owner: pi
     group: pi
+  ignore_errors: yes
 
 - name: Add an apt key by id from a keyserver
   apt_key:
