@@ -27,6 +27,7 @@
     mode: 0755
     owner: pi
     group: pi
+  ignore_errors: yes
 
 - name: Create symbolic link to /data
   file:
