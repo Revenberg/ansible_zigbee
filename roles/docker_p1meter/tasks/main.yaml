@@ -3,7 +3,7 @@
   file:
     path: /media/usb
     recurse: yes
-    mode: 0755
+    mode: 0777
     owner: pi
     group: pi
   ignore_errors: yes
@@ -34,7 +34,7 @@
     src: /var/docker-compose/data
     path: /data
     state: link
-    mode: 0755
+    mode: 0777
     owner: pi
     group: pi
   ignore_errors: yes
