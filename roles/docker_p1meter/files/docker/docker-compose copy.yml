@@ -1,0 +1,59 @@
+version: '3'
+services:
+  mqtt:
+    image: "eclipse-mosquitto:latest"
+    environment:
+      - TZ=Europe/Amsterdam
+      - "MQTT_BROKER_URL=mqtt://127.0.0.1"
+    ports:
+      - 1883:1883
+      - 9001:9001
+    user: "1000:1000"
+    volumes:
+      - ./data/mqtt/config:/mosquitto/config
+      - ./data/mqtt/data:/mosquitto/data
+      - ./data/mqtt/log:/mosquitto/log
+    restart: always
+    network_mode: host
+  dsmrdb:
+    image: postgres:10.5-alpine
+    container_name: dsmrdb
+    volumes:
+      - ./data/dsmrdb/data:/var/lib/postgresql/data
+      - ./data/dsmrdb/dsmrdb_backups:/dsmr/backups
+    restart: always
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+    environment:
+      - TZ=Europe/Amsterdam
+      - POSTGRES_USER=dsmrreader
+      - POSTGRES_PASSWORD=dsmrreader
+      - POSTGRES_DB=dsmrreader
+  dsmr:
+    image: xirixiz/dsmr-reader-docker
+    container_name: dsmr
+    depends_on:
+      - dsmrdb
+      - mqtt
+    cap_add:
+      - NET_ADMIN
+    links:
+      - dsmrdb
+    restart: always
+    volumes:
+      - ./data/dsmr/dsmr_backups:/dsmr/backups
+      - ./data/dsmr/config:/var/lib/postgresql/data/config/
+    environment:
+      - TZ=Europe/Amsterdam
+      - DB_HOST=dsmrdb
+      - DSMR_USER=admin
+      - DSMR_EMAIL=admin@localhost.nl
+      - DSMR_PASSWORD=admin
+      - VIRTUAL_HOST=localhost
+      - SD_AUTOSTART_MQTT=true
+      - SD_AUTORESTART_MQTT=true
+    ports:
+      - 80:80
+      - 443:443
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0

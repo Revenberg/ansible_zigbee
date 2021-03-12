@@ -15,45 +15,42 @@ services:
       - ./data/mqtt/log:/mosquitto/log
     restart: always
     network_mode: host
-  dsmrdb:
-    image: postgres:10.5-alpine
-    container_name: dsmrdb
+  db-dsmr:
+    image: postgres
+    container_name: db-dsmr
     volumes:
-      - ./data/dsmrdb/data:/var/lib/postgresql/data
-      - ./data/dsmrdb/dsmrdb_backups:/dsmr/backups
-    restart: always
-    labels:
-      - com.centurylinklabs.watchtower.enable=true
+      - ./data/dsmrdb:/var/lib/postgresql/data
+    restart: unless-stopped
     environment:
-      - TZ=Europe/Amsterdam
       - POSTGRES_USER=dsmrreader
       - POSTGRES_PASSWORD=dsmrreader
       - POSTGRES_DB=dsmrreader
+    networks:
+      - net-dsmr
+
   dsmr:
-    image: xirixiz/dsmr-reader-docker
     container_name: dsmr
-    depends_on:
-      - dsmrdb
-      - mqtt
-    cap_add:
-      - NET_ADMIN
-    links:
-      - dsmrdb
-    restart: always
+    image: ualex73/dsmr-reader-docker
+    container_name: dsmr
+    restart: unless-stopped
     volumes:
-      - ./data/dsmr/dsmr_backups:/dsmr/backups
-      - ./data/dsmr/config:/var/lib/postgresql/data/config/
+      - ./data/dsmr/backups:/home/dsmr/app/backups
+      - /dev:/dev
     environment:
-      - TZ=Europe/Amsterdam
-      - DB_HOST=dsmrdb
+      - DB_HOST=db-dsmr
       - DSMR_USER=admin
-      - DSMR_EMAIL=admin@localhost.nl
+      - DSMR_EMAIL=root@localhost
       - DSMR_PASSWORD=admin
       - VIRTUAL_HOST=localhost
-      - SD_AUTOSTART_MQTT=true
-      - SD_AUTORESTART_MQTT=true
+      - DSMRREADER_ADMIN_USER=admin
+      - DSMRREADER_ADMIN_PASSWORD=password
     ports:
       - 80:80
-      - 443:443
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
+    networks:
+      - net-dsmr
+
+networks:
+  net-dsmr:
+    driver: bridge
