@@ -13,7 +13,7 @@
     path: /media/usb
     src: LABEL=DATA
     fstype: vfat
-    opts: defaults,auto,users,rw,nofail,umask=0022
+    opts: defaults,auto,users,rw,nofail,umask=0000
     state: mounted
   become: true
   become_user: pi
