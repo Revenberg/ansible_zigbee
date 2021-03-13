@@ -24,7 +24,7 @@
     src: /media/usb
     path: /var/docker-compose/data
     state: link
-    mode: 0755
+    mode: 0777
     owner: pi
     group: pi
   ignore_errors: yes
