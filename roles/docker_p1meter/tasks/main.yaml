@@ -80,7 +80,8 @@
 #    - "/var/docker-compose/data/dsmr/dsmr_backups"
     - "/var/docker-compose/data/dsmrdb/data"
     - "/var/docker-compose/data/dsmrdb/dsmr_backups"
-    
+  ignore_errors: yes
+
 - name: copy Docker Compose files
   copy:
     src: "{{ item }}"
