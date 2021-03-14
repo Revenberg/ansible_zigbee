@@ -19,7 +19,7 @@ services:
     image: postgres
     container_name: db-dsmr
     volumes:
-      - ./data/dsmrdb:/var/lib/postgresql/data
+      - ./data/dsmrdb/data:/var/lib/postgresql/data
     restart: unless-stopped
     environment:
       - POSTGRES_USER=dsmrreader
