@@ -3,41 +3,37 @@
   file:
     path: /media/usb
     recurse: yes
-    mode: 0777
+    mode: 0755
     owner: pi
     group: pi
-  ignore_errors: yes
-
+  
 - name: Mount up device by label DATA
   mount:
     path: /media/usb
     src: LABEL=DATA
     fstype: vfat
-    opts: defaults,auto,users,rw,nofail,umask=0000
+    opts: auto,nofail,noatime,users,rw,uid=pi,gid=pi
     state: mounted
   become: true
-  become_user: pi
-  ignore_errors: yes
+  become_user: pi  
    
 - name: Create symbolic link to /var/docker-compose/data
   file:
     src: /media/usb
     path: /var/docker-compose/data
     state: link
-    mode: 0777
+    mode: 0755
     owner: pi
-    group: pi
-  ignore_errors: yes
+    group: pi  
 
 - name: Create symbolic link to /data
   file:
     src: /var/docker-compose/data
     path: /data
     state: link
-    mode: 0777
+    mode: 0755
     owner: pi
-    group: pi
-  ignore_errors: yes
+    group: pi  
 
 - name: Add an apt key by id from a keyserver
   apt_key:
@@ -66,7 +62,7 @@
   file:
     path: "{{  item }}"
     recurse: yes
-    mode: 0777
+    mode: 0755
     owner: pi
     group: pi
   with_items:        
@@ -80,7 +76,6 @@
 #    - "/var/docker-compose/data/dsmr/dsmr_backups"
     - "/var/docker-compose/data/dsmrdb/data"
     - "/var/docker-compose/data/dsmrdb/dsmr_backups"
-  ignore_errors: yes
 
 - name: copy Docker Compose files
   copy:
