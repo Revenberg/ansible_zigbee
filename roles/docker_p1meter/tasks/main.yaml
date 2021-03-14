@@ -14,8 +14,6 @@
     fstype: vfat
     opts: auto,nofail,noatime,users,rw,uid=pi,gid=pi
     state: mounted
-  become: true
-  become_user: pi  
    
 - name: Create symbolic link to /var/docker-compose/data
   file:
