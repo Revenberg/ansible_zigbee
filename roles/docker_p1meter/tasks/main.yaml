@@ -72,8 +72,19 @@
     - "/var/docker-compose/data/dsmr/config"
     - "/var/docker-compose/data/dsmr/dsmr_backups"
 #    - "/var/docker-compose/data/dsmr/dsmr_backups"
+
+- name: /var/docker-compose
+  file:
+    path: "{{  item }}"
+    recurse: yes
+    mode: 0777
+    owner: pi
+    group: pi
+  with_items: 
     - "/var/docker-compose/data/dsmrdb/data"
     - "/var/docker-compose/data/dsmrdb/dsmr_backups"
+
+    /var/lib/postgresql/data/data
 
 - name: copy Docker Compose files
   copy:
