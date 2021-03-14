@@ -84,8 +84,6 @@
     - "/var/docker-compose/data/dsmrdb/data"
     - "/var/docker-compose/data/dsmrdb/dsmr_backups"
 
-    /var/lib/postgresql/data/data
-
 - name: copy Docker Compose files
   copy:
     src: "{{ item }}"
