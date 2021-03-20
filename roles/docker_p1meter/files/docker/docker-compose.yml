@@ -40,9 +40,8 @@ services:
       - POSTGRES_USER=dsmrreader
       - POSTGRES_PASSWORD=dsmrreader
       - POSTGRES_DB=dsmrreader
-#    networks:
-#      - net-dsmr
-    network_mode: host
+    networks:
+      - net-dsmr
 
   dsmr:
     container_name: dsmr
@@ -64,10 +63,9 @@ services:
       - 80:80
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
-    network_mode: host
-#    networks:
-#      - net-dsmr
+    networks:
+      - net-dsmr
 
-#networks:
-#  net-dsmr:
-#    driver: bridge
+networks:
+  net-dsmr:
+    driver: bridge

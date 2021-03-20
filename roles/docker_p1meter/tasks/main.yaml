@@ -94,6 +94,10 @@
   with_fileglob:
     - "files/docker/*"
 
+- name: add group
+    shell:
+    cmd: "usermod -aG dialout $(whoami)"
+    
 - name: copy config files
   copy:
     src: "{{ item.src }}"
