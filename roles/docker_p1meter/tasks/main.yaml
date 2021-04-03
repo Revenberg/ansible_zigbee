@@ -20,9 +20,8 @@
     name: postgres
     comment: postgres
     uid: 999
-    group: 
-    - pi
-    - dialout
+#    group: pi
+    groups: pi,dialout
 
 - name: Create symbolic link to /var/docker-compose/data
   file:
