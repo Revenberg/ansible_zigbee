@@ -20,7 +20,7 @@
     name: postgres
     comment: postgres
     uid: 999
-    group: pi
+    group: pi,sudo
 
 - name: Create symbolic link to /var/docker-compose/data
   file:
