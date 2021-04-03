@@ -68,8 +68,8 @@
     path: "{{  item }}"
     recurse: yes
     mode: 0777
-    owner: pi
-    group: pi
+    owner: postgres
+    group: postgres
   with_items:         
 #    - "/var/docker-compose/data/mqtt/config"
 #    - "/var/docker-compose/data/nginx/html"
