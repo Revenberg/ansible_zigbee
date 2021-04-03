@@ -1,6 +1,29 @@
 version: '3.8'
 
 services:
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./data/nginx:/usr/share/nginx
+    network_mode: host
+#  mqtt:
+#    image: "eclipse-mosquitto:latest"
+#    environment:
+#      - TZ=Europe/Amsterdam
+#      - "MQTT_BROKER_URL=mqtt://127.0.0.1"
+#    ports:
+#      - 1883:1883
+#      - 9001:9001
+#    user: "1000:1000"
+#    volumes:
+#      - ./data/mqtt/config:/mosquitto/config
+#      - ./data/mqtt/data:/mosquitto/data
+#      - ./data/mqtt/log:/mosquitto/log
+#    restart: always
+#    network_mode: host
   dsmrdb:
     # When using Postgres, release 12.x is supported only
     # due to the limited availability of client packages, especially for arm32v7
