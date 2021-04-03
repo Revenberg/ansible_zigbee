@@ -63,26 +63,26 @@
     mode: 0755
     owner: pi
     group: pi
-  with_items:        
-    - "/var/docker-compose/data/mqtt/config"
+  with_items:         
+#    - "/var/docker-compose/data/mqtt/config"
 #    - "/var/docker-compose/data/nginx/html"
 #    - "/var/docker-compose/data/nginx/sites-enabled"    
 #    - "/var/docker-compose/data/dsmrdb/etc"
 #    - "/var/docker-compose/data/dsmrdb/postgresql"   
-    - "/var/docker-compose/data/dsmr/config"
-    - "/var/docker-compose/data/dsmr/dsmr_backups"
+    - "/var/docker-compose/data/dsmrdb"
+    - "/var/docker-compose/data/dsmr_backups"
 #    - "/var/docker-compose/data/dsmr/dsmr_backups"
 
-- name: /var/docker-compose
-  file:
-    path: "{{  item }}"
-    recurse: yes
-    mode: 0777
-    owner: pi
-    group: pi
-  with_items: 
-    - "/var/docker-compose/data/dsmrdb/data"
-    - "/var/docker-compose/data/dsmrdb/dsmr_backups"
+#- name: /var/docker-compose
+#  file:
+#    path: "{{  item }}"
+#    recurse: yes
+#    mode: 0777
+#    owner: pi
+#    group: pi
+#  with_items: 
+#    - "/var/docker-compose/data/dsmrdb/data"
+#    - "/var/docker-compose/data/dsmrdb/dsmr_backups"
 
 - name: copy Docker Compose files
   copy:
@@ -98,22 +98,18 @@
     shell:
     cmd: "usermod -aG dialout $(whoami)"
     
-- name: copy config files
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    mode: 0755
-    owner: pi
-    group: pi
-  with_items:
-  - { src: "files/data/mqtt/config/mosquitto.conf", dest: "/var/docker-compose/data/mqtt/config/mosquitto.conf" }
-  - { src: "files/data/mqtt/config/passwords.mqtt", dest: "/var/docker-compose/data/mqtt/config/passwords.mqtt" }
-#  - { src: "files/data/nginx/html/index.html", dest: "/var/docker-compose/data/nginx/html/index.html" }
-#  - { src: "files/data/nginx/html/schuur.jpg", dest: "/var/docker-compose/data/nginx/html/schuur.jpg" }
-#  - { src: "files/data/nginx/html/schuur.png", dest: "/var/docker-compose/data/nginx/html/schuur.png" }
-#  - { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
-  - { src: "files/data/dsmr/config/supervisord.conf",  dest: "/var/docker-compose/data/dsmr/config/supervisord.conf" }
-  - { src: "files/data/dsmr/config/bashrc",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
+#- name: copy config files
+#  copy:
+#    src: "{{ item.src }}"
+#    dest: "{{ item.dest }}"
+#    mode: 0755
+#    owner: pi
+#    group: pi
+#  with_items:
+#  - { src: "files/data/mqtt/config/mosquitto.conf", dest: "/var/docker-compose/data/mqtt/config/mosquitto.conf" }
+#  - { src: "files/data/mqtt/config/passwords.mqtt", dest: "/var/docker-compose/data/mqtt/config/passwords.mqtt" }
+#  - { src: "files/data/dsmr/config/supervisord.conf",  dest: "/var/docker-compose/data/dsmr/config/supervisord.conf" }
+#  - { src: "files/data/dsmr/config/bashrc",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
   
 - name: deploy Docker Compose stack
   shell:
