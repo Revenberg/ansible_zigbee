@@ -3,7 +3,7 @@
   file:
     path: /media/usb
     recurse: yes
-    mode: 0755
+    mode: 0777
     owner: pi
     group: pi
   
