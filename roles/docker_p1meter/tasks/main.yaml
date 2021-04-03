@@ -12,9 +12,9 @@
     path: /media/usb
     src: LABEL=DATA
     fstype: vfat
-    opts: auto,nofail,noatime,user,rw,uid=pi,gid=pi,exec
+    opts: auto,nofail,noatime,user,rw,exec
     state: mounted
-
+# opts: auto,nofail,noatime,user,rw,uid=pi,gid=pi,exec
 - name: Add the user 'postgres' to a specific uid and a primary group of 'pi'
   user:
     name: postgres
