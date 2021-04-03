@@ -1,4 +1,8 @@
 --- 
+- name: Install ntfs-3g
+  apt: 
+    name: [ "ntfs-3g"]
+
 - name: create /media/usb
   file:
     path: /media/usb
@@ -11,7 +15,7 @@
   mount:
     path: /media/usb
     src: LABEL=DATA
-    fstype: vfat
+    fstype: ntfs
     opts: auto,nofail,noatime,user,rw,exec,gid=pi,umask=0000
     state: mounted
 # opts: auto,nofail,noatime,user,rw,uid=pi,gid=pi,exec
