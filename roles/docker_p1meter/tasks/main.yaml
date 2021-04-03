@@ -69,7 +69,7 @@
     recurse: yes
     mode: 0777
     owner: postgres
-    group: postgres
+    group: pi
   with_items:         
 #    - "/var/docker-compose/data/mqtt/config"
 #    - "/var/docker-compose/data/nginx/html"
