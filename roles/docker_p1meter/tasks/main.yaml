@@ -95,7 +95,7 @@
     - "files/docker/*"
 
 - name: add group
-    shell:
+  shell:
     cmd: "usermod -aG dialout $(whoami)"
     
 #- name: copy config files
