@@ -1,14 +1,14 @@
 version: '3.8'
 
 services:
-  nginx:
-    image: nginx
-    restart: always
-    ports:
-      - 80:80
-    volumes:
-      - ./data/nginx:/usr/share/nginx
-    network_mode: host
+#  nginx:
+#    image: nginx
+#    restart: always
+#    ports:
+#      - 80:80
+#    volumes:
+#      - ./data/nginx:/usr/share/nginx
+#    network_mode: host
 #  mqtt:
 #    image: "eclipse-mosquitto:latest"
 #    environment:
@@ -52,8 +52,8 @@ services:
       - DJANGO_TIME_ZONE=Europe/Amsterdam
       - VIRTUAL_HOST=localhost
     ports:
-      - 7777:80
-      - 7779:443
+      - 80:80
+      - 443:443
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
 
