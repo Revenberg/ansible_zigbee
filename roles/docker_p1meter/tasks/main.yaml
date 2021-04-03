@@ -12,7 +12,7 @@
     path: /media/usb
     src: LABEL=DATA
     fstype: vfat
-    opts: auto,nofail,noatime,users,rw,uid=pi,gid=pi,exec,umask=000
+    opts: auto,nofail,noatime,user,rw,uid=pi,gid=pi,exec,umask=000
     state: mounted
    
 - name: Create symbolic link to /var/docker-compose/data
