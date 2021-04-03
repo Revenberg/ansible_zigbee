@@ -15,11 +15,12 @@
     opts: auto,nofail,noatime,user,rw,uid=pi,gid=pi,exec
     state: mounted
 
-- name: Add the user 'postgres' to a specific uid 
+- name: Add the user 'postgres' to a specific uid and a primary group of 'pi'
   user:
     name: postgres
     comment: postgres
-    uid: 999    
+    uid: 999
+    group: pi
 
 - name: Create symbolic link to /var/docker-compose/data
   file:
