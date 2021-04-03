@@ -12,9 +12,16 @@
     path: /media/usb
     src: LABEL=DATA
     fstype: vfat
-    opts: auto,nofail,noatime,user,rw,exec,mask=1777
+    opts: auto,nofail,noatime,user,rw,uid=pi,gid=pi,exec
     state: mounted
-#opts: auto,nofail,noatime,user,rw,uid=pi,gid=pi,exec,mask=1777   
+
+- name: Add the user 'johnd' postgres a specific uid and a primary group of 'admin'
+  user:
+    name: postgres
+    comment: postgres
+    uid: 999
+    group: admin
+
 - name: Create symbolic link to /var/docker-compose/data
   file:
     src: /media/usb
