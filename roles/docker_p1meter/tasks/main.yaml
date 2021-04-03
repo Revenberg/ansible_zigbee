@@ -3,7 +3,7 @@
   file:
     path: /media/usb
     recurse: yes
-    mode: 0777
+    mode: 0755
     owner: pi
     group: pi
   
@@ -28,7 +28,7 @@
     src: /media/usb
     path: /var/docker-compose/data
     state: link
-    mode: 0777
+    mode: 0755
     owner: pi
     group: pi  
 
@@ -37,7 +37,7 @@
     src: /var/docker-compose/data
     path: /data
     state: link
-    mode: 0777
+    mode: 0755
     owner: pi
     group: pi  
 
@@ -68,7 +68,7 @@
   file:
     path: "{{  item }}"
     recurse: yes
-    mode: 0777
+    mode: 0755
     owner: postgres
     group: pi
   with_items:         
@@ -85,7 +85,7 @@
 #  file:
 #    path: "{{  item }}"
 #    recurse: yes
-#    mode: 0777
+#    mode: 0755
 #    owner: pi
 #    group: pi
 #  with_items: 
