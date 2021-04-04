@@ -80,6 +80,7 @@
 #    - "/var/docker-compose/data/nginx/sites-enabled"    
     - "/var/docker-compose/data/dsmrdb"
     - "/var/docker-compose/data/dsmr_backups"
+    - "/var/docker-compose//data/influxdbv2"
 
 - name: copy Docker Compose files
   copy:

@@ -1,6 +1,13 @@
 version: '3.8'
 
 services:
+  influxdb:
+    image: quay.io/influxdb/influxdb:v2.0.3
+    volumes:
+      # Mount for influxdb data directory and configuration
+      - ./data/influxdbv2:/.influxdbv2
+    ports:
+      - "8086:8086"
 #  nginx:
 #    image: nginx
 #    restart: always
