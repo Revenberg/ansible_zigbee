@@ -2,15 +2,16 @@ version: '3.8'
 
 services:
   influxdb:
-    image: influxdb:latest
+    image: hypriot/rpi-influxdb
     container_name: influxdb
+    environment:
+     - INFLUXDB_INIT_PWD="admin"
+     - ADMIN_USER="postgres"
+     - PRE_CREATE_DB="ha"
     ports:
-      - "8083:8083"
-      - "8086:8086"
-      - "8090:8090"
-    env_file:
-      - 'env.influxdb'
-    volumes:
+     - "8083:8083"
+     - "8086:8086"
+     volumes:
       # Data persistency
       # sudo mkdir -p /srv/docker/influxdb/data
       - ./data/influxdb/data:/var/lib/influxdb  
