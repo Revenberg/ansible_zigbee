@@ -116,8 +116,7 @@
   with_items:
   - { src: "files/env/env.grafana", dest: "/var/docker-compose/env.grafana" }
   - { src: "files/env/env.influxdb", dest: "/var/docker-compose/env.influxdb" }
-  - { src: "files/env/telegraf.conf", dest: "/var/docker-compose/telegraf.conf" }
-
+  
 
 #- name: copy config files
 #  copy:
