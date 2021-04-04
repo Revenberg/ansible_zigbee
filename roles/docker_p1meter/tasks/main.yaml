@@ -18,11 +18,20 @@
     fstype: ntfs
     opts: auto,nofail,noatime,user,rw,exec,gid=pi,umask=0000
     state: mounted
+
 - name: Add the user 'postgres' to a specific uid and a primary group of 'pi'
   user:
     name: postgres
     comment: postgres
     uid: 999
+#    group: pi
+    groups: pi,dialout
+
+- name: Add the user 'grafana' to a specific uid and a primary group of 'pi'
+  user:
+    name: grafana
+    comment: grafana
+    uid: 472
 #    group: pi
     groups: pi,dialout
 
@@ -80,7 +89,8 @@
 #    - "/var/docker-compose/data/nginx/sites-enabled"    
     - "/var/docker-compose/data/dsmrdb"
     - "/var/docker-compose/data/dsmr_backups"
-    - "/var/docker-compose//data/influxdbv2"
+    - "/var/docker-compose/data/influxdb"
+    - "/var/docker-compose/grafana/data"
 
 - name: copy Docker Compose files
   copy:
@@ -95,7 +105,20 @@
 - name: add group
   shell:
     cmd: "usermod -aG dialout $(whoami)"
-    
+
+- name: copy env files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0755
+    owner: pi
+    group: pi
+  with_items:
+  - { src: "files/env/env.grafana", dest: "/var/docker-compose/env.grafana" }
+  - { src: "files/env/env.influxdb", dest: "/var/docker-compose/env.influxdb" }
+  - { src: "files/env/telegraf.conf", dest: "/var/docker-compose/telegraf.conf" }
+
+
 #- name: copy config files
 #  copy:
 #    src: "{{ item.src }}"

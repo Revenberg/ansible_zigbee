@@ -2,12 +2,41 @@ version: '3.8'
 
 services:
   influxdb:
-    image: quay.io/influxdb/influxdb:v2.0.3
-    volumes:
-      # Mount for influxdb data directory and configuration
-      - ./data/influxdbv2:/.influxdbv2
+    image: influxdb:latest
+    container_name: influxdb
     ports:
+      - "8083:8083"
       - "8086:8086"
+      - "8090:8090"
+    env_file:
+      - 'env.influxdb'
+    volumes:
+      # Data persistency
+      # sudo mkdir -p /srv/docker/influxdb/data
+      - ./data/influxdb/data:/var/lib/influxdb  
+#  telegraf:
+#    image: telegraf:latest
+#    container_name: telegraf
+#    links:
+#      - influxdb
+#    volumes:
+#      - ./data/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    env_file:
+      - 'env.grafana'
+    user: "0"
+    links:
+      - influxdb
+    volumes:
+      # Data persistency
+      # sudo mkdir -p /srv/docker/grafana/data; chown 472:472 /srv/docker/grafana/data
+      - .data/grafana/data:/var/lib/grafana
+
 #  nginx:
 #    image: nginx
 #    restart: always
