@@ -115,7 +115,6 @@
     group: pi
   with_items:
   - { src: "files/env/env.grafana", dest: "/var/docker-compose/env.grafana" }
-  - { src: "files/env/env.influxdb", dest: "/var/docker-compose/env.influxdb" }
   
 
 #- name: copy config files
