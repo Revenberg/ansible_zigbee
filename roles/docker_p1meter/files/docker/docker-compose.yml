@@ -1,27 +1,25 @@
 version: '3.8'
 
 services:
+  p1logger:
+    image: revenberg/solarrs485logger
+    container_name: solarrs485logger
+    restart: always
+    network_mode: host
+
   influxdb:
     image: hypriot/rpi-influxdb
     container_name: influxdb
     environment:
-     - INFLUXDB_INIT_PWD="admin"
-     - ADMIN_USER="postgres"
-     - PRE_CREATE_DB="ha"
+     - INFLUXDB_INIT_PWD="password"
+     - PRE_CREATE_DB="power"
     ports:
      - "8083:8083"
      - "8086:8086"
-     volumes:
+    volumes:
       # Data persistency
       # sudo mkdir -p /srv/docker/influxdb/data
       - ./data/influxdb/data:/var/lib/influxdb  
-#  telegraf:
-#    image: telegraf:latest
-#    container_name: telegraf
-#    links:
-#      - influxdb
-#    volumes:
-#      - ./data/telegraf.conf:/etc/telegraf/telegraf.conf:ro
 
   grafana:
     image: grafana/grafana:latest
