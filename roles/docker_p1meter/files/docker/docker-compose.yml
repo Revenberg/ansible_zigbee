@@ -6,6 +6,8 @@ services:
     container_name: solarrs485logger
     restart: always
     network_mode: host
+    links:
+      - influxdb
 
   influxdb:
     image: hypriot/rpi-influxdb
@@ -36,14 +38,6 @@ services:
       # sudo mkdir -p /srv/docker/grafana/data; chown 472:472 /srv/docker/grafana/data
       - .data/grafana/data:/var/lib/grafana
 
-#  nginx:
-#    image: nginx
-#    restart: always
-#    ports:
-#      - 80:80
-#    volumes:
-#      - ./data/nginx:/usr/share/nginx
-#    network_mode: host
 #  mqtt:
 #    image: "eclipse-mosquitto:latest"
 #    environment:
