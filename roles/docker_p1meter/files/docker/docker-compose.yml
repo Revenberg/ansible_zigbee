@@ -6,8 +6,6 @@ services:
     container_name: solarrs485logger
     restart: always
     network_mode: host
-    links:
-      - influxdb
 
   influxdb:
     image: hypriot/rpi-influxdb
@@ -89,3 +87,4 @@ services:
 #volumes:
 #   dsmrdb:
 #   dsmrdb_backups:
+  
