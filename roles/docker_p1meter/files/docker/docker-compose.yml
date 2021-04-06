@@ -5,8 +5,7 @@ services:
     image: revenberg/solarrs485logger
     container_name: solarrs485logger
     restart: always
-    network_mode: host
-  links:
+    links:
       - influxdb
     
   influxdb:
