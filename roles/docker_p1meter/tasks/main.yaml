@@ -90,7 +90,7 @@
     - "/var/docker-compose/data/dsmrdb"
     - "/var/docker-compose/data/dsmr_backups"
     - "/var/docker-compose/data/influxdb"
-    - "/var/docker-compose/grafana/data"
+    - "/var/docker-compose/data/grafana/data"
 
 - name: copy Docker Compose files
   copy:

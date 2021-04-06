@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-#  p1logger:
-#    image: revenberg/solarrs485logger
-#    container_name: solarrs485logger
-#    restart: always
-#    network_mode: host
+  p1logger:
+    image: revenberg/solarrs485logger
+    container_name: solarrs485logger
+    restart: always
+    network_mode: host
 
   influxdb:
     image: hypriot/rpi-influxdb
@@ -34,7 +34,7 @@ services:
     volumes:
       # Data persistency
       # sudo mkdir -p /srv/docker/grafana/data; chown 472:472 /srv/docker/grafana/data
-      - .data/grafana/data:/var/lib/grafana
+      - ./data/grafana/data:/var/lib/grafana
 
 #  mqtt:
 #    image: "eclipse-mosquitto:latest"
