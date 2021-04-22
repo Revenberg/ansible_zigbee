@@ -30,6 +30,9 @@
         "node-red-node-ui-list": "^0.3.4",
         "node-red-node-openweathermap": "^0.3.2",
         "weather-icons-lite": "^1.6.1",            
+        "node-red-contrib-ui-contextmenu": "^2.0.1",
+        "node-red-contrib-ui-svg": "2.2.1",
         "start": "^5.1.0"        
+        
     }
 }

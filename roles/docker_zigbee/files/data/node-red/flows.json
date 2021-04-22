@@ -42,6 +42,20 @@
         "info": ""
     },
     {
+        "id": "d1076ec5.efc15",
+        "type": "tab",
+        "label": "Menu",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9a1a2b9e.d6da98",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "54720da2.31fe84",
         "type": "zigbee2mqtt-server",
         "name": "Zigbee",
@@ -58,7 +72,7 @@
         "type": "ui_tab",
         "name": "Deuren",
         "icon": "dashboard",
-        "order": 2,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -66,7 +80,7 @@
         "id": "fb0248e0.17bda8",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -78,7 +92,8 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -88,44 +103,44 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
+                    "default": "#097479",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
                     "value": "#111111",
                     "edited": false
                 },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#097479",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
@@ -140,9 +155,9 @@
             }
         },
         "site": {
-            "name": "Node-RED Dashboard",
-            "hideToolbar": "false",
-            "allowSwipe": "false",
+            "name": "Schuur",
+            "hideToolbar": "true",
+            "allowSwipe": "true",
             "lockMenu": "false",
             "allowTempTheme": "true",
             "dateFormat": "DD/MM/YYYY",
@@ -184,6 +199,7 @@
         "type": "ui_tab",
         "name": "Thuis",
         "icon": "dashboard",
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -248,32 +264,18 @@
         "type": "ui_tab",
         "name": "Z2M Admin",
         "icon": "dashboard",
+        "order": 5,
         "disabled": false,
         "hidden": false
-    },
-    {
-        "id": "6b720db0.299d14",
-        "type": "ui_tab",
-        "name": "Z2M Network map",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": true
     },
     {
         "id": "1ad0e792.0de138",
         "type": "ui_tab",
         "name": "Z2M Admin",
         "icon": "dashboard",
+        "order": 6,
         "disabled": false,
         "hidden": false
-    },
-    {
-        "id": "9f74baa5.af9638",
-        "type": "ui_tab",
-        "name": "Z2M Network map",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": true
     },
     {
         "id": "96cc68ec.7a50e8",
@@ -319,7 +321,7 @@
         "id": "94df4c7e.27404",
         "type": "ui_group",
         "name": "Network map",
-        "tab": "18b1c8d.49e8f37",
+        "tab": "",
         "order": 1,
         "disp": false,
         "width": "27",
@@ -350,16 +352,9 @@
         "type": "ui_tab",
         "name": "Z2M Admin",
         "icon": "dashboard",
+        "order": 7,
         "disabled": false,
         "hidden": false
-    },
-    {
-        "id": "18b1c8d.49e8f37",
-        "type": "ui_tab",
-        "name": "Z2M Network map",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": true
     },
     {
         "id": "98a0c192.bc4bf",
@@ -372,6 +367,7 @@
         "type": "ui_tab",
         "name": "Schuur",
         "icon": "dashboard",
+        "order": 8,
         "disabled": false,
         "hidden": false
     },
@@ -440,7 +436,7 @@
         "type": "ui_tab",
         "name": "Schuur",
         "icon": "home",
-        "order": "1"
+        "order": 2
     },
     {
         "id": "99a4dc86.46d248",
@@ -507,14 +503,14 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "home",
-        "order": 1
+        "order": 9
     },
     {
         "id": "eb94216d.968598",
         "type": "ui_tab",
         "name": "Wetterstation",
         "icon": "fa-thermometer-half",
-        "order": 5,
+        "order": 11,
         "disabled": false,
         "hidden": false
     },
@@ -525,7 +521,7 @@
         "tab": "4bb34f67.69a87",
         "order": 1,
         "disp": false,
-        "width": 10,
+        "width": "17",
         "collapse": false
     },
     {
@@ -533,9 +529,127 @@
         "type": "ui_tab",
         "name": "Weather",
         "icon": "fa-thermometer-half",
-        "order": 3,
+        "order": 1,
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "2a745e6b.07df92",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "e63bce2d.68925",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "e63bce2d.68925",
+        "type": "ui_tab",
+        "name": "Denon",
+        "icon": "dashboard",
+        "order": 10,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2908388b.8114b8",
+        "type": "ui_group",
+        "name": "Floorplan test",
+        "tab": "a28ff08f.3a822",
+        "order": 1,
+        "disp": true,
+        "width": "14",
+        "collapse": false
+    },
+    {
+        "id": "a28ff08f.3a822",
+        "type": "ui_tab",
+        "name": "SVG",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "9f5b4cff.15cd3",
+        "type": "ui_group",
+        "name": "Floorplan test",
+        "tab": "dabfe25b.13bc1",
+        "order": 1,
+        "disp": true,
+        "width": "14",
+        "collapse": false
+    },
+    {
+        "id": "dabfe25b.13bc1",
+        "type": "ui_tab",
+        "name": "SVG",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6b56d9c8.316e88",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "70fb931.dfc146c",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "81b8447b.ca2968",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "70fb931.dfc146c",
+        "order": 5,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "95130900.66ad18",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "70fb931.dfc146c",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "e6fca36.7aa9b6",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "70fb931.dfc146c",
+        "order": 10,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "1cd54710.36bba9",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "70fb931.dfc146c",
+        "order": 12,
+        "width": 14,
+        "height": 1
+    },
+    {
+        "id": "1b35b014.03333",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "70fb931.dfc146c",
+        "order": 17,
+        "width": 16,
+        "height": 1
+    },
+    {
+        "id": "f3aea613.004668",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "e66edfe2.ea332",
+        "order": 3,
+        "width": 12,
+        "height": 1
     },
     {
         "id": "1e86e070.517",
@@ -7165,13 +7279,13 @@
         "z": "4e1ea33e.b7a54c",
         "group": "e66edfe2.ea332",
         "name": "",
-        "order": 0,
-        "width": "0",
-        "height": "0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
         "format": "\n\n\n<script type=\"text/javascript\" charset=\"utf-8\">\n/*\n* rwdImageMaps AngularJS Directive v1.0\n*\n* Allows image maps to be used in a responsive design by recalculating the area coordinates to match the actual image size on load and window.resize\n* \n* Original Copyright (c) 2013 Matt Stow\n* https://github.com/stowball/jQuery-rwdImageMaps\n* http://mattstow.com\n* Licensed under the MIT license\n*\n* angular-rwdImageMaps.js (by Philip Saa)\n* https://github.com/cowglow/\n* @cowglow\n*/\nangular.module('rwdImageMaps',[])\n\t.directive('rwdimgmap', function($window){\n\t\treturn{\n\t\t\trestrict: 'CA',\n\t\t\tlink:function(scope, element, attrs){\n\t\t\t\telement.bind('load', function() {\n\n\t\t\t\t\tvar w = $(element).attr('width'),\n\t\t\t\t\t\th = $(element).attr('height');\n\t\t\t\t\t\t\n\t\t\t\t\tfunction resize(){\n\t\t\t\t\t\tif (!w || !h) {\n\t\t\t\t\t\t\tvar temp = new Image();\n\t\t\t\t\t\t\ttemp.src = $(element).attr('src');\n\t\t\t\t\t\t\tif(temp.src == undefined)\n\t\t\t\t\t\t\t\ttemp.src = $(element).attr('ng-src');\n\n\t\t\t\t\t\t\tif (!w)\n\t\t\t\t\t\t\t\tw = temp.width;\n\t\t\t\t\t\t\tif (!h)\n\t\t\t\t\t\t\t\th = temp.height;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t\n\t\t\t\t\t\tvar wPercent = $(element).width()/100,\n\t\t\t\t\t\t\thPercent = $(element).height()/100,\n\t\t\t\t\t\t\tmap = attrs.usemap.replace('#', ''),\n\t\t\t\t\t\t\tc = 'coords';\n\t\t\t\t\t\t\n\t\t\t\t\t\tangular.element('map[name=\"' + map + '\"]').find('area').each(function(){\n\t\t\t\t\t\t\tvar $this = $(this);\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tif (!$this.data(c)){\n\t\t\t\t\t\t\t\t$this.data(c, $this.attr(c));\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tvar coords = $this.data(c).split(','),\n\t\t\t\t\t\t\t\tcoordsPercent = new Array(coords.length);\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tfor (var i = 0; i<coordsPercent.length; ++i){\n\t\t\t\t\t\t\t\tif (i % 2 === 0){\n\t\t\t\t\t\t\t\t\tcoordsPercent[i] = parseInt(((coords[i]/w)*100)*wPercent);\n\t\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\t\tcoordsPercent[i] = parseInt(((coords[i]/h)*100)*hPercent);\n\t\t\t\t\t\t\t\t};\n\t\t\t\t\t\t\t};\n\t\t\t\t\t\t\t$this.attr(c, coordsPercent.toString());\n\t\t\t\t\t\t});\n\t\t\t\t\t}\n\t\t\t\t\tangular.element($window).resize(resize).trigger('resize');\n\t\t\t\t});\n\t\t\t}\n\t\t};\n\t});\n</script>\n\n\n<div ng-app=\"rwdImageMaps\">\n\n<!-- image below is as a base64 image to enable demo to be bundled but can easily be replace with image url -->\n\n<img class=\"rwdimgmap\" usemap=\"#image-map\" width=\"674\" height=\"463\" alt=\"\"  src=\"http://192.168.2.118/schuur.jpg\" />\n\n\n<!-- each area needs href=\"#\" in order to change pointer on mouse over, but it needs to come AFTER ng-click -->\n\n<map name=\"image-map\">\n    <area ng-click=\"send({payload:'A1'})\" alt=\"A1\" title=\"A1\" href=\"#\" coords=\"42,30,27\" shape=\"circle\">\n    <area ng-click=\"send({payload:'A2'})\" alt=\"A2\" title=\"A2\" href=\"#\" coords=\"40,111,28\" shape=\"circle\">\n    <area ng-click=\"send({payload:'A3'})\" alt=\"A3\" title=\"A3\" href=\"#\" coords=\"40,204,29\" shape=\"circle\">\n    <area ng-click=\"send({payload:'A4'})\" alt=\"A4\" title=\"A4\" href=\"#\" coords=\"41,299,27\" shape=\"circle\">\n    <area ng-click=\"send({payload:'A5'})\" alt=\"A5\" title=\"A5\" href=\"#\" coords=\"37,392,26\" shape=\"circle\">\n    <area ng-click=\"send({payload:'B1'})\" alt=\"B1\" title=\"B1\" href=\"#\" coords=\"85,424,28\" shape=\"circle\">\n    <area ng-click=\"send({payload:'B2'})\" alt=\"B2\" title=\"B2\" href=\"#\" coords=\"162,424,27\" shape=\"circle\">\n    <area ng-click=\"send({payload:'B3'})\" alt=\"B3\" title=\"B3\" href=\"#\" coords=\"241,422,30\" shape=\"circle\">\n    <area ng-click=\"send({payload:'B4'})\" alt=\"B4\" title=\"B4\" href=\"#\" coords=\"321,420,26\" shape=\"circle\">\n    <area ng-click=\"send({payload:'B5'})\" alt=\"B5\" title=\"B5\" href=\"#\" coords=\"396,419,28\" shape=\"circle\">\n    <area ng-click=\"send({payload:'C1'})\" alt=\"C1\" title=\"C1\" href=\"#\" coords=\"459,389,27\" shape=\"circle\">\n    <area ng-click=\"send({payload:'C2'})\" alt=\"C2\" title=\"C2\" href=\"#\" coords=\"459,301,27\" shape=\"circle\">\n    <area ng-click=\"send({payload:'C3'})\" alt=\"C3\" title=\"C3\" href=\"#\" coords=\"457,204,27\" shape=\"circle\">\n    <area ng-click=\"send({payload:'C4'})\" alt=\"C4\" title=\"C4\" href=\"#\" coords=\"459,108,26\" shape=\"circle\">\n    <area ng-click=\"send({payload:'C5'})\" alt=\"C5\" title=\"C5\" href=\"#\" coords=\"460,28,29\" shape=\"circle\">\n    <area ng-click=\"send({payload:'D1'})\" alt=\"D1\" title=\"D1\" href=\"#\" coords=\"584,133,25\" shape=\"circle\">\n    <area ng-click=\"send({payload:'K1'})\" alt=\"K1\" title=\"K1\" href=\"#\" coords=\"545,310,30\" shape=\"circle\">\n    <area ng-click=\"send({payload:'K2'})\" alt=\"K2\" title=\"K2\" href=\"#\" coords=\"623,313,29\" shape=\"circle\">\n\n    <area ng-click=\"send({payload:'AAN'})\" alt=\"Aan\" title=\"Aan\" href=\"#\" coords=\"108,118,406,33\" shape=\"rect\">\n    <area ng-click=\"send({payload:'TOGGLE'})\" alt=\"Toggle\" title=\"Toggle\" href=\"#\" coords=\"107,144,404,224\" shape=\"rect\">\n    <area ng-click=\"send({payload:'UIT'})\" alt=\"Uit\" title=\"Uit\" href=\"#\" coords=\"404,338,109,249\" shape=\"rect\">\n    \n</map>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
-        "resendOnRefresh": false,
+        "resendOnRefresh": true,
         "templateScope": "local",
         "x": 100,
         "y": 160,
@@ -7737,7 +7851,7 @@
         "z": "4e1ea33e.b7a54c",
         "name": "Lamp C2",
         "server": "54720da2.31fe84",
-        "friendly_name": "C2",
+        "friendly_name": "Lamp 2",
         "device_id": "0x588e81fffef09fd0",
         "command": "state",
         "commandType": "z2m_cmd",
@@ -8010,7 +8124,7 @@
         "payloadType": "bool",
         "topic": "",
         "x": 990,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "c5efdf55.db32f"
@@ -8022,15 +8136,15 @@
         "type": "ui_text",
         "z": "5f633a28.607134",
         "group": "70fb931.dfc146c",
-        "order": 5,
+        "order": 4,
         "width": 5,
         "height": 1,
         "name": "Description",
         "label": "",
         "format": "{{msg.payload.current.weather[0].description}}",
-        "layout": "row-left",
+        "layout": "col-center",
         "x": 990,
-        "y": 60,
+        "y": 20,
         "wires": []
     },
     {
@@ -8038,8 +8152,8 @@
         "type": "ui_text",
         "z": "5f633a28.607134",
         "group": "70fb931.dfc146c",
-        "order": 3,
-        "width": 3,
+        "order": 9,
+        "width": 5,
         "height": 1,
         "name": "Wind",
         "label": "",
@@ -8054,7 +8168,7 @@
         "type": "ui_text",
         "z": "5f633a28.607134",
         "group": "70fb931.dfc146c",
-        "order": 4,
+        "order": 6,
         "width": 3,
         "height": 1,
         "name": "SunriseTime",
@@ -8070,7 +8184,7 @@
         "type": "ui_text",
         "z": "5f633a28.607134",
         "group": "70fb931.dfc146c",
-        "order": 6,
+        "order": 11,
         "width": 3,
         "height": 1,
         "name": "SunsetTime",
@@ -8097,34 +8211,18 @@
         "z": "5f633a28.607134",
         "group": "70fb931.dfc146c",
         "name": "Forecast2",
-        "order": 7,
-        "width": 10,
+        "order": 14,
+        "width": 17,
         "height": 2,
-        "format": "<div style=\"height: 100%; justify-content: center; align-items: center;\">\n <div layout=\"rowicons\" layout-align=\"space-around start\" ng-repeat=\"data in msg.payload.rowicons\" style=\"font-size:150%;padding-top: 5px;padding-bottom: 5px\">\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell01}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell02}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell03}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell04}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell05}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell06}}\"></i></span>\n  <span flex style=\"color: #097479;text-align: center\"><i class=\"wi wi-owm-{{data.cell07}}\"></i></span>\n  <span flex style=\"color: #097479;text-align: center\"><i class=\"wi wi-owm-{{data.cell08}}\"></i></span>\n  <span flex style=\"color: #097479;text-align: center\"><i class=\"wi wi-owm-{{data.cell09}}\"></i></span>\n  <span flex style=\"color: #097479;text-align: center\"><i class=\"wi wi-owm-{{data.cell10}}\"></i></span>\n </div>\n <div layout=\"rowtext\" layout-align=\"space-around start\" ng-repeat=\"data in msg.payload.rowtext\" style=\"line-height: 150%\">\n  <span flex style=\"color: white;text-align: center;\">{{data.cell01}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell02}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell03}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell04}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell05}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell06}}</span>\n  <span flex style=\"color: #097479;text-align: center\">{{data.cell07}}</span>\n  <span flex style=\"color: #097479;text-align: center\">{{data.cell08}}</span>\n  <span flex style=\"color: #097479;text-align: center\">{{data.cell09}}</span>\n  <span flex style=\"color: #097479;text-align: center\">{{data.cell10}}</span>\n </div>\n</div>",
+        "format": "<div style=\"height: 100%; justify-content: center; align-items: center;\">\n <div layout=\"rowicons\" layout-align=\"space-around start\" ng-repeat=\"data in msg.payload.rowicons\" style=\"font-size:150%;padding-top: 5px;padding-bottom: 5px\">\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell01}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell02}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell03}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell04}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell05}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell06}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell07}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell08}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell09}}\"></i></span>\n  <span flex style=\"color: white;text-align: center\"><i class=\"wi wi-owm-{{data.cell10}}\"></i></span>\n </div>\n <div layout=\"rowtext\" layout-align=\"space-around start\" ng-repeat=\"data in msg.payload.rowtext\" style=\"line-height: 150%\">\n  <span flex style=\"color: white;text-align: center;\">{{data.cell01}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell02}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell03}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell04}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell05}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell06}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell07}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell08}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell09}}</span>\n  <span flex style=\"color: white;text-align: center\">{{data.cell10}}</span>\n  \n </div>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": false,
         "templateScope": "local",
-        "x": 980,
-        "y": 320,
+        "x": 1000,
+        "y": 480,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "7adde26c.514aec",
-        "type": "function",
-        "z": "5f633a28.607134",
-        "name": "Format forecast data",
-        "func": "var fcdata = {};\nvar units=flow.get('units');\nif (units===undefined)\n{\n  units=\"imperial\";\n}\n\nfunction formatTemp(high, low){\n    if (units == \"imperial\") {\n        if (low){\n          temp = parseFloat(high).toFixed() + '/' + parseFloat(low).toFixed()\n        }\n        else {\n          temp = parseFloat(high).toFixed() + '°F'\n        }\n    }\n    else { // metric\n//        temp = parseFloat(temp).toFixed(1) + '°C'\n        if (low){\n          temp = parseFloat(high).toFixed() + '/' + parseFloat(low).toFixed()\n        }\n        else {\n          temp = parseFloat(high).toFixed() + '°C'\n        }\n    }\n    return temp;\n}\nfunction dayName(unixTime){\n    var d = new Date(unixTime * 1000);\n    var weekday = new Array(7);\n        weekday[0] = \"Sun\";\n        weekday[1] = \"Mon\";\n        weekday[2] = \"Tue\";\n        weekday[3] = \"Wed\";\n        weekday[4] = \"Thu\";\n        weekday[5] = \"Fri\";\n        weekday[6] = \"Sat\";\n\n    return weekday[d.getDay()]\n}\nfunction timeConvert(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var suffix = \" am\";\n  if (hour >= 12) {\n    hour = hour - 12;\n    suffix = \" pm\";\n  }\n  if (hour === 0) {\n    hour = 12;\n  }\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n//  return hour + ':' + min + suffix;\n  return hour + suffix;\n}\n// prepare forecast data for CSS based ui widget\n\nfcdata.payload = {\n  rowtext: {\n  \tdata01: {\n      cell01: timeConvert(msg.payload.hourly[1].dt),\n      cell02: timeConvert(msg.payload.hourly[2].dt),\n      cell03: timeConvert(msg.payload.hourly[3].dt),\n      cell04: timeConvert(msg.payload.hourly[4].dt),\n      cell05: timeConvert(msg.payload.hourly[5].dt),\n      cell06: timeConvert(msg.payload.hourly[6].dt),\n      cell07: dayName(msg.payload.daily[1].dt),\n      cell08: dayName(msg.payload.daily[2].dt),\n      cell09: dayName(msg.payload.daily[3].dt),\n      cell10: dayName(msg.payload.daily[4].dt),\n  \t},\n  \tdata02: {\n       cell01: formatTemp(msg.payload.hourly[1].temp),\n       cell02: formatTemp(msg.payload.hourly[2].temp),\n       cell03: formatTemp(msg.payload.hourly[3].temp),\n       cell04: formatTemp(msg.payload.hourly[4].temp),\n       cell05: formatTemp(msg.payload.hourly[5].temp),\n       cell06: formatTemp(msg.payload.hourly[6].temp),\n       cell07: formatTemp(msg.payload.daily[1].temp.max, msg.payload.daily[0].temp.min),\n       cell08: formatTemp(msg.payload.daily[2].temp.max, msg.payload.daily[1].temp.min),\n       cell09: formatTemp(msg.payload.daily[3].temp.max, msg.payload.daily[2].temp.min),\n       cell10: formatTemp(msg.payload.daily[4].temp.max, msg.payload.daily[3].temp.min),\n  \t}\n  },\n  rowicons: {\n  \tdata01: {\n  \t\tcell01: msg.payload.hourly[1].weather[0].icon,\n  \t\tcell02: msg.payload.hourly[2].weather[0].icon,\n  \t\tcell03: msg.payload.hourly[3].weather[0].icon,\n  \t\tcell04: msg.payload.hourly[4].weather[0].icon,\n  \t\tcell05: msg.payload.hourly[5].weather[0].icon,\n  \t\tcell06: msg.payload.hourly[6].weather[0].icon,\n  \t\tcell07: msg.payload.daily[1].weather[0].icon,\n  \t\tcell08: msg.payload.daily[2].weather[0].icon,\n  \t\tcell09: msg.payload.daily[3].weather[0].icon,\n  \t\tcell10: msg.payload.daily[4].weather[0].icon,\n  \t}\n  }\n}\n\nreturn fcdata;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 760,
-        "y": 320,
-        "wires": [
-            [
-                "9dbf3c95.67c74"
-            ]
         ]
     },
     {
@@ -8140,7 +8238,7 @@
         "format": "<p style=\"font-size: 200%\">{{msg.payload.current.temp}}</p>",
         "layout": "row-left",
         "x": 990,
-        "y": 100,
+        "y": 60,
         "wires": []
     },
     {
@@ -8161,8 +8259,9 @@
         "wires": [
             [
                 "67075190.fc6f3",
-                "7adde26c.514aec",
-                "938dc9bb.e9fb48"
+                "938dc9bb.e9fb48",
+                "51758dd7.02d3f4",
+                "9acb69ba.4fa0a8"
             ]
         ]
     },
@@ -8200,7 +8299,7 @@
         "type": "function",
         "z": "5f633a28.607134",
         "name": "Format current data",
-        "func": "var icon = {};\n\nvar units=flow.get('units');\nif (units===undefined)\n{\n  units=\"imperial\";\n}\n\nfunction timeConvert(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n  return hour + ':' + min;\n}\n\nvar degreesToCardinal = function(deg){\nif (deg>11.25 && deg<=33.75){\nreturn \"NNE\";\n  }else if (deg>33.75 && deg<56.25){\nreturn \"NE\";\n  }else if (deg>56.25 && deg<78.75){\nreturn \"ENE\";\n  }else if (deg>78.75 && deg<101.25){\nreturn \"E\";\n  }else if (deg>101.25 && deg<123.75){\nreturn \"ESE\";\n  }else if (deg>123.75 && deg<146.25){\nreturn \"SE\";\n  }else if (deg>146.25 && deg<168.75){\nreturn \"SSE\";\n  }else if (deg>168.75 && deg<191.25){\nreturn \"S\";\n  }else if (deg>191.25 && deg<213.75){\nreturn \"SSW\";\n  }else if (deg>213.75 && deg<236.25){\nreturn \"SW\";\n  }else if (deg>236.25 && deg<258.75){\nreturn \"WSW\";\n  }else if (deg>258.75 && deg<281.25){\nreturn \"W\";\n  }else if (deg>281.25 && deg<303.75){\nreturn \"WNW\";\n  }else if (deg>303.75 && deg<326.25){\nreturn \"NW\";\n  }else if (deg>326.25 && deg<348.75){\nreturn \"NNW\";\n  }else{\nreturn \"N\"; \n  }\n}\n\nif (units == \"imperial\")\n{\n  msg.payload.current.temp = msg.payload.current.temp.toFixed() + ' °F';\n  msg.payload.current.wind_speed = msg.payload.current.wind_speed.toFixed() + ' mph';\n}\nelse // metric units\n{\n  msg.payload.current.temp = msg.payload.current.temp.toFixed(1) + ' °C';\n  msg.payload.current.wind_speed = msg.payload.current.wind_speed.toFixed(1) + ' m/s';\n}\n\nmsg.payload.current.wind_cardinal = degreesToCardinal(msg.payload.current.wind_deg);\nmsg.payload.current.sunrise = timeConvert(msg.payload.current.sunrise);\nmsg.payload.current.sunset = timeConvert(msg.payload.current.sunset);\n\nvar iconString = 'wi-owm-' + msg.payload.current.weather[0].icon + ' wi-4x';\nicon = {\n    ui_control: {\n        icon: iconString\n    }\n}; \n\nreturn [msg, icon];",
+        "func": "var icon = {};\n\nvar units=flow.get('units');\nif (units===undefined)\n{\n  units=\"imperial\";\n}\n\nfunction timeConvert(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n  return hour + ':' + min;\n}\n\nvar degreesToCardinal = function(deg){\nif (deg>11.25 && deg<=33.75){\nreturn \"NNE\";\n  }else if (deg>33.75 && deg<56.25){\nreturn \"NE\";\n  }else if (deg>56.25 && deg<78.75){\nreturn \"ENE\";\n  }else if (deg>78.75 && deg<101.25){\nreturn \"E\";\n  }else if (deg>101.25 && deg<123.75){\nreturn \"ESE\";\n  }else if (deg>123.75 && deg<146.25){\nreturn \"SE\";\n  }else if (deg>146.25 && deg<168.75){\nreturn \"SSE\";\n  }else if (deg>168.75 && deg<191.25){\nreturn \"S\";\n  }else if (deg>191.25 && deg<213.75){\nreturn \"SSW\";\n  }else if (deg>213.75 && deg<236.25){\nreturn \"SW\";\n  }else if (deg>236.25 && deg<258.75){\nreturn \"WSW\";\n  }else if (deg>258.75 && deg<281.25){\nreturn \"W\";\n  }else if (deg>281.25 && deg<303.75){\nreturn \"WNW\";\n  }else if (deg>303.75 && deg<326.25){\nreturn \"NW\";\n  }else if (deg>326.25 && deg<348.75){\nreturn \"NNW\";\n  }else{\nreturn \"N\"; \n  }\n}\n\nif (units == \"imperial\")\n{\n  msg.payload.current.temp = msg.payload.current.temp.toFixed() + ' °F';\n  msg.payload.current.wind_speed = msg.payload.current.wind_speed.toFixed() + ' mph';\n}\nelse // metric units\n{\n  msg.payload.current.temp = msg.payload.current.temp.toFixed(1) + ' °C';\n  msg.payload.current.feels_like = msg.payload.current.feels_like.toFixed(1) + ' °C';\n  msg.payload.current.wind_speed = msg.payload.current.wind_speed.toFixed(1) + ' m/s';\n}\n\nmsg.payload.current.wind_cardinal = degreesToCardinal(msg.payload.current.wind_deg);\nmsg.payload.current.sunrise = timeConvert(msg.payload.current.sunrise);\nmsg.payload.current.sunset = timeConvert(msg.payload.current.sunset);\n\nvar iconString = 'wi-owm-' + msg.payload.current.weather[0].icon + ' wi-4x';\nicon = {\n    ui_control: {\n        icon: iconString\n    }\n}; \n\nreturn [msg, icon];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -8213,7 +8312,9 @@
                 "ec4eb2d0.974c",
                 "9c052db7.3c434",
                 "40f44662.3ecde8",
-                "5b97953.01fdd6c"
+                "5b97953.01fdd6c",
+                "822589a6.88da48",
+                "e3e57b8.40cf188"
             ],
             [
                 "180a101a.9cd43"
@@ -8310,7 +8411,7 @@
             "a6b24cea.e52a7"
         ],
         "x": 1115,
-        "y": 260,
+        "y": 300,
         "wires": []
     },
     {
@@ -8366,8 +8467,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 740,
-        "y": 420,
+        "x": 720,
+        "y": 600,
         "wires": []
     },
     {
@@ -8383,5 +8484,490 @@
                 "8236b729.0e28c8"
             ]
         ]
+    },
+    {
+        "id": "822589a6.88da48",
+        "type": "ui_text",
+        "z": "5f633a28.607134",
+        "group": "70fb931.dfc146c",
+        "order": 7,
+        "width": 2,
+        "height": 1,
+        "name": "Gevoelstemperatuur",
+        "label": "",
+        "format": "<p style=\"font-size: 200%\">{{msg.payload.current.feels_like}}</p>",
+        "layout": "row-left",
+        "x": 1020,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f2c32b90.15e2f8",
+        "type": "ui_template",
+        "z": "5f633a28.607134",
+        "group": "70fb931.dfc146c",
+        "name": "Forecast3",
+        "order": 15,
+        "width": 17,
+        "height": 2,
+        "format": "<div style=\"height: 100%; justify-content: center; align-items: center;\">\n <div layout=\"rowicons\" layout-align=\"space-around start\" ng-repeat=\"data in msg.payload.rowicons\" style=\"font-size:150%;padding-top: 5px;padding-bottom: 5px\">\n  <span flex style=\"color: #30b6bd;text-align: center\"><i class=\"wi wi-owm-{{data.cell01}}\"></i></span>\n  <span flex style=\"color: #30b6bd;text-align: center\"><i class=\"wi wi-owm-{{data.cell02}}\"></i></span>\n  <span flex style=\"color: #30b6bd;text-align: center\"><i class=\"wi wi-owm-{{data.cell03}}\"></i></span>\n  <span flex style=\"color: #30b6bd;text-align: center\"><i class=\"wi wi-owm-{{data.cell04}}\"></i></span>\n  <span flex style=\"color: #30b6bd;text-align: center\"><i class=\"wi wi-owm-{{data.cell05}}\"></i></span>\n  <span flex style=\"color: #30b6bd;text-align: center\"><i class=\"wi wi-owm-{{data.cell06}}\"></i></span>\n  <span flex style=\"color: #30b6bd;text-align: center\"><i class=\"wi wi-owm-{{data.cell07}}\"></i></span>\n </div>\n <div layout=\"rowtext\" layout-align=\"space-around start\" ng-repeat=\"data in msg.payload.rowtext\" style=\"line-height: 150%\">\n  <span flex style=\"color: #30b6bd;text-align: center;\">{{data.cell01}}</span>\n  <span flex style=\"color: #30b6bd;text-align: center\">{{data.cell02}}</span>\n  <span flex style=\"color: #30b6bd;text-align: center\">{{data.cell03}}</span>\n  <span flex style=\"color: #30b6bd;text-align: center\">{{data.cell04}}</span>\n  <span flex style=\"color: #30b6bd;text-align: center\">{{data.cell05}}</span>\n  <span flex style=\"color: #30b6bd;text-align: center\">{{data.cell06}}</span>\n  <span flex style=\"color: #30b6bd;text-align: center\">{{data.cell07}}</span>\n </div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "x": 1000,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9acb69ba.4fa0a8",
+        "type": "function",
+        "z": "5f633a28.607134",
+        "name": "Format forecast data daily",
+        "func": "var fcdata = {};\nvar units=flow.get('units');\nif (units===undefined)\n{\n  units=\"imperial\";\n}\n\nfunction formatTemp(high, low){\n    if (units == \"imperial\") {\n        if (low){\n          temp = parseFloat(high).toFixed() + '/' + parseFloat(low).toFixed()\n        }\n        else {\n          temp = parseFloat(high).toFixed() + '°F'\n        }\n    }\n    else { // metric\n//        temp = parseFloat(temp).toFixed(1) + '°C'\n        if (low){\n          temp = parseFloat(high).toFixed() + '/' + parseFloat(low).toFixed()\n        }\n        else {\n          temp = parseFloat(high).toFixed() + '°C'\n        }\n    }\n    return temp;\n}\nfunction dayName(unixTime){\n    var d = new Date(unixTime * 1000);\n    var weekday = new Array(7);\n        weekday[0] = \"Zon\";\n        weekday[1] = \"Maa\";\n        weekday[2] = \"din\";\n        weekday[3] = \"Woe\";\n        weekday[4] = \"Don\";\n        weekday[5] = \"Vri\";\n        weekday[6] = \"Zat\";\n\n    return weekday[d.getDay()]\n}\nfunction timeConvert(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var suffix = \":00\";\n  //var suffix = \" am\";\n  //if (hour >= 12) {\n//    hour = hour - 12;\n  //  suffix = \" pm\";\n  //}\n  //if (hour === 0) {\n//    hour = 12;\n  //}\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n//  return hour + ':' + min + suffix;\n  return hour + suffix;\n}\n// prepare forecast data for CSS based ui widget\n\nfcdata.payload = {\n  rowtext: {\n  \tdata01: {\n      cell01: dayName(msg.payload.daily[1].dt),\n      cell02: dayName(msg.payload.daily[2].dt),\n      cell03: dayName(msg.payload.daily[3].dt),\n      cell04: dayName(msg.payload.daily[4].dt),\n      cell05: dayName(msg.payload.daily[5].dt),\n      cell06: dayName(msg.payload.daily[6].dt),\n      cell07: dayName(msg.payload.daily[7].dt)\n  \t},\n  \tdata02: {\n       cell01: formatTemp(msg.payload.daily[1].temp.max, msg.payload.daily[1].temp.min),\n       cell02: formatTemp(msg.payload.daily[2].temp.max, msg.payload.daily[2].temp.min),\n       cell03: formatTemp(msg.payload.daily[3].temp.max, msg.payload.daily[3].temp.min),\n       cell04: formatTemp(msg.payload.daily[4].temp.max, msg.payload.daily[4].temp.min),\n       cell05: formatTemp(msg.payload.daily[5].temp.max, msg.payload.daily[5].temp.min),\n       cell06: formatTemp(msg.payload.daily[6].temp.max, msg.payload.daily[6].temp.min),\n       cell07: formatTemp(msg.payload.daily[7].temp.max, msg.payload.daily[7].temp.min)\n  \t}\n  },\n  rowicons: {\n  \tdata01: {\n  \t\tcell01: msg.payload.daily[1].weather[0].icon,\n  \t\tcell02: msg.payload.daily[2].weather[0].icon,\n  \t\tcell03: msg.payload.daily[3].weather[0].icon,\n  \t\tcell04: msg.payload.daily[4].weather[0].icon,\n  \t\tcell05: msg.payload.daily[5].weather[0].icon,\n  \t\tcell06: msg.payload.daily[6].weather[0].icon,\n  \t\tcell07: msg.payload.daily[7].weather[0].icon,\n  \t},\n  }\n}\n\nreturn fcdata;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 790,
+        "y": 540,
+        "wires": [
+            [
+                "f2c32b90.15e2f8"
+            ]
+        ]
+    },
+    {
+        "id": "51758dd7.02d3f4",
+        "type": "function",
+        "z": "5f633a28.607134",
+        "name": "Format forecast data hourly",
+        "func": "var fcdata = {};\nvar units=flow.get('units');\nif (units===undefined)\n{\n  units=\"imperial\";\n}\n\nfunction formatTemp(high, low){\n    if (units == \"imperial\") {\n        if (low){\n          temp = parseFloat(high).toFixed() + '/' + parseFloat(low).toFixed()\n        }\n        else {\n          temp = parseFloat(high).toFixed() + '°F'\n        }\n    }\n    else { // metric\n//        temp = parseFloat(temp).toFixed(1) + '°C'\n        if (low){\n          temp = parseFloat(high).toFixed() + '/' + parseFloat(low).toFixed()\n        }\n        else {\n          temp = parseFloat(high).toFixed() + '°C'\n        }\n    }\n    return temp;\n}\nfunction dayName(unixTime){\n    var d = new Date(unixTime * 1000);\n    var weekday = new Array(7);\n        weekday[0] = \"Zon\";\n        weekday[1] = \"Maa\";\n        weekday[2] = \"din\";\n        weekday[3] = \"Woe\";\n        weekday[4] = \"Don\";\n        weekday[5] = \"Vri\";\n        weekday[6] = \"Zat\";\n\n    return weekday[d.getDay()]\n}\nfunction timeConvert(UNIX_timestamp){\n  var a = new Date(UNIX_timestamp * 1000);\n  var hour = a.getHours();\n  var suffix = \":00\";\n  //var suffix = \" am\";\n  //if (hour >= 12) {\n//    hour = hour - 12;\n  //  suffix = \" pm\";\n  //}\n  //if (hour === 0) {\n//    hour = 12;\n  //}\n  var min = a.getMinutes();\n  if (min < 10) {min = \"0\" + min;}\n//  return hour + ':' + min + suffix;\n  return hour + suffix;\n}\n// prepare forecast data for CSS based ui widget\n\nfcdata.payload = {\n  rowtext: {\n  \tdata01: {\n      cell01: timeConvert(msg.payload.hourly[1].dt),\n      cell02: timeConvert(msg.payload.hourly[2].dt),\n      cell03: timeConvert(msg.payload.hourly[3].dt),\n      cell04: timeConvert(msg.payload.hourly[4].dt),\n      cell05: timeConvert(msg.payload.hourly[5].dt),\n      cell06: timeConvert(msg.payload.hourly[6].dt),\n      cell07: timeConvert(msg.payload.hourly[7].dt),\n      cell08: timeConvert(msg.payload.hourly[8].dt),\n      cell09: timeConvert(msg.payload.hourly[9].dt),\n      cell10: timeConvert(msg.payload.hourly[10].dt),\n  \t},\n  \tdata02: {\n       cell01: formatTemp(msg.payload.hourly[1].temp),\n       cell02: formatTemp(msg.payload.hourly[2].temp),\n       cell03: formatTemp(msg.payload.hourly[3].temp),\n       cell04: formatTemp(msg.payload.hourly[4].temp),\n       cell05: formatTemp(msg.payload.hourly[5].temp),\n       cell06: formatTemp(msg.payload.hourly[6].temp),\n       cell07: formatTemp(msg.payload.hourly[7].temp),\n       cell08: formatTemp(msg.payload.hourly[8].temp),\n       cell09: formatTemp(msg.payload.hourly[9].temp),\n       cell10: formatTemp(msg.payload.hourly[10].temp),\n       //cell07: formatTemp(msg.payload.daily[1].temp.max, msg.payload.daily[0].temp.min),\n  \t}\n  },\n  rowicons: {\n  \tdata01: {\n  \t\tcell01: msg.payload.hourly[1].weather[0].icon,\n  \t\tcell02: msg.payload.hourly[2].weather[0].icon,\n  \t\tcell03: msg.payload.hourly[3].weather[0].icon,\n  \t\tcell04: msg.payload.hourly[4].weather[0].icon,\n  \t\tcell05: msg.payload.hourly[5].weather[0].icon,\n  \t\tcell06: msg.payload.hourly[6].weather[0].icon,\n  \t\tcell07: msg.payload.hourly[7].weather[0].icon,\n  \t\tcell08: msg.payload.hourly[8].weather[0].icon,\n  \t\tcell09: msg.payload.hourly[9].weather[0].icon,\n  \t\tcell10: msg.payload.hourly[10].weather[0].icon,\n  \t},\n  }\n}\n\nreturn fcdata;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 800,
+        "y": 480,
+        "wires": [
+            [
+                "9dbf3c95.67c74"
+            ]
+        ]
+    },
+    {
+        "id": "e3e57b8.40cf188",
+        "type": "ui_text",
+        "z": "5f633a28.607134",
+        "group": "70fb931.dfc146c",
+        "order": 13,
+        "width": 3,
+        "height": 1,
+        "name": "Sunuv",
+        "label": "",
+        "format": "<i class=\"wi wi-wu-sunny\"></i>&nbsp;UV&nbsp;&nbsp;{{msg.payload.current.uvi}}",
+        "layout": "row-center",
+        "x": 970,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "3919a68.646905a",
+        "type": "ui_button",
+        "z": "d1076ec5.efc15",
+        "name": "MenuWeer",
+        "group": "70fb931.dfc146c",
+        "order": 16,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "fa-bars",
+        "payload": "button_clicked",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "390e8dd7.f711e2"
+            ]
+        ]
+    },
+    {
+        "id": "390e8dd7.f711e2",
+        "type": "change",
+        "z": "d1076ec5.efc15",
+        "name": "Get X and Y from bbox",
+        "rules": [
+            {
+                "t": "set",
+                "p": "position.x",
+                "pt": "msg",
+                "to": "event.bbox[2]-9",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "position.y",
+                "pt": "msg",
+                "to": "event.bbox[3]+18",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 140,
+        "wires": [
+            [
+                "1823ca46.615d96"
+            ]
+        ]
+    },
+    {
+        "id": "1823ca46.615d96",
+        "type": "ui_context_menu",
+        "z": "d1076ec5.efc15",
+        "group": "70fb931.dfc146c",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "fontSize": 16,
+        "inputPositionXField": "position.x",
+        "inputPositionXType": "msg",
+        "inputPositionYField": "position.y",
+        "inputPositionYType": "msg",
+        "outputField": "payload",
+        "inputMenuField": "",
+        "inputMenuType": "fixed",
+        "menuItems": [
+            {
+                "id": "Weer",
+                "icon": "fa-thermometer-4",
+                "label": "Weer",
+                "topic": "Weer",
+                "payload": "0",
+                "payloadType": "str",
+                "visible": true,
+                "enabled": true
+            },
+            {
+                "id": "Verlichting",
+                "icon": "fa-lightbulb-o",
+                "label": "Verlichting",
+                "topic": "Verlichting",
+                "payload": "1",
+                "payloadType": "str",
+                "visible": true,
+                "enabled": true
+            }
+        ],
+        "colors": "native",
+        "textColor": "#000000",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#626262",
+        "intervalLength": "0",
+        "intervalUnit": "secs",
+        "startTimerAtOpen": false,
+        "startTimerAtLeave": true,
+        "stopTimerAtEnter": true,
+        "name": "",
+        "x": 900,
+        "y": 140,
+        "wires": [
+            [
+                "1c3f7e7b.081372"
+            ]
+        ]
+    },
+    {
+        "id": "1c3f7e7b.081372",
+        "type": "ui_ui_control",
+        "z": "d1076ec5.efc15",
+        "name": "",
+        "events": "change",
+        "x": 1100,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9e84c9a.4021338",
+        "type": "ui_button",
+        "z": "d1076ec5.efc15",
+        "name": "MenuVerlichting",
+        "group": "e66edfe2.ea332",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "fa-bars",
+        "payload": "button_clicked",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 400,
+        "y": 200,
+        "wires": [
+            [
+                "cecbc62c.70d008"
+            ]
+        ]
+    },
+    {
+        "id": "cecbc62c.70d008",
+        "type": "change",
+        "z": "d1076ec5.efc15",
+        "name": "Get X and Y from bbox",
+        "rules": [
+            {
+                "t": "set",
+                "p": "position.x",
+                "pt": "msg",
+                "to": "event.bbox[2]-9",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "position.y",
+                "pt": "msg",
+                "to": "event.bbox[3]+18",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 200,
+        "wires": [
+            [
+                "a6fd8e92.31d37"
+            ]
+        ]
+    },
+    {
+        "id": "a6fd8e92.31d37",
+        "type": "ui_context_menu",
+        "z": "d1076ec5.efc15",
+        "group": "e66edfe2.ea332",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "fontSize": 16,
+        "inputPositionXField": "position.x",
+        "inputPositionXType": "msg",
+        "inputPositionYField": "position.y",
+        "inputPositionYType": "msg",
+        "outputField": "payload",
+        "inputMenuField": "",
+        "inputMenuType": "fixed",
+        "menuItems": [
+            {
+                "id": "Weer",
+                "icon": "fa-thermometer-4",
+                "label": "Weer",
+                "topic": "Weer",
+                "payload": "0",
+                "payloadType": "str",
+                "visible": true,
+                "enabled": true
+            },
+            {
+                "id": "Verlichting",
+                "icon": "fa-lightbulb-o",
+                "label": "Verlichting",
+                "topic": "Verlichting",
+                "payload": "1",
+                "payloadType": "str",
+                "visible": true,
+                "enabled": true
+            }
+        ],
+        "colors": "native",
+        "textColor": "#000000",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#626262",
+        "intervalLength": "0",
+        "intervalUnit": "secs",
+        "startTimerAtOpen": false,
+        "startTimerAtLeave": true,
+        "stopTimerAtEnter": true,
+        "name": "",
+        "x": 900,
+        "y": 200,
+        "wires": [
+            [
+                "1c3f7e7b.081372"
+            ]
+        ]
+    },
+    {
+        "id": "ad53bfb8.175",
+        "type": "ui_svg_graphics",
+        "z": "9a1a2b9e.d6da98",
+        "group": "2908388b.8114b8",
+        "order": 1,
+        "width": "14",
+        "height": "10",
+        "svgString": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" preserveAspectRatio=\"none\" x=\"0\" y=\"0\" viewBox=\"0 -0.05780346691608429 900 710.1156005859375\" width=\"100%\" height=\"100%\">\n  <rect id=\"svgEditorBackground\" x=\"0\" y=\"0\" width=\"900\" height=\"710\" style=\"fill: none; stroke: none;\" />\n  <image width=\"889\" height=\"703\" id=\"background\" xlink:href=\"http://192.168.2.118/schuur.jpg\" />\n  <text id=\"light_bulb_kitchen\" style=\"fill:blue;\" x=\"180\" y=\"110\" font-family=\"FontAwesome\" fill=\"blue\" stroke=\"black\" font-size=\"60\" text-anchor=\"middle\" alignment-baseline=\"middle\" stroke-width=\"1\">fa-lightbulb-o </text>\n</svg>",
+        "clickableShapes": [
+            {
+                "targetId": "#light_bulb_kitchen",
+                "action": "click",
+                "payload": "light_icon_clicked",
+                "payloadType": "str",
+                "topic": "light_icon_clicked"
+            }
+        ],
+        "javascriptHandlers": [],
+        "smilAnimations": [],
+        "bindings": [
+            {
+                "selector": "#banner",
+                "bindSource": "payload.title",
+                "bindType": "text",
+                "attribute": ""
+            },
+            {
+                "selector": "#camera_living",
+                "bindSource": "payload.position.x",
+                "bindType": "attr",
+                "attribute": "x"
+            },
+            {
+                "selector": "#camera_living",
+                "bindSource": "payload.camera.colour",
+                "bindType": "attr",
+                "attribute": "fill"
+            }
+        ],
+        "showCoordinates": false,
+        "autoFormatAfterEdit": false,
+        "showBrowserErrors": false,
+        "showBrowserEvents": false,
+        "enableJsDebugging": false,
+        "sendMsgWhenLoaded": false,
+        "outputField": "my_output_field",
+        "editorUrl": "http://drawsvg.org/drawsvg.html",
+        "directory": "",
+        "panning": "disabled",
+        "zooming": "disabled",
+        "panOnlyWhenZoomed": false,
+        "doubleClickZoomEnabled": false,
+        "mouseWheelZoomEnabled": false,
+        "dblClickZoomPercentage": "150",
+        "name": "",
+        "x": 560,
+        "y": 260,
+        "wires": [
+            [
+                "1a1b7a5b.8bd076",
+                "ce1a06f2.d71768"
+            ]
+        ]
+    },
+    {
+        "id": "1a1b7a5b.8bd076",
+        "type": "debug",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Clicked SVG shape",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 790,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ce1a06f2.d71768",
+        "type": "ui_context_menu",
+        "z": "9a1a2b9e.d6da98",
+        "group": "2908388b.8114b8",
+        "order": 5,
+        "width": 0,
+        "height": -1,
+        "fontSize": 16,
+        "inputPositionXField": "event.pageX",
+        "inputPositionXType": "msg",
+        "inputPositionYField": "event.pageY",
+        "inputPositionYType": "msg",
+        "outputField": "payload",
+        "inputMenuField": "",
+        "inputMenuType": "fixed",
+        "menuItems": [
+            {
+                "id": "ON",
+                "icon": "fa-toggle-on",
+                "label": "Light on",
+                "topic": "light_kitchen_on",
+                "payload": "light_kitchen_on",
+                "payloadType": "str",
+                "visible": true,
+                "enabled": true
+            },
+            {
+                "id": "OFF",
+                "icon": "fa-toggle-off",
+                "label": "Light off",
+                "topic": "light_kitchen_off",
+                "payload": "light_kitchen_off",
+                "payloadType": "str",
+                "visible": true,
+                "enabled": true
+            }
+        ],
+        "colors": "native",
+        "textColor": "#000000",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#626262",
+        "intervalLength": "0",
+        "intervalUnit": "secs",
+        "startTimerAtOpen": false,
+        "startTimerAtLeave": true,
+        "stopTimerAtEnter": true,
+        "name": "",
+        "x": 780,
+        "y": 260,
+        "wires": [
+            [
+                "37c89dc8.5b4e12"
+            ]
+        ]
+    },
+    {
+        "id": "37c89dc8.5b4e12",
+        "type": "debug",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Clicked menu item",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1010,
+        "y": 260,
+        "wires": []
     }
 ]
