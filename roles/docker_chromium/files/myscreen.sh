@@ -13,5 +13,5 @@ chromium-browser --force-device-scale-factor=0.5 --noerrdialogs --disable-infoba
 
 while true; do
    xdotool keydown ctrl+Tab; xdotool keyup ctrl+Tab;
-   sleep 10
+   sleep 60
 done

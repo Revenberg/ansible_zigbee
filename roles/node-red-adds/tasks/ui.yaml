@@ -19,4 +19,5 @@
     - node-red-contrib-ui-time-scheduler
     - node-red-contrib-ui-artless-gauge
     - node-red-contrib-ui-state-trail
-
+    - node-red-contrib-ui-contextmenu
+    - node-red-contrib-ui-svg
