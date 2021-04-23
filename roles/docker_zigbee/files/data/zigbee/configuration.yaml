@@ -74,6 +74,8 @@ devices:
     retain: true
   '0x00124b0022674427':
     friendly_name: 'Detector 1'
+  '0xec1bbdfffea9d1be':
+    friendly_name: 'Afstandbediening'
 groups: 
   '1':
     # Required: Name which will be used to control the group

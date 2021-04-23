@@ -51,7 +51,7 @@
     {
         "id": "9a1a2b9e.d6da98",
         "type": "tab",
-        "label": "Flow 4",
+        "label": "Schuur",
         "disabled": false,
         "info": ""
     },
@@ -72,7 +72,7 @@
         "type": "ui_tab",
         "name": "Deuren",
         "icon": "dashboard",
-        "order": 3,
+        "order": 5,
         "disabled": false,
         "hidden": false
     },
@@ -199,7 +199,7 @@
         "type": "ui_tab",
         "name": "Thuis",
         "icon": "dashboard",
-        "order": 4,
+        "order": 6,
         "disabled": false,
         "hidden": false
     },
@@ -264,7 +264,7 @@
         "type": "ui_tab",
         "name": "Z2M Admin",
         "icon": "dashboard",
-        "order": 5,
+        "order": 7,
         "disabled": false,
         "hidden": false
     },
@@ -273,7 +273,7 @@
         "type": "ui_tab",
         "name": "Z2M Admin",
         "icon": "dashboard",
-        "order": 6,
+        "order": 8,
         "disabled": false,
         "hidden": false
     },
@@ -352,7 +352,7 @@
         "type": "ui_tab",
         "name": "Z2M Admin",
         "icon": "dashboard",
-        "order": 7,
+        "order": 9,
         "disabled": false,
         "hidden": false
     },
@@ -367,7 +367,7 @@
         "type": "ui_tab",
         "name": "Schuur",
         "icon": "dashboard",
-        "order": 8,
+        "order": 10,
         "disabled": false,
         "hidden": false
     },
@@ -436,7 +436,7 @@
         "type": "ui_tab",
         "name": "Schuur",
         "icon": "home",
-        "order": 2
+        "order": 4
     },
     {
         "id": "99a4dc86.46d248",
@@ -503,14 +503,14 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "home",
-        "order": 9
+        "order": 11
     },
     {
         "id": "eb94216d.968598",
         "type": "ui_tab",
         "name": "Wetterstation",
         "icon": "fa-thermometer-half",
-        "order": 11,
+        "order": 13,
         "disabled": false,
         "hidden": false
     },
@@ -548,18 +548,18 @@
         "type": "ui_tab",
         "name": "Denon",
         "icon": "dashboard",
-        "order": 10,
+        "order": 12,
         "disabled": false,
         "hidden": false
     },
     {
         "id": "2908388b.8114b8",
         "type": "ui_group",
-        "name": "Floorplan test",
+        "name": "Schuur lichtplan",
         "tab": "a28ff08f.3a822",
         "order": 1,
-        "disp": true,
-        "width": "14",
+        "disp": false,
+        "width": 21,
         "collapse": false
     },
     {
@@ -567,6 +567,7 @@
         "type": "ui_tab",
         "name": "SVG",
         "icon": "dashboard",
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -585,11 +586,76 @@
         "type": "ui_tab",
         "name": "SVG",
         "icon": "dashboard",
+        "order": 14,
         "disabled": false,
         "hidden": false
     },
     {
-        "id": "6b56d9c8.316e88",
+        "id": "d2105318.aa703",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "e66edfe2.ea332",
+        "order": 3,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "d4b5416a.9c25f",
+        "type": "ui_group",
+        "name": "Floorplan test",
+        "tab": "b9052fac.2b0e9",
+        "order": 1,
+        "disp": true,
+        "width": "14",
+        "collapse": false
+    },
+    {
+        "id": "b9052fac.2b0e9",
+        "type": "ui_tab",
+        "name": "SVG",
+        "icon": "dashboard",
+        "order": 15,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5a9e7538.2c2fbc",
+        "type": "ui_group",
+        "name": "Boundingbox test",
+        "tab": "80f0e178.bbf4a",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "80f0e178.bbf4a",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e9a45c1a.a0da",
+        "type": "ui_group",
+        "name": "G_2",
+        "tab": "4c0b230b.9a171c",
+        "order": 4,
+        "disp": false,
+        "width": "8",
+        "collapse": false
+    },
+    {
+        "id": "4c0b230b.9a171c",
+        "type": "ui_tab",
+        "name": "Drivecamlrgscreen",
+        "icon": "dashboard",
+        "order": 5
+    },
+    {
+        "id": "1bb3935a.1f36ed",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "70fb931.dfc146c",
@@ -598,7 +664,7 @@
         "height": 1
     },
     {
-        "id": "81b8447b.ca2968",
+        "id": "783e98e0.d49d98",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "70fb931.dfc146c",
@@ -607,7 +673,7 @@
         "height": 1
     },
     {
-        "id": "95130900.66ad18",
+        "id": "4c13ea5f.f18c84",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "70fb931.dfc146c",
@@ -616,7 +682,7 @@
         "height": 1
     },
     {
-        "id": "e6fca36.7aa9b6",
+        "id": "87f50568.28e6a8",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "70fb931.dfc146c",
@@ -625,7 +691,7 @@
         "height": 1
     },
     {
-        "id": "1cd54710.36bba9",
+        "id": "5ffaed28.d8d494",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "70fb931.dfc146c",
@@ -634,21 +700,12 @@
         "height": 1
     },
     {
-        "id": "1b35b014.03333",
+        "id": "dc780409.128898",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "70fb931.dfc146c",
         "order": 17,
         "width": 16,
-        "height": 1
-    },
-    {
-        "id": "f3aea613.004668",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "e66edfe2.ea332",
-        "order": 3,
-        "width": 12,
         "height": 1
     },
     {
@@ -2266,6 +2323,8 @@
             }
         ],
         "allowColorForValueInMessage": true,
+        "shape": "circle",
+        "showGlow": true,
         "name": "Deur Jelmar",
         "x": 1010,
         "y": 420,
@@ -8707,7 +8766,7 @@
         "type": "ui_button",
         "z": "d1076ec5.efc15",
         "name": "MenuVerlichting",
-        "group": "e66edfe2.ea332",
+        "group": "2908388b.8114b8",
         "order": 2,
         "width": 1,
         "height": 1,
@@ -8759,16 +8818,915 @@
         "y": 200,
         "wires": [
             [
-                "a6fd8e92.31d37"
+                "33a4cfa1.08cc3"
             ]
         ]
     },
     {
-        "id": "a6fd8e92.31d37",
+        "id": "ad53bfb8.175",
+        "type": "ui_svg_graphics",
+        "z": "9a1a2b9e.d6da98",
+        "group": "2908388b.8114b8",
+        "order": 1,
+        "width": 20,
+        "height": "10",
+        "svgString": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" preserveAspectRatio=\"none\" x=\"0\" y=\"0\" viewBox=\"0 -0.05780346691608429 900 710.1156005859375\" width=\"100%\" height=\"100%\">\n    <image  id=\"background\" width=\"900\" height=\"500\" xlink:href=\"http://192.168.2.118/schuur.jpg\" />\n</svg>",
+        "clickableShapes": [],
+        "javascriptHandlers": [],
+        "smilAnimations": [],
+        "bindings": [
+            {
+                "selector": "#banner",
+                "bindSource": "payload.title",
+                "bindType": "text",
+                "attribute": ""
+            },
+            {
+                "selector": "#camera_living",
+                "bindSource": "payload.position.x",
+                "bindType": "attr",
+                "attribute": "x"
+            },
+            {
+                "selector": "#camera_living",
+                "bindSource": "payload.camera.colour",
+                "bindType": "attr",
+                "attribute": "fill"
+            }
+        ],
+        "showCoordinates": true,
+        "autoFormatAfterEdit": false,
+        "showBrowserErrors": false,
+        "showBrowserEvents": false,
+        "enableJsDebugging": false,
+        "sendMsgWhenLoaded": false,
+        "outputField": "my_output_field",
+        "editorUrl": "http://drawsvg.org/drawsvg.html",
+        "directory": "",
+        "panning": "disabled",
+        "zooming": "disabled",
+        "panOnlyWhenZoomed": false,
+        "doubleClickZoomEnabled": false,
+        "mouseWheelZoomEnabled": false,
+        "dblClickZoomPercentage": "150",
+        "name": "",
+        "x": 560,
+        "y": 260,
+        "wires": [
+            [
+                "ce1a06f2.d71768"
+            ]
+        ]
+    },
+    {
+        "id": "ce1a06f2.d71768",
+        "type": "ui_context_menu",
+        "z": "9a1a2b9e.d6da98",
+        "group": "2908388b.8114b8",
+        "order": 22,
+        "width": 0,
+        "height": 0,
+        "fontSize": 16,
+        "inputPositionXField": "event.pageX",
+        "inputPositionXType": "msg",
+        "inputPositionYField": "event.pageY",
+        "inputPositionYType": "msg",
+        "outputField": "payload",
+        "inputMenuField": "",
+        "inputMenuType": "fixed",
+        "menuItems": [
+            {
+                "id": "ON",
+                "icon": "fa-toggle-on",
+                "label": "Light on",
+                "topic": "",
+                "payload": "on",
+                "payloadType": "str",
+                "visible": true,
+                "enabled": true
+            },
+            {
+                "id": "OFF",
+                "icon": "fa-toggle-off",
+                "label": "Light off",
+                "topic": "",
+                "payload": "off",
+                "payloadType": "str",
+                "visible": true,
+                "enabled": true
+            }
+        ],
+        "colors": "native",
+        "textColor": "#000000",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#626262",
+        "intervalLength": "0",
+        "intervalUnit": "secs",
+        "startTimerAtOpen": false,
+        "startTimerAtLeave": true,
+        "stopTimerAtEnter": true,
+        "name": "",
+        "x": 780,
+        "y": 260,
+        "wires": [
+            [
+                "7f56bdf1.a30ce4"
+            ]
+        ]
+    },
+    {
+        "id": "e907e4b3.61c098",
+        "type": "inject",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Fill camera yellow",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "{\"command\":\"update_style\",\"selector\":\"#Lamp1\",\"style\":{\"fill\":\"yellow\",\"stroke\":\"yellow\"}}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4eaee1f9.e29a",
+        "type": "inject",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Add element \"newElement\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "{\"command\":\"add_element\",\"elementType\":\"text\",\"elementId\":\"light_bulb_4\",\"elementAttributes\":{\"x\":\"550\",\"y\":\"180\",\"font-family\":\"FontAwesome\",\"font-size\":\"30\",\"text-anchor\":\"middle\",\"alignment-baseline\":\"middle\",\"stroke-width\":\"1\"},\"elementStyleAttributes\":{\"fill\":\"orange\",\"stroke\":\"orange\"},\"textContent\":\"fa-lightbulb-o\"}",
+        "payloadType": "json",
+        "x": 280,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ff2591d.a6df88",
+        "type": "inject",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Fill camera black",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4",
+        "topic": "",
+        "payload": "{\"command\":\"update_style\",\"selector\":\"#Lamp1\",\"style\":{\"fill\":\"black\",\"stroke\":\"black\"}}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc4e3ea5.879ef",
+        "type": "change",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"command\":\"add_element\",\"elementType\":\"text\",\"elementId\":\"light_bulb_4\",\"elementAttributes\":{\"font-family\":\"FontAwesome\",\"font-size\":\"30\",\"text-anchor\":\"middle\",\"alignment-baseline\":\"middle\",\"stroke-width\":\"1\"},\"elementStyleAttributes\":{\"fill\":\"blue\",\"stroke\":\"blue\"}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 400,
+        "wires": [
+            [
+                "a511e277.62b91"
+            ]
+        ]
+    },
+    {
+        "id": "a511e277.62b91",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "func": "msg.payload.elementAttributes.x = msg.x;\nmsg.payload.elementAttributes.y = msg.y;\nmsg.payload.elementId = msg.elementId;\nif (msg.textContent == null) {\n    msg.payload.textContent = \"fa-lightbulb-o\";\n}   else {\n    msg.payload.textContent = msg.textContent;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1020,
+        "y": 400,
+        "wires": [
+            [
+                "9ada2919.0380a8"
+            ]
+        ]
+    },
+    {
+        "id": "4804d5a1.73b2ac",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "LampGang",
+        "func": "msg.x = 300;\nmsg.y = 370;\nmsg.elementId = node.name;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 570,
+        "y": 520,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "e7d1f8b1.b93f18",
+        "type": "change",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"command\":\"add_event\",\"event\":\"click\",\"payload\":\"light_icon_clicked\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 460,
+        "wires": [
+            [
+                "a4346023.a5127"
+            ]
+        ]
+    },
+    {
+        "id": "a4346023.a5127",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "func": "msg.payload.selector = \"#\" + msg.elementId;\nmsg.payload.topic = msg.elementId;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1020,
+        "y": 460,
+        "wires": [
+            [
+                "9ada2919.0380a8"
+            ]
+        ]
+    },
+    {
+        "id": "7f56bdf1.a30ce4",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Set on/off",
+        "func": "var status = msg.payload;\nvar style = {};\nmsg.payload = {};\nif (status == \"on\") {\n    style.fill = \"yellow\";\n    style.stroke = \"yellow\";\n} else {\n    style.fill = \"black\";\n    style.stroke = \"black\";\n}\nmsg.payload.style = style;\nmsg.payload.command = \"update_style\";\nmsg.payload.selector = msg.sourceMsg.selector;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 980,
+        "y": 260,
+        "wires": [
+            [
+                "30fdbd95.bd1622",
+                "23c36be4.873e84",
+                "3cdcd8ac.765068"
+            ]
+        ]
+    },
+    {
+        "id": "30fdbd95.bd1622",
+        "type": "link out",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "links": [
+            "f5f81948.120c38"
+        ],
+        "x": 1135,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f5f81948.120c38",
+        "type": "link in",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "links": [
+            "30fdbd95.bd1622",
+            "9ada2919.0380a8"
+        ],
+        "x": 435,
+        "y": 260,
+        "wires": [
+            [
+                "ad53bfb8.175"
+            ]
+        ]
+    },
+    {
+        "id": "9ada2919.0380a8",
+        "type": "link out",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "links": [
+            "f5f81948.120c38"
+        ],
+        "x": 1195,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "2a35e4.f0c19a1c",
+        "type": "link in",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "links": [
+            "c71e492a.e43bb8"
+        ],
+        "x": 675,
+        "y": 420,
+        "wires": [
+            [
+                "cc4e3ea5.879ef",
+                "e7d1f8b1.b93f18"
+            ]
+        ]
+    },
+    {
+        "id": "c71e492a.e43bb8",
+        "type": "link out",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "links": [
+            "2a35e4.f0c19a1c"
+        ],
+        "x": 855,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "ad45325.afcbcd",
+        "type": "ui_ui_control",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "events": "change",
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "4804d5a1.73b2ac",
+                "faac28b4.85c198",
+                "2c0ba08c.22389",
+                "3e378834.612a08",
+                "b6161f32.c51ac",
+                "3795d51a.f0a44a",
+                "1b7674c3.40f40b",
+                "75bb1174.f53c8",
+                "b7699e2c.9de33",
+                "814eb611.b3dc38"
+            ]
+        ]
+    },
+    {
+        "id": "5bfb85d0.d96ebc",
+        "type": "counter",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "init": "0",
+        "step": "1",
+        "lower": "1",
+        "upper": "5",
+        "mode": "increment",
+        "outputs": 2,
+        "x": 360,
+        "y": 880,
+        "wires": [
+            [
+                "f2acc63e.31f4b8",
+                "127d91b1.16232e",
+                "dcb86034.a3e7d",
+                "beb78d1c.c3b43"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f2acc63e.31f4b8",
+        "type": "switch",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "lt",
+                "v": "3",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 960,
+        "wires": [
+            [
+                "5bfb85d0.d96ebc"
+            ],
+            [
+                "2b08413f.bbf23e",
+                "36bd3cce.49afa4"
+            ]
+        ]
+    },
+    {
+        "id": "127d91b1.16232e",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "LampA",
+        "func": "msg.x = 430;\nmsg.y = 90 + ((msg.payload - 1) * 80);\nmsg.elementId = node.name + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 540,
+        "y": 871,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "faac28b4.85c198",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "",
+        "func": "\nmsg.reset = 1;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 180,
+        "y": 880,
+        "wires": [
+            [
+                "5bfb85d0.d96ebc"
+            ]
+        ]
+    },
+    {
+        "id": "dcb86034.a3e7d",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "LampC",
+        "func": "msg.x = 830;\nmsg.y = 90 + ((msg.payload - 1) * 80);\nmsg.elementId = node.name + msg.payload;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 540,
+        "y": 960,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "beb78d1c.c3b43",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "LampB",
+        "func": "msg.x = 470 + ((msg.payload - 1) * 80);\nmsg.y = 60;\nmsg.elementId = node.name + msg.payload;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 540,
+        "y": 913,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "2c0ba08c.22389",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "LampKeuken1",
+        "func": "msg.x = 240;\nmsg.y = 150;\nmsg.elementId = node.name;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 560,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "3e378834.612a08",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "LampKeuken2",
+        "func": "msg.x = 340;\nmsg.y = 150;\nmsg.elementId = node.name;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 600,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "2b08413f.bbf23e",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "LampHalA",
+        "func": "msg.x = 70 + ((msg.payload - 1) * 80);\nmsg.y = 350;\nmsg.elementId = node.name + msg.payload;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 550,
+        "y": 1020,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "36bd3cce.49afa4",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "LampHalB",
+        "func": "msg.x = 70 + ((msg.payload - 1) * 80);\nmsg.y = 450;\nmsg.elementId = node.name + \"H\"+ msg.payload;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 550,
+        "y": 1080,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "b6161f32.c51ac",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "GroupA",
+        "func": "msg.x = 470;\nmsg.y = 240 ;\nmsg.elementId = node.name;\nmsg.textContent = \"fa-clone\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 560,
+        "y": 640,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "3795d51a.f0a44a",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "GroupB",
+        "func": "msg.x = 630;\nmsg.y = 100;\nmsg.elementId = node.name;\nmsg.textContent = \"fa-clone\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 560,
+        "y": 680,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "1b7674c3.40f40b",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "GroupC",
+        "func": "msg.x = 790;\nmsg.y = 240;\nmsg.elementId = node.name;\nmsg.textContent = \"fa-clone\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 560,
+        "y": 720,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "75bb1174.f53c8",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "GroupKeuken",
+        "func": "msg.x = 290;\nmsg.y = 150;\nmsg.elementId = node.name;\nmsg.textContent = \"fa-clone\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 760,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "b7699e2c.9de33",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "GroupHal",
+        "func": "msg.x = 110;\nmsg.y = 400;\nmsg.elementId = node.name;\nmsg.textContent = \"fa-clone\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 560,
+        "y": 800,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "940df28d.c969f",
+        "type": "switch",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Group A",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "#LampA1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "#LampA2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "#LampA3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "#LampA4",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "#LampA5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "#GroupA",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 6,
+        "x": 1640,
+        "y": 120,
+        "wires": [
+            [
+                "1dea3d6.092a2c3"
+            ],
+            [
+                "5c1042ce.1df7dc"
+            ],
+            [
+                "30bb9b52.f979b4"
+            ],
+            [
+                "b7fab3b6.eabe3"
+            ],
+            [
+                "5ca1e1b8.6473d"
+            ],
+            [
+                "1dea3d6.092a2c3",
+                "5c1042ce.1df7dc",
+                "30bb9b52.f979b4",
+                "b7fab3b6.eabe3",
+                "5ca1e1b8.6473d"
+            ]
+        ]
+    },
+    {
+        "id": "23c36be4.873e84",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Set topic",
+        "func": "msg.topic = msg.sourceMsg.selector;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1180,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3cdcd8ac.765068",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "state",
+        "func": "\nvar msg1 = {};\nmsg1.topic = msg.sourceMsg.selector\nmsg1.payload = msg.menuId;\nreturn msg1;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1370,
+        "y": 120,
+        "wires": [
+            [
+                "940df28d.c969f"
+            ]
+        ]
+    },
+    {
+        "id": "5c1042ce.1df7dc",
+        "type": "zigbee2mqtt-out",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Lamp A2",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1900,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "30bb9b52.f979b4",
+        "type": "zigbee2mqtt-out",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Lamp A3",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1900,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "b7fab3b6.eabe3",
+        "type": "zigbee2mqtt-out",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Lamp A4",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1900,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5ca1e1b8.6473d",
+        "type": "zigbee2mqtt-out",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Lamp A5",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1900,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "1dea3d6.092a2c3",
+        "type": "zigbee2mqtt-out",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Lamp A1",
+        "server": "54720da2.31fe84",
+        "friendly_name": "Lamp 1",
+        "device_id": "0x842e14fffe2a3505",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "transition": 0,
+        "x": 1900,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "814eb611.b3dc38",
+        "type": "function",
+        "z": "9a1a2b9e.d6da98",
+        "name": "Alles",
+        "func": "msg.x = 630;\nmsg.y = 220;\nmsg.elementId = node.name;\nmsg.textContent = \"fa-clone\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 550,
+        "y": 480,
+        "wires": [
+            [
+                "c71e492a.e43bb8"
+            ]
+        ]
+    },
+    {
+        "id": "33a4cfa1.08cc3",
         "type": "ui_context_menu",
         "z": "d1076ec5.efc15",
-        "group": "e66edfe2.ea332",
-        "order": 4,
+        "group": "2908388b.8114b8",
+        "order": 18,
         "width": 0,
         "height": 0,
         "fontSize": 16,
@@ -8818,156 +9776,5 @@
                 "1c3f7e7b.081372"
             ]
         ]
-    },
-    {
-        "id": "ad53bfb8.175",
-        "type": "ui_svg_graphics",
-        "z": "9a1a2b9e.d6da98",
-        "group": "2908388b.8114b8",
-        "order": 1,
-        "width": "14",
-        "height": "10",
-        "svgString": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" preserveAspectRatio=\"none\" x=\"0\" y=\"0\" viewBox=\"0 -0.05780346691608429 900 710.1156005859375\" width=\"100%\" height=\"100%\">\n  <rect id=\"svgEditorBackground\" x=\"0\" y=\"0\" width=\"900\" height=\"710\" style=\"fill: none; stroke: none;\" />\n  <image width=\"889\" height=\"703\" id=\"background\" xlink:href=\"http://192.168.2.118/schuur.jpg\" />\n  <text id=\"light_bulb_kitchen\" style=\"fill:blue;\" x=\"180\" y=\"110\" font-family=\"FontAwesome\" fill=\"blue\" stroke=\"black\" font-size=\"60\" text-anchor=\"middle\" alignment-baseline=\"middle\" stroke-width=\"1\">fa-lightbulb-o </text>\n</svg>",
-        "clickableShapes": [
-            {
-                "targetId": "#light_bulb_kitchen",
-                "action": "click",
-                "payload": "light_icon_clicked",
-                "payloadType": "str",
-                "topic": "light_icon_clicked"
-            }
-        ],
-        "javascriptHandlers": [],
-        "smilAnimations": [],
-        "bindings": [
-            {
-                "selector": "#banner",
-                "bindSource": "payload.title",
-                "bindType": "text",
-                "attribute": ""
-            },
-            {
-                "selector": "#camera_living",
-                "bindSource": "payload.position.x",
-                "bindType": "attr",
-                "attribute": "x"
-            },
-            {
-                "selector": "#camera_living",
-                "bindSource": "payload.camera.colour",
-                "bindType": "attr",
-                "attribute": "fill"
-            }
-        ],
-        "showCoordinates": false,
-        "autoFormatAfterEdit": false,
-        "showBrowserErrors": false,
-        "showBrowserEvents": false,
-        "enableJsDebugging": false,
-        "sendMsgWhenLoaded": false,
-        "outputField": "my_output_field",
-        "editorUrl": "http://drawsvg.org/drawsvg.html",
-        "directory": "",
-        "panning": "disabled",
-        "zooming": "disabled",
-        "panOnlyWhenZoomed": false,
-        "doubleClickZoomEnabled": false,
-        "mouseWheelZoomEnabled": false,
-        "dblClickZoomPercentage": "150",
-        "name": "",
-        "x": 560,
-        "y": 260,
-        "wires": [
-            [
-                "1a1b7a5b.8bd076",
-                "ce1a06f2.d71768"
-            ]
-        ]
-    },
-    {
-        "id": "1a1b7a5b.8bd076",
-        "type": "debug",
-        "z": "9a1a2b9e.d6da98",
-        "name": "Clicked SVG shape",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 790,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "ce1a06f2.d71768",
-        "type": "ui_context_menu",
-        "z": "9a1a2b9e.d6da98",
-        "group": "2908388b.8114b8",
-        "order": 5,
-        "width": 0,
-        "height": -1,
-        "fontSize": 16,
-        "inputPositionXField": "event.pageX",
-        "inputPositionXType": "msg",
-        "inputPositionYField": "event.pageY",
-        "inputPositionYType": "msg",
-        "outputField": "payload",
-        "inputMenuField": "",
-        "inputMenuType": "fixed",
-        "menuItems": [
-            {
-                "id": "ON",
-                "icon": "fa-toggle-on",
-                "label": "Light on",
-                "topic": "light_kitchen_on",
-                "payload": "light_kitchen_on",
-                "payloadType": "str",
-                "visible": true,
-                "enabled": true
-            },
-            {
-                "id": "OFF",
-                "icon": "fa-toggle-off",
-                "label": "Light off",
-                "topic": "light_kitchen_off",
-                "payload": "light_kitchen_off",
-                "payloadType": "str",
-                "visible": true,
-                "enabled": true
-            }
-        ],
-        "colors": "native",
-        "textColor": "#000000",
-        "backgroundColor": "#ffffff",
-        "borderColor": "#626262",
-        "intervalLength": "0",
-        "intervalUnit": "secs",
-        "startTimerAtOpen": false,
-        "startTimerAtLeave": true,
-        "stopTimerAtEnter": true,
-        "name": "",
-        "x": 780,
-        "y": 260,
-        "wires": [
-            [
-                "37c89dc8.5b4e12"
-            ]
-        ]
-    },
-    {
-        "id": "37c89dc8.5b4e12",
-        "type": "debug",
-        "z": "9a1a2b9e.d6da98",
-        "name": "Clicked menu item",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 1010,
-        "y": 260,
-        "wires": []
     }
 ]

@@ -31,7 +31,8 @@
         "node-red-node-openweathermap": "^0.3.2",
         "weather-icons-lite": "^1.6.1",            
         "node-red-contrib-ui-contextmenu": "^2.0.1",
-        "node-red-contrib-ui-svg": "2.2.1",
+        "node-red-contrib-ui-svg": "^2.2.1",
+        "node-red-contrib-counter": "^0.1.6",
         "start": "^5.1.0"        
         
     }
