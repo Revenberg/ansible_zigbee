@@ -130,16 +130,16 @@
 #  - { src: "files/env/env.grafana", dest: "/var/docker-compose/env/env.grafana" }
   
 
-#- name: copy config files
-#  copy:
-#    src: "{{ item.src }}"
-#    dest: "{{ item.dest }}"
-#    mode: 0755
-#    owner: pi
-#    group: pi
-#  with_items:
-#  - { src: "files/data/mqtt/config/mosquitto.conf", dest: "/var/docker-compose/data/mqtt/config/mosquitto.conf" }
-#  - { src: "files/data/mqtt/config/passwords.mqtt", dest: "/var/docker-compose/data/mqtt/config/passwords.mqtt" }
+- name: copy config files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0755
+    owner: pi
+    group: pi
+  with_items:
+  - { src: "files/data/mqtt/config/mosquitto.conf", dest: "/var/docker-compose/data/mqtt/config/mosquitto.conf" }
+  - { src: "files/data/mqtt/config/passwords.mqtt", dest: "/var/docker-compose/data/mqtt/config/passwords.mqtt" }
   #- { src: "files/data/nginx/html/index.html",      dest: "/var/docker-compose/data/nginx/html/index.html" }
   #- { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
 #  - { src: "files/data/dsmr/config/supervisord.conf",  dest: "/var/docker-compose/data/dsmr/config/supervisord.conf" }
