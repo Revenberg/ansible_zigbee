@@ -7,7 +7,14 @@ services:
     restart: always
     links:
       - influxdb
-    
+
+      watermeter:
+    image: revenberg/watermeter
+    container_name: watermeter
+    restart: always
+    links:
+      - influxdb
+      
   influxdb:
     image: hypriot/rpi-influxdb
     container_name: influxdb
