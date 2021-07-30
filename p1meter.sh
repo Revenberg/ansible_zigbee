@@ -11,7 +11,14 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     sudo apt-get install git ansible sshpass -y
     sudo apt-get install docker-compose -y
     mkdir /home/pi/ansible
+    
     git clone https://github.com/Revenberg/ansible_zigbee.git 
+    
+    git clone https://github.com/Revenberg/solarrs485logger.git 
+    cd ~;cd solarrs485logger;. ./build.sh;cd ~
+    
+    git clone https://github.com/Revenberg/watermeter.git 
+    cd ~;cd watermeter;. ./build.sh;cd ~
 
     echo $1 > /home/pi/.pswrd
 fi
