@@ -4,6 +4,8 @@ services:
   p1logger:
     image: revenberg/solarrs485logger
     container_name: solarrs485logger
+    depends_on:
+      - influxdb
     restart: always
     links:
       - influxdb
@@ -11,6 +13,8 @@ services:
   watermeter:
     image: revenberg/watermeter
     container_name: watermeter
+    depends_on:
+      - influxdb
     restart: always
     links:
       - influxdb
