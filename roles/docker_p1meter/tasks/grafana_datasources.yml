@@ -2,7 +2,6 @@
 - name: Install importlib for Python 3.3 specifically, using the 'pip3.3' executable
   pip:
     name: importlib
-    executable: pip3.3
     
 - debug:
     msg: "{{ grafana_datasources }}"
