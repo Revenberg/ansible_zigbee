@@ -150,7 +150,7 @@
     owner: pi
     group: pi
   with_items:
-  - { src: "data/files/grafana/env/env.grafana", dest: "/var/docker-compose/env/env.grafana" }
+  - { src: "files/data/grafana/env/env.grafana", dest: "/var/docker-compose/env/env.grafana" }
   
 - name: copy files
   copy:
