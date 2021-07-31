@@ -125,24 +125,34 @@
     owner: pi
     group: pi
   with_fileglob:
-    - "files/env/*"
+    - "files/data/grafana/env/*"
+
+
+- name: copy Docker Compose env files
+  copy:
+    src: "{{ item }}"
+    dest: "/var/docker-compose/data/grafana/dashboards"
+    mode: 0755
+    owner: pi
+    group: pi
+  with_fileglob:    
+    - "/var/docker-compose/data/grafana/dashboards"
 
 - name: add group
   shell:
     cmd: "usermod -aG dialout $(whoami)"
 
-#- name: copy env files
-#  copy:
-#    src: "{{ item.src }}"
-#    dest: "{{ item.dest }}"
-#    mode: 0755
-#    owner: pi
-#    group: pi
-#  with_items:
-#  - { src: "files/env/env.grafana", dest: "/var/docker-compose/env/env.grafana" }
+- name: copy env files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0755
+    owner: pi
+    group: pi
+  with_items:
+  - { src: "data/files/grafana/env/env.grafana", dest: "/var/docker-compose/env/env.grafana" }
   
-
-- name: copy config files
+- name: copy files
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
