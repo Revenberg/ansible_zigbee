@@ -12,7 +12,6 @@
     basic_auth_user: "{{ item.basicAuthUser | default(omit) }}"
     basic_auth_password: "{{ item.basicAuthPassword | default(omit) }}"
   with_items: "{{ grafana_datasources }}"
-  when: not grafana_use_provisioning
 
 - name: Create/Update datasources file (provisioning)
   become: true
