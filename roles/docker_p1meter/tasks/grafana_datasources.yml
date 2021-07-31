@@ -16,19 +16,4 @@
     basic_auth_user: "{{ item.basicAuthUser | default(omit) }}"
     basic_auth_password: "{{ item.basicAuthPassword | default(omit) }}"
   with_items: "{{ grafana_datasources }}"
-
-- name: Create/Update datasources file (provisioning)
-  become: true
-  copy:
-    dest: "/etc/grafana/provisioning/datasources/ansible.yml"
-    content: |
-      apiVersion: 1
-      deleteDatasources: []
-      datasources:
-      {{ grafana_datasources | to_nice_yaml }}
-    backup: false
-    owner: root
-    group: grafana
-    mode: 0640
-  notify: restart grafana
-  when: grafana_use_provisioning
+  ignore_errors: yes
