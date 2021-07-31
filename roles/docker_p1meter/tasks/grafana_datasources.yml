@@ -1,7 +1,7 @@
 ---
 - debug:
     msg: "{{ grafana_datasources }}"
-    
+
 - name: Ensure datasources exist (via API)
   grafana_datasource:
     grafana_url: "{{ grafana_api_url }}"
@@ -11,6 +11,7 @@
     url: "{{ item.url }}"
     ds_type: "{{ item.type }}"
     access: "{{ item.access | default(omit) }}"
+    database: "{{ item.database | default(omit) }}"
     is_default: "{{ item.isDefault | default(omit) }}"
     basic_auth_user: "{{ item.basicAuthUser | default(omit) }}"
     basic_auth_password: "{{ item.basicAuthPassword | default(omit) }}"
