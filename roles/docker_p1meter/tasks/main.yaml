@@ -127,17 +127,6 @@
   with_fileglob:
     - "files/data/grafana/env/*"
 
-
-- name: copy Docker Compose env files
-  copy:
-    src: "{{ item }}"
-    dest: "/var/docker-compose/data/grafana/dashboards"
-    mode: 0755
-    owner: pi
-    group: pi
-  with_fileglob:    
-    - "/var/docker-compose/data/grafana/dashboards"
-
 - name: add group
   shell:
     cmd: "usermod -aG dialout $(whoami)"
@@ -166,6 +155,7 @@
   #- { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
 #  - { src: "files/data/dsmr/config/supervisord.conf",  dest: "/var/docker-compose/data/dsmr/config/supervisord.conf" }
 #  - { src: "files/data/dsmr/config/bashrc",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
+  - { src: "files/data/grafana/dashboards",  dest: "/var/docker-compose/data/grafana/dashboards" }
   
 - name: deploy Docker Compose stack
   shell:
