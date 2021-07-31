@@ -11,8 +11,7 @@ grafana_provisioning_synced: false
 grafana_instance: "{{ ansible_fqdn | default(ansible_host) | default(inventory_hostname) }}"
 
 grafana_logs_dir: "/var/log/grafana"
-grafana_data_dir: "/var/lib/grafana"
-
+grafana_data_dir: "/var/docker-compose/data/files/data/grafana"
 
 grafana_address: "0.0.0.0"
 grafana_port: 3000
