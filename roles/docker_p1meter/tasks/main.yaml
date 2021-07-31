@@ -159,13 +159,13 @@
   - { src: "files/data/grafana/dashboards",  dest: "/var/docker-compose/data/grafana/data/dashboards" }
 
 - name: add pi user to grafana
-  include: users.yml
+  include: grafana_users.yml
 
 - include: grafana_dashboards.yml
 
-- include: datasources.yml
+- include: grafana_datasources.yml
   when: grafana_datasources != []
-  
+
 - name: deploy Docker Compose stack
   shell:
     cmd: "docker-compose up -d --force-recreate"
