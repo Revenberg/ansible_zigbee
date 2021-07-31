@@ -93,11 +93,11 @@
         "overwrite": true,
         "message": "Updated by ansible"
       }
-  no_log: true
+#  no_log: true
   with_fileglob:
     - "{{ _tmp_dashboards.path }}/*"
     - "files/data/grafana/dashboards/*.json"
-  when: not grafana_use_provisioning
+#  when: not grafana_use_provisioning
 
 # TODO: uncomment this when ansible 2.7 will be min supported version
 # - name: import grafana dashboards
@@ -118,7 +118,7 @@
     - name: Create/Update dashboards file (provisioning)
       become: true
       copy:
-        dest: "/etc/grafana/provisioning/dashboards/ansible.yml"
+        dest: "{{ _tmp_dashboards.path }}/ansible.yml"
         content: |
           apiVersion: 1
           providers:
@@ -132,8 +132,7 @@
         owner: root
         group: grafana
         mode: 0640
-      notify: restart grafana
-
+      
     - name: Register previously copied dashboards
       find:
         paths: "{{ grafana_data_dir }}/dashboards"
