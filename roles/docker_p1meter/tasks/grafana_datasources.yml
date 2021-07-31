@@ -1,4 +1,7 @@
 ---
+- debug:
+    msg: "{{ grafana_datasources }}"
+    
 - name: Ensure datasources exist (via API)
   grafana_datasource:
     grafana_url: "{{ grafana_api_url }}"
