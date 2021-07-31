@@ -158,6 +158,18 @@
 #  - { src: "files/data/dsmr/config/bashrc",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
   - { src: "files/data/grafana/dashboards",  dest: "/var/docker-compose/data/grafana/data/dashboards" }
 
+- name: deploy Docker Compose stack
+  shell:
+    cmd: "docker-compose up -d --force-recreate"
+  args:
+    chdir:  /var/docker-compose
+  become: pi
+
+- name: Wait for grafana to start
+  wait_for:
+    host: "{{ grafana_address }}"
+    port: "{{ grafana_port }}"
+    
 - name: add pi user to grafana
   include: grafana_users.yml
 
@@ -166,9 +178,3 @@
 - include: grafana_datasources.yml
   when: grafana_datasources != []
 
-- name: deploy Docker Compose stack
-  shell:
-    cmd: "docker-compose up -d --force-recreate"
-  args:
-    chdir:  /var/docker-compose
-  become: pi
