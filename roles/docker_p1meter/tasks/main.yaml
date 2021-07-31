@@ -158,11 +158,17 @@
 #  - { src: "files/data/dsmr/config/bashrc",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
   - { src: "files/data/grafana/dashboards",  dest: "/var/docker-compose/data/grafana/data/dashboards" }
 
+- name: add pi user to grafana
+  include: users.yml
+
 - include: grafana_dashboards.yml
 
+- include: datasources.yml
+  when: grafana_datasources != []
+  
 - name: deploy Docker Compose stack
   shell:
-    cmd: "docker-compose up -d"
+    cmd: "docker-compose up -d --force-recreate"
   args:
     chdir:  /var/docker-compose
   become: pi
