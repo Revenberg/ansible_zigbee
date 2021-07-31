@@ -156,7 +156,7 @@
   #- { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
 #  - { src: "files/data/dsmr/config/supervisord.conf",  dest: "/var/docker-compose/data/dsmr/config/supervisord.conf" }
 #  - { src: "files/data/dsmr/config/bashrc",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
-  - { src: "files/data/grafana/dashboards",  dest: "/var/docker-compose/data/grafana/data/dashboards" }
+  #- { src: "files/data/grafana/dashboards",  dest: "/var/docker-compose/data/grafana/data" }
 
 - name: deploy Docker Compose stack
   shell:
@@ -169,7 +169,7 @@
   wait_for:
     host: "{{ grafana_address }}"
     port: "{{ grafana_port }}"
-    
+
 - name: add pi user to grafana
   include: grafana_users.yml
 

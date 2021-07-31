@@ -96,7 +96,7 @@
   no_log: true
   with_fileglob:
     - "{{ _tmp_dashboards.path }}/*"
-    - "{{ grafana_dashboards_dir }}/*.json"
+    - "files/data/grafana/dashboards/*.json"
   when: not grafana_use_provisioning
 
 # TODO: uncomment this when ansible 2.7 will be min supported version

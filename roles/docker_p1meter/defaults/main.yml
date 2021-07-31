@@ -204,7 +204,7 @@ grafana_dashboards: []
 #    revision_id: '1'
 #    datasource: 'Prometheus'
 
-grafana_dashboards_dir: "dashboards"
+grafana_dashboards_dir: "/var/docker-compose/data/grafana/data/dashboards"
 plugin_dashboards_dir: "plugins"
 
 # Alert notification channels to configure
