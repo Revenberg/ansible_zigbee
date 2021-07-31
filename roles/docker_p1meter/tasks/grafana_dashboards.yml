@@ -95,7 +95,7 @@
       }
 #  no_log: true
   with_fileglob:
-    - "{{ _tmp_dashboards.path }}/*"
+    - "{{ _tmp_dashboards.path }}/*.json"
     - "files/data/grafana/dashboards/*.json"
 #  when: not grafana_use_provisioning
 
