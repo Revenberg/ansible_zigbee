@@ -257,36 +257,14 @@ grafana_datasources:
     jsonData:
       latitude: 53.179851
       longitude: 6.1682691
+    url: ""
     editable: true
   - name: "Sun and Moon"
     type: fetzerch-sunandmoon-datasource
     jsonData:
       latitude: 53.179851
       longitude: 6.1682691
-    editable: true
-
-
-#  - name: "Prometheus"
-#    type: "prometheus"
-#    access: "proxy"
-#    url: "http://prometheus.mydomain"
-#    basicAuth: true
-#    basicAuthUser: "admin"
-#    basicAuthPassword: "password"
-#    isDefault: true
-#    jsonData:
-#      tlsAuth: false
-#      tlsAuthWithCACert: false
-#      tlsSkipVerify: true
-  - name: raspberry-prometheus
-    type: prometheus
-    access: proxy
-    url: http://localhost:9090
-    jsonData:
-      graphiteVersion: "1.1"
-      tlsAuth: false
-      tlsAuthWithCACert: false
-    version: 1
+    url: ""
     editable: true
 
 # API keys to configure
