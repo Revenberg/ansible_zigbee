@@ -106,8 +106,7 @@
     - "/var/docker-compose/data/dsmr_backups"
     - "/var/docker-compose/data/influxdb"
     - "/var/docker-compose/data/grafana/data"
-    - "/var/docker-compose/data/grafana/public"
-
+    
 - name: copy Docker Compose files
   copy:
     src: "{{ item }}"
@@ -172,9 +171,3 @@
 
 - name: add pi user to grafana
   include: grafana_users.yml
-
-- include: grafana_dashboards.yml
-
-- include: grafana_datasources.yml
-  when: grafana_datasources != []
-
