@@ -106,6 +106,8 @@
     - "/var/docker-compose/data/dsmr_backups"
     - "/var/docker-compose/data/influxdb"
     - "/var/docker-compose/data/grafana/data"
+    - "/var/docker-compose/data/prometheus/config"
+    - "/var/docker-compose/data/prometheus/data"
     
 - name: copy Docker Compose files
   copy:
@@ -155,7 +157,7 @@
   #- { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
 #  - { src: "files/data/dsmr/config/supervisord.conf",  dest: "/var/docker-compose/data/dsmr/config/supervisord.conf" }
 #  - { src: "files/data/dsmr/config/bashrc",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
-  #- { src: "files/data/grafana/dashboards",  dest: "/var/docker-compose/data/grafana/data" }
+  - { src: "files/data/prometheus/config",  dest: "/var/docker-compose/data/prometheus/config" }
 
 - name: deploy Docker Compose stack
   shell:
