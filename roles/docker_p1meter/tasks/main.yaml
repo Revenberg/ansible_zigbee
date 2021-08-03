@@ -159,15 +159,8 @@
 
 - name: deploy Docker Compose stack
   shell:
-    cmd: "docker-compose up -d --force-recreate"
+    cmd: "docker-compose pull && docker-compose up -d --force-recreate"
   args:
     chdir:  /var/docker-compose
   become: pi
 
-#- name: Wait for grafana to start
-#  wait_for:
-#    host: "{{ grafana_address }}"
-#    port: "{{ grafana_port }}"
-
-#- name: add pi user to grafana
-#  include: grafana_users.yml
