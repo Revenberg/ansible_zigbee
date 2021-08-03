@@ -7,13 +7,13 @@ services:
     restart: always
     volumes:
       - ./data/prometheus/config:/etc/prometheus/
-      - ./data/prometheus/data:/prometheus
+      - ./data/prometheus/data:/data/prometheus       
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.path=/data/prometheus'
     expose:
       - 9090
-    user: "1000:1000"
+    user: "0"
     links:
       - cadvisor:cadvisor
       - node-exporter:node-exporter
