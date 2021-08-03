@@ -35,14 +35,6 @@
 #    group: pi
     groups: pi,dialout
 
-- name: Add the user 'prometheus' to a specific uid and a primary group of 'pi'
-  user:
-    name: prometheus
-    comment: prometheus
-    uid: 65534
-#    group: pi
-    groups: pi,dialout
-
 - name: Create symbolic link to /var/docker-compose/data
   file:
     src: /media/usb

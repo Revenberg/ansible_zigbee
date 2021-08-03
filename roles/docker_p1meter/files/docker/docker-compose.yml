@@ -13,7 +13,7 @@ services:
       - '--storage.tsdb.path=/data/prometheus'
     expose:
       - 9090
-#    user: "0"
+    user: "0"
     links:
       - cadvisor:cadvisor
       - node-exporter:node-exporter
