@@ -157,7 +157,7 @@
   #- { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
 #  - { src: "files/data/dsmr/config/supervisord.conf",  dest: "/var/docker-compose/data/dsmr/config/supervisord.conf" }
 #  - { src: "files/data/dsmr/config/bashrc",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
-  - { src: "files/data/prometheus/config",  dest: "/var/docker-compose/data/prometheus/config" }
+  - { src: "files/data/prometheus/config/prometheus.yml",  dest: "/var/docker-compose/data/prometheus/config/prometheus.yml" }
 
 - name: deploy Docker Compose stack
   shell:
