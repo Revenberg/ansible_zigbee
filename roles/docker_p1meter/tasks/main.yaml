@@ -164,10 +164,10 @@
     chdir:  /var/docker-compose
   become: pi
 
-- name: Wait for grafana to start
-  wait_for:
-    host: "{{ grafana_address }}"
-    port: "{{ grafana_port }}"
+#- name: Wait for grafana to start
+#  wait_for:
+#    host: "{{ grafana_address }}"
+#    port: "{{ grafana_port }}"
 
-- name: add pi user to grafana
-  include: grafana_users.yml
+#- name: add pi user to grafana
+#  include: grafana_users.yml
