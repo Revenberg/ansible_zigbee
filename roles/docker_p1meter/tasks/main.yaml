@@ -109,16 +109,6 @@
     - "/var/docker-compose/data/prometheus/config"
     - "/var/docker-compose/data/prometheus/data"
     
-- name: copy Docker Compose files
-  copy:
-    src: "{{ item }}"
-    dest: "/var/docker-compose"
-    mode: 0755
-    owner: pi
-    group: pi
-  with_fileglob:
-    - "files/docker/*"
-
 - name: copy Docker Compose env files
   copy:
     src: "{{ item }}"
@@ -158,6 +148,19 @@
 #  - { src: "files/data/dsmr/config/supervisord.conf",  dest: "/var/docker-compose/data/dsmr/config/supervisord.conf" }
 #  - { src: "files/data/dsmr/config/bashrc",  dest: "/var/docker-compose/data/dsmr/config/bashrc" }
   - { src: "files/data/prometheus/config/prometheus.yml",  dest: "/var/docker-compose/data/prometheus/config/prometheus.yml" }
+
+- set_fact:
+    openweathermap_apikey: "{{lookup('file', '{{ ~\.openweathermap.apikey }}') }}"
+
+- name: Create Docker-compose file
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "/var/docker-compose.yml"
+    mode: 0755
+    owner: pi
+    group: pi
+  with_fileglob:
+    - "files/docker/*"
 
 - name: deploy Docker Compose stack
   shell:

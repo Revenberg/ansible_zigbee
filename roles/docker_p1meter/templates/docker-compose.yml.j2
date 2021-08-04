@@ -67,7 +67,7 @@ services:
     links:
       - influxdb
     command:
-      - '--Weather.apikey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+      - '--Weather.apikey={{ openweathermap_apikey }}'
 
   influxdb:
     image: hypriot/rpi-influxdb
