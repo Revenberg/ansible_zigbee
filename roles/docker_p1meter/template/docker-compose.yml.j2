@@ -66,8 +66,8 @@ services:
     restart: always
     links:
       - influxdb
-    command:
-      - '--Weather.apikey={{ openweathermap_apikey }}'
+    environment:
+      - Weather.apikey={{ openweathermap_apikey }}
 
   influxdb:
     image: hypriot/rpi-influxdb
