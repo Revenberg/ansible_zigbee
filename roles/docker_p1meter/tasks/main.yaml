@@ -155,12 +155,10 @@
 - name: Create Docker-compose file
   template:
     src: "template/docker-compose.yml.j2"
-    dest: "/var/docker-compose.yml"
+    dest: "/var/docker-compose/docker-compose.yml"
     mode: 0755
     owner: pi
     group: pi
-  with_fileglob:
-    - "files/docker/*"
 
 - name: deploy Docker Compose stack
   shell:
