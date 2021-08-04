@@ -90,8 +90,9 @@ services:
       - './env/env.grafana'
     user: "0"
     links:
-      - influxdb
+      - influxdb:influxdb
       - prometheus:prometheus
+      - dsmrdb:dsmrdb
     volumes:
       # Data persistency
       # sudo mkdir -p /srv/docker/grafana/data; chown 472:472 /srv/docker/grafana/data
@@ -117,6 +118,7 @@ services:
       - ./data/mqtt/log:/mosquitto/log
     restart: always
     network_mode: host
+
   dsmrdb:
     # When using Postgres, release 12.x is supported only
     # due to the limited availability of client packages, especially for arm32v7
