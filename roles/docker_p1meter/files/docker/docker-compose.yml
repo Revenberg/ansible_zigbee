@@ -57,7 +57,18 @@ services:
     restart: always
     links:
       - influxdb
-      
+
+  openweathermap:
+    image: revenberg/openweathermap
+    container_name: openweathermap
+    depends_on:
+      - influxdb
+    restart: always
+    links:
+      - influxdb
+    command:
+      - '--Weather.apikey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
   influxdb:
     image: hypriot/rpi-influxdb
     container_name: influxdb
