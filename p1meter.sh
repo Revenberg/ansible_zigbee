@@ -20,6 +20,9 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     git clone https://github.com/Revenberg/watermeter.git 
     cd ~;cd watermeter;. ./build.sh;cd ~
 
+    git clone https://github.com/Revenberg/openweathermap.git 
+    cd ~;cd watermeter;. ./build.sh;cd ~
+
     echo $1 > /home/pi/.pswrd
 fi
 
