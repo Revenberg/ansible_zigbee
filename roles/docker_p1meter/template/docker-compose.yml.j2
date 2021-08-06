@@ -57,6 +57,8 @@ services:
     restart: always
     links:
       - influxdb
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
 
   watermeter:
     image: revenberg/watermeter
@@ -114,6 +116,7 @@ services:
     environment:
     - GF_SECURITY_ADMIN_USER=pi
     - GF_SECURITY_ADMIN_PASSWORD=pi
+
   mqtt:
     image: "eclipse-mosquitto:latest"
     environment:
