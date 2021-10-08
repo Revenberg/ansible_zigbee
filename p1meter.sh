@@ -14,17 +14,20 @@ if [ ! -f "/home/pi/.pswrd" ]; then
     
     git clone https://github.com/Revenberg/ansible_zigbee.git 
     
-    git clone https://github.com/Revenberg/solarrs485logger.git 
-    cd ~;cd solarrs485logger;. ./build.sh;cd ~
+    git clone https://github.com/Revenberg/DockerSolarrs485logger.git 
+    cd ~;cd DockerSolarrs485logger;. ./build.sh;cd ~
     
-    git clone https://github.com/Revenberg/watermeter.git 
-    cd ~;cd watermeter;. ./build.sh;cd ~
+    git clone https://github.com/Revenberg/DockerWatermeter.git 
+    cd ~;cd DockerWatermeter;. ./build.sh;cd ~
 
-    git clone https://github.com/Revenberg/openweathermap.git 
-    cd ~;cd watermeter;. ./build.sh;cd ~
+    git clone https://github.com/Revenberg/DockerOpenweathermap.git 
+    cd ~;cd DockerOpenweathermap;. ./build.sh;cd ~
 
-    git clone https://github.com/Revenberg/p1logger.git 
-    cd ~;cd p1logger;. ./build.sh;cd ~
+    git clone https://github.com/Revenberg/DockerP1logger.git 
+    cd ~;cd DockerP1logger;. ./build.sh;cd ~
+
+    git clone https://github.com/Revenberg/DockerGrafana.git 
+    cd ~;cd DockerGrafana;. ./build.sh;cd ~
 
     echo $1 > /home/pi/.pswrd
 fi
