@@ -50,6 +50,8 @@
   - { src: "files/data/postgres/.env", dest: "/var/docker-compose/data/postgres/.env" }
   - { src: "files/data/home-assistant/configuration.yaml", dest: "/var/docker-compose/data/home-assistant/config/configuration.yaml" }
   - { src: "files/data/home-assistant/packages/zigbee2mqtt.yaml", dest: "/var/docker-compose/data/home-assistant/config/packages/zigbee2mqtt.yaml" }
+  - { src: "files/data/home-assistant/lovelace/lovelace", dest: "/var/docker-compose/data/home-assistant/config/.storage/lovelace" }
+  - { src: "files/data/home-assistant/www/zigbee2mqtt-networkmap.js", dest: "/var/docker-compose/data/home-assistant/config/www/zigbee2mqtt-networkmap.js" }
 
 - name: deploy Docker Compose stack
   shell:

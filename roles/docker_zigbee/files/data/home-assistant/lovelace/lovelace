@@ -1,0 +1,128 @@
+{
+    "version": 1,
+    "key": "lovelace",
+    "data": {
+        "config": {
+            "title": "Huis",
+            "views": [
+                {
+                    "path": "default_view",
+                    "title": "Home",
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "sensor.hp_deskjet_2700_series_black_ink",
+                                "sensor.hp_deskjet_2700_series_tri_color_ink",
+                                "sensor.hp_deskjet_2700_series",
+                                "sensor.vrv9517_b_received",
+                                "sensor.vrv9517_b_sent",
+                                "sensor.vrv9517_packets_received",
+                                "sensor.vrv9517_packets_sent"
+                            ],
+                            "title": "Werkkamer"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "binary_sensor.updater"
+                            ],
+                            "title": "Binaire sensor"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "person.revenberg"
+                            ],
+                            "title": "Persoon"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "sun.sun"
+                            ],
+                            "title": "Zon"
+                        },
+                        {
+                            "type": "weather-forecast",
+                            "entity": "weather.huis",
+                            "show_forecast": false
+                        },
+                        {
+                            "title": "Zigbee2MQTT",
+                            "type": "entities",
+                            "show_header_toggle": false,
+                            "entities": [
+                                {
+                                    "entity": "sensor.zigbee2mqtt_bridge_state"
+                                },
+                                {
+                                    "entity": "sensor.zigbee2mqtt_version"
+                                },
+                                {
+                                    "entity": "sensor.coordinator_version"
+                                },
+                                {
+                                    "entity": "input_select.zigbee2mqtt_log_level"
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "switch.zigbee2mqtt_main_join"
+                                },
+                                {
+                                    "entity": "input_number.zigbee2mqtt_join_minutes"
+                                },
+                                {
+                                    "entity": "timer.zigbee_permit_join"
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "input_text.zigbee2mqtt_old_name"
+                                },
+                                {
+                                    "entity": "input_text.zigbee2mqtt_new_name"
+                                },
+                                {
+                                    "entity": "script.zigbee2mqtt_rename"
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "input_text.zigbee2mqtt_remove"
+                                },
+                                {
+                                    "entity": "input_boolean.zigbee2mqtt_force_remove"
+                                },
+                                {
+                                    "entity": "script.zigbee2mqtt_remove"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Zigbee Network",
+                    "panel": true,
+                    "cards": [
+                        {
+                            "type": "custom:zigbee2mqtt-networkmap",
+                            "entity": "sensor.zigbee2mqtt_networkmap",
+                            "mqtt_base_topic": "zigbee2mqtt",
+                            "force": 3000,
+                            "node_size": 16,
+                            "font_size": 12,
+                            "link_width": 2,
+                            "height": 400,
+                            "css": ":host {\n  --zigbee2mqtt-networkmap-node-color: rgba(18, 120, 98, .7);\n  --zigbee2mqtt-networkmap-node-fill-color: #dcfaf3;\n  --zigbee2mqtt-networkmap-node-pinned-color: rgba(190, 56, 93, .6);\n  --zigbee2mqtt-networkmap-link-color: rgba(18, 120, 98, .5);\n  --zigbee2mqtt-networkmap-hover-color: #be385d;\n  --zigbee2mqtt-networkmap-link-selected-color: rgba(202, 164, 85, .6);\n  --zigbee2mqtt-networkmap-label-color: #127862;\n  --zigbee2mqtt-networkmap-arrow-color: rgba(18, 120, 98, 0.7);\n  --zigbee2mqtt-networkmap-node-coordinator-color: rgba(224, 78, 93, .7);\n  --zigbee2mqtt-networkmap-node-router-color: rgba(0, 165, 255, .7);\n}\n"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
