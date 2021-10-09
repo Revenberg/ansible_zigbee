@@ -15,7 +15,7 @@
     - "/var/docker-compose/data/nginx/html"
     - "/var/docker-compose/data/nginx/sites-enabled"
     - "/var/docker-compose/data/postgres"
-    - "/var/docker-compose/data/home-assistant/packages"
+    - "/var/docker-compose/data/home-assistant/config/packages"
 
 - name: copy Docker Compose files
   copy:
@@ -48,8 +48,8 @@
   - { src: "files/data/nginx/html/schuur.png", dest: "/var/docker-compose/data/nginx/html/schuur.png" }
   - { src: "files/data/nginx/sites-enabled/default", dest: "/var/docker-compose/data/nginx/sites-enabled/default" }
   - { src: "files/data/postgres/.env", dest: "/var/docker-compose/data/postgres/.env" }
-  - { src: "files/data/home-assistant/configuration.yaml", dest: "/var/docker-compose/data/home-assistant/configuration.yaml" }
-  - { src: "files/data/home-assistant/packages/zigbee2mqtt.yaml", dest: "/var/docker-compose/data/home-assistant/packages/zigbee2mqtt.yaml" }
+  - { src: "files/data/home-assistant/configuration.yaml", dest: "/var/docker-compose/data/home-assistant/config/configuration.yaml" }
+  - { src: "files/data/home-assistant/packages/zigbee2mqtt.yaml", dest: "/var/docker-compose/data/home-assistant/config/packages/zigbee2mqtt.yaml" }
 
 - name: deploy Docker Compose stack
   shell:
