@@ -16,6 +16,7 @@
     - "/var/docker-compose/data/nginx/sites-enabled"
     - "/var/docker-compose/data/postgres"
     - "/var/docker-compose/data/home-assistant/config/packages"
+    - "/var/docker-compose/data/home-assistant/config/www"
 
 - name: copy Docker Compose files
   copy:
