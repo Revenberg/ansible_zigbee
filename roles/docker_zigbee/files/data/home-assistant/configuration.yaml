@@ -19,3 +19,5 @@ mqtt:
   will_message:
     topic: 'homeassistant/status'
     payload: 'offline'
+    
+packages: !include_dir_named packages
