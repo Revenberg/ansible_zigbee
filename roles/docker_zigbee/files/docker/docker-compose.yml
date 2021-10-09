@@ -62,14 +62,12 @@ services:
 #      resources:
 #        limits:
 #          memory: 250M
-#  home-assistant:
-#    container_name: home-assistant
-#    restart: always
-#    ports: 
-#    - 8123:8123
-#    image: homeassistant/home-assistant:stable
-#    volumes:
-#      - ./data/home-assistant:/config
-#    environment:
-#      - TZ=Europe/Amsterdam
-#    network_mode: host
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/raspberrypi4-homeassistant:stable"
+    volumes:
+      - ./data/home-assistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
