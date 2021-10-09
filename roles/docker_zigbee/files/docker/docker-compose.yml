@@ -8,20 +8,20 @@ services:
     volumes:
       - ./data/nginx:/usr/share/nginx
     network_mode: host
-  node-red:
-    image: nodered/node-red
-    entrypoint: /data/entrypoint.sh
-    environment:
-      - TZ=Europe/Amsterdam
-    ports:
-      - "1880:1880"
-    volumes:
-      - ./data/node-red:/data
-    depends_on:
-      - mqtt
-      - zigbee
-    restart: always
-    network_mode: host
+#  node-red:
+#    image: nodered/node-red
+#    entrypoint: /data/entrypoint.sh
+#    environment:
+#      - TZ=Europe/Amsterdam
+#    ports:
+#      - "1880:1880"
+#    volumes:
+#      - ./data/node-red:/data
+#    depends_on:
+#      - mqtt
+#      - zigbee
+#    restart: always
+#    network_mode: host
   mqtt:
     image: "eclipse-mosquitto:latest"
     environment:
@@ -71,3 +71,6 @@ services:
     restart: unless-stopped
     privileged: true
     network_mode: host
+    depends_on:
+      - mqtt
+      - zigbee
