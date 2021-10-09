@@ -24,7 +24,7 @@
     mode: 0755
     owner: pi
     group: pi
-  with_fileglob:
+  with_items:
     - {src: "files/docker/docker-compose.yml", dest: "/var/docker-compose/docker-compose.yml" }
     - {src: "files/docker/docker-logs", dest: "/etc/logrotate.d/docker-logs" }
 
