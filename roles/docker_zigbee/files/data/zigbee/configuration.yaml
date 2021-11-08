@@ -8,7 +8,7 @@ mqtt:
   #password: 
   # Optional: MQTT client ID (default: nothing)
 serial:
-  disable_led: true
+  disable_led: false
   port: /dev/ttyACM0
   baudrate: 115200
   rtscts: false
